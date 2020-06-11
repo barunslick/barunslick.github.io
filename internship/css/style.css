@@ -11,14 +11,14 @@ body{
     position: sticky;
     top:0;
     height:auto;
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
 }
 .navbar .nav-wrapper{
     width:85%;
     margin:0 auto;
 }
 .nav-wrapper .name-holder{
-    padding: 1.5rem 0;
+    padding: 1.3rem 0;
     float:left;
     width:60%;
     height: 4.3rem;
@@ -36,19 +36,31 @@ body{
 .navbar .details span{
     font-size: 1.5rem;
 }
-.design-wrapper{
+.wrapper{
+    width:100%;
+    height:950px;
+}
+.holder{
     background-color: white ;
     margin: 2rem auto;
-    width:85%;
-    height:1000px;
+    padding-top:2em;
+    width:100%;
+    min-height: 200px;
 }
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
-.design-part h2{
+.topic{
+    width:85%;
+    margin: 0 auto;
+}
+.topic h2{
     margin-bottom: 2rem;
+}
+.holder-design{
+    background-color: #f0fcf4;
 }
 table {
     border-collapse: collapse;
@@ -69,3 +81,14 @@ th {
     background-color: #373a2b;
     color: white;
 }
+@media screen and (max-width: 800px) {
+    .details{
+        margin-bottom:1rem;
+        width:100%;
+        text-align: left;
+        clear:both;
+    }
+    .details .remove{
+        display: none;
+    }
+  }
