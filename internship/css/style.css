@@ -1,34 +1,71 @@
 body{
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
-}
-.navbar{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
     width:100%;
 }
-.navbar .name-holder{
-    padding: 1.5rem;
+.wrapper{
+    width:100%;
+}
+.navbar{
+    width:100%;
+    background-color:#2fce72;
+    position: sticky;
+    top:0;
+    height:auto;
+}
+.navbar .nav-wrapper{
+    width:85%;
+    margin:0 auto;
+}
+.nav-wrapper .name-holder{
+    padding: 1.5rem 0;
     float:left;
     width:60%;
-    height: 4.5rem;
+    height: 4.3rem;
     color:white;
-    background-color:#2fce72;
+    
 }
-.navbar .details{
+.nav-wrapper .details{
     float:right;
-    padding: 1.5rem;
-    height: 4.5rem;
+    padding: 1.5rem 0;
+    height: 4.3rem;
     width:40%;
     color:white;
-    background-color:#2fce72;
     text-align: right;
 }
 .navbar .details span{
     font-size: 1.5rem;
 }
-.full-wrapper{
+.design-wrapper{
     background-color: white ;
-    margin: 0 auto;
+    margin: 2rem auto;
+    width:85%;
     height:1000px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.design-part h2{
+    margin-bottom: 2rem;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}  
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+td{
+    border: 1px solid black;
+}
+  
+tr:nth-child(even){background-color: #f2f2f2}
+  
+th {
+    background-color: #4CAF50;
+    color: white;
+   
 }
