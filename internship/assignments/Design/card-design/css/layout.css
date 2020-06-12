@@ -1,0 +1,17 @@
+.wrapper{  /* % are just use to center the div ...px are used in acutal container */
+    margin-top: 100px;
+}
+.container{
+    width:520px;
+    background-color: white;
+    margin:0 auto;
+    padding: 50px;
+}
+.left-container{
+    width: calc(100% - 190px);
+    float: left;
+}
+.right-container{
+    width: 190px;
+    float: right;
+}
