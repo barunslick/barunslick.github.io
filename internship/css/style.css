@@ -6,7 +6,7 @@ a:active {
     color: #2fce72;
 }
 .wrapper{
-    margin-top:8rem;
+    margin-top:8em;
     width:100%;
 }
 .navbar{
@@ -15,30 +15,30 @@ a:active {
     position: fixed;
     top:0;
     height:auto;
-    margin-bottom: 5rem;
+    margin-bottom: 5em;
 }
 .navbar .nav-wrapper{
     width:85%;
     margin:0 auto;
 }
 .nav-wrapper .name-holder{
-    padding: 1.3rem 0;
+    padding: 1.3em 0;
     float:left;
     width:60%;
-    height: 4.3rem;
+    height: 4.3em;
     color:white;
     
 }
 .nav-wrapper .details{
     float:right;
-    padding: 1.5rem 0;
-    height: 4.3rem;
+    padding: 1.5em 0;
+    height: 4.3em;
     width:40%;
     color:white;
     text-align: right;
 }
 .navbar .details span{
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 .wrapper{
     width:100%;
@@ -46,23 +46,22 @@ a:active {
 }
 .holder{
     background-color: white ;
-    margin: 2rem auto;
+    margin: 2em auto;
     padding-top:2em;
     padding-bottom: 2em;
     width:100%;
     min-height: 300px;
 }
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.clearfix {
+    overflow: auto;
+    zoom: 1;
 }
 .topic{
     width:85%;
     margin: 0 auto;
 }
 .topic h2{
-    margin-bottom: 2rem;
+    margin-bottom: 2em;
 }
 .holder-design{
     background-color: #f0fcf4;
@@ -88,11 +87,11 @@ th {
 }
 @media screen and (max-width: 800px) {
     .wrapper{
-        margin-top:10rem;
+        margin-top:10em;
         width:100%;
     }
     .details{
-        margin-bottom:1rem;
+        margin-bottom:1em;
         width:100%;
         text-align: left;
         clear:both;
