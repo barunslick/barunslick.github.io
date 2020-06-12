@@ -48,8 +48,9 @@ a:active {
     background-color: white ;
     margin: 2rem auto;
     padding-top:2em;
+    padding-bottom: 2em;
     width:100%;
-    min-height: 200px;
+    min-height: 300px;
 }
 .clearfix::after {
     content: "";
