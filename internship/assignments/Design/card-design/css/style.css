@@ -1,0 +1,88 @@
+body{
+    background-color: #73D6C3;
+    font-family: sans-serif;
+}
+.wrapper{
+    height: 100%;  /* % are just use to center the div ...px are used in acutal container */
+    width:100%;
+    position: relative;
+    background-color: transparent;
+}
+.container-holder{
+    width:100%;
+    position: absolute;
+    top:30%;
+}
+.container{
+    width:600px;
+    height: 250px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 30px;
+    position: relative;
+
+}
+.container:before{
+    content :'';
+    position:absolute;
+    top:280px;
+    left:0;
+    border-style: solid;
+    border-width: 0px 30px 30px 0px;
+    border-color: #73D6C3 #ddd ;
+}
+.container:before:hover{
+    border-width: 0px 110px 100px 0px;
+}
+.left-container{
+    width: 300px;
+    height: 250px;
+    float: left;
+    position: relative;
+}
+.right-container{
+    width: 300px;
+    height: 250px;
+    float: right;
+    position: relative;
+}
+.name-holder{
+    position: absolute;
+    top:28px;
+    left:20px;
+}
+.name-holder h1{
+    margin-bottom: 10px;
+    font-size: 33px;
+}
+.sub-text{
+    font-size: 20px;
+}
+.details{
+    position: absolute;
+    top:162px;
+    left:20px;
+}
+.details span{
+    display:block;
+    margin-bottom: 8px;
+}
+ul li {
+    display: inline-block;
+}
+.list-holder{
+    margin-left:30px;
+    margin-top:10px;
+    padding-left:25px;
+}
+.image-container{
+    margin:8px;
+    padding:5px;
+    height:90px;
+    width:90px;
+}
+
+img{
+    height: 90px;
+    width: 90px;
+}
