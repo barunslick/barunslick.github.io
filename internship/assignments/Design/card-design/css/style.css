@@ -2,23 +2,7 @@ body{
     background-color: #73D6C3;
     font-family: sans-serif;
 }
-.wrapper{  /* % are just use to center the div ...px are used in acutal container */
-    margin-top: 100px;
-}
-.container{
-    width:520px;
-    background-color: white;
-    margin:0 auto;
-    padding: 50px;
-}
-.left-container{
-    width: calc(100% - 190px);
-    float: left;
-}
-.right-container{
-    width: 190px;
-    float: right;
-}
+
 .image-row{
     width:100%;
 }
@@ -36,9 +20,6 @@ body{
     clear: both;
     content: '';
     display: table;
-}
-.name-holder{
-    
 }
 .name-holder h1{
     margin-bottom: 10px;
@@ -62,14 +43,6 @@ ul li {
     margin-top:10px;
     padding-left:25px;
 }
-
-.image-container{
-    margin:8px;
-    padding:5px;
-    height:90px;
-    width:90px;
-}
-
 img{
     height: 85px;
     width: 85px;
