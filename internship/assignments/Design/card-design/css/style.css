@@ -2,66 +2,53 @@ body{
     background-color: #73D6C3;
     font-family: sans-serif;
 }
-.wrapper{
-    height: 100%;  /* % are just use to center the div ...px are used in acutal container */
-    width:100%;
-    position: relative;
-    background-color: transparent;
-}
-.container-holder{
-    width:100%;
-    position: absolute;
-    top:30%;
+.wrapper{  /* % are just use to center the div ...px are used in acutal container */
+    margin-top: 100px;
 }
 .container{
-    width:600px;
-    height: 250px;
+    width:520px;
     background-color: white;
-    margin: 0 auto;
-    padding: 30px;
-    position: relative;
-
-}
-.container:before{
-    content :'';
-    position:absolute;
-    top:280px;
-    left:0;
-    border-style: solid;
-    border-width: 0px 30px 30px 0px;
-    border-color: #73D6C3 #ddd ;
-}
-.container:before:hover{
-    border-width: 0px 110px 100px 0px;
+    margin:0 auto;
+    padding: 50px;
 }
 .left-container{
-    width: 300px;
-    height: 250px;
+    width: calc(100% - 190px);
     float: left;
-    position: relative;
 }
 .right-container{
-    width: 300px;
-    height: 250px;
+    width: 190px;
     float: right;
-    position: relative;
+}
+.image-row{
+    width:100%;
+}
+.image-row:first-child{
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+.image-holder-left{
+    float:left;
+}
+.image-holder-left{
+    float:right;
+}
+.clearfix{
+    clear: both;
+    content: '';
+    display: table;
 }
 .name-holder{
-    position: absolute;
-    top:28px;
-    left:20px;
+    
 }
 .name-holder h1{
     margin-bottom: 10px;
-    font-size: 33px;
+    font-size: 30px;
 }
 .sub-text{
     font-size: 20px;
 }
 .details{
-    position: absolute;
-    top:162px;
-    left:20px;
+    margin-top:92px;
 }
 .details span{
     display:block;
@@ -75,6 +62,7 @@ ul li {
     margin-top:10px;
     padding-left:25px;
 }
+
 .image-container{
     margin:8px;
     padding:5px;
@@ -83,6 +71,6 @@ ul li {
 }
 
 img{
-    height: 90px;
-    width: 90px;
+    height: 85px;
+    width: 85px;
 }
