@@ -170,7 +170,31 @@
     background-color : #2fc1da;
     color: white!important;
 }
-
+/* video--end */
+/* footer */
+.footer .content-holder{
+    height: 13px;
+    font-size:10px;
+    color: white;
+    padding:16px 0 16px 0;
+}
+.about-list{
+    width : calc(100% - 86px);
+}
+.about-list ul li{
+    display: inline;
+    padding-right: 7px;
+}
+.about-list ul li:last-child{
+    padding-right: 0px;
+}
+.about-list ul li::before{
+    content: "•\00a0\00a0";
+}
+.about-list ul li:first-child::before{
+    content: '';
+}
+/* footer--end*/
 .left{
     float: left;
 }
