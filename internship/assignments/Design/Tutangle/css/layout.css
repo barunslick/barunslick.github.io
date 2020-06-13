@@ -1,0 +1,13 @@
+.main-wrapper{
+    width: 100%;
+    background-color: red;
+}
+.header{
+    width: 100%;
+    background-color: #7dd9e8;
+}
+.content-holder{
+    width: 1000px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
