@@ -58,6 +58,47 @@
 .name-title{
     font-size: 15px;
 }
+.action{
+    width: calc(100% - 314px);
+    padding:14px 0 14px 12px;
+    font-size: 14px;
+}
+.action ul{
+    width: 480px;
+}
+.action ul li{
+    display:inline;
+    padding-right: 30px;
+}
+.action ul li:last-child{
+    padding-right: 0px;
+}
+.invites-requests{
+    width:300px;
+    padding:12px 0 12px 0;
+}
+.invites{
+    width:140px;
+    font-size: 12px;
+}
+.invites .image-holder{
+    display: inline-block;
+    height: 17px;
+    width: 15px;
+}
+.requests{
+    color:  #a9a9a9;
+    width:140px;
+    font-size: 12px;
+    text-align: right;
+    
+}
+.requests .image-holder{
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    margin-right:4px;
+}
 .left{
     float: left;
 }
