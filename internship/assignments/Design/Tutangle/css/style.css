@@ -99,6 +99,45 @@
     width: 17px;
     margin-right:4px;
 }
+/* main */
+.recent {
+    width: 194px;
+    height: 605px;
+    background: #f5f5f5;
+}
+
+.recent .recent-single{
+    padding: 13px 12px 13px 12px;
+}
+
+.recent  .heading{
+    height: 16px;
+    background-color : #2fc1da;
+    color: white;
+}
+.recent .tall {
+    height:24px !important;
+    line-height: 1.2;
+}
+.recent .components{
+    height: 16px;
+    font-size :11px;
+    position: relative;
+}
+.recent .components:hover{
+    background: white;
+}
+.components p{
+    width: 136px;
+}
+.components img{
+    position:absolute;
+    bottom:13px;
+    right :10px;
+}
+
+
+
 .left{
     float: left;
 }
