@@ -108,7 +108,6 @@
     width:170px;
     font-size : 11px;
     overflow: auto;
-    zoom:1;
     line-height: 1.1;
 }
 .recent .text{
@@ -217,7 +216,7 @@
 
 .video li{
     height:15px;
-    width: 156px;
+    max-width: 156px;
     padding:10px 10px 10px 10px;
 }
 .video li:hover{
@@ -234,6 +233,7 @@
 /* footer */
 .footer .content-holder{
     height: 13px;
+    width: 945px;
     font-size:10px;
     color: white;
     padding:16px 0 16px 0;
