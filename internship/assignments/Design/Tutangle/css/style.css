@@ -101,7 +101,7 @@
 }
 
 /* main */
-
+/* recent */
 .recent {
     width: 194px;
     height: 605px;
@@ -137,16 +137,100 @@
     bottom:13px;
     right :10px;
 }
-
+/* recent--end */
 /* entries */
 .entries{
     width:518px;
     height: 605px;
     margin-left: 26px;
     margin-right: 24px;
-    background: yellow;
 }
-
+.entries .heading{
+    font-size:22px;
+}
+.top-nav{
+    margin-top: 8px;
+    font-size: 11px;
+    border-bottom: 2px solid #2fc1da;
+}
+.top-content{
+    width:258px;
+    height:52px;
+    padding-top:12px;
+    text-align: center;
+}
+.all-entries{
+    margin-right:2px;
+    background:url("../images/all-entries-bg.png");
+}
+.subscribed{
+    padding-top:12px;
+    background:url("../images/subscribed.png");
+}
+.sub-container{
+    padding: 13px 10px 0px 10px;
+}
+.sub-contents{
+    width :114px;
+    height: 18px;
+    background: url("../images/nav-sub-contents-dark.png");
+    padding-top:10px;
+}
+.sub-contents:hover{
+    background: url("../images/nav-sub-contents-blue.png");
+    color: white;
+}
+.sub-contents:first-child{
+    margin-right: 10px;
+}
+.sub-container .active{
+    background: url("../images/nav-sub-contents-blue.png");
+    color: white;
+}
+/* entries--end */
+/*people */
+.people ul{
+    list-style-position:inside;
+}
+.people ul > li {
+    width: 518px;
+    padding:15px 0 15px 0;
+    border-bottom: 2px solid #d8d8d8;
+}
+.people .people-text{
+    width: calc(100% - 79px);
+    height:70px;
+}
+.people-text .head{
+    font-size:15px;
+}
+.people-text .extra{
+    margin-bottom: 4px;
+    font-size: 12px;
+    color : #2fc1da;
+    font-weight:600;
+}
+.people-text .red{
+    color: #d63d1b;
+}
+.people-text .sec{
+    font-size:12.5px;
+    margin-top:6px;
+    color: #6b6b6b;
+}
+.sec .author{
+    color: #2fc1da;
+}
+.sec .sub-status{
+    color: green;
+}
+.sec .topic{
+    color: #2fc1da;
+}
+.sec .bold{
+    font-weight: 600;
+}
+/* end-people */
 /* video */
 .video{
     height: 605px;
