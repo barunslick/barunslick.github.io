@@ -1,6 +1,3 @@
-.logo-search{
-
-}
 .logo{
     margin-right: 30px;
 }
@@ -70,8 +67,8 @@
     display:inline;
     padding-right: 30px;
 }
-.action ul li:last-child{
-    padding-right: 0px;
+.action .last{
+    padding-right:0px;
 }
 .invites-requests{
     width:300px;
