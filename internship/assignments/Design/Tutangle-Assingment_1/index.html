@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Tutangle</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -13,63 +13,73 @@
     
     <body>
         <div class="main-wrapper">
-            <div class = "header clearfix">
-                <div class = "content-holder clearfix">
-                    <div class="logo-search left clearfix">
-                        <div class = "logo left">
-                            <img src = "images/logo.png" alt ="Logo">
-                        </div>
-                        <div class = "search-holder right">
-                            <div class="search clearfix">
-                                <div class = "search-text left">
-                                    <input type = "text" value = "Search by Term, Member, or Entry Title">
+            <div class= "header">
+                <div class = "top-header clearfix">
+                    <div class = "content-holder clearfix">
+                        <div class="logo-search left clearfix">
+                            <div class = "logo left">
+                                <a hre="#" title = "Logo"><img src = "images/logo.png" alt ="Logo"></a>
+                            </div>
+                            <div class = "search-holder right">
+                                <div class="search clearfix">
+                                    <form>
+                                        <div class = "search-text left">
+                                            <input type = "text" value = "Search by Term, Member, or Entry Title">
+                                        </div>
+                                        <div class = "search-icon left">
+                                            <img src = "images/cross.png" alt="Cross">
+                                        </div>
+                                        <div class = "search-icon-button left">
+                                            <img src= "images/search.png" alt = "Search">
+                                        </div>
+                                        <button class= "search-button" type = "button">SEARCH</button>
+                                    </form>
                                 </div>
-                                <div class = "search-icon left">
-                                    <img src = "images/cross.png" alt="Cross">
-                                </div>
-                                <div class = "search-icon-button left">
-                                    <img src= "images/search.png" alt = "Search">
-                                </div>
-                                <button class= "search-button" type = "button">SEARCH</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="user right">
-                        <p class="name-title"><a href= "#">Joe Burros</a></p>
-                        <div class= "short-nav clearfix">
-                            <ul>
-                                <li><a href= "#">Home</a></li>
-                                <li>|</li>
-                                <li><a href= "#">Settings</a></li>
-                                <li>|</li>
-                                <li><a href= "#">Log Out</a></li>
-                            </ul>
+                        <div class="user right">
+                            <p class="name-title"><a href= "#">Joe Burros</a></p>
+                            <div class= "short-nav clearfix">
+                                <ul>
+                                    <li><a href= "#" title = "Home">Home</a></li>
+                                    <li>|</li>
+                                    <li><a href= "#" title = "Settings">Settings</a></li>
+                                    <li>|</li>
+                                    <li><a href= "#" title = "Log Out">Log Out</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class = "navigation-bar">
-                <div class = "content-holder clearfix">
-                    <div class = "action left">
-                        <ul>
-                            <li><a href = "#">Create new entry</a></li>
-                            <li><a href = "#">My Topic Boxes</a></li>
-                            <li><a href = "#">Friends</a></li>
-                            <li class = "last"><a href = "#">Invite New Member</a></li>
-                        </ul>
-                    </div>
-                    <div class= "invites-requests right">
-                        <div class = "invites left">
-                            <div class = "image-holder">
-                                <img src = "images/invites.png" alt = "Invites">
-                            </div>
-                            <a href ="#"><span>Topic Boxes Invites - 2</span></a>
+                <div class = "navigation-bar">
+                    <div class = "content-holder clearfix">
+                        <div class = "action left">
+                            <ul>
+                                <li><a href = "#" title ="Create New Entry">Create New Entry</a></li>
+                                <li><a href = "#" title = "My Topic Boxes">My Topic Boxes</a></li>
+                                <li><a href = "#" title = "Friends">Friends</a></li>
+                                <li class = "last"><a href = "#" title = "Invite New Member">Invite New Member</a></li>
+                            </ul>
                         </div>
-                        <div class = "requests right">
-                            <div class = "image-holder">
-                                <img src = "images/friend-request.png" alt = "Friend Requests">
+                        <div class= "invites-requests right">
+                            <div class = "invites left">
+                                <div class="clearfix">
+                                    <div class = "image-holder left">
+                                        <img src = "images/invites.png" alt = "Invites">
+                                    </div>
+                                    <div class = "text-holder right">
+                                        <a href ="#" title = "Invites">Topic Boxes Invites - 2</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href ="#"><span>Friend Requests - 2</span></a>
+                            <div class = "requests right">
+                                <div class = "image-holder">
+                                    <img src = "images/friend-request.png" alt = "Friend Requests">
+                                </div>
+                                <div class = "text-holder right">
+                                    <a href ="#" title = "friend Requests">Friend Requests - 0</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,17 +88,17 @@
                 <div class= "content-holder clearfix">
                     <div class= "recent left">
                         <ul>
-                            <li>
+                            <li class = "header-list">
                                 <div class= "heading">
                                      Recent Searches
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Nick Cave and The <br>Bad Seeds</span></a>
+                                    <a href ="#" title ="Nick Cave"><span>Nick Cave and The <br>Bad Seeds</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/recent-search.png" alt = "Download"></a>
+                                    <a href ="#" title = "Download"><img src = "images/recent-search.png" alt = "Download"></a>
                                 </div>
                             </li>
                             <li>
@@ -96,62 +106,62 @@
                                     <a href ="#"><span>African animals</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/recent-search.png" alt = "Download"></a>
+                                    <a href ="#" title = "Download"><img src = "images/recent-search.png" alt = "Download"></a>
                                 </div>
                             </li>
                         </ul>
-                        <ul>
-                            <li>
+                        <ul class= "second">
+                            <li class = "header-list">
                                 <div class= "heading">
                                      Recent Searches
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Different versions of the Triston Und Isold Prelude</span></a>
+                                    <a href ="#" title = "Different versions of the Triston Und Isold Prelude"><span>Different versions of the Triston Und Isold Prelude</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Music</span></a>
+                                    <a href ="#" title = "Music"><span>Music</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                             <li  class ="clearfix">
                                 <div class="text left">
-                                    <a href ="#"><span>Guitar</span></a>
+                                    <a href ="#" title = "Guitar"><span>Guitar</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Bob Cohen</span></a>
+                                    <a href ="#" title = "Bog Cohen"><span>Bob Cohen</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Mark Schank</span></a>
+                                    <a href ="#" title = "Mark Schank"><span>Mark Schank</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                             <li>
                                 <div class="text left">
-                                    <a href ="#"><span>Jefferson Dicky</span></a>
+                                    <a href ="#" title = "Jefferson Dicky"><span>Jefferson Dicky</span></a>
                                 </div>
                                 <div class = "side-image right">
-                                    <a href ="#"><img src = "images/hamburger.png" alt = "Hamburger"></a>
+                                    <a href ="#" title ="Menu"><img src = "images/hamburger.png" alt = "Hamburger"></a>
                                 </div>
                             </li>
                         </ul>
@@ -163,10 +173,10 @@
                                 <p>All Entries</p>
                                 <div class = "sub-container clearfix">
                                     <div class = "sub-contents active left">
-                                        <a href ="#"><span>All Members</span></a>
+                                        <a href ="#" title = "All Members"><span>All Members</span></a>
                                     </div>
                                     <div class = "sub-contents right">
-                                        <a href ="#"><span>Friends</span></a>
+                                        <a href ="#" title = "Friends"><span>Friends</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -174,10 +184,10 @@
                                 <p>Subscribed</p>
                                 <div class = "sub-container clearfix">
                                     <div class = "sub-contents left">
-                                        <a href ="#"><span>New Friends</span></a>
+                                        <a href ="#" title= "My Friends"><span>New Friends</span></a>
                                     </div>
                                     <div class = "sub-contents right">
-                                        <a href ="#"><span>New Comments</span></a>
+                                        <a href ="#" title = "New Comments"><span>New Comments</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -186,55 +196,55 @@
                             <ul>
                                 <li class = "clearfix">
                                         <div class = "people-image left">
-                                            <img src= "images/1.png" alt = "People">
+                                            <a href = "#" title = "Alan Coe"><img src= "images/1.png" alt = "People"></a>
                                         </div>
                                         <div class = "people-text right">
-                                            <p class= "head"> Day for Night by Francois Truffaut, a ground breaking film </p>
-                                            <p class = "sec">by <span class ="author bold">Alan Coe</span> | Febraury 8, 2012 | <span class="sub-status bold">Subscribed</span></p>
-                                            <p class= "sec"> From Topic Box: <span class="topic bold"> My Favourite Movies</span></p>
+                                            <p class= "head"><a href ="#" title = "Day for Night by Francois Truffaut, a ground breaking film">Day for Night by Francois Truffaut, a ground breaking film </a</p>
+                                            <p class = "sec">by <a href="#" title = "Alan Coe"><span class ="author bold">Alan Coe</span></a> | Febraury 8, 2012 | <span class="sub-status bold">Subscribed</span></p>
+                                            <p class= "sec"> From Topic Box: <a href= "#" title = "My Favourite Movies"><span class="topic bold"> My Favourite Movies</span></a></p>
                                         </div>
                                 </li>
                                 <li class = "clearfix">
                                     <div class = "people-image left">
-                                        <img src= "images/2.png" alt = "People">
+                                        <a href = "#" title = "Mary Pilot"><img src= "images/2.png" alt = "People"><a href = "#" title = "Alan Coe"></a>
                                     </div>
                                     <div class = "people-text right">
                                         <p class = "extra">NEW ENTRY!</p>
-                                        <p class= "head">Blade Runner, The Director's Cut</p>
-                                        <p class = "sec">by <span class ="author bold">Mary Pilot</span> | Febraury 8, 2012</p>
-                                        <p class= "sec"> From Topic Box: <span class="topic bold">Behind the Scene</span></p>
+                                        <p class= "head"><a href ="#" title = "Blade Runner, The Director's Cut">Blade Runner, The Director's Cut</a></p>
+                                        <p class = "sec">by <a href = "#" title = "Mary Pilot"><span class ="author bold">Mary Pilot</span></a> | Febraury 8, 2012</p>
+                                        <p class= "sec"> From Topic Box: <a href = "#" title = "BehindThe Scene"><span class="topic bold">Behind the Scene</span></a></p>
                                     </div>
                             </li>
                             <li class = "clearfix">
                                 <div class = "people-image left">
-                                    <img src= "images/3.png" alt = "People">
+                                    <a href = "#" title = "Jim Roy"><img src= "images/3.png" alt = "People"></a>
                                 </div>
                                 <div class = "people-text right">
                                     <p class = "extra">NEW ENTRY!</p> 
-                                    <p class= "head">The Best French Restaurant in Chicago?</p>
-                                    <p class = "sec">by<span class ="author bold">Jim Roy</span> | Febraury 7, 2012</p>
-                                    <p class= "sec"> From Topic Box: <span class="topic bold">Chicago Restaurants Reviews</span></p>
+                                    <p class= "head"><a href ="#" title = "The Best French Restaurant in Chicago?">The Best French Restaurant in Chicago?</a></p>
+                                    <p class = "sec">by<a href = "#" title = "Jim Roy"><span class ="author bold">Jim Roy</span></a> | Febraury 7, 2012</p>
+                                    <p class= "sec"> From Topic Box: <a href= "#" title=  "Chicago Restaurants Reviews"><span class="topic bold">Chicago Restaurants Reviews</span></a></p>
                                 </div>
                              </li>
                             <li class = "clearfix">
                                 <div class = "people-image left">
-                                    <img src= "images/4.png" alt = "People">
+                                    <a href = "#" title = "John-Peter Moise"><img src= "images/4.png" alt = "People"></a>
                                 </div>
                                 <div class = "people-text right">
-                                    <p class= "head">The Meaning OF Night. Dark Book but incredibly well written.</p>
-                                    <p class = "sec">by<span class ="author bold"> Alan Coe</span> | Febraury 8, 2018 | <span class="sub-status bold">Subscribed</span></p>
-                                    <p class= "sec"> From Topic Box: <span class="topic bold">Books Read & Books to Read</span></p>
+                                    <p class= "head"><a href ="#" title = "The Meaning OF Night. Dark Book but incredibly well written.">The Meaning OF Night. Dark Book but incredibly well written.</a></p>
+                                    <p class = "sec">by <a href= "#" title= "John-Peter Moise"><span class ="author bold">John-Peter Moise</span></a> | Febraury 8, 2018 | <span class="sub-status bold">Subscribed</span></p>
+                                    <p class= "sec"> From Topic Box: <a href= "#" title= "Books Read & Books to Read"><span class="topic bold">Books Read & Books to Read</span></a></p>
                                 </div>
                             </li>
                             <li class = "clearfix">
                                 <div class = "people-image left">
-                                    <img src= "images/5.png" alt = "People">
+                                    <a href= "#" title = "Marianne Gig"><img src= "images/5.png" alt = "People"></a>
                                 </div>
                                 <div class = "people-text right">
                                     <p class = "extra red ">TOPIC BOX INVITE!</p>
-                                    <p class= "head">Pea Pesto</p>
-                                    <p class = "sec">by<span class ="author bold"> Alan Coe</span> | Febraury 8, 2018 | <span class="sub-status bold">Subscribed</span></p>
-                                    <p class= "sec"> From Topic Box: <span class="topic bold">Favourite Recipes</span></p>
+                                    <p class= "head"><a href ="#" title = "Pea Pesto">Pea Pesto</a></p>
+                                    <p class = "sec">by<a href= "#" title = "Marianne Gig"><span class ="author bold"> Marianne Gig</span></a> | Febraury 8, 2018 | <span class="sub-status bold">Subscribed</span></p>
+                                    <p class= "sec"> From Topic Box: <a href= "#" title = "Favourite Recipes"><span class="topic bold">Favourite Recipes</span></a></p>
                                 </div>
                             </li>
                             </ul>
@@ -243,15 +253,15 @@
                     <div class= "video right">
                         <ul>
                             <li>Video Tutorails</li>
-                            <li><a href="#"><span>Overview of TuTangle</span></a></li>
-                            <li><a href="#"><span>Searching the site</span></a></li>
-                            <li><a href="#"><span>Previous & Saved Searches</span></a></li>
-                            <li><a href="#"><span>The Topic Box Page</span></a></li>
-                            <li><a href="#"><span>Creating a Topic Box</span></a></li>
-                            <li><a href="#"><span>View Topic Box Entries</span></a></li>
-                            <li><a href="#"><span>Creating an Entry</span></a></li>
-                            <li><a href="#"><span>Privacy Settings</span></a></li>
-                            <li><a href="#"><span>Co-Authoring</span></a></li>
+                            <li><a href="#" title= "Overview of TuTangle"><span>Overview of TuTangle</span></a></li>
+                            <li><a href="#" title = "Searching the site"><span>Searching the site</span></a></li>
+                            <li><a href="#" title = "Previous & Saved Searches"><span>Previous & Saved Searches</span></a></li>
+                            <li><a href="#" title = "The Topic Box Page"><span>The Topic Box Page</span></a></li>
+                            <li><a href="#" title = "Creating a Topic Box"><span>Creating a Topic Box</span></a></li>
+                            <li><a href="#" title = "View Topic Box Entries"><span>View Topic Box Entries</span></a></li>
+                            <li><a href="#" title = "Creating an Entry"><span>Creating an Entry</span></a></li>
+                            <li><a href="#" title = "Privacy Settings"><span>Privacy Settings</span></a></li>
+                            <li><a href="#" title = "Co-Authoring"><span>Co-Authoring</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -260,11 +270,11 @@
                 <div class = "content-holder clearfix">
                     <div class="about-list left">
                         <ul>
-                            <li>About Us</li>
-                            <li>Contact Us</li>
-                            <li>Term of Use</li>
-                            <li>Privacy Policy</li>
-                            <li>Feedback</li>
+                            <li><a href= "#"title = "About Us">About Us</a></li>
+                            <li><a href= "#"title = "Contact Us">Contact Us</a></li>
+                            <li><a href= "#"title = "Term of Use">Term of Use</a></li>
+                            <li><a href= "#"title = "Privacy Policy">Privacy Policy</a></li>
+                            <li><a href= "#"title = "Feedback">Feedback</a></li>
                         </ul>
                     </div>
                     <div class = "copyright right">
