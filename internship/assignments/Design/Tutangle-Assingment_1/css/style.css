@@ -252,10 +252,10 @@
 /* footer */
 .footer .content-holder{
     height: 13px;
-    width: 945px;
+    width: 940px;
+    padding: 16px 42px 16px 42px;
     font-size:10px;
     color: white;
-    padding:16px 0 16px 0;
 }
 .about-list{
     width : calc(100% - 86px);
