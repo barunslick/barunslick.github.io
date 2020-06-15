@@ -28,13 +28,17 @@
 .search-button{
     margin-left: 7px;
     height:20px;
-    padding:4px 7px 4px 8px;
     width:53px;
     background: url("../images/search-bg.png") no-repeat;
     border: none;
     font-size: 10px;
     color:white;
-}  
+} 
+.search-button a{
+    padding:4px 7px 4px 8px;
+    display: block;
+    color:white;
+}
 .user{
     padding-top:28px;
     width: 138px;
@@ -98,7 +102,9 @@
 
 /* main */
 /* recent */
-
+.recent a{
+    display: inline-block;
+}
 .recent ul li:first-child{
     background-color : #2fc1da;
 }
@@ -152,20 +158,31 @@
 }
 .sub-contents{
     width :114px;
-    height: 18px;
+    height: 28px;
     background: url("../images/nav-sub-contents-dark.png");
-    padding-top:10px;
+}
+.sub-contents span{
+   display: inline-block;
+   margin-top :9px;
+   margin-bottom:10px;
+}
+.sub-contents a{
+    display: block;
 }
 .sub-contents:hover{
     background: url("../images/nav-sub-contents-blue.png");
-    color: white;
+}
+.sub-contents a:hover{
+    color:white;
 }
 .sub-contents:first-child{
     margin-right: 10px;
 }
 .sub-container .active{
     background: url("../images/nav-sub-contents-blue.png");
-    color: white;
+}
+.sub-container .active a{
+    color:white;
 }
 /* entries--end */
 /*people */
@@ -212,8 +229,11 @@
 }
 /* end-people */
 /* video */
-
-.video li{
+.video a{
+    display: block;
+}
+.video span{
+    display: inline-block;
     height:15px;
     max-width: 156px;
     padding:10px 10px 10px 10px;
