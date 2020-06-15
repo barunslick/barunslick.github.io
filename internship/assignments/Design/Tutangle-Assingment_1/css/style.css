@@ -149,9 +149,11 @@
 }
 /* recent--end */
 /* entries */
-
-.entries .heading{
-    font-size:32px;
+.top-content > p {
+    letter-spacing: 1.2px;
+}
+.entries h1{
+    font-weight:300;
 }
 .top-nav{
     margin-top: 8px;
@@ -257,19 +259,23 @@
 .video a{
     display: block;
 }
+
 .video span{
     display: inline-block;
     height:15px;
     max-width: 156px;
-    padding:10px 10px 10px 10px;
+    padding:11px 10px 6px 10px;
 }
 .video li:hover{
    background-color: white;
 }
+.video .odd-padding{
+    padding:14px 10px 6px 10px;
+}
 .video ul li:first-child{
     height: 16px;
-    padding: 13px 12px 13px 12px;
-    font-size: 16px;
+    padding: 12px 12px 11px 12px;
+    font-size: 17px;
     background-color : #2fc1da;
     color: white!important;
 }
