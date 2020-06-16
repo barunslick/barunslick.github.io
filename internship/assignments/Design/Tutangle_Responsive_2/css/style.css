@@ -225,8 +225,6 @@
 }
 .footer .content-holder{
     background: #727272;
-    height: 13px;
-    font-size:10px;
     color: white;
 }
 .about-list{
@@ -553,6 +551,37 @@
     }
     .main-content .recent ul li:first-child:hover{
         background: #2fc1da;
+    }
+    .about-list{
+        margin-top: 0px;
+    }
+    .about-list ul li{
+        display: inline;
+        padding-right: 7px;
+    }
+    .about-list ul li:before{
+        content: "\2022\00a0\00a0";
+    }
+    .about-list ul li:first-child:before{
+        content: '';
+    }
+    .copyright{
+        margin:0px;
+        width:auto;
+        font-size: 10px;
+    }
+    .copyright p{
+        text-align: center;
+    }
+    .about-list ul{
+        width:100%;
+        font-size: 10px;
+    }
+    .footer .content-holder {
+        height: 13px;
+        padding: 16px 32px 16px 32px;
+        font-size: 10px;
+        color: white;
     }
 }
 /* media queries */
