@@ -27,6 +27,7 @@
     margin-left: 1px;
     padding:5px 8px 5px 4px;
     background-image: url("../images/search-button-bg.png");
+    cursor:pointer;
 }
 .search-button{
     margin-left: 7px;
@@ -36,6 +37,7 @@
     border: none;
     font-size: 10px;
     color:white;
+    cursor:pointer;
 } 
 .search-button a{
     padding:4px 7px 4px 8px;
@@ -53,6 +55,9 @@
 }
 .short-nav{
     font-size: 11px;
+}
+.short-nav a:hover{
+    color:white;
 }
 .short-nav ul li{
     font-weight: 600;
