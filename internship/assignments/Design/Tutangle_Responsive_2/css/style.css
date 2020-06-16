@@ -1,3 +1,4 @@
+/* top header */
 .top-header {
     width:100%;
     background-color: #7dd9e8;
@@ -20,6 +21,15 @@
 .top-header .search-holder{
     padding-top:33.5px;
 }
+.top-header .user{
+    display:none;
+}
+.navigation-bar .invites-requests{
+    margin-top:25px;
+}
+.navigation-bar .action{
+    padding:14px 0px 14px 0px;
+}
 .logo-search .left-part{
     width:100%;
 }
@@ -35,4 +45,58 @@
   background: #275056;
   border-radius: 3px;
 }
+.navigation-bar a{
+    color :#324B4F;
+}
+.navigation-bar{
+    font-size:20px;
+}
+.navigation-bar img{
+    display:none;
+}
+.navigation-bar .action{
+    width:100%;
+    border-bottom:2px solid #324B4F;
+}
+.navigation-bar .action li{
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+}
+
+.navigation-bar .sub-div{
+    padding:10px 0 10px 0;
+    margin:0 auto;
+}
+.invites-requests .image-holder{
+    margin-right:8px;
+}
+.navigation-bar .requests{
+    width: 100%;
+}
+.logout-settings{
+    width:100%;
+    margin-top:80px;
+    color:white;
+    min-height:50px;
+}
+.logout-settings .settings{
+    background: #324B4F;
+    width: 50%;
+    min-height:50px;
+    text-align: center;
+}
+.logout-settings p{
+    padding-top:12px;
+}
+.logout-settings .logout{
+    background: #C1423F;
+    text-align: center;
+    width:50%;
+    min-height:50px;
+}
+.logout-settings .l-sub-div{
+    width:100%;
+}
+/* --end top header */
 

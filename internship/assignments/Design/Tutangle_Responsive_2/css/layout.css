@@ -15,3 +15,7 @@
 .right {
     float: right;
 }
+.navigation-bar{
+    width:100%;
+    background: #95B0B5;
+}
