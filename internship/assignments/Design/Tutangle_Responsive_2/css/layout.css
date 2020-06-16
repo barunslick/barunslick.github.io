@@ -1,0 +1,17 @@
+.main-wrapper{
+    width:100%;
+}
+.header{
+    width:100%;
+}
+.content-holder{
+    padding: 0px 16px 0px 16px;
+    margin: 0 auto;
+    width:calc( 100% - 32px);
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
