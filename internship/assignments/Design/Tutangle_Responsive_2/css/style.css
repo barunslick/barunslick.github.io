@@ -24,10 +24,10 @@
 .top-header .user{
     display:none;
 }
-.navigation-bar .invites-requests{
+.dropdown.invites-requests{
     margin-top:25px;
 }
-.navigation-bar .action{
+.dropdown.action{
     padding:14px 0px 14px 0px;
 }
 .logo-search .left-part{
@@ -45,11 +45,11 @@
   background: #275056;
   border-radius: 3px;
 }
-.navigation-bar{
+.dropdown{
     font-size:18px;
     display: none;
 }
-.navigation-bar .sec-user{
+.dropdown .sec-user{
     font-size:20px;
     width:100%;
     text-align: center;
@@ -57,40 +57,40 @@
     padding-bottom:20px;
     border-bottom:2px solid #324B4F;
 }
-.navigation-bar a{
+.dropdown a{
     color :#324B4F;
 }
 
-.navigation-bar img{
+.dropdown img{
     display:none;
 }
-.navigation-bar .action{
+.dropdown .action{
     width:100%;
     border-bottom:2px solid #324B4F;
 }
-.navigation-bar .action li{
+.dropdown .action li{
     padding-top:10px;
     padding-bottom:10px;
     text-align:center;
 }
 
-.navigation-bar .sub-div{
+.dropdown .sub-div{
     padding:10px 0 10px 0;
     margin:0 auto;
 }
-.invites-requests .image-holder{
+.dropdown .invites-requests .image-holder{
     margin-right:8px;
 }
-.navigation-bar .requests{
+.dropdown .requests{
     width: 100%;
 }
-.logout-settings{
+.dropdown .logout-settings{
     width:100%;
     margin-top:80px;
     color:white;
     min-height:50px;
 }
-.logout-settings .settings{
+.dropdown .logout-settings .settings{
     background: #324B4F;
     width: 50%;
     min-height:50px;
@@ -108,6 +108,9 @@
 .logout-settings .l-sub-div{
     width:100%;
 }
+.navigation-bar{
+    display:none;
+}
 /* --end top header */
 /* main-content */
 .main-content .recent{
@@ -116,8 +119,10 @@
 .main-content .video{
     display: none;
 }
+
 .entries{
     width: 100%;
+    max-width:519px;
 }
 .entries .top-content span{
     display: inline-block;
@@ -249,14 +254,106 @@
     
 /*--end footer */
 @media  (min-width: 768px) {
+    .navigation-bar{
+        display: block;
+        width:100%
+    }
+    .navigation-bar .bar-invites-requests{
+        display: none;
+    }
+    .navigation-bar .bar-action{
+        width: 100%;
+        padding:14px 0 12px 9px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1.1px;
+        line-height: 1.2;
+    }
+    .navigation-bar .bar-action ul{
+        width:100%;
+    }
+    .navigation-bar .bar-action ul li{
+        display:inline-block;
+        padding-right: 30px;
+    }
+    .navigation-bar .bar-action .last{
+        padding-right:0px;
+    }
+    .dropdown .content-holder{
+        width:60%;
+    }
     .main-content .entries{
-        width:calc(100% - 203px);
+        width:calc(100% - 217px);
     }
     .main-content .video {
         display:inline;
     } 
     /* entries */
-
+    .entries .top-content span {
+        color: black;
+        padding-top:0px;
+    }
+    .top-content > span {
+        letter-spacing: 1.2px;
+        padding-top:0px !important;
+    }
+    .entries .top-nav img{
+        display:none;
+    }
+    .entries .top-nav{
+        margin-top: 8px;
+        font-size: 11px;
+        border-bottom: 1px solid #2fc1da;
+    }
+    .entries .top-content{
+        width:49.8%;
+        height:52px;
+        padding-top:12px;
+        text-align: center;
+        margin:0px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .entries .all-entries{
+        background: #f5f5f5;
+    }
+    .entries .subscribed{
+        padding-top:12px;
+        background: #f5f5f5;
+    }
+    .top-nav .sub-container{
+        display: inline-block;
+        width:92.24%;
+        padding: 13px 10px 0px 10px;
+    }
+    .sub-contents{
+        width :114px;
+        height: 28px;
+        background: #dddddd;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .sub-contents span{
+       display: inline-block;
+       margin-top :9px;
+       margin-bottom:10px;
+    }
+    .sub-contents a{
+        display: block;
+    }
+    .sub-contents:hover{
+        background: #86cbd7;
+    }
+    .sub-contents a:hover{
+        color:white;
+    }
+    .sub-contents:first-child{
+        margin-right: 10px;
+    }
+    .sub-container .active{
+        background: #31bfd7;
+    }
+    .sub-container .active a span{
+        color:white !important;
+    }
     /* --end entries-- */
     /* video */
     .video a{
