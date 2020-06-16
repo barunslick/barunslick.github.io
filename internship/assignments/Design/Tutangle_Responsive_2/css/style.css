@@ -8,6 +8,9 @@
 .top-header .logo-search{
     width: calc(100% - 50px);
 }
+.top-header .search-form{
+    display:none;
+}
 .top-header .search-button{
     border-radius: 17px;
     background-color: white;
@@ -34,12 +37,12 @@
     width:100%;
 }
 .hamburger-menu{
-    padding-top:37px;
+    padding-top:33px;
 }
 .hamburger-menu span{
   display: block;
-  width: 33px;
-  height: 4px;
+  width: 30px;
+  height: 2px;
   margin-bottom: 7px;
   position: relative;
   background: #275056;
@@ -68,6 +71,10 @@
     width:100%;
     border-bottom:2px solid #324B4F;
 }
+.dropdown .invites-requests{
+    margin-top:10px;
+}
+    
 .dropdown .action li{
     padding-top:10px;
     padding-bottom:10px;
@@ -224,7 +231,7 @@
 }
 .about-list{
     margin-top:15px;
-    width:70%;
+    width:calc(100% - 100px);
 }
 .about-list ul{
     width:100%;
@@ -245,7 +252,7 @@
 }
 .copyright{
     margin:65px 0 20px 0px;
-    width:30%;
+    width:100px;
     font-size: 12px;
 }
 .copyright p{
@@ -254,6 +261,59 @@
     
 /*--end footer */
 @media  (min-width: 768px) {
+    .dropdown .action{
+        display: none;
+    }
+    .top-header .search-form{
+        display:inline;
+    }
+    .top-header .search-holder{
+        width: calc(100% - 254px);
+    }
+    .top-header .search-holder .search-text{
+        margin-right:1px;
+    }
+    .top-header .search-holder input{
+        display: block;
+        width:254px;
+        height:20px;
+        background: #caeff7;
+        border:none;
+        border-radius: 10px 0px 0px 10px;
+        font-size:10px;
+        text-indent: 10px;
+    }
+    .top-header .search-holder .search-icon-button{
+        display: block;
+        background: #caeff7;
+        border-radius: 0px 10px 10px 0px;
+        width:20px;
+        height:20px;
+        margin-right:10px;
+    }
+    .top-header .search-holder .first-search-button{
+        cursor:pointer;
+        background : url('../images/search.png') no-repeat;
+        border:none;
+        width:20px;
+        height:20px;
+        border-radius: 0px 10px 10px 0px;
+        background-position: center;
+ 
+    }
+    .top-header .search-holder .search-button-form{
+        background: #264c55;
+        border: none;
+        width: 53px;
+        height: 20px; 
+        border-radius: 10px 10px 10px 10px;
+        color:white;
+        font-size: 9px;
+        cursor: pointer;
+    }
+    .top-header .search-holder .search-button{
+        display: none;
+    }
     .navigation-bar{
         display: block;
         width:100%
