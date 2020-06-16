@@ -290,6 +290,9 @@
 }
 /* video--end */
 /* footer */
+.about-list a:hover{
+    color: #2fc1da;
+}
 .footer a{
     color:white;
 }
