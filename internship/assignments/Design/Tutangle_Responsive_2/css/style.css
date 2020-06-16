@@ -11,18 +11,28 @@
 .top-header .search-form{
     display:none;
 }
-.top-header .search-button{
-    border-radius: 17px;
-    background-color: white;
-    border:none;
+.top-header .small-button-holder{
+    background: white;
     width:33px;
     height:33px;
+    cursor:pointer;
+    border-radius: 17px;
+}
+.top-header .search-button{
+    width:33px;
+    height:33px;
+    cursor:pointer;
+    background : url('../images/search-alt.png') no-repeat;
+    border:none;
+    border-radius: 17px;
+    background-position-x: center;
+    background-position-y: center;
 }
 .top-header .logo{
     margin:0;
 }
 .top-header .search-holder{
-    padding-top:33.5px;
+    padding-top:28px;
 }
 .top-header .user{
     display:none;
@@ -42,7 +52,7 @@
 .hamburger-menu span{
   display: block;
   width: 30px;
-  height: 2px;
+  height: 3px;
   margin-bottom: 7px;
   position: relative;
   background: #275056;
@@ -120,6 +130,9 @@
 }
 /* --end top header */
 /* main-content */
+.entries{
+    margin: 0 auto;
+}
 .main-content .recent{
     display:none;
 }
@@ -266,7 +279,8 @@
         display:inline;
     }
     .top-header .search-holder{
-        width: calc(100% - 254px);
+        width: calc(100% - 247px);
+        padding-top:40px;
     }
     .top-header .search-holder .search-text{
         margin-right:1px;
@@ -296,7 +310,8 @@
         width:20px;
         height:20px;
         border-radius: 0px 10px 10px 0px;
-        background-position: center;
+        background-position-x: center;
+        background-position-y: center;
  
     }
     .top-header .search-holder .search-button-form{
@@ -309,7 +324,7 @@
         font-size: 9px;
         cursor: pointer;
     }
-    .top-header .search-holder .search-button{
+    .top-header .search-holder .small-button-holder{
         display: none;
     }
     .navigation-bar{
@@ -342,6 +357,7 @@
     }
     .main-content .entries{
         width:calc(100% - 217px);
+        float:left;
     }
     .main-content .video {
         display:inline;
