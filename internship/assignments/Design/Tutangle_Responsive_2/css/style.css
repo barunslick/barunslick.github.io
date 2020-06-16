@@ -419,9 +419,6 @@
     .video a{
         display: block;
     }
-    .video{
-        letter-spacing: 0.5px;
-    }
     .video span{
         display: inline-block;
         height:15px;
@@ -444,5 +441,118 @@
         color: white!important;
     }
     /*--end video --*/
+}
+@media  (min-width: 992px) {
+    .top-header .logo-search{
+        width:calc(100% - 138px);
+    }
+    .top-header .user{
+        display:inline;
+    }
+    .top-header .user{
+        padding-top:28px;
+        width: 138px;
+    }
+    .top-header .user p{
+        margin-bottom: 7px;
+        text-align: right;
+        font-weight: 600;
+    }
+
+    .navigation-bar .bar-action{
+        display:inline-block;
+        width: calc(100% - 314px);
+    }
+    .navigation-bar .bar-invites-requests{
+        display: inline-block;
+    }
+    .navigation-bar .bar-invites-requests .text-holder{
+        margin-top:2px;
+    }
+    .navigation-bar .bar-invites-requests .image-holder{
+        margin-right:8px;
+    }
+    .navigation-bar .bar-invites-requests{
+        width:300px;
+        height:14px;
+        padding:13px 0 13px 0;
+        font-size: 11.5px;
+    }
+    .navigation-bar .bar-invites{
+        width:140px;
+    }
+    .navigation-bar .bar-invites .image-holder{
+        position: relative;
+        display: inline-block;
+        height: 17px;
+        width: 15px;
+    }
+    .navigation-bar .bar-requests a{
+        color:  #a9a9a9;
+        width:140px;
+        text-align: right;
+        
+    }
+    .navigation-bar .bar-requests .image-holder{
+        display: inline-block;
+        height: 17px;
+        width: 17px;
+       
+    }
+    
+    .top-header .short-nav{
+        font-size: 11px;
+    }
+    .top-header .short-nav a:hover{
+        color:white;
+    }
+    .top-header .short-nav ul li{
+        font-weight: 600;
+        display: inline-block;
+    }
+    .main-content .video{
+        width: 23.64%;
+    }
+    .top-header .hamburger-menu{
+        display:none;
+    }
+    .main-content .entries h1 {
+        font-weight: 300;
+    }
+    .main-content .recent{
+        display: block;
+        margin-right:26px;
+    }
+    .main-content .recent a{
+        display: inline-block;
+        line-height:1.4;
+    }
+    .main-content .recent ul li:first-child{
+        background-color : #2fc1da;
+    }
+    .main-content .recent ul li{
+        padding: 13px 12px 13px 12px;
+        font-size : 11px;
+    }
+    .main-content .recent .second li{
+        padding: 10px 0 10px 12px;
+    }
+    .main-content .recent ul .top-header-list{
+        padding: 12px 12px 11px 12px;
+    }
+    .main-content .recent .text{
+        width:139px;
+    }
+    .main-content .recent  .heading{
+        color: white;
+        font-size:17px;
+    }
+    
+    .main-content .recent ul li:hover{
+        background: white;
+    }
+    .main-content .recent ul li:first-child:hover{
+        background: #2fc1da;
+    }
 }
 /* media queries */
