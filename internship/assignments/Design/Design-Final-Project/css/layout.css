@@ -1,0 +1,27 @@
+.full-content-wrapper{
+    width:100%;
+    height:100%;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+/* header start */
+.header{
+    width:100%;
+    position:sticky;
+    box-shadow: 0 4px 4px -2px gray;
+}
+.content-holder{
+    margin: 0px 10px 0px 10px;
+}
+/* header end */
+/* search bar */
+.search-bar{
+    width:100%;
+    margin-top: 12px;
+}
+
+/* end search bar */
