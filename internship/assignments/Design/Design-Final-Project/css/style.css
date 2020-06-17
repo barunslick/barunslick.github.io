@@ -1,0 +1,48 @@
+
+.header .content-holder{
+    margin-top:15px;
+    padding-bottom: 15px;
+}
+.header .top-header {
+    width:100%;
+}
+.header .logo{
+    width:150px;
+}
+.header .logo img{
+    width:100%;
+}
+.header .content-holder .side-bar div{
+    display: inline-block;
+}
+.header .side-bar .cart{
+    margin-right: 10px;
+}
+.header .side-bar button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: #1c1105;
+}
+.header .search i{
+    display: none;
+}
+
+/* header end */
+/* search bar */
+.search-bar .content-holder{
+    border:1px solid grey;
+}
+.search-bar .content-holder input{
+    width:90%;
+    height:30px;
+    text-indent: 10px;
+    border: none;
+}
+.search-bar .content-holder button{
+    font-size: 15px;
+    background: none;
+    border: none;
+}
+/* end search bar */
