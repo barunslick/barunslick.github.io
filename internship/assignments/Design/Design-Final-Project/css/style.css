@@ -17,6 +17,20 @@
 }
 .header .side-bar .cart{
     margin-right: 10px;
+    position: relative;
+}
+.header .cart .notification-badge{
+    color:white;
+    font-size: 10px;
+    background: #f9bf11;
+    position: absolute;
+    width:15px;
+    height: 15px;
+    border-radius: 7.5px;
+    text-align:center;
+    padding:2px;
+    top:-2.5px;
+    right:-7px;
 }
 .header .side-bar button{
     border: none;
