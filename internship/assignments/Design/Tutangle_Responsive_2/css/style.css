@@ -12,6 +12,7 @@
     display:none;
 }
 .top-header .small-button-holder{
+    display: none;
     background: white;
     width:33px;
     height:33px;
@@ -274,6 +275,11 @@
 }
     
 /*--end footer */
+@media (min-width:375px){
+    .top-header .small-button-holder{
+        display: inline-block;
+    }
+}
 @media  (min-width: 768px) {
     .dropdown .action{
         display: none;
