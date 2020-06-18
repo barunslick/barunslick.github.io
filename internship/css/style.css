@@ -72,7 +72,7 @@ a:active {
 table {
     border-collapse: collapse;
     width: 80%;
-    min-width: 400px;
+    min-width:400px;
     border: 1px solid black;
 }  
 th, td {
