@@ -1,4 +1,6 @@
-
+body{
+    font-size:12px;
+}
 .header .content-holder{
     margin-top:15px;
     padding-bottom: 15px;
@@ -47,6 +49,8 @@
 /* search bar */
 .search-bar .content-holder{
     border:1px solid grey;
+    margin: 0px 10px 0px 10px;
+    padding:0px;
 }
 .search-bar .content-holder input{
     width:90%;
@@ -60,3 +64,121 @@
     border: none;
 }
 /* end search bar */
+/* featured product */
+.featured-product .content-holder{
+    margin:20px 0px 0px 0px;
+    padding:0px;
+    width:100%;
+}
+.featured-product .middle-container{
+    width:100%;
+}
+.featured-product .main-section{
+    position: relative;
+    background: grey;
+    overflow: hidden;
+    height: 180px;
+    width:100%;
+
+}
+.featured-product .main-section:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.9;
+    background-image: url('../images/desk.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.featured-product .main-section .details{
+    z-index: 10;
+    position: relative;
+    color: black;
+    margin: 13px 15px 10px 15px;
+    line-height: 1.2;
+}
+.featured-product .featured-text{
+    width:100%;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0px 10px 12px 10px;
+}
+.details ul li div{
+    display: inline-block;
+}
+.details ul li i{
+    display: block;
+}
+.details ul li{
+    padding-bottom: 8px;
+}
+.details .detail-icon{
+    font-size: 18px;
+    margin-right:6px;
+}
+
+.details .sub-details{
+    font-size:13px;
+}
+.details .sub-details .extra-detail{
+    font-size:11px;
+}
+.main-section .temp-more{
+    z-index:10;
+    position: absolute;
+    right:0px;
+    bottom: 10px;
+    background: black;
+    color:white;
+    padding: 5px;
+    font-size: 12px;
+}
+.main-section .temp-more .temp-icon{
+    color:#f9bf11;
+}
+.main-section .temp-more span{
+    display:inline-block;
+    margin-right:5px;
+}
+.main-section .temp-more div{
+    display: inline-block;
+}
+/* --end featured product */
+/* banner */
+.banner a{
+    color:white;
+}
+.banner .content-holder{
+    width:100%;
+    margin:20px 10px 20px 10px;
+    padding:0px;
+}
+.banner .content-holder .ul-holder{
+    width: 80%;
+    margin: 0 auto;
+}
+.banner ul{
+    padding:10px 0px 10px 0px;
+    font-size: 10px;
+    display: inline-block;
+}
+.banner ul li{
+    display: inline;
+    margin-right: 30px;
+}
+.banner ul li:last-child{
+    display: inline;
+    margin-right: 0px;
+
+}
+/* end banner */
