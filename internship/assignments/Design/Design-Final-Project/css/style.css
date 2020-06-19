@@ -519,8 +519,11 @@
         background: #f9bf11;
         margin-top:26px;
         color:white;
-        font-size: 1.25rem;
+        font-size: 1rem;
         padding:16px 0px 16px 0px;
+    }
+    .latest-furniture li .add-cart-button i{
+        margin-right:8px;
     }
     .latest-furniture .sub-text .header-card{
         font-size: 1rem;
