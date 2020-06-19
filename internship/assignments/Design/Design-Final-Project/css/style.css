@@ -38,6 +38,9 @@
     font-size: 25px;
     color: #1c1105;
 }
+.header .side-bar .cart > span{
+    display: none;
+}
 .header .search i{
     display: none;
 }
@@ -61,8 +64,11 @@
 }
 /* end search bar */
 /* featured product */
-.featured-product .content-holder{
+.featured-product{
     margin:20px 0px 0px 0px;
+}
+.featured-product .content-holder{
+    
     padding:0px;
     width:100%;
 }
@@ -161,26 +167,21 @@
 }
 .banner .content-holder{
     padding:0px;
-}
-.banner .content-holder .ul-holder{
-    width: 100%;
-    padding: 0px 10px 0 10px;
-    margin: 0 auto;
+    text-align: center;
 }
 .banner ul{
     padding:15px 0px 15px 10px;
     font-size: 10px;
     display: inline-block;
-    width: 100%;
+    margin: 0 auto;
 }
 .banner ul li{
-    display: inline;
+    display: inline-block;
     margin: 0px 15px 0 15px;
 }
 .banner ul li:last-child{
     display: inline;
     margin-right: 0px;
-
 }
 
 .banner ul li:nth-child(4), .banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
@@ -194,10 +195,6 @@
     html{
         font-size: 12px;
     }
-    .banner .content-holder .ul-holder{
-        width: 90%;
-        margin: 0 auto;
-    }
     .featured-product .main-section{
         height: 250px;
     }
@@ -206,11 +203,11 @@
     }
 }
 @media (min-width: 768px){
+    .content-holder {
+        padding: 0px 20px 0px 20px;
+    }
     .featured-product .main-section:before{
         background-position: 50% 85%;
-    }
-    .content-holder{
-        margin: 0 20px 0 20px;
     }
     .featured-product .featured-text{
         padding: 0px 20px 12px 20px;
@@ -252,14 +249,36 @@
     .details ul li{
         padding-bottom: 12px;
     }
-    .banner .content-holder .ul-holder{
-        width: 100%;
-    }
     .banner ul li:nth-child(4), .banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
         display: inline-block;
     }
 }
  @media (min-width: 1024px){
+    .content-holder {
+        padding: 0px 30px 0px 30px;
+    }
+    .header{
+         box-shadow:none;
+     }
+    .header .side-bar span{
+        display: inline-block !important;
+    }
+     
+    .header .content-holder{
+        margin-top:30px;
+    }
+    .header .cart .notification-badge {
+        display: none !important;
+    }
+    .header .side-bar .cart span{
+        font-size: 2rem;
+    }
+    .header .side-bar .cart sup{
+        font-size: 0.8rem;
+    }
+    .header .side-bar .search{
+        margin-right:40px;
+    }
     .featured-product .featured-text .know-more{
         display:block;
     }
@@ -303,7 +322,10 @@
     }
     .middle-container .right-arrow:hover{
         background-image: url('../images/holder-complete-dark.png');
-     }
+    }
+     .featured-product {
+        margin:50px 0 0 0;
+    }
      .featured-product .main-section{
         position: relative;
         background: none;
@@ -419,4 +441,12 @@
         font-size: 2rem;
         margin-right: 16px;
     }
+    .banner{
+        margin: 100px 10px 12px 0px;
+    }
+    .banner ul li:last-child{
+        display: none;
+    }
+    
+    
  }
