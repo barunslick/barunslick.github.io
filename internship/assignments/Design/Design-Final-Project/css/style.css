@@ -120,24 +120,24 @@
 .main-section .details ul li:last-child{
     display: none;
 }
-.details ul li div{
+.main-section .details ul li div{
     display: inline-block;
 }
-.details ul li i{
+.main-section .details ul li i{
     display: block;
 }
-.details ul li{
+.main-section .details ul li{
     padding-bottom: 8px;
 }
-.details .detail-icon{
+.main-section .details .detail-icon{
     font-size: 18px;
     margin-right:6px;
 }
 
-.details .sub-details{
+.main-section .details .sub-details{
     font-size:1.2rem;
 }
-.details .sub-details .extra-detail{
+.main-section .details .sub-details .extra-detail{
     font-size:0.933rem;
 }
 .main-section .temp-more{
@@ -378,168 +378,383 @@
 }
 /* end showcase */
 /* latest-products */
-    .latest-furniture .content-holder{
-        position: relative;
-        border-bottom: 2px solid #f7f7f7;
-    }
-    .latest-furniture .arrow-holders{
-        margin-left: -50px;
-        position: absolute;
-        z-index:50;
-        bottom:-16px;
-        left:50%;
-        width:100px;
-    }
-    .latest-furniture .ul-holder{
-        margin-bottom: 40px;
-    }
-    .latest-furniture .arrow-holders div{
-        display:inline-block;
-    }
-    .latest-furniture .sm-left-arrow{
-        cursor: pointer;
-        width:39px;
-        height:36px;
-        background-image: url('../images/holder-sm-left-default.png');
-        background-repeat: no-repeat;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    .latest-furniture .sm-right-arrow{
-        cursor: pointer;
-        width:39px;
-        height:36px;
-        background-image: url('../images/holder-sm-right-default.png');
-        background-repeat: no-repeat;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    .latest-furniture.sm-right-arrow:hover{
-        background-image: url('../images/holder-sm-right-hover.png');
-    }
-    .latest-furniture .sm-left-arrow:hover{
-        background-image: url('../images/holder-sm-left-hover.png');
-    }
-    .latest-furniture .showcase-ul-holder .sec-know-more{
-        display:none;
-        position: relative;
-        font-size: 1rem;
-        padding:16px 48px 16px 26px;
-        background: black;
-        color:white;
-        width: 158.73px;
-        margin: 10px 0px 0px 36px;
-    }
-    .latest-furniture  .sec-know-more .outside-arrow{
-        position: absolute;
-        bottom:-10px;
-        right:-12px;
-        background: #f9bf11;
-        width: 30px;
-        height: 30px;
-    }
-    .latest-furniture .sec-know-more .outside-arrow::before{
-        content: ' ';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 100;
-        opacity: 1;
-        background-image: url('../images/fwd-white.png');
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    .latest-furniture .heading-furniture{
-        font-size:20px;
-    }  
-    .latest-furniture ul{
-        text-align: center;
-        margin-top:12px;
-    }
-    .latest-furniture ul li{
-        position: relative;
-        text-align: center;
-        display:inline-block;
-        width:100%;
-        max-width: 300px;
-        border: 1px solid #ededed;
-    }
-    .latest-furniture li .extra-content{
-        position: absolute;
-        top:20px;
-        left:14px;
-        padding: 10px;
-        font-size: 10px;
-        
-        color:white;
-    }
-    .latest-furniture li .black{
-        background-color: black;
-    }
-    .latest-furniture li .yellow{
-        background-color: #f9bf11;
-    }
-    .latest-furniture ul li .image-holder{
-        height:160px;
-        max-height: 196px;
-        background-image: url('../images/latest-1.jpg');
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    .latest-furniture li .sub-text{
-        padding: 15px 25px 0px 25px;
-        line-height: 1.3;
-    }
-    .latest-furniture li .sub-text p{
-        margin-top: 10px;
-    }
-    .latest-furniture li .sub-text .price{
-        color: #f9bf11;
-    }
-    .latest-furniture li .add-cart-button{
-        background: #f9bf11;
-        margin-top:26px;
-        color:white;
-        font-size: 1rem;
-        padding:16px 0px 16px 0px;
-    }
-    .latest-furniture li .add-cart-button i{
-        margin-right:8px;
-    }
-    .latest-furniture .sub-text .header-card{
-        font-size: 1rem;
-    }
-    .latest-furniture li .sub-text .card-details{
-        margin-top:22px;
-        color:grey;
-    }
-    .latest-furniture li{
-        display: inline-block;
-    }
-    .latest-furniture li:nth-child(2), .latest-furniture li:nth-child(3), .latest-furniture li:nth-child(4){
-        display: none;
-    }
+.latest-furniture .content-holder{
+    position: relative;
+    border-bottom: 2px solid #f7f7f7;
+}
+.latest-furniture .arrow-holders{
+    margin-left: -50px;
+    position: absolute;
+    z-index:50;
+    bottom:-16px;
+    left:50%;
+    width:100px;
+}
+.latest-furniture .ul-holder{
+    margin-bottom: 40px;
+}
+.latest-furniture .arrow-holders div{
+    display:inline-block;
+}
+.latest-furniture .sm-left-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-left-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-furniture .sm-right-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-right-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-furniture .sm-right-arrow:hover{
+    background-image: url('../images/holder-sm-right-hover.png');
+}
+.latest-furniture .sm-left-arrow:hover{
+    background-image: url('../images/holder-sm-left-hover.png');
+}
+.latest-furniture .showcase-ul-holder .sec-know-more{
+    display:none;
+    position: relative;
+    font-size: 1rem;
+    padding:16px 48px 16px 26px;
+    background: black;
+    color:white;
+    width: 158.73px;
+    margin: 10px 0px 0px 36px;
+}
+.latest-furniture .sec-know-more .outside-arrow{
+    position: absolute;
+    bottom:-10px;
+    right:-12px;
+    background: #f9bf11;
+    width: 30px;
+    height: 30px;
+}
+.latest-furniture .sec-know-more .outside-arrow::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-image: url('../images/fwd-white.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-furniture .heading-furniture{
+    font-size:20px;
+}  
+.latest-furniture ul{
+    text-align: center;
+    margin-top:20px;
+}
+.latest-furniture ul li{
+    position: relative;
+    text-align: center;
+    display:inline-block;
+    width:100%;
+    max-width: 300px;
+    border: 1px solid #ededed;
+}
+.latest-furniture li .extra-content{
+    position: absolute;
+    top:20px;
+    left:14px;
+    padding: 10px;
+    font-size: 10px;
+    
+    color:white;
+}
+.latest-furniture li .black{
+    background-color: black;
+}
+.latest-furniture li .yellow{
+    background-color: #f9bf11;
+}
+.latest-furniture ul li .image-holder{
+    height:160px;
+    max-height: 196px;
+    background-image: url('../images/latest-1.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-furniture li .sub-text{
+    padding: 15px 25px 0px 25px;
+    line-height: 1.3;
+}
+.latest-furniture li .sub-text p{
+    margin-top: 10px;
+}
+.latest-furniture li .sub-text .price{
+    color: #f9bf11;
+}
+.latest-furniture li .add-cart-button{
+    background: #f9bf11;
+    margin-top:26px;
+    color:white;
+    font-size: 1rem;
+    padding:16px 0px 16px 0px;
+}
+.latest-furniture li .add-cart-button i{
+    margin-right:8px;
+}
+.latest-furniture .sub-text .header-card{
+    font-size: 1rem;
+}
+.latest-furniture li .sub-text .card-details{
+    margin-top:22px;
+    color:grey;
+}
+.latest-furniture li{
+    display: inline-block;
+}
+.latest-furniture li:nth-child(2), .latest-furniture li:nth-child(3), .latest-furniture li:nth-child(4){
+    display: none;
+}
 /* end latest products */
 
+/*why us*/
+.why-us .content-holder{
+    background-color: #28231d;
+    color: white;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.why-us .why-contents{
+    max-width: 574px;
+    margin: 0 auto;
+}
+.why-us .why-contents >p{
+    margin-top:15px;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+.why-us .why-contents .why-text{
+    font-size: 1.6rem;
+}
+.why-us .why-contents .why-text:after{
+    content: ""; 
+    display: block;  
+    width: 15%; 
+    max-width: 66px;
+    padding-top: 10px; 
+    border-bottom: 1px solid #f9bf11; 
+}
+.why-us .why-contents .dropdowns{
+    position: relative;
+    margin-top:25px;
+    padding: 20px 0px 20px 20px;
+    border: 1px solid white;
+    width: 95%;   
+    font-size: 1rem;
+}
+.why-us .why-contents .outer-button{
+    width:30px;
+    height: 30px;
+    position: absolute;
+    right:-15px;
+    top: calc(50% - 15px);
+    background : #f9bf11;
+}
+.why-us .why-contents .outer-button img{
+    position: relative;
+    top: calc(50% - 6px);
+    left: calc(50% - 6px);
+}
+/* --end why us */
+/* latest posts*/
+.latest-posts .content-holder{
+    position: relative;
+    border-bottom: 2px solid #f7f7f7;
+}
+.latest-posts .arrow-holders{
+    margin-left: -50px;
+    position: absolute;
+    z-index:50;
+    bottom:-16px;
+    left:50%;
+    width:100px;
+}
+.latest-posts .ul-holder{
+    margin-bottom: 40px;
+}
+.latest-posts .arrow-holders div{
+    display:inline-block;
+}
+.latest-posts .sm-left-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-left-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-posts .sm-right-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-right-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-posts .sm-right-arrow:hover{
+    background-image: url('../images/holder-sm-right-hover.png');
+}
+.latest-posts .sm-left-arrow:hover{
+    background-image: url('../images/holder-sm-left-hover.png');
+}
+.latest-posts .showcase-ul-holder .sec-know-more{
+    display:none;
+    position: relative;
+    font-size: 1rem;
+    padding:16px 48px 16px 26px;
+    background: black;
+    color:white;
+    width: 158.73px;
+    margin: 10px 0px 0px 36px;
+}
+.latest-posts  .sec-know-more .outside-arrow{
+    position: absolute;
+    bottom:-10px;
+    right:-12px;
+    background: #f9bf11;
+    width: 30px;
+    height: 30px;
+}
+.latest-posts .sec-know-more .outside-arrow::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-image: url('../images/fwd-white.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-posts .heading-posts{
+    font-size:20px;
+}  
+.latest-posts ul{
+    text-align: center;
+    margin-top:20px;
+    width:100%;
+}
+.latest-posts ul li{
+    position: relative;
+    text-align: center;
+    display:inline-block;
+    width:100%;
+    max-width: 330px;
+}
+.latest-posts .bottom-holder{
+    margin-top:19px;
+}
+.latest-posts .bottom-holder .date{
+    padding:12px 16px 10px 16px;
+    border:1px solid #dedede;
+    font-size: 1.26rem;
+}
+.latest-posts .bottom-holder .details{
+    width: 78%;
+    text-align: start;
+    font-size: 1.1rem;
+}
+.latest-posts .details .span-holder{
+    font-size: 0.93rem;
+    display: inline-block;
+}
+.latest-posts .details .sub-text{
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-top: 6px;
+    color:grey;
+}
+.latest-posts .details ul{
+    margin-top: 6px;
+}
+.latest-posts  .date .text{
+    font-size: 0.8rem;
+}
+.latest-posts li .black{
+    background-color: black;
+}
+.latest-posts li .yellow{
+    background-color: #f9bf11;
+}
+.latest-posts ul li .image-holder{
+    height:160px;
+    max-height: 196px;
+    background-image: url('../images/outdoor-furniture.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.latest-posts .details ul {
+    text-align: start;   
+}
+.latest-posts .details a{
+    color:#f9bf11;
+}
+.latest-posts .details a:hover{
+    color:#B4AA99;
+}
+.latest-posts .details ul li{
+    width: auto;
+    margin-right:10px;
+}
+.latest-posts .ul-holder > ul > li:nth-child(2),.latest-posts .ul-holder > ul >li:nth-child(3),.latest-posts .ul-holder > ul >li:nth-child(4){
+    display: none;
+}
+
+/* */
 @media (min-width:425px){
     html{
         font-size: 12px;
@@ -551,6 +766,10 @@
         display: inline-block;
     }
     .latest-furniture .heading-furniture{
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .latest-posts .heading-posts{
         text-align: center;
         text-transform: uppercase;
     }
@@ -609,10 +828,10 @@
     .main-section .details ul li:last-child{
         display: list-item;
     }
-    .details ul li{
+    .main-section .details ul li{
         padding-bottom: 12px;
     }
-    .banner ul li:nth-child(4), .banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
+    .banner ul li:nth-child(4),.banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
         display: inline-block;
     }
     .showcase ul li:nth-child(3){
@@ -661,6 +880,39 @@
         margin-left:-60px;
     }
     .latest-furniture .ul-holder{
+        margin-bottom: 60px;
+    }
+    .latest-posts .heading-posts{
+        font-size:1.6rem;
+    }
+    .latest-posts .ul-holder > ul >li:nth-child(2){
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .latest-posts ul li:nth-child(2) .image-holder{
+        background-image: url('../images/gaino-collection.jpg');
+    }
+    .latest-posts .heading-posts::after{
+        content: ""; 
+        display: block; 
+        margin: 0 auto;
+        width: 5%;
+        padding-top: 20px; 
+        border-bottom: 1px solid black; 
+    }
+    .latest-posts .sm-left-arrow{
+        width:50px;
+        height:46px;
+    }
+    .latest-posts .sm-right-arrow{
+        width:50px;
+        height:46px;
+    }
+    .latest-posts .arrow-holders{
+        width:120px;
+        margin-left:-60px;
+    }
+    .latest-posts .ul-holder{
         margin-bottom: 60px;
     }
 }
@@ -849,7 +1101,7 @@
         display:inline-block;
         width:27.8%;
     }
-    .details .detail-icon{
+    .main-section .details .detail-icon{
         font-size: 2rem;
         margin-right: 16px;
     }
@@ -870,9 +1122,21 @@
     .latest-furniture ul li:nth-child(3) .image-holder{
         background-image: url('../images/get-ready.jpg');
     }
+    .why-us .content-holder {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .latest-posts .ul-holder > ul >li{
+        max-width: 360px;
+    }
     .latest-furniture {
         width: 100%;
         margin-top: 80px;
     }
-    
+    .latest-posts .bottom-holder .details {
+        font-size: 1.2rem;
+    }
+    .latest-posts .details ul{
+        font-size: 0.93rem;
+    }
  }

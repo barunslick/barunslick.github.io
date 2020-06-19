@@ -14,7 +14,7 @@ html{
 /* header start */
 .header{
     width:100%;
-    position:sticky;
+    background: white;
     box-shadow: 0 4px 4px -2px gray;
 }
 .content-holder{
@@ -45,3 +45,14 @@ html{
     margin-top:40px;
 }
 /* end latest furniture */
+/*why us*/
+.why-us{
+    margin-top: 50px;
+}
+/* --end why us */
+/* latest posts */
+.latest-posts{
+    width:100%;
+    margin-top:40px;
+}
+/* end latest posts */
