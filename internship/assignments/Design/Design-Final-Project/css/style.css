@@ -374,10 +374,168 @@
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
-    background-size: auto;
+    background-size: cover;
 }
 /* end showcase */
-
+/* latest-products */
+    .latest-furniture .content-holder{
+        position: relative;
+        border-bottom: 2px solid #f7f7f7;
+    }
+    .latest-furniture .arrow-holders{
+        margin-left: -50px;
+        position: absolute;
+        z-index:50;
+        bottom:-16px;
+        left:50%;
+        width:100px;
+    }
+    .latest-furniture .ul-holder{
+        margin-bottom: 40px;
+    }
+    .latest-furniture .arrow-holders div{
+        display:inline-block;
+    }
+    .latest-furniture .sm-left-arrow{
+        cursor: pointer;
+        width:39px;
+        height:36px;
+        background-image: url('../images/holder-sm-left-default.png');
+        background-repeat: no-repeat;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .latest-furniture .sm-right-arrow{
+        cursor: pointer;
+        width:39px;
+        height:36px;
+        background-image: url('../images/holder-sm-right-default.png');
+        background-repeat: no-repeat;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .latest-furniture.sm-right-arrow:hover{
+        background-image: url('../images/holder-sm-right-hover.png');
+    }
+    .latest-furniture .sm-left-arrow:hover{
+        background-image: url('../images/holder-sm-left-hover.png');
+    }
+    .latest-furniture .showcase-ul-holder .sec-know-more{
+        display:none;
+        position: relative;
+        font-size: 1rem;
+        padding:16px 48px 16px 26px;
+        background: black;
+        color:white;
+        width: 158.73px;
+        margin: 10px 0px 0px 36px;
+    }
+    .latest-furniture  .sec-know-more .outside-arrow{
+        position: absolute;
+        bottom:-10px;
+        right:-12px;
+        background: #f9bf11;
+        width: 30px;
+        height: 30px;
+    }
+    .latest-furniture .sec-know-more .outside-arrow::before{
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        opacity: 1;
+        background-image: url('../images/fwd-white.png');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .latest-furniture .heading-furniture{
+        font-size:20px;
+    }  
+    .latest-furniture ul{
+        text-align: center;
+        margin-top:12px;
+    }
+    .latest-furniture ul li{
+        position: relative;
+        text-align: center;
+        display:inline-block;
+        width:100%;
+        max-width: 300px;
+        border: 1px solid #ededed;
+    }
+    .latest-furniture li .extra-content{
+        position: absolute;
+        top:20px;
+        left:14px;
+        padding: 10px;
+        font-size: 10px;
+        
+        color:white;
+    }
+    .latest-furniture li .black{
+        background-color: black;
+    }
+    .latest-furniture li .yellow{
+        background-color: #f9bf11;
+    }
+    .latest-furniture ul li .image-holder{
+        height:160px;
+        max-height: 196px;
+        background-image: url('../images/latest-1.jpg');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .latest-furniture li .sub-text{
+        padding: 15px 25px 0px 25px;
+        line-height: 1.3;
+    }
+    .latest-furniture li .sub-text p{
+        margin-top: 10px;
+    }
+    .latest-furniture li .sub-text .price{
+        color: #f9bf11;
+    }
+    .latest-furniture li .add-cart-button{
+        background: #f9bf11;
+        margin-top:26px;
+        color:white;
+        font-size: 1.25rem;
+        padding:16px 0px 16px 0px;
+    }
+    .latest-furniture .sub-text .header-card{
+        font-size: 1rem;
+    }
+    .latest-furniture li .sub-text .card-details{
+        margin-top:22px;
+        color:grey;
+    }
+    .latest-furniture li{
+        display: inline-block;
+    }
+    .latest-furniture li:nth-child(2), .latest-furniture li:nth-child(3), .latest-furniture li:nth-child(4){
+        display: none;
+    }
+/* end latest products */
 
 @media (min-width:425px){
     html{
@@ -389,16 +547,24 @@
     .banner ul li:nth-child(4){
         display: inline-block;
     }
+    .latest-furniture .heading-furniture{
+        text-align: center;
+        text-transform: uppercase;
+    }
 }
 @media (min-width: 768px){
     .showcase .arrow-holders{
         bottom: -18px;
+        margin-left: -60px;
     }
     .showcase .showcase-ul-holder{
         margin-bottom:60px;
     }
     .content-holder {
         padding: 0px 20px 0px 20px;
+    }
+    .latest-furniture .heading-furniture{
+        font-size:1.6rem;
     }
     .featured-product .main-section:before{
         background-position: 50% 85%;
@@ -461,11 +627,45 @@
     .showcase .arrow-holders{
         width:120px;
     }
+    .latest-furniture ul li{
+        max-width: 266px;
+    }
+    .latest-furniture li:nth-child(2){
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .latest-furniture ul li:nth-child(2) .image-holder{
+        background-image: url('../images/old-furniture.jpg');
+    }
+    .latest-furniture .heading-furniture::after{
+        content: ""; 
+        display: block; 
+        margin: 0 auto;
+        width: 5%;
+        padding-top: 20px; 
+        border-bottom: 1px solid black; 
+    }
+    .latest-furniture .sm-left-arrow{
+        width:50px;
+        height:46px;
+    }
+    .latest-furniture .sm-right-arrow{
+        width:50px;
+        height:46px;
+    }
+    .latest-furniture .arrow-holders{
+        width:120px;
+        margin-left:-60px;
+    }
+    .latest-furniture .ul-holder{
+        margin-bottom: 60px;
+    }
 }
  @media (min-width: 1024px){
     .content-holder {
         padding: 0px 30px 0px 30px;
     }
+    
     .header{
          box-shadow:none;
      }
@@ -659,6 +859,17 @@
     .banner ul{
         padding:30px 0px 30px 10px;
         font-size: 0.93rem;
+    }
+    .latest-furniture li:nth-child(3){
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .latest-furniture ul li:nth-child(3) .image-holder{
+        background-image: url('../images/get-ready.jpg');
+    }
+    .latest-furniture {
+        width: 100%;
+        margin-top: 80px;
     }
     
  }
