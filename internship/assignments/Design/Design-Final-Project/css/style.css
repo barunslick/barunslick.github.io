@@ -171,7 +171,7 @@
 }
 .banner ul{
     padding:15px 0px 15px 10px;
-    font-size: 10px;
+    font-size: 0.93rem;
     display: inline-block;
     margin: 0 auto;
 }
@@ -183,12 +183,200 @@
     display: inline;
     margin-right: 0px;
 }
-
+.banner ul .active a{
+    color: #f9bf11;
+}
+.banner ul a:hover{
+    color: #B4AA99;
+}
 .banner ul li:nth-child(4), .banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
     display: none;
 }
 /* end banner */
+/* showcase */
+.showcase .content-holder{
+    position: relative;
+    border-bottom:2px solid #f7f7f7;
+}
+.showcase ul{
 
+    display:inline-block;
+    width: auto;
+    width:100%;
+    
+}
+.showcase .showcase-ul-holder{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    margin-bottom:40px;
+}
+.showcase ul li .sub-showcase{
+    width:89.67%;
+    height:114px;
+    background:none;
+    float:right;
+    margin-top:22px;
+    border-left:6px solid white;
+    border-top:6px solid white;
+}
+.showcase ul li{
+    display:inline-block;
+    position: relative;
+    margin-top:20px;
+    z-index: 2;
+    padding:20px 0 0 34px;
+    background:none;  
+    font-size: 1.06rem;
+    width:100%;
+    min-width: 300px;
+    max-width: 320px;
+    text-align: start;
+}
+.showcase ul li:first-child:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+    background-image: url('../images/couch.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.showcase ul li:nth-child(2),.showcase ul li:nth-child(3){
+    display: none;
+}
+.showcase ul li:nth-child(2):before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+    background-image: url('../images/arm-chair2.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.showcase ul li:nth-child(3):before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+    background-image: url('../images/bedroom.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.showcase ul li::after{
+    clear: both;
+    content: '';
+    display: table;
+}
+.showcase .arrow-holders{
+    margin-left: -50px;
+    position: absolute;
+    z-index:50;
+    bottom:-16px;
+    left:50%;
+    width:100px;
+}
+.showcase .arrow-holders div{
+    display:inline-block;
+}
+.showcase .sm-left-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-left-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.showcase .sm-right-arrow{
+    cursor: pointer;
+    width:39px;
+    height:36px;
+    background-image: url('../images/holder-sm-right-default.png');
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.showcase .sm-right-arrow:hover{
+    background-image: url('../images/holder-sm-right-hover.png');
+}
+.showcase .sm-left-arrow:hover{
+    background-image: url('../images/holder-sm-left-hover.png');
+}
+.showcase .showcase-ul-holder .sec-know-more{
+    display:none;
+    position: relative;
+    font-size: 1rem;
+    padding:16px 48px 16px 26px;
+    background: black;
+    color:white;
+    width: 158.73px;
+    margin: 10px 0px 0px 36px;
+}
+.showcase  .sec-know-more .outside-arrow{
+    position: absolute;
+    bottom:-10px;
+    right:-12px;
+    background: #f9bf11;
+    width: 30px;
+    height: 30px;
+}
+.showcase  .sec-know-more .outside-arrow::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-image: url('../images/fwd-white.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: auto;
+}
+/* end showcase */
 
 
 @media (min-width:425px){
@@ -203,6 +391,12 @@
     }
 }
 @media (min-width: 768px){
+    .showcase .arrow-holders{
+        bottom: -18px;
+    }
+    .showcase .showcase-ul-holder{
+        margin-bottom:60px;
+    }
     .content-holder {
         padding: 0px 20px 0px 20px;
     }
@@ -251,6 +445,21 @@
     }
     .banner ul li:nth-child(4), .banner ul li:nth-child(5),.banner ul li:nth-child(6),.banner ul li:nth-child(7){
         display: inline-block;
+    }
+    .showcase ul li:nth-child(3){
+        display:inline-block;
+        margin-left:20px;
+    }
+    .showcase .sm-left-arrow{
+        width:50px;
+        height:46px;
+    }
+    .showcase .sm-right-arrow{
+        width:50px;
+        height:46px;
+    }
+    .showcase .arrow-holders{
+        width:120px;
     }
 }
  @media (min-width: 1024px){
@@ -431,7 +640,7 @@
     }
     .main-section ul li:nth-child(1){
         display:inline-block;
-        width:38.6%;
+        width:38%;
     }
     .main-section .details ul li:last-child{
         display:inline-block;
@@ -447,6 +656,9 @@
     .banner ul li:last-child{
         display: none;
     }
-    
+    .banner ul{
+        padding:30px 0px 30px 10px;
+        font-size: 0.93rem;
+    }
     
  }
