@@ -905,6 +905,7 @@
 .new-collection .select-collection ul{
     display: none;
 }
+/* end new collection */
 /* contact us */
 .contact-us .content-holder{
     width:100%;
@@ -929,7 +930,115 @@
     margin-bottom: 15px;
 }
 /* end contact us */
-/* end new collection */
+/*footer start */
+.footer ,.footer a{
+    color: #5d5144;
+}
+.footer .content-holder{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer .main-footer{
+    max-width: 272px;
+
+}
+.footer .main-text{
+    border-bottom:1px solid #281909;
+    padding-bottom: 20px;
+}
+.footer .main-text p:nth-child(2){
+    margin-top: 20px;
+}
+.footer .main-text >p{
+    font-size: 1.2rem;
+}
+.footer .main-text .more{
+    margin-top:20px;
+    position: relative;
+}
+.footer .main-text .more > div{
+    display: inline-block;
+}
+.footer .main-text .more span{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    color : #f9bf11;
+}
+.footer .main-text .image-holder{
+    width:20px;
+    height:20px;
+    border: 1px solid #f9bf11;
+    position: relative;
+    margin-right: 14px;
+}
+.footer .main-text .image-holder:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-image: url(../images/forward.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: auto;
+}
+.footer .links{
+    margin-top: 20px;
+}
+.footer .links ul {
+    text-align: center;
+    width: 100%;
+}
+.footer .links ul li{
+    text-align: start;
+    position: relative;
+    display: inline-block;
+    width:112px;
+    margin-top: 15px;
+}
+.footer .links ul li:nth-child(even){
+    margin-left: 40px;
+}
+.footer .links ul li:nth-child(1),.footer .links ul li:nth-child(2){
+    margin-top: 0px;
+}
+.footer .links li .links-logo{
+    width: 30px;
+    height:30px;
+    background: #5d5143;
+    position: relative;
+    color:white;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 8px;
+}
+.footer .links li .links-logo i{
+    position: absolute;
+    top: 7.5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.footer .links li .find-us-text{
+    display:inline-block;
+    font-size: 1.2rem;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+.footer .links li .find-us-text p:nth-child(2){
+    font-size: 1rem;
+    line-height: 1.2;
+}
 @media (min-width:425px){
     html{
         font-size: 12px;

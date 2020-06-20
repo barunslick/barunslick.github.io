@@ -75,3 +75,10 @@ html{
     background: #f7f7f7;
 }
 /* end contact us */
+/* footer */
+.footer{
+ width:100%;
+ background: #1b1105;
+ margin-top:40px;  
+}
+/* end footer */
