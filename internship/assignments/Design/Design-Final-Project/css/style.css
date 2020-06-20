@@ -548,7 +548,7 @@
     padding-bottom:20px;
 }
 .why-us .why-contents{
-    max-width: 574px;
+    max-width: 560px;
     margin: 0 auto;
 }
 .why-us .why-contents >p{
@@ -717,7 +717,92 @@
     display: none;
 }
 
-/* */
+/* end latest posts*/
+/*discounts*/
+.discounts .content-holder{
+    background-color: #28231d;
+    color: white;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.discounts .discounts-contents{
+    max-width: 526px;
+    margin: 0 auto;
+}
+.discounts .discounts-contents >p{
+    margin-top:15px;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+.discounts .discounts-contents .discounts-text{
+    font-size: 1.6rem;
+}
+.discounts .discounts-contents .discounts-text:after{
+    content: ""; 
+    display: block;  
+    width: 15%; 
+    max-width: 66px;
+    padding-top: 10px; 
+    border-bottom: 1px solid #f9bf11; 
+}
+.discounts form{
+    margin-top: 15px;
+    width:100%;
+}
+.discounts form input{
+    width:100%;
+    background: none;
+    border:1px solid white;
+    color:white;
+    font-size: 0.8rem;
+    padding:16px 0 16px 0;
+    text-indent: 14px;
+    max-width: 254px;
+}
+.discounts form input:nth-child(2){
+    margin-top: 10px;
+}
+.discounts form input::placeholder{
+    opacity: 1;
+    color: white;
+}
+.discounts form .button{
+    margin-top:20px;
+    padding: 18px 0px 18px 42px;   
+    background: white;   
+    color:black;
+    position: relative;
+    width: 156px; 
+}
+.discounts form .button .outside-button{
+    position: absolute;
+    bottom: -10px;
+    right: -12px;
+    background: #f9bf11;
+    width: 30px;
+    height: 30px; 
+    
+}
+.discounts form .button .outside-button:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-image: url(../images/fwd-white.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: auto;
+}
+/* --end why us */
 @media (min-width:425px){
     html{
         font-size: 12px;
@@ -877,6 +962,9 @@
     }
     .latest-posts .ul-holder{
         margin-bottom: 60px;
+    }
+    .discounts form input:nth-child(2){
+        margin-left:14px;
     }
 }
  @media (min-width: 1024px){
