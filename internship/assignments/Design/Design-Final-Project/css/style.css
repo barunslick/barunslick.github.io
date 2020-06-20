@@ -911,6 +911,9 @@
     padding-top:20px;
     padding-bottom: 20px;
 }
+.contact-us .contact-form{
+    display: none;
+}
 .contact-us .details .heading{
     font-size: 2.3rem;
 }
