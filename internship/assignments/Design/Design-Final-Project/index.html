@@ -10,9 +10,21 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css"/>
         <link rel="stylesheet" type="text/css" href="css/layout.css"/>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <script src="https://kit.fontawesome.com/c9fbd5acb3.js" crossorigin="anonymous"></script>
+        <script>  
+            function showhide(id) 
+            {  
+                var tag = document.getElementById(id).style;
+                if(tag.display == 'none' || !tag.display){
+                    document.getElementById(id).style.display='block';
+                    document.getElementById(id + '_arrow').className='arrow_down';
+                } else {            
+                    document.getElementById(id).style.display='none';
+                    document.getElementById(id + '_arrow').className='arrow_right';
+                }
+            };
+        </script>  
+        <script src="https://kit.fontawesome.com/c9fbd5acb3.js" crossorigin="anonymous"></script> 
     </head>
-    
     <body>
         <div class = "full-content-wrapper">
             <div class = "header">
@@ -33,11 +45,28 @@
                                 </div>
                             </div>
                             <div class = "hamburger-menu">
-                                <button><i class="fas fa-bars"></i></button>
+                                <button onclick="showhide('drop-down')"><i class="fas fa-bars"></i></button>
                             </div>
                         </div>
                     </div>
                    
+                </div>
+            </div>
+            <div class ="drop-down" id="drop-down">
+                <div class = "content-holder">
+                    <ul>
+                        <li class= "active"><a href= "#" title = "HOME">HOME</a></li>
+                        <li><a href= "#" title = "AaBOUT US">ABOUT US</a></li>
+                        <li><a href= "#" title = "OUR TEAM">OUR TEAM</a></li>
+                        <li><a href= "#" title = "PORTFOLIO">PORTFOLIO</a></li>
+                        <li><a href= "#" title = "OUR BLOG">OUR BLOG</a></li>
+                        <li><a href= "#" title = "OUR PRODUCTS">OUR PRODUCTS</a></li>
+                        <li><a href= "#" title = "LATEST COLLECTIONS">LASTEST COLLECTIONS</a></li>
+                    </ul>
+                    <ul class="user">
+                        <li><a href= "#" title = "SETTINGS">SETTINGS</a></li>
+                        <li><a href= "#" title = "LOGOUT">LOG OUT</a></li>
+                    </ul>
                 </div>
             </div>
             <div class = "search-bar">
@@ -116,14 +145,14 @@
             <div class= "banner">
                 <div class= "content-holder">
                         <ul>
-                            <li class= "active"><a href= "#" title = "Home">HOME</a></li>
-                            <li><a href= "#" title = "About Us">ABOUT US</a></li>
-                            <li><a href= "#" title = "About Us">OUR TEAM</a></li>
-                            <li><a href= "#" title = "About Us">PORTFOLIO</a></li>
-                            <li><a href= "#" title = "About Us">OUR BLOG</a></li>
-                            <li><a href= "#" title = "About Us">OUR PRODUCTS</a></li>
-                            <li><a href= "#" title = "About Us">LASTEST COLLECTIONS</a></li>
-                            <li><a href= "#" title = "About Us"><i class="fas fa-arrow-right"></i></a></li>
+                            <li class= "active"><a href= "#" title = "HOME">HOME</a></li>
+                            <li><a href= "#" title = "AaBOUT US">ABOUT US</a></li>
+                            <li><a href= "#" title = "OUR TEAM">OUR TEAM</a></li>
+                            <li><a href= "#" title = "PORTFOLIO">PORTFOLIO</a></li>
+                            <li><a href= "#" title = "OUR BLOG">OUR BLOG</a></li>
+                            <li><a href= "#" title = "OUR PRODUCTS">OUR PRODUCTS</a></li>
+                            <li><a href= "#" title = "LATEST COLLECTIONS">LASTEST COLLECTIONS</a></li>
+                            <li><a href= "#" title = "More"><i class="fas fa-arrow-right"></i></a></li>
                         </ul>
                 </div>
             </div>
