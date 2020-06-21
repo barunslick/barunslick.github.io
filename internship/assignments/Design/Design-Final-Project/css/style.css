@@ -249,6 +249,7 @@
 }
 .showcase ul li .sub-showcase{
     width:89.67%;
+    position: relative;
     height:114px;
     background:none;
     float:right;
@@ -375,14 +376,15 @@
     background-image: url('../images/holder-sm-left-hover.png');
 }
 .showcase .showcase-ul-holder .sec-know-more{
-    display:none;
-    position: relative;
+    position: absolute;
     font-size: 1rem;
-    padding:16px 48px 16px 26px;
+    padding:16px 0px 16px 26px;
     background: black;
     color:white;
     width: 158.73px;
     margin: 10px 0px 0px 36px;
+    opacity: 0;
+    cursor: pointer;
 }
 .showcase  .sec-know-more .outside-arrow{
     position: absolute;
@@ -392,24 +394,17 @@
     width: 30px;
     height: 30px;
 }
-.showcase  .sec-know-more .outside-arrow::before{
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    opacity: 1;
-    background-image: url('../images/fwd-white.png');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
+.showcase  .sec-know-more .outside-arrow img{
+    width:12px;
+    height: 12px;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    left: 50%;
+    margin-left: -6px;
+}
+.showcase .showcase-ul-holder ul li:hover .sec-know-more{
+    opacity: 1;   
 }
 /* end showcase */
 /* latest-products */
@@ -787,6 +782,9 @@
     padding-top:20px;
     padding-bottom:20px;
 }
+.discounts .content-holder .slanted-content{ 
+    display:none;
+}
 .discounts .discounts-contents{
     max-width: 526px;
     margin: 0 auto;
@@ -817,7 +815,7 @@
     border:1px solid white;
     color:white;
     font-size: 0.8rem;
-    padding:16px 0 16px 0;
+    padding:14px 0 14px 0;
     text-indent: 14px;
     max-width: 254px;
 }
@@ -1371,7 +1369,7 @@
         margin-left:14px;
     }
     .discounts form .button{
-        padding: 18px 0px 18px 42px;   
+        padding: 18px 0px 14px 42px;   
     }
     .new-collection .heading-collection {
         font-size: 1.6rem;
@@ -2022,21 +2020,28 @@
         width: 100%;
         margin-top: 90px;
     }
-    .discounts .content-holder {
-        padding-top: 86px;
-        padding-bottom: 78px;
+    .discounts .content-holder .slanted-content{ 
+        width:50%;
+        background: red;
+        float:left;
+        display: block;
+    }
+    .discounts .content-holder{
+        padding-top:86px;
+        padding-bottom: 76px;
     }
     .discounts .discounts-contents .discounts-text:after {
         padding-top: 22px;
     }
     .discounts .discounts-contents >p {
-        margin-top: 32px;
+        margin-top: 28px;
     }
     .discounts form {
-        margin-top: 28px;
+        margin-top: 26px;
     }
     .discounts form .button {
         margin-top: 40px;
+        font-size: 0.8rem;
     }
     .new-collection {
         margin-top: 100px;
