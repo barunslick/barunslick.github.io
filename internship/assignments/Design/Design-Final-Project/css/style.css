@@ -558,6 +558,12 @@
     padding:16px 0px 16px 0px;
     cursor: pointer;
 }
+.latest-furniture li .add-cart-button:hover{
+    background: #C79400;
+}
+.latest-furniture li .add-cart-button:active{
+    background: #976B00;
+}
 .latest-furniture li .add-cart-button i{
     margin-right:8px;
 }
@@ -611,6 +617,15 @@
     width: 95%;   
     font-size: 1rem;
 }
+.why-us .why-contents .dropdowns:hover{
+   background: white;
+   color: black;
+   cursor: pointer;
+}
+.why-us .why-contents .dropdowns:active{
+    background: #B1BDC5;
+    color: black;
+ }
 .why-us .why-contents .top {
     margin-top: 20px;
 }
@@ -758,7 +773,12 @@
 .latest-posts .ul-holder > ul > li:nth-child(2),.latest-posts .ul-holder > ul >li:nth-child(3){
     display: none;
 }
-
+.latest-posts .bottom-holder .details .post-heading a{
+    color:black;
+}
+.latest-posts .bottom-holder .details .post-heading a:hover{
+    color:#f9bf11;
+}
 /* end latest posts*/
 /*discounts*/
 .discounts .content-holder{
@@ -816,6 +836,14 @@
     position: relative;
     width: 156px;
     cursor: pointer;
+}
+.discounts form .button:hover{
+    background: #B1BDC5;
+    color:white;
+}
+.discounts form .button:active{
+    background: #889FA5;
+    color:white;
 }
 .discounts form .button .outside-button{
     position: absolute;
@@ -1405,6 +1433,13 @@
         width: 156px;
         cursor: pointer;
     }
+    .contact-us .contact-form form .button:hover {
+        background: #B9B9B9;
+    }
+    .contact-us .contact-form form .button:active {
+        background: #8A959D;
+    }
+    
     .contact-us form .button .outside-button{
         position: absolute;
         bottom: -8px;
@@ -1445,6 +1480,9 @@
     }
     .footer .left-part-footer .main-footer{
         float: left;
+    }
+    .footer a:hover{
+        color:white;
     }
 }
  @media (min-width: 1024px){
@@ -1580,6 +1618,12 @@
         padding:16px 48px 16px 26px;
         background: black;
         color:white;
+    }
+    .featured-product .featured-text .know-more:hover {
+        background: #B9B9B9;
+    }
+    .featured-product .featured-text .know-more:active {
+        background: #8A959D;
     }
     .featured-text .know-more .outside-arrow{
         position: absolute;
@@ -1749,6 +1793,8 @@
     .footer .whole-footer{
         width: 880px;
         margin:0 auto;   
+        padding-bottom: 76px;
+        border-bottom: 1px solid #281909;
     }
     .footer .main-text >p {
         font-size: 1rem;
