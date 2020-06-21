@@ -1185,6 +1185,9 @@
     .banner{
         display: block;
     }
+    .banner ul .active {
+        margin-left:0px;
+    }
     .showcase{
         margin-top: 40px;
     }
