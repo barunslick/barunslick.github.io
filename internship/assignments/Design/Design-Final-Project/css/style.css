@@ -1186,10 +1186,7 @@
 .footer .insta-columns{
     display: none;
 }
-@media (min-width:425px){
-    html{
-        font-size: 12px;
-    }
+@media (min-width: 375px){
     .featured-product .main-section{
         height: 250px;
     }
@@ -1214,6 +1211,9 @@
     }
 }
 @media (min-width: 768px){
+    html{
+        font-size: 12px;   
+    }
     .banner{
         display: block;
     }
