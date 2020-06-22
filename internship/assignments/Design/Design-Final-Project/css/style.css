@@ -786,7 +786,7 @@
     display:none;
 }
 .discounts .discounts-contents{
-    max-width: 526px;
+    max-width: 532px;
     margin: 0 auto;
 }
 .discounts .discounts-contents >p{
@@ -1982,7 +1982,7 @@
         display: block;
     }
     .footer .right-part-footer .insta-columns{
-        width:194px;
+        width:198px;
     }
     .footer .right-part-footer .insta-heading {
         font-size: 1rem;
