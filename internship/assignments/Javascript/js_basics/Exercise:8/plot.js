@@ -30,10 +30,8 @@ my_div.style.height = div_height + 'px';
 my_div.style.width = div_width + 'px';
 my_div.style.border = '2px solid grey';
 my_div.style.position = 'relative';
-my_div.style.minWidth = 200 + 'px';
-my_div.style.minHeight = 200 + 'px';
-var point_height = 20;
-var point_width = 20;
+var point_height = 12;
+var point_width = 12;
 
 function createPoins(top_px, left_px){
     var point_div = document.createElement('div');
@@ -41,11 +39,10 @@ function createPoins(top_px, left_px){
     point_div.style.position = 'absolute';
     point_div.style.width = point_height + 'px';
     point_div.style.height = point_width + 'px';
-    point_div.style.borderRadius = 10 + 'px';
+    point_div.style.borderRadius = 6 + 'px';
     point_div.style.backgroundColor = 'skyblue';
-    point_div.style.top= 20+'px';
-    point_div.style.top = top_px +'px';
-    point_div.style.left = left_px +'px';
+    point_div.style.top = (div_height - top_px - point_height/2) +'px';
+    point_div.style.left = (left_px - point_width /2) +'px';
     return point_div;
 }
 document.body.appendChild(my_div);
