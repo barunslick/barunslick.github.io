@@ -100,9 +100,11 @@
     width:140px;
 }
 .invites .image-holder{
+    position: relative;
     display: inline-block;
     height: 17px;
     width: 15px;
+    transform: translateY(-50%);
 }
 .requests a{
     color:  #a9a9a9;
