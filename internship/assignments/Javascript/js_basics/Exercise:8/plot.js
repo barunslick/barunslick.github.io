@@ -30,6 +30,9 @@ my_div.style.height = div_height + 'px';
 my_div.style.width = div_width + 'px';
 my_div.style.border = '2px solid grey';
 my_div.style.position = 'relative';
+my_div.style.left = 50 +'%';
+my_div.style.transform = 'translateX(-50%)';
+my_div.style.marginTop = 100 + 'px';
 var point_height = 12;
 var point_width = 12;
 
