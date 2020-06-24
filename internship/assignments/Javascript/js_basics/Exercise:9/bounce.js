@@ -6,39 +6,70 @@ var requestAnimationFrame = window.requestAnimationFrame ||
                             window.webkitRequestAnimationFrame ||
                             window.msRequestAnimationFrame;
 
+topElement = document.createElement('p');
+topElement.innerHTML = 'Tap inside div to toggle color';
+topElement.style.textAlign = 'center';
+document.body.appendChild(topElement);
 
-var div_height = 600;
-var div_width = 600;
-var my_div = document.createElement('div');
-my_div.style.height = div_height + 'px';
-my_div.style.width = div_width + 'px';
-my_div.style.border = '2px solid grey';
-my_div.style.position = 'relative';
-my_div.style.left = 50 +'%';
-my_div.style.transform = 'translateX(-50%)';
-my_div.style.marginTop = 100 + 'px';
-document.body.appendChild(my_div);
+function Div(width, height){
+    this.width = width;
+    this.height = height;
+    this.element = document.createElement('div');
+    this.element.style.height = this.height + 'px';
+    this.element.style.width = this.width + 'px';
+    this.element.style.border = '2px solid grey';
+    this.element.style.display = 'inline-block';
+    this.element.style.position = 'relative';
+    this.element.style.margin = 50 + 'px';
+    document.body.appendChild(this.element);
+}
 
+Div.prototype.addSpeedIndicator = function(speed){
+    p = document.createElement('p');
+    p.innerHTML = 'Speed:' + speed;
+    p.style.margin = '0px';
+    this.element.appendChild(p);
+}
 
-var ball_dimension = 100;
-var ball = document.createElement('div');
-ball.style.height = ball_dimension + 'px';
-ball.style.width = ball_dimension + 'px';
-ball.style.backgroundColor = 'skyblue';
-ball.style.position = 'absolute';
-ball.style.borderRadius = 50 + 'px';
-ball.style.left = '50%';
-ball.style.marginLeft = - (ball_dimension/2) + 'px';
-my_div.appendChild(ball);
+function Ball(size, color, speed, outerContainer){
+    this.size = size;
+    this.color = color;
+    this.original_color = color
+    this.speed = speed;
+    this.ball = document.createElement('div');
+    this.ball.style.height = this.size + 'px';
+    this.ball.style.width = this.size + 'px';
+    this.ball.style.backgroundColor = this.color;
+    this.ball.style.position = 'absolute';
+    this.ball.style.borderRadius = this.size/2 + 'px';
+    this.ball.style.left = '50%';
+    this.ball.style.marginLeft = - (this.size/2) + 'px';
+    outerContainer.element.appendChild(this.ball);
 
+    outerContainer.element.addEventListener('click', function(){
+        this.changeColor();
+    }.bind(this));
 
-var direction = 1;
-var currentPos = 0;
-var step = div_height/60;
-function animate(){
+    this.animateBall(speed , outerContainer);
+}
+
+Ball.prototype.changeColor = function(){
+    if (this.color == this.original_color){
+        this.color = 'teal';
+    }else{
+        this.color = this.original_color
+    }
+    this.ball.style.backgroundColor = this.color;
+}
+
+Ball.prototype.animateBall = function(speed, outerContainer){
+    var direction = 1;
+    var currentPos = 0;
+    var step = speed;
+    function animate(){
     if (direction){
         currentPos += step;
-        if (currentPos >= (div_height-ball_dimension)){
+        if (currentPos >= (outerContainer.height - this.size)){
             direction = 0;
         }
     }else{
@@ -47,10 +78,87 @@ function animate(){
             direction = 1;
         }
     }
-    ball.style.top = currentPos + 'px';
-    requestAnimationFrame(animate);
+    this.ball.style.top = currentPos + 'px';
+    requestAnimationFrame(animate.bind(this));
+    };
+    requestAnimationFrame(animate.bind(this));
 }
 
-animate();
+
+divsBallsCollection = [
+            [
+                {
+                    width:300,
+                    height: 300
+                },
+                {
+                    size: 20,
+                    color: 'yellow',
+                    speed: 20
+                }
+            ],
+            [
+                {
+                    width:500,
+                    height: 500
+                },
+                {
+                    size: 40,
+                    color: 'orange',
+                    speed: 60
+                }
+            ],
+            [
+                {
+                    width:100,
+                    height: 100
+                },
+                {
+                    size: 10,
+                    color: 'red',
+                    speed: 14
+                }
+            ],
+            [
+                {
+                    width:600,
+                    height: 300
+                },
+                {
+                    size: 50,
+                    color: 'red',
+                    speed: 10
+                }
+            ],
+            [
+                {
+                    width:100,
+                    height: 300
+                },
+                {
+                    size: 25,
+                    color: 'red',
+                    speed: 40
+                }
+            ],
+            [
+                {
+                    width:200,
+                    height: 150
+                },
+                {
+                    size: 50,
+                    color: 'red',
+                    speed: 15
+                }
+            ],
+]
+
+
+for(let items of divsBallsCollection){
+    let my_div = new Div(items[0].width,items[0].height);
+    my_div.addSpeedIndicator(items[1].speed);
+    let my_ball = new Ball(items[1].size, items[1].color, items[1].speed, my_div);
+}
 
 }());
