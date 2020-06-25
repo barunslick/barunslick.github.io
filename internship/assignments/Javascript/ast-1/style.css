@@ -1,20 +1,25 @@
 .carousel-container{
-    width:150px;
-    height:150px;
+    width:1000px;
+    height:650px;
     position: relative;
     box-sizing: border-box;
-    background-color: red;
-    overflow: hidden;
+
 }   
 .carousel-image-wrapper{
     position: absolute;
-    width: 450px;
+    top:0px;
+    left:0px;
+    width: 7000px;
+    height:650px;
+    height:100%;
     display: inline-block;
 }
 .carousel-image-wrapper img{
     float: left;
+    width:1000px;
+    height:100%;
 }
-.clearfix:after{
+.clearfix::after{
     content: '';
     clear: both;
     display: table;
