@@ -10,9 +10,10 @@ btnLeft.style.position = 'absolute';
 btnLeft.style.height = btnSize + 'px';
 btnLeft.style.width = btnSize + 'px';
 btnLeft.style.borderRadius = btnSize/2 + 'px';
-btnLeft.style.backgroundColor = 'yellow';
+btnLeft.style.backgroundColor = '#677381';
 btnLeft.style.top = '50%';
 btnLeft.style.left = '20px';
+btnLeft.style.cursor = 'pointer';
 carousalContainer.appendChild(btnLeft);
 
 var btnRight = document.createElement('div');
@@ -20,10 +21,36 @@ btnRight.style.position = 'absolute';
 btnRight.style.height = btnSize + 'px';
 btnRight.style.width = btnSize + 'px';
 btnRight.style.borderRadius = btnSize/2 + 'px';
-btnRight.style.backgroundColor = 'yellow';
+btnRight.style.backgroundColor = '#677381';
 btnRight.style.top = '50%';
 btnRight.style.right = '20px';
+btnRight.style.cursor = 'pointer';
 carousalContainer.appendChild(btnRight);
+
+var imgSize = 15;
+var img = document.createElement("img");
+img.src = "images/fwd-white.png";
+img.style.height = imgSize + 'px';
+img.style.width =  imgSize + 'px';
+img.style.position = 'relative';
+img.style.top = '50%';
+img.style.transform = 'translateY(-50%)';
+img.style.left = '50%';
+img.style.marginLeft = -imgSize/2 + 'px';
+btnRight.appendChild(img);
+
+var img_2 = document.createElement("img");
+img_2.src = "images/bwd-white.png";
+img_2.style.height = imgSize + 'px';
+img_2.style.width =  imgSize + 'px';
+img_2.style.position = 'relative';
+img_2.style.top = '50%';
+img_2.style.transform = 'translateY(-50%)';
+img_2.style.left = '50%';
+img_2.style.marginLeft = -imgSize/2 + 'px';
+btnLeft.appendChild(img_2);
+
+
 
 var indicatorHolder = document.createElement('div');
 indicatorHolder.style.position = 'absolute';
@@ -58,7 +85,7 @@ for (let i = 1; i < 6 ;i++){
     indicator.style.height = indicatorSize + 'px';
     indicator.style.width = indicatorSize + 'px';
     indicator.style.borderRadius = (indicatorSize+2)/2 + 'px';
-    indicator.style.border = '1px solid yellow'
+    indicator.style.border = '1px solid #677381'
     indicator.style.backgroundColor = 'none';
     indicator.style.marginRight = '5px';
     indicator.style.cursor = 'pointer';
