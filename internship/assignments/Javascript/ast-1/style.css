@@ -3,12 +3,13 @@
     height:650px;
     position: relative;
     box-sizing: border-box;
+    overflow: hidden;
 
 }   
 .carousel-image-wrapper{
     position: absolute;
     top:0px;
-    left:0px;
+    left:-1000px;
     width: 7000px;
     height:650px;
     height:100%;
