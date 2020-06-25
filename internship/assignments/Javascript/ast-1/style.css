@@ -1,0 +1,30 @@
+.carousel-container{
+    width:1000px;
+    height:650px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}   
+.carousel-image-wrapper{
+    position: absolute;
+    top:0px;
+    left:-1000px;
+    width: 7000px;
+    height:650px;
+    height:100%;
+    display: inline-block;
+}
+.carousel-image-wrapper img{
+    float: left;
+    width:1000px;
+    height:100%;
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.dot-active{
+    background-color: yellow;   
+}
