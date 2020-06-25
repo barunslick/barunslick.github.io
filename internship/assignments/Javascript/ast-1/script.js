@@ -36,6 +36,7 @@ img.style.position = 'relative';
 img.style.top = '50%';
 img.style.transform = 'translateY(-50%)';
 img.style.left = '50%';
+img.style.objectFit = 'cover';
 img.style.marginLeft = -imgSize/2 + 'px';
 btnRight.appendChild(img);
 
