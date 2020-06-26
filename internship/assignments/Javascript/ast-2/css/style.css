@@ -1,0 +1,52 @@
+.carousel-container{
+    width:1000px;
+    height:550px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+
+}   
+.carousel-image-wrapper{
+    position: absolute;
+    width: 7000px;
+    height:550px;
+    display: inline-block;
+}
+.carousel-image-wrapper img{
+    float: left;
+    width:1000px;
+    height:100%;
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.dot-active{
+    background-color: #677381;   
+}
+.indicator-holder{
+    position : absolute;
+    width : 100%;
+    bottom : 40px;
+    text-align : center;
+}
+.dot {
+    border : 1px solid #677381;
+    background-color : none;
+    margin-right : 5px;
+    cursor : pointer;
+    display : inline-block;
+}
+.side-buttons{
+    position: absolute;
+    top : 50%;
+    cursor : pointer;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color : #677381;
+}
