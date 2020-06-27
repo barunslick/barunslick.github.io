@@ -31,9 +31,8 @@
       var targetIndex = e.target.value;
       var currentIndicatorIndex = self.currentIndex - 1;
       if (targetIndex != undefined && targetIndex != currentIndicatorIndex) self.changeDot(currentIndicatorIndex, targetIndex);
-    })
-    //self.inBetweenAnimation = false; 
-    //self.selfAnimate();
+    }) 
+    self.selfAnimate();
   }
 
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
@@ -108,7 +107,7 @@
       if (notComplete) {
         requestAnimationFrame(self.animate)
       }else{
-        //self.selfAnimate();
+        self.selfAnimate();
       };
     }
   }
@@ -116,12 +115,8 @@
   Carousal.prototype.selfAnimate = function(){
     this.my_timer = setInterval(function(){ //making my_timer linked to main object so that it can be easy to kill it whenever needed
       this.rightBtn.rightClick(this,this.imageSize);
-    }.bind(this),4000)
+    }.bind(this),3000)
   }
-
-
-
-
 
   var addSingleIndicator = function (outerContainer, indicatorValue) {
     this.indicatorSize = 12;
