@@ -13,7 +13,7 @@
     self.transitionTime = transitionTime;
     self.holdTime = holdTime;
     self.arrayIndicators = [];
-    self.carousalContainer = document.querySelector( '.' + carousalContainerClass);
+    self.carousalContainer = document.querySelector(carousalContainerClass);
     self.carouselImageWrapper = self.carousalContainer.children[0];
     self.imageSize = self.carouselImageWrapper.children[0].clientWidth;
     self.carouselImageWrapper.style.left = - self.imageSize + 'px';
@@ -32,7 +32,8 @@
       var currentIndicatorIndex = self.currentIndex - 1;
       if (targetIndex != undefined && targetIndex != currentIndicatorIndex) self.changeDot(currentIndicatorIndex, targetIndex);
     })
-
+    self.inBetweenAnimation = false; 
+    self.selfAnimate();
   }
 
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
@@ -89,7 +90,6 @@
     var tempIndex = this.currentIndex;
     this.updateIndex(direction, jump);
     this.changeDotColor(tempIndex - 1, this.currentIndex - 1);
-    console.log(jump);
     this.animate = this.getAnimate(current, required, direction, jump); //sending this varaibles as arguments to set it into the closure of returning function
     this.animate();
   };
@@ -98,12 +98,27 @@
     var self = this;
     var notComplete = true;
     return function(){
+      clearInterval(self.my_timer); //everytime a shift in imade is done ..prevoius timer is cleared and new timer is started.
       current += (direction * 40 * jump);
       self.carouselImageWrapper.style.left = current + 'px';
       if ((direction == -1 && current <= required) || (direction == 1 && current >= required)) notComplete = false;
-      if (notComplete) requestAnimationFrame(self.animate);
+      if (notComplete) {
+        requestAnimationFrame(self.animate)
+      }else{
+        self.selfAnimate();
+      };
     }
   }
+
+  Carousal.prototype.selfAnimate = function(){
+    this.my_timer = setInterval(function(){ //making my_timer linked to main object so that it can be easy to kill it whenever needed
+      this.rightBtn.rightClick(this,this.imageSize);
+    }.bind(this),4000)
+  }
+
+
+
+
 
   var addSingleIndicator = function (outerContainer, indicatorValue) {
     this.indicatorSize = 12;
