@@ -89,16 +89,21 @@
     var tempIndex = this.currentIndex;
     this.updateIndex(direction, jump);
     this.changeDotColor(tempIndex - 1, this.currentIndex - 1);
-    var notComplete = true;
+    console.log(jump);
+    this.animate = this.getAnimate(current, required, direction, jump); //sending this varaibles as arguments to set it into the closure of returning function
+    this.animate();
+  };
+
+  Carousal.prototype.getAnimate = function (current, required, direction, jump){
     var self = this;
-    function animate(){
+    var notComplete = true;
+    return function(){
       current += (direction * 40 * jump);
       self.carouselImageWrapper.style.left = current + 'px';
       if ((direction == -1 && current <= required) || (direction == 1 && current >= required)) notComplete = false;
-      if (notComplete) requestAnimationFrame(animate);
+      if (notComplete) requestAnimationFrame(self.animate);
     }
-    animate();
-  };
+  }
 
   var addSingleIndicator = function (outerContainer, indicatorValue) {
     this.indicatorSize = 12;
