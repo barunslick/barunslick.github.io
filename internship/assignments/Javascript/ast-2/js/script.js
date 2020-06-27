@@ -32,8 +32,8 @@
       var currentIndicatorIndex = self.currentIndex - 1;
       if (targetIndex != undefined && targetIndex != currentIndicatorIndex) self.changeDot(currentIndicatorIndex, targetIndex);
     })
-    self.inBetweenAnimation = false; 
-    self.selfAnimate();
+    //self.inBetweenAnimation = false; 
+    //self.selfAnimate();
   }
 
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
@@ -98,14 +98,17 @@
     var self = this;
     var notComplete = true;
     return function(){
-      clearInterval(self.my_timer); //everytime a shift in imade is done ..prevoius timer is cleared and new timer is started.
-      current += (direction * 40 * jump);
+      clearInterval(self.my_timer); //everytime a shift in imade is done ..prevoius timer is cleared and new timer is started
       self.carouselImageWrapper.style.left = current + 'px';
-      if ((direction == -1 && current <= required) || (direction == 1 && current >= required)) notComplete = false;
+      if ((direction == -1 && current <= required) || (direction == 1 && current >= required)) {
+        notComplete = false;
+      }else{
+        current += (direction * 40 * jump);
+      };
       if (notComplete) {
         requestAnimationFrame(self.animate)
       }else{
-        self.selfAnimate();
+        //self.selfAnimate();
       };
     }
   }
