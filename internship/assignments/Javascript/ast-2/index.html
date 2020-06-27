@@ -18,7 +18,10 @@
     </div>
     <script src="js/script.js"></script>
     <script>
-        var myCarousel = C$('.one'); // C$ is shorthand isntead of new
+        var myCarousel = C$('.one'); // C$ is shorthand isntead of new, by default transition Time = 0.3, holdTime = 4secs
+        myCarousel.setTransitionTime (0.4);
+        myCarousel.setHoldTime(5);
+        //var myCarousel2 = C$('.two');
     </script>
 </body>
 </html>
