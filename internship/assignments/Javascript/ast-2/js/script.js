@@ -1,17 +1,18 @@
 (function (global) { // whole code is wrapper in iffe to prevent collision with other libraries and packages.
 
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;  
+  var requestAnimationFrame = global.requestAnimationFrame || gloabl.mozRequestAnimationFrame ||
+                            global.webkitRequestAnimationFrame || gloabl.msRequestAnimationFrame;  
 
-  var Carousal = function (carousalContainerClass, transitionTime = 0, holdTime = 0){
-    return new Carousal.init(carousalContainerClass, transitionTime, holdTime); //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
+  var fps = 60; //caping fps to 60 so that animation doesnt run faster on higher refesh monitors
+  var fpsInterval = 1000/fps;
+  
+  var Carousal = function (carousalContainerClass, transitionTimeSec = 0.3, holdTimeSec = 4){
+    return new Carousal.init(carousalContainerClass, transitionTimeSec, holdTimeSec); //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
   }
 
-  Carousal.init = function(carousalContainerClass, transitionTime, holdTime){
+  Carousal.init = function(carousalContainerClass, transitionTimeSec, holdTimeSec){
     var self = this;
     self.currentIndex = 1;
-    self.transitionTime = transitionTime;
-    self.holdTime = holdTime;
     self.arrayIndicators = [];
     self.carousalContainer = document.querySelector(carousalContainerClass);
     self.carouselImageWrapper = self.carousalContainer.children[0];
@@ -19,6 +20,8 @@
     self.carouselImageWrapper.style.left = - self.imageSize + 'px';
     self.createClone(self.carouselImageWrapper);
     self.noOfImages = self.carouselImageWrapper.childElementCount - 2;
+    self.setHoldTime(holdTimeSec);
+    self.setTransitionTime(transitionTimeSec);
     [self.leftBtn, self.rightBtn] = self.createSideButtons(self.carousalContainer);
     self.leftBtn.element.addEventListener('click',function(imageSize){
       self.leftBtn.leftClick(self,self.imageSize);
@@ -37,6 +40,16 @@
 
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
   global.Carousal = global.C$ = Carousal; //exposing Carousal to global object and making shorthand reference of C$ to be able to create new objects using it for end use
+
+  Carousal.prototype.setTransitionTime = function (time){
+    time = (time < 0.3 || time > 2) ? 0.3 : time;
+    this.transitionTime = this.imageSize / (fps * time);
+  }
+
+  Carousal.prototype.setHoldTime = function (time){
+    time = (time < 4 || time > 20) ? 4 : time;
+    this.holdTime = time * 1000; 
+  }
 
   Carousal.prototype.createClone = function (carouselImageWrapper){
     this.firstImage = carouselImageWrapper.firstElementChild;
@@ -96,26 +109,35 @@
   Carousal.prototype.getAnimate = function (current, required, direction, jump){
     var self = this;
     var notComplete = true;
+    var then = performance.now();
+    var count = 0;
     return function(){
+      
       clearInterval(self.my_timer); //everytime a shift in imade is done ..prevoius timer is cleared and new timer is started
-      self.carouselImageWrapper.style.left = current + 'px';
-      if ((direction == -1 && current <= required) || (direction == 1 && current >= required)) {
-        notComplete = false;
-      }else{
-        current += (direction * 40 * jump);
-      };
-      if (notComplete) {
-        requestAnimationFrame(self.animate)
-      }else{
+      if (!notComplete) {
         self.selfAnimate();
-      };
+        return;
+      }
+      requestAnimationFrame(self.animate);
+      var now = performance.now();
+      var elapsed = now - then;
+      if (elapsed > fpsInterval){
+        count ++;
+        then = now - (elapsed % fpsInterval); //since RAF repeats at 16ms for every 60fps screen..we need to make up for our fpsInterval not being mupltiple of 16.67;
+        self.carouselImageWrapper.style.left = current + 'px';
+        if ((direction == -1 && Math.round(current) <= required) || (direction == 1 && Math.round(current) >= required)) {
+          notComplete = false;
+        }else{
+          current += (direction * self.transitionTime * jump);
+        };
+      }
     }
   }
 
   Carousal.prototype.selfAnimate = function(){
     this.my_timer = setInterval(function(){ //making my_timer linked to main object so that it can be easy to kill it whenever needed
       this.rightBtn.rightClick(this,this.imageSize);
-    }.bind(this),3000)
+    }.bind(this),this.holdTime);
   }
 
   var addSingleIndicator = function (outerContainer, indicatorValue) {
