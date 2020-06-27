@@ -4,8 +4,7 @@
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
-    margin: 0 auto;
-
+    margin: auto;
 }   
 .carousel-image-wrapper{
     position: absolute;
@@ -17,6 +16,10 @@
     float: left;
     width:1000px;
     height:100%;
+}
+.carousel-container .controller{
+    position: absolute;
+    top: 700px;   
 }
 .clearfix::after{
     content: '';
