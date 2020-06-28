@@ -1,11 +1,11 @@
 (function (global) { // whole code is wrapper in iffe to prevent collision with other libraries and packages.
+  
+  var fps = 60; //caping fps to 60 so that animation doesnt run faster on higher refesh monitors
+  var fpsInterval = 1000/fps;
 
   var requestAnimationFrame = global.requestAnimationFrame || gloabl.mozRequestAnimationFrame ||
                             global.webkitRequestAnimationFrame || gloabl.msRequestAnimationFrame;  
 
-  var fps = 60; //caping fps to 60 so that animation doesnt run faster on higher refesh monitors
-  var fpsInterval = 1000/fps;
-  
   var Carousal = function (carousalContainerClass, transitionTimeSec = 0.3, holdTimeSec = 4){
     return new Carousal.init(carousalContainerClass, transitionTimeSec, holdTimeSec); //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
   }
@@ -42,12 +42,16 @@
   global.Carousal = global.C$ = Carousal; //exposing Carousal to global object and making shorthand reference of C$ to be able to create new objects using it for end use
 
   Carousal.prototype.setTransitionTime = function (time){
-    time = (time < 0.3 || time > 2) ? 0.3 : time;
+    var minAllowedTranisitionTime = 0.3;
+    var maxAllowedTranisitionTime = 2;
+    time = (time < minAllowedTranisitionTime || time > maxAllowedTranisitionTime) ? 0.3 : time;
     this.transitionTime = this.imageSize / (fps * time);
   }
 
   Carousal.prototype.setHoldTime = function (time){
-    time = (time < 4 || time > 20) ? 4 : time;
+    var minAllowedHoldTime = 4;
+    var maxAllowedHoldTime = 20;
+    time = (time < minAllowedHoldTime || time > maxAllowedHoldTime) ? 4 : time;
     this.holdTime = time * 1000; 
   }
 
@@ -159,7 +163,6 @@
     this.element.style.paddingTop = btnSize/5 + 'px';  // using 5 as magic number for now..will find a general solution later
     this.element.style.width = btnSize + 'px';
     this.element.style.borderRadius = btnSize / 2 + 'px';
-    
     if (btnDirection == 'left'){
       this.element.style.left = '20px';
       this.element.innerHTML = '&#9001;';
