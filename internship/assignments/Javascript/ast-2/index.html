@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Slider</title>
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,11 +17,20 @@
             <img src="images/c5.jpg" title = "Old Shop In Kathmandu">
         </div>
     </div>
+    <div class = "carousel-container two">
+        <div class = "carousel-image-wrapper clearfix">
+            <img src="images/j1.jpg" title = "Japan">
+            <img src="images/j2.jpg" title = "Japan">
+            <img src="images/j3.jpg" title = "Japan">
+        </div>
+    </div>
     <script src="js/script.js"></script>
     <script>
         var myCarousel = C$('.one'); // C$ is shorthand instead of new, by default transition Time = 0.3, holdTime = 4secs
-        myCarousel.setTransitionTime (0.4);
-        myCarousel.setHoldTime(5);
+        myCarousel.setTransitionTime (0.5);
+        myCarousel.setHoldTime(8);
+
+        var myCarousel = C$('.two'); // everything with default value
     </script>
 </body>
 </html>
