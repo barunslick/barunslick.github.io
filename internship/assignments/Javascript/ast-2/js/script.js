@@ -26,18 +26,7 @@
     self.setHoldTime(holdTimeSec = 4);
     self.setTransitionTime(transitionTimeSec = 0.3);
     [self.leftBtn, self.rightBtn] = self.createSideButtons(self.carousalContainer);
-    self.leftBtn.element.addEventListener('click',function(){
-      self.leftBtn.leftClick.call(self);
-    });
-    self.rightBtn.element.addEventListener('click',function(){
-      self.rightBtn.rightClick.call(self);
-    });
-    self.indicatorHolder = self.createIndicators(self.carousalContainer, self.arrayIndicators ,self.noOfImages);
-    self.indicatorHolder.addEventListener('click', function(e){
-      var targetIndex = e.target.value;
-      var currentIndicatorIndex = self.currentIndex - 1;
-      if (targetIndex != undefined && targetIndex != currentIndicatorIndex) self.changeDot(currentIndicatorIndex, targetIndex);
-    });
+    self.setUpEventListeners();
     self.selfAnimate();
   };
 
@@ -51,6 +40,22 @@
     time = (time < minAllowedTranisitionTime || time > maxAllowedTranisitionTime) ? 0.3 : time;
     this.transitionTime = 100 / (fps * time);
   };
+
+  Carousal.prototype.setUpEventListeners = function(){
+    var self = this;
+    self.leftBtn.element.addEventListener('click',function(){
+      self.leftBtn.leftClick.call(self);
+    });
+    self.rightBtn.element.addEventListener('click',function(){
+      self.rightBtn.rightClick.call(self);
+    });
+    self.indicatorHolder = self.createIndicators(self.carousalContainer, self.arrayIndicators ,self.noOfImages);
+    self.indicatorHolder.addEventListener('click', function(e){
+      var targetIndex = e.target.value;
+      var currentIndicatorIndex = self.currentIndex - 1;
+      if (targetIndex != undefined && targetIndex != currentIndicatorIndex) self.changeDot(currentIndicatorIndex, targetIndex);
+    });
+  }
 
   Carousal.prototype.setHoldTime = function (time){
     var minAllowedHoldTime = 4;
