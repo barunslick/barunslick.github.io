@@ -1,0 +1,20 @@
+.carousel-container{
+    width:100%;
+    max-width:650px;
+    height:400px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+}  
+
+.carousel-image-wrapper{
+    position: absolute;
+    height:400px;
+    display: inline-block;
+}
+
+.carousel-image-wrapper img{
+    float: left;
+    height:100%;
+}
