@@ -10,24 +10,31 @@
     return new Carousal.init(carousalContainerClass, transitionTimeSec, holdTimeSec); //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
   }
 
+
   Carousal.init = function(carousalContainerClass, transitionTimeSec, holdTimeSec){
     var self = this;
     self.currentIndex = 1;
     self.arrayIndicators = [];
     self.carousalContainer = document.querySelector(carousalContainerClass);
     self.carouselImageWrapper = self.carousalContainer.children[0];
-    self.imageSize = self.carouselImageWrapper.children[0].clientWidth;
-    self.carouselImageWrapper.style.left = - self.imageSize + 'px';
     self.createClone(self.carouselImageWrapper);
     self.noOfImages = self.carouselImageWrapper.childElementCount - 2;
+    //self.setUpDimension();
+    self.carouselImageWrapper.style.width = (self.noOfImages +2)*100 + '%';
+    for (var i = 0; i < this.carouselImageWrapper.children.length; i++ ){
+      this.carouselImageWrapper.children[i].style.width = 100/(self.noOfImages + 2) + '%';
+    }
+    self.imageSize = self.carouselImageWrapper.children[0].clientWidth;
+    self.currentWidth = self.carousalContainer.clientWidth;
+    self.carouselImageWrapper.style.left = - 100 + '%';
     self.setHoldTime(holdTimeSec);
     self.setTransitionTime(transitionTimeSec);
     [self.leftBtn, self.rightBtn] = self.createSideButtons(self.carousalContainer);
-    self.leftBtn.element.addEventListener('click',function(imageSize){
-      self.leftBtn.leftClick(self,self.imageSize);
+    self.leftBtn.element.addEventListener('click',function(){
+      self.leftBtn.leftClick(self,self.carousalContainer.clientWidth);
     })
-    self.rightBtn.element.addEventListener('click',function(imageSize){
-      self.rightBtn.rightClick(self,self.imageSize);
+    self.rightBtn.element.addEventListener('click',function(){
+      self.rightBtn.rightClick(self,self.carousalContainer.clientWidth);
     })
     self.indicatorHolder = self.createIndicators(self.carousalContainer, self.arrayIndicators ,self.noOfImages);
     self.indicatorHolder.addEventListener('click', function(e){
@@ -38,6 +45,7 @@
     self.selfAnimate();
   }
 
+  
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
   global.Carousal = global.C$ = Carousal; //exposing Carousal to global object and making shorthand reference of C$ to be able to create new objects using it for end use
 
@@ -45,7 +53,7 @@
     var minAllowedTranisitionTime = 0.3;
     var maxAllowedTranisitionTime = 2;
     time = (time < minAllowedTranisitionTime || time > maxAllowedTranisitionTime) ? 0.3 : time;
-    this.transitionTime = this.imageSize / (fps * time);
+    this.transitionTime = 100 / (fps * time);
   }
 
   Carousal.prototype.setHoldTime = function (time){
@@ -72,17 +80,11 @@
     return [btnLeftRef, btnRightRef];
   }
   
-  Carousal.prototype.updateIndex = function(direction, jump){
-    this.currentIndex += -(direction * jump);
-    this.currentIndex = this.currentIndex == 0 ? 5 : this.currentIndex;
-    this.currentIndex = this.currentIndex == 5 + 1 ? 1 : this.currentIndex;
-  }
-
   Carousal.prototype.changeDot = function(currentDot, requiredDot){
     var jump = Math.abs(requiredDot - currentDot);
-    var currentPos = -(this.currentIndex * this.imageSize);
-    var requiredPos = (requiredDot) * (-this.imageSize) - this.imageSize;
+    var currentPos = -(this.currentIndex * 100);
     var direction = (requiredDot > currentDot) ? -1 : 1;
+    var requiredPos = currentPos + (100 * direction * jump);
     this.slide(currentPos, requiredPos, direction, jump);
   }
 
@@ -102,21 +104,27 @@
     return indicatorHolder;
   }
 
+  Carousal.prototype.updateIndex = function(direction, jump){
+    this.currentIndex += -(direction * jump);
+    this.currentIndex = this.currentIndex == 0 ? 5 : this.currentIndex;
+    this.currentIndex = this.currentIndex == 5 + 1 ? 1 : this.currentIndex;
+  }
+
   Carousal.prototype.slide = function (current, required, direction, jump = 1) { //jump is used to boost speed if indictor is used to select images and also to update index
     var tempIndex = this.currentIndex;
-    this.updateIndex(direction, jump);
-    this.changeDotColor(tempIndex - 1, this.currentIndex - 1);
     this.animate = this.getAnimate(current, required, direction, jump); //sending this varaibles as arguments to set it into the closure of returning function
     this.animate();
+    this.updateIndex(direction, jump);
+    this.changeDotColor(tempIndex - 1, this.currentIndex - 1);
+    
   };
-
+  
+  
   Carousal.prototype.getAnimate = function (current, required, direction, jump){
     var self = this;
     var notComplete = true;
     var then = performance.now();
-    var count = 0;
     return function(){
-      
       clearInterval(self.my_timer); //everytime a shift in imade is done ..prevoius timer is cleared and new timer is started
       if (!notComplete) {
         self.selfAnimate();
@@ -126,9 +134,8 @@
       var now = performance.now();
       var elapsed = now - then;
       if (elapsed > fpsInterval){
-        count ++;
         then = now - (elapsed % fpsInterval); //since RAF repeats at 16ms for every 60fps screen..we need to make up for our fpsInterval not being mupltiple of 16.67;
-        self.carouselImageWrapper.style.left = current + 'px';
+        self.carouselImageWrapper.style.left = current + '%';
         if ((direction == -1 && Math.round(current) <= required) || (direction == 1 && Math.round(current) >= required)) {
           notComplete = false;
         }else{
@@ -173,14 +180,15 @@
   }
 
   Button.prototype.leftClick = function (self, imageSize){
-    var currentPos = -(self.currentIndex * imageSize);
-    var requiredPos = currentPos + imageSize;
+    var currentPos = -(self.currentIndex * 100);
+    var requiredPos = currentPos + 100;
     self.slide(currentPos, requiredPos, 1);
+    
   };
 
   Button.prototype.rightClick = function (self, imageSize){
-    var currentPos = -(self.currentIndex * imageSize);
-    var requiredPos = currentPos - imageSize;
+    var currentPos = -(self.currentIndex * 100);
+    var requiredPos = currentPos - 100;
     self.slide(currentPos, requiredPos, -1);
   };
 
