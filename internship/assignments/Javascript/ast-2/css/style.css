@@ -1,33 +1,17 @@
-.carousel-container{
-    width:100%;
-    max-width:1000px;
-    height:550px;
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    margin: auto;
-}   
-.carousel-image-wrapper{
-    position: absolute;
-    height:550px;
-    display: inline-block;
-}
-.carousel-image-wrapper img{
-    float: left;
-    height:100%;
-}
-.carousel-container .controller{
-    position: absolute;
-    top: 700px;   
-}
 .clearfix::after{
     content: '';
     clear: both;
     display: table;
 }
+
 .dot-active{
     background-color: #677381;   
 }
+
+.dot:hover{
+    background-color: #9aa7b6;   
+}
+
 .indicator-holder{
     position : absolute;
     width : 100%;
@@ -40,6 +24,9 @@
     margin-right : 5px;
     cursor : pointer;
     display : inline-block;
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
 }
 .side-buttons{
     position: absolute;
@@ -50,7 +37,26 @@
     text-align: center;
     justify-content: center;
     box-sizing: border-box;
+    background-color : #5a92a5;
+    height : 40px;
+    padding-top : 8px; 
+    width : 40px;
+    border-radius: 20px;
+}
+.side-buttons:hover{
     background-color : #677381;
+}
+
+.side-buttons:active{
+    background-color: #76738d;
+}
+
+.left-btn{
+    left: 20px;
+}
+
+.right-btn{
+    right:20px;   
 }
 
 @media (max-width:425px){
@@ -62,12 +68,35 @@
     }
 
 }
-@media (max-width:760px){
+@media (max-width:768px){
     .carousel-container{
-        height:450px;
+        height:350px;
     }
     .carousel-image-wrapper{
-        height:450px;
+        height:350px;
     }
-
+    .dot {
+        height: 14px;
+        width: 14px;
+        border-radius: 7px;
+    }
+    .side-buttons{
+        height : 52px;
+        padding-top : 14px; 
+        width : 52px;
+        border-radius: 26px;
+    }
+    .left-btn{
+        left: -25px;
+        text-align: end;
+        padding-right:12px;
+    }
+    .right-btn{
+        right: -25px;
+        text-align: start;
+        padding-left:12px;
+    }
+    .indicator-holder{
+        bottom : 20px;;
+    }
 }
