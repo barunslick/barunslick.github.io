@@ -29,11 +29,9 @@
     </div> 
     <script src="js/script.js"></script>
     <script>
-        var myCarousel = C$('.one'); // C$ is shorthand instead of new, by default transition Time = 0.3, holdTime = 4secs
-        myCarousel.setTransitionTime (0.7);
-        myCarousel.setHoldTime(8);
-
-        var myCarousel = C$('.two'); // everything with default value
+        var myCarousel = C$('.one', 0.7, 8); // C$ is shorthand instead of new, by default transition Time = 0.3, holdTime = 4secs
+        //end user can also setUp times with myCarousal.setHoldTime or myCarousal.setTransitionTime
+        var myCarousel2 = C$('.two'); // everything with default value
     </script>
 </body>
 </html>

@@ -1,16 +1,24 @@
-(function (global) { // whole code is wrapper in iffe to prevent collision with other libraries and packages.
-  
-  var fps = 60; //caping fps to 60 so that animation doesnt run faster on higher refesh monitors
+ // whole code is wrapper in iffe to prevent collision with other libraries and packages.
+(function (global) {
+
+  //caping fps to 60 so that animation doesnt run faster on higher refesh monitors
+  var fps = 60; 
   var fpsInterval = 1000/fps;
 
   var requestAnimationFrame = global.requestAnimationFrame || gloabl.mozRequestAnimationFrame ||
                             global.webkitRequestAnimationFrame || gloabl.msRequestAnimationFrame;  
 
-  var Carousal = function (carousalContainerClass){
-    return new Carousal.init(carousalContainerClass); //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
+  var minAllowedTranisitionTime = 0.3;
+  var maxAllowedTranisitionTime = 2;
+  var minAllowedHoldTime = 3;
+  var maxAllowedHoldTime = 20;
+
+  //returning new so that end user doesnt have to type new and just use shorthand C$() just like injquery
+  var Carousal = function (carousalContainerClass , transitionTime = minAllowedTranisitionTime, holdTime = minAllowedHoldTime){
+    return new Carousal.init(carousalContainerClass, transitionTime, holdTime); 
   };
 
-  Carousal.init = function(carousalContainerClass){
+  Carousal.init = function(carousalContainerClass, transitionTime, holdTime){
     var self = this;
     self.currentIndex = 1;
     self.arrayIndicators = [];
@@ -23,20 +31,18 @@
     self.imageSize = self.carouselImageWrapper.children[0].clientWidth;
     self.currentWidth = self.carousalContainer.clientWidth;
     self.carouselImageWrapper.style.left = - 100 + '%';
-    self.setHoldTime(holdTimeSec = 4);
-    self.setTransitionTime(transitionTimeSec = 0.3);
+    self.setHoldTime(holdTime);
+    self.setTransitionTime(transitionTime);
     [self.leftBtn, self.rightBtn] = self.createSideButtons(self.carousalContainer);
     self.setUpEventListeners();
     self.selfAnimate();
   };
 
-  
   Carousal.init.prototype = Carousal.prototype; //making sure init's prototype protype property and Carousal prototype are same
   global.Carousal = global.C$ = Carousal; //exposing Carousal to global object and making shorthand reference of C$ to be able to create new objects using it for end use
 
   Carousal.prototype.setTransitionTime = function (time){
-    var minAllowedTranisitionTime = 0.3;
-    var maxAllowedTranisitionTime = 2;
+
     time = (time < minAllowedTranisitionTime || time > maxAllowedTranisitionTime) ? 0.3 : time;
     this.transitionTime = 100 / (fps * time);
   };
@@ -58,8 +64,6 @@
   }
 
   Carousal.prototype.setHoldTime = function (time){
-    var minAllowedHoldTime = 4;
-    var maxAllowedHoldTime = 20;
     time = (time < minAllowedHoldTime || time > maxAllowedHoldTime) ? 4 : time;
     this.holdTime = time * 1000;
   };
@@ -126,7 +130,6 @@
     
   };
   
-  
   Carousal.prototype.getAnimate = function (current, required, direction, jump){
     var self = this;
     var notComplete = true;
@@ -158,12 +161,15 @@
     }.bind(this),this.holdTime);
   };
 
+  //Dots are also added as seperate objects
   var addSingleIndicator = function (outerContainer, indicatorValue) {
     this.indicator = document.createElement('div');
     this.indicator.value = indicatorValue;
     this.indicator.classList.add('dot');
     outerContainer.appendChild(this.indicator);
   };
+
+  //Buttons are created as seperate object
   var Button = function (btnDirection){
     this.element = document.createElement('div');
     this.btnDirection = btnDirection;
