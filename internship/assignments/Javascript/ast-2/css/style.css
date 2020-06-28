@@ -1,5 +1,6 @@
 .carousel-container{
-    width:1000px;
+    width:100%;
+    max-width:1000px;
     height:550px;
     position: relative;
     box-sizing: border-box;
@@ -8,13 +9,11 @@
 }   
 .carousel-image-wrapper{
     position: absolute;
-    width: 7000px;
     height:550px;
     display: inline-block;
 }
 .carousel-image-wrapper img{
     float: left;
-    width:1000px;
     height:100%;
 }
 .carousel-container .controller{
@@ -52,4 +51,23 @@
     justify-content: center;
     box-sizing: border-box;
     background-color : #677381;
+}
+
+@media (max-width:425px){
+    .carousel-container{
+        height:250px !important;
+    }
+    .carousel-image-wrapper{
+        height:250px !important;
+    }
+
+}
+@media (max-width:760px){
+    .carousel-container{
+        height:450px;
+    }
+    .carousel-image-wrapper{
+        height:450px;
+    }
+
 }
