@@ -18,3 +18,10 @@
     float: left;
     height:100%;
 }
+.left-btn{
+    left: 20px;
+}
+
+.right-btn{
+    right:20px;   
+}
