@@ -7,11 +7,14 @@ const pi = Math.PI;
 //get  CanvasRenderingContext2D object
 var ctx = canvas.getContext('2d');
 
-let noOfBalls = 1000;
+var radiusMinrange = 20;
+var radiusMaxrange = 60;
+
+let noOfBalls = 30; //change radius range while stress testing
 let ballsArray = []
 function init(){
   for (let i = 0; i < noOfBalls; i++){
-    let radius = getRandomIntRange(2,5);
+    let radius = getRandomIntRange(radiusMinrange,radiusMaxrange);
     let x = getRandomIntRange(radius, window.innerWidth-radius); // this basically gives us an integer value from raidus to total width - raidus so that it doesnt pop up outside boundry
     let y = getRandomIntRange(radius, window.innerHeight-radius);
     let checker = false;
@@ -20,7 +23,7 @@ function init(){
       y: getRandomIntRange(-5,5)
     };
     if (ballsArray.length !==0){
-      checker = checkOverlap(x, y, radius, ballsArray)
+      checker = checkOverlap(x, y, radius, ballsArray);
     }
     if(checker){
       i--;
@@ -47,18 +50,12 @@ function render(){
   window.requestAnimationFrame(render);
   ctx.clearRect(0,0, window.innerWidth, window.innerHeight);
   ballsArray.forEach( ball => {
-    
+    ball.draw();
     ball.updatePosition();
     ball.checkWallCollision();
-    ball.checkBallCollision( ballsArray);
-    ball.draw();
+    ball.checkBallCollision(ballsArray);
   });
-  
 }
-
-
-
-
 
 //gets a random value from given range
 function getRandomIntRange(min, max) {
