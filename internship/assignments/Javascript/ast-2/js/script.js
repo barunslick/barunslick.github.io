@@ -34,6 +34,7 @@
     self.setHoldTime(holdTime);
     self.setTransitionTime(transitionTime);
     [self.leftBtn, self.rightBtn] = self.createSideButtons(self.carousalContainer);
+    self.indicatorHolder = self.createIndicators(self.carousalContainer, self.arrayIndicators ,self.noOfImages);
     self.setUpEventListeners();
     self.selfAnimate();
   };
@@ -42,7 +43,6 @@
   global.Carousal = global.C$ = Carousal; //exposing Carousal to global object and making shorthand reference of C$ to be able to create new objects using it for end use
 
   Carousal.prototype.setTransitionTime = function (time){
-
     time = (time < minAllowedTranisitionTime || time > maxAllowedTranisitionTime) ? 0.3 : time;
     this.transitionTime = 100 / (fps * time);
   };
@@ -55,7 +55,6 @@
     self.rightBtn.element.addEventListener('click',function(){
       self.rightBtn.rightClick.call(self);
     });
-    self.indicatorHolder = self.createIndicators(self.carousalContainer, self.arrayIndicators ,self.noOfImages);
     self.indicatorHolder.addEventListener('click', function(e){
       var targetIndex = e.target.value;
       var currentIndicatorIndex = self.currentIndex - 1;
