@@ -3,25 +3,30 @@ let antRadius = 30;
 let divHeight = document.querySelector('.ant-hive').clientHeight;
 let divWidth = document.querySelector('.ant-hive').clientWidth;
 var antArray = [];
-for (let i = 0; i < noOfAnts; i++) {
-	let checker = false;
-	let x = getRandomIntRange(antRadius, divWidth - antRadius);
-	let y = getRandomIntRange(antRadius, divHeight - antRadius);
-	let velocity = {
-		x: Math.random()-0.5,
-		y: Math.random()-0.5
+
+function init() {
+	for (let i = 0; i < noOfAnts; i++) {
+		let checker = false;
+		let x = getRandomIntRange(antRadius, divWidth - antRadius);
+		let y = getRandomIntRange(antRadius, divHeight - antRadius);
+		let velocity = {
+			x: Math.random() - 0.5,
+			y: Math.random() - 0.5
+		}
+		if (antArray.length !== 0) {
+			checker = checkOverlap(x, y, antRadius, antArray);
+		}
+		if (checker) {
+			i--;
+			continue;
+		}
+		antArray.push(new Ant(x, y, velocity, antRadius, i));
+		antArray[i].draw();
 	}
-	if (antArray.length !== 0) {
-		checker = checkOverlap(x, y, antRadius, antArray);
-	}
-	if (checker) {
-		i--;
-		continue;
-	}
-	antArray.push(new Ant(x, y, velocity, antRadius , i));
-	antArray[i].draw();
+	animate();
 }
 
+init();
 
 function animate() {
 	antArray.forEach(ant => {
@@ -33,11 +38,11 @@ function animate() {
 	});
 	window.requestAnimationFrame(animate);
 }
-animate();
 
 
-function updateArrayIndex(){
-	for(let i=0; i< antArray.length; i++){
+
+function updateArrayIndex() {
+	for (let i = 0; i < antArray.length; i++) {
 		antArray[i].arrayPosition = i;
 	}
 }
