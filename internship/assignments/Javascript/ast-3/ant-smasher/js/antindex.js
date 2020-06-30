@@ -7,7 +7,6 @@ for (let i = 0; i < noOfAnts; i++) {
 	let checker = false;
 	let x = getRandomIntRange(antRadius, divWidth - antRadius);
 	let y = getRandomIntRange(antRadius, divHeight - antRadius);
-	console.log(x,y)
 	let velocity = {
 		x: Math.random()-0.5,
 		y: Math.random()-0.5
