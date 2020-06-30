@@ -7,10 +7,10 @@ const pi = Math.PI;
 //get  CanvasRenderingContext2D object
 var ctx = canvas.getContext('2d');
 
-let radiusMinrange = 20;
-let radiusMaxrange = 60;
+let radiusMinrange = 2;
+let radiusMaxrange = 6;
 
-let noOfBalls = 30; //change radius range while stress testing
+let noOfBalls = 1000; //change radius range while stress testing
 let ballsArray = []
 function init(){
   for (let i = 0; i < noOfBalls; i++){
