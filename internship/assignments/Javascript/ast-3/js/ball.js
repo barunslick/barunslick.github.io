@@ -12,7 +12,6 @@ Ball.prototype.draw = function () {
 	ctx.beginPath();
 	ctx.arc(this.x, this.y, this.radius, 0, pi * 2, false);
 	ctx.fillStyle = this.color;
-	console.log(this.color);
 	ctx.fill();
 }
 
