@@ -1,10 +1,110 @@
 html,body{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 img{
     display: none;
 }
 canvas{
-    background-color: red;
+   position: absolute;
+}
+.wrapper{
+    position: absolute;
+    width: 450px;
+    height: 650px;
+    
+}
+
+.inner-contents{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+
+.inner-contents .top-row{
+    position: absolute;
+    height: 50px;
+    width: 450px;
+    background-color: rgba(0,0,0,0.4);
+    color:white;
+    font-size: 20px;
+    display: none;
+
+}
+.inner-contents .top-row .score{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+}
+.inner-contents .welcome{
+    position: absolute;
+    height: 650px;
+    width: 450px;
+    background: rgb(2,0,36);
+    background-image: linear-gradient(to left bottom, #28a745, #00ac88, #00acc8, #00a5f3, #0096fe, #0093fc, #008ff9, #008cf7, #0095ed, #009cdd, #00a0ca, #17a2b8);
+    text-align: center;
+    color: white;
+}
+.welcome .controll-details{
+    position: relative;
+    width: 400px;
+    height: 350px;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.welcome .controll-details button{
+    border: none;
+    cursor: pointer;
+    width:200px;
+    height: 40px;
+    background-color: #98e086;
+    color: white;
+    border-radius: 20px;
+    margin-top: 60px;
+}
+
+.welcome .controll-details .instrunctions{
+    margin-top:40px;
+}
+.inner-contents .game-over{
+    position: absolute;
+    height: 650px;
+    width: 450px;
+    background-color:rgba(67, 114, 131, 0.7);
+    display: none;
+}
+
+.inner-contents .game-over .game-details{
+    position: relative;
+    width: 250px;
+    height: 275px;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+}
+.game-over .game-details .center-content{
+    position: relative;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+.game-details .center-content button{
+    border: none;
+    cursor: pointer;
+    width:130px;
+    height: 30px;
+    background-color: #98e086;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.game-details .center-content #go-home{
+    margin-top: 20px;
+    background-color: #2f4858;
 }
