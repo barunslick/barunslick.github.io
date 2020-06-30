@@ -14,13 +14,15 @@ export default class Game {
     this.scoreDiv = document.getElementById('score-update');
     this.score = 0;
     this.previousEnemyLaneSpawn = 0;
-    this.enemyArray = []
+    this.enemyArray = [];
+    this.enemyCarSpeed = 2;
     this.pause = false;
     this.spawnEnemy();
-    setInterval(this.spawnEnemy.bind(this),4000);
+    setInterval(this.spawnEnemy.bind(this),2000);
   }
 
   update(){
+    console.log(this.enemyCarSpeed)
     if (this.pause){
       return ['finish' , this.score];
     };
@@ -45,25 +47,21 @@ export default class Game {
   updateScore(){
     if (this.pause) return;
     this.score += 1;
+    this.updateSpeed();
+  }
+
+  updateSpeed(){
+    this.enemyCarSpeed += 0.2; //increase speed by 0.2 by eaxh score
   }
 
   spawnEnemy(){
     let lane = Math.round((Math.random())*2);
-    let newEnemy = new EnemyCar(this, lane);
+    let newEnemy = new EnemyCar(this, lane, this.enemyCarSpeed);
     this.enemyArray.push(newEnemy);
   }
 
-  /* randomLaneGenerator(){
-    let randomLane = getRandomIntRange(0,2);
-    if (randomLane != this.previousEnemyLaneSpawn){
-      this.previousEnemyLaneSpawn = randomLane;
-      return randomLane;
-    }else{
-      this.randomLaneGenerator();
-    }
-  } */
-
 }
+
 function getRandomIntRange(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
