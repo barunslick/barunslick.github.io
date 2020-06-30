@@ -1,12 +1,18 @@
-.ant-hive{
-  width:100%;
+body.html{
+  margin: 0;
   height: 100%;
+  width: 100%;
+}
+.ant-hive{
+  width:800px;
+  height: 500px;
+  border: 1px solid black;
   position: relative;
 }
 .ant{
   position: absolute;
-  background: url('../images/ant.gif');
-  background-size: cover;
-  height: 80px;
+  background: url('../images/ant.gif') no-repeat;
+  background-size: contain;
+  height: 60px;
   width: 60px;
 }
