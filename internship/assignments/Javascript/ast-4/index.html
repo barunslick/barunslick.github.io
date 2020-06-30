@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2D Car Game</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
+    
     <canvas id= "gameCanvas" width="450" height="650"></canvas>
-    <script src="js/index.js" type= "module"></script>
+    <div class= "wrapper"></div>
+        <div class= "inner-contents">
+            <div class= "welcome">
+                <div class= "controll-details">
+                    <div class= "start-center-content">
+                           <h1>WELCOME</h1>
+                           <div class ="instrunctions">
+                                 <p>Use "A" to go Left</p>
+                                 <p>Use "D" to go Right</p>
+                                 <p>Use "Space" for dem bombs</p>
+                           </div>
+                           <button id = "go-btn">Challange Accepted</button>
+                           
+                    </div>
+                </div>
+            </div>
+            <div class= "top-row">
+                <div class = "score">
+                    Score : <span id= "score-update"></span>
+                </div>
+            </div>
+            <div class= "game-over">
+                <div class= "game-details">
+                    <div class= "center-content">
+                            <h2>GAME OVER</h2>
+                            <h3>Your score : <span id = "score-update-final"></span></h3>
+                            <button id = "retry-btn" > RETRY </button>
+                            <button id = "go-home"> HOME </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/index.js" type= "module"></script>
 </body>
 </html>
