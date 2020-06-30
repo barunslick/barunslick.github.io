@@ -1,15 +1,20 @@
 var mainDiv = document.querySelector('.ant-hive');
 
-var Ant = function (x, y, velocity) {
+var Ant = function (x, y, velocity, radius ,arrayPosition) {
 	this.x = x;
 	this.y = y;
-	this.radius = 30;
+	this.radius = radius;
+	this.arrayPosition = arrayPosition;
 	this.diameter = this.radius * 2;
 	this.velocity = velocity;
 	this.element = document.createElement('div');
 	this.element.classList.add('ant');
 	this.draw();
 	mainDiv.appendChild(this.element);
+	this.element.addEventListener('click', ()=> {
+		this.element.style.display = 'none';
+		antArray.splice(this.arrayPosition,1)
+	})
 }
 
 Ant.prototype.draw = function () {
@@ -18,8 +23,8 @@ Ant.prototype.draw = function () {
 }
 
 Ant.prototype.updatePosition = function () {
-	this.velocity.x = (this.velocity.x ==0) ? Math.random()*2: this.velocity.x;
-	this.velocity.y = (this.velocity.y ==0) ? Math.random()*2: this.velocity.y;
+	this.velocity.x = (this.velocity.x ==0) ? Math.random()-0.5: this.velocity.x;
+	this.velocity.y = (this.velocity.y ==0) ? Math.random()-0.5: this.velocity.y;
 	this.x += this.velocity.x;
 	this.y += this.velocity.y;
 }
