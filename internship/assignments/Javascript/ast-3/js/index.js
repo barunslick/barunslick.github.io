@@ -1,5 +1,5 @@
 //setting up the canvas
-var canvas = document.getElementById('ball-collision');
+let canvas = document.getElementById('ball-collision');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -7,8 +7,8 @@ const pi = Math.PI;
 //get  CanvasRenderingContext2D object
 var ctx = canvas.getContext('2d');
 
-var radiusMinrange = 20;
-var radiusMaxrange = 60;
+let radiusMinrange = 20;
+let radiusMaxrange = 60;
 
 let noOfBalls = 30; //change radius range while stress testing
 let ballsArray = []

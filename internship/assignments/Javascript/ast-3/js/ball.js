@@ -1,4 +1,4 @@
-var ballColors = ['#007bff', '#6610f2', '#fd7e14', '#ffc107', '#28a745', '#17a2b8', '#6c757d'];
+let ballColors = ['#007bff', '#6610f2', '#fd7e14', '#ffc107', '#28a745', '#17a2b8', '#6c757d'];
 
 var Ball = function (x, y, radius, velocity) {
 	this.x = x;
@@ -6,19 +6,6 @@ var Ball = function (x, y, radius, velocity) {
 	this.radius = radius;
 	this.velocity = velocity;
 	this.color = ballColors[getRandomIntRange(0,ballColors.length)]
-}
-
-Ball.prototype.hardSeperate = function(stickyPartner){
-	var helpVelocity = -(this.velocity.x) * 2; //2 amplifies the splitting process
-	var count = 0;
-	while(getDistance(this.x, this.y, stickyPartner.x, stickyPartner.y) <= (this.radius + stickyPartner.radius)){
-		this.x += helpVelocity;
-		this.updatePosition();
-		count++;
-		if (count >100){ //prevent going infinite loop
-			break;
-		}
-	}
 }
 
 Ball.prototype.draw = function () {
@@ -80,3 +67,16 @@ Ball.prototype.checkBallCollision = function(allBalls){
 	}
 }
 
+
+Ball.prototype.hardSeperate = function(stickyPartner){
+	var helpVelocity = -(this.velocity.x) * 2; //2 amplifies the splitting process
+	var count = 0;
+	while(getDistance(this.x, this.y, stickyPartner.x, stickyPartner.y) <= (this.radius + stickyPartner.radius)){
+		this.x += helpVelocity;
+		this.updatePosition();
+		count++;
+		if (count >100){ //prevent going infinite loop
+			break;
+		}
+	}
+}
