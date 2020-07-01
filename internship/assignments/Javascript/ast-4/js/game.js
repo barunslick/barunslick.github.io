@@ -2,6 +2,7 @@ import Environment from '../js/environment.js';
 import UserCar from '../js/usercar.js';
 import InputHandler from '../js/inputHandler.js'
 import EnemyCar from '../js/enemyCar.js'
+import AmmoManagement from '../js/ammoManagment.js';
 
 export default class Game {
   constructor(ctx, gameWidth, gameHeight) {
@@ -12,6 +13,7 @@ export default class Game {
     this.userCar = new UserCar(this);
     this.eventHandler = new InputHandler(this);
     this.scoreDiv = document.getElementById('score-update');
+    this.bulletDiv = document.getElementById('bullet-update');
     this.score = 0;
     this.previousEnemyLaneSpawn = 0;
     this.enemyArray = [];
@@ -22,11 +24,11 @@ export default class Game {
   }
 
   update(){
-    console.log(this.enemyCarSpeed)
     if (this.pause){
       return ['finish' , this.score];
     };
     this.scoreDiv.innerText = this.score;
+    this.bulletDiv.innerText = this.userCar.ammoManagement.curentAmmoCount;
     this.environment.update();
     this.userCar.update();
     this.enemyArray.forEach((enemy)=>{
@@ -34,7 +36,7 @@ export default class Game {
     })
     let newArray = [];
     for (let i = 0; i < this.enemyArray.length; i++){
-      if (this.enemyArray[i].y < this.gameHeight){
+      if (this.enemyArray[i].y < this.gameHeight && (this.enemyArray[i].collide == false)){
         newArray.push(this.enemyArray[i]);
       }else{
         this.updateScore();

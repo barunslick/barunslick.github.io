@@ -11,18 +11,13 @@ export default class EnemyCar {
 		this.x = (this.lane * this.game.gameWidth/3 + this.imageWidth/2) + 20; // 64 being image size;
 		this.y = -50;
 		this.speed = speed;
-		this.cross = false;
+		this.collide = false;
 	}
 
 	update(){
-		console.log(this.speed, '_________')
 		this.y += this.speed;
 		this.ctx.drawImage(this.enemyCarImage, this.x, this.y, this.imageWidth, this.imageHeight);
 		this.collisionDetection();
-		if (this.y > this.game.gameHeight){
-			this.cross = true;
-		}
-		
 	}
 
 	collisionDetection(){
