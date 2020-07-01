@@ -1,0 +1,9 @@
+html,body{
+    margin:0;
+    padding: 0;
+}
+.main-wrapper{
+    position: relative;
+    left: 50%;
+    margin-left: -450px;
+}
