@@ -8,42 +8,43 @@
     
 </head>
 <body>
-    
-    <canvas id= "gameCanvas" width="450" height="650"></canvas>
-    <div class= "wrapper"></div>
-        <div class= "inner-contents">
-            <div class= "welcome">
-                <div class= "controll-details">
-                    <div class= "start-center-content">
-                           <h1>WELCOME</h1>
-                           <div class ="instrunctions">
-                                 <p>Use "A" to go Left</p>
-                                 <p>Use "D" to go Right</p>
-                                 <p>Use "Space" for dem bombs</p>
-                           </div>
-                           <button id = "go-btn">Challange Accepted</button>
-                           <div class = tip>
-                            <p> Tip :1 ammo is added after every other 5 seconds. So, use you ammo wisely.</p>
-                            <p>You have a max of 8 ammos.</p>
-                           </div>
+    <div class = "main-wrapper">
+        <canvas id= "gameCanvas" width="450" height="650"></canvas>
+        <div class= "wrapper"></div>
+            <div class= "inner-contents">
+                <div class= "welcome">
+                    <div class= "controll-details">
+                        <div class= "start-center-content">
+                            <h1>WELCOME</h1>
+                            <div class ="instrunctions">
+                                    <p>Use "A" to go Left</p>
+                                    <p>Use "D" to go Right</p>
+                                    <p>Use "Space" for dem bombs</p>
+                            </div>
+                            <button id = "go-btn">Challange Accepted</button>
+                            <div class = tip>
+                                <p> Tip :1 ammo is added after every other 5 seconds. So, use you ammo wisely.</p>
+                                <p>You have a max of 8 ammos.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class= "top-row">
-                <div class = "score">
-                    Score : <span id= "score-update"></span>
+                <div class= "top-row">
+                    <div class = "score">
+                        Score : <span id= "score-update"></span>
+                    </div>
+                    <div class= "ammo">
+                        Bullet : <span id= "bullet-update"></span>
+                    </div>
                 </div>
-                <div class= "ammo">
-                    Bullet : <span id= "bullet-update"></span>
-                </div>
-            </div>
-            <div class= "game-over">
-                <div class= "game-details">
-                    <div class= "center-content">
-                            <h2>GAME OVER</h2>
-                            <h3>Your score : <span id = "score-update-final"></span></h3>
-                            <button id = "retry-btn" > RETRY </button>
-                            <button id = "go-home"> HOME </button>
+                <div class= "game-over">
+                    <div class= "game-details">
+                        <div class= "center-content">
+                                <h2>GAME OVER</h2>
+                                <h3>Your score : <span id = "score-update-final"></span></h3>
+                                <button id = "retry-btn" > RETRY </button>
+                                <button id = "go-home"> HOME </button>
+                        </div>
                     </div>
                 </div>
             </div>
