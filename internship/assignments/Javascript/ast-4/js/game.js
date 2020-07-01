@@ -1,7 +1,7 @@
-import Environment from '/js/environment.js';
-import UserCar from '/js/usercar.js';
-import InputHandler from '/js/inputHandler.js'
-import EnemyCar from '/js/enemyCar.js'
+import Environment from '../js/environment.js';
+import UserCar from '../js/usercar.js';
+import InputHandler from '../js/inputHandler.js'
+import EnemyCar from '../js/enemyCar.js'
 
 export default class Game {
   constructor(ctx, gameWidth, gameHeight) {
