@@ -37,6 +37,15 @@ canvas{
     top: 50%;
     transform: translateY(-50%);
     left: 16px;
+    float :left;
+    
+}
+.inner-contents .top-row .ammo{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    float :right;
 }
 .inner-contents .welcome{
     position: absolute;
@@ -49,8 +58,8 @@ canvas{
 }
 .welcome .controll-details{
     position: relative;
-    width: 400px;
-    height: 350px;
+    width: 350px;
+    height: 425px;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -66,6 +75,11 @@ canvas{
     border-radius: 20px;
     margin-top: 60px;
 }
+.welcome .controll-details .tip{
+    font-size: 10px;
+    margin-top: 80px;
+}
+
 
 .welcome .controll-details .instrunctions{
     margin-top:40px;
