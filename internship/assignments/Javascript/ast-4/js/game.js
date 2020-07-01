@@ -15,7 +15,6 @@ export default class Game {
     this.scoreDiv = document.getElementById('score-update');
     this.bulletDiv = document.getElementById('bullet-update');
     this.score = 0;
-    this.previousEnemyLaneSpawn = 0;
     this.enemyArray = [];
     this.enemyCarSpeed = 2;
     this.pause = false;
@@ -62,10 +61,4 @@ export default class Game {
     this.enemyArray.push(newEnemy);
   }
 
-}
-
-function getRandomIntRange(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

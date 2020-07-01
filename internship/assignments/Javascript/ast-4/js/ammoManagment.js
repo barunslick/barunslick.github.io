@@ -40,8 +40,6 @@ export default class AmmoManagement{
         let bullet = new Ammo(this.game, x, y, lane);
         this.bulletArray.push(bullet);
         this.curentAmmoCount -= 1;
-        }else{
-            
         }
     }
 
