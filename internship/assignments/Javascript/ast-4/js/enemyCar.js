@@ -4,7 +4,7 @@ export default class EnemyCar {
 		this.game = game;
 		this.ctx = this.game.ctx;
 		this.enemyCarImage = new Image;
-		this.enemyCarImage.src = '../images/' + getRandomIntRange(1,4) + '.png';
+		this.enemyCarImage.src = 'images/' + getRandomIntRange(1,4) + '.png';
 		this.imageHeight = 100;
 		this.imageWidth = 60;
 		this.lane = lane;

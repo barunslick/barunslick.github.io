@@ -4,7 +4,7 @@ export default class UserCar {
 		this.game = game;
 		this.ctx = this.game.ctx;
 		this.userCarImage = new Image;
-		this.userCarImage.src = '../images/player-car.png';
+		this.userCarImage.src = 'images/player-car.png';
 		this.imageHeight = 100;
 		this.imageWidth = 60;
 		this.lane = 1;

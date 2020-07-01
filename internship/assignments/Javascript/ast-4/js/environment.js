@@ -5,7 +5,7 @@ export default class Environment {
     this.yOffset = -this.game.gameHeight;
     this.ctx = this.game.ctx;
     this.roadImgEnvironment = new Image;
-    this.roadImgEnvironment.src = "../images/new-bg.png";
+    this.roadImgEnvironment.src = "images/new-bg.png";
   }
 
   update() {
