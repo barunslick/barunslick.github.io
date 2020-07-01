@@ -10,7 +10,7 @@ export default class Game {
 		this.gameHeight = gameHeight;
 		this.gameWidth = gameWidth;
 		this.canvasSprite = new Image;
-		this.canvasSprite.src = '../images/flappy.png';
+		this.canvasSprite.src = 'images/flappy.png';
 		this.background = new Environment(this);
 		this.bird = new Bird(this);
 		this.state = 0;
