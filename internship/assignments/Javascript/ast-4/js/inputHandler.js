@@ -13,6 +13,9 @@ export default class InputHandler {
 			else if(e.keyCode == 68){ //go right
 				game.userCar.goRight();
 			}
+			else if (e.keyCode == 32){
+				game.userCar.shoot();
+			}
 		})
 	}
 
