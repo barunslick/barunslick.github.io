@@ -8,7 +8,7 @@ export default class Obstacle{
 		this.ctx = this.game.ctx;
 		this.x = this.game.gameWidth;
 		this.dx = 4;
-		this.gap = 200;
+		this.gap = 150;
 		this.topY = randomTop;
 		[this.topObstacleSx, this.topObstacleSy, this.obstacleWidth, this.obstacleHeight] = getObstaclesTop();
 		[this.bottomObstacleSx, this.bottomObstacleSy, this.obstacleWidth, this.obstacleHeight] = getObstaclesBottom();
