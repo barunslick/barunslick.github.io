@@ -17,7 +17,8 @@ export default class InputHandler{
         if (this.game.gameStatus == 0){
             this.game.gameStatus = 1;
         }else if (this.game.gameStatus == 1){
-            this.game.bird.y -= 100;
+            if (this.game.bird.y >= 0) this.game.bird.moveUp();;
+            
         }else{
             this.game.score = 0;
             this.game.gameStatus = 1;
