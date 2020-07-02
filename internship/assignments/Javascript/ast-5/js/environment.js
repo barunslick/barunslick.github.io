@@ -43,7 +43,7 @@ export default class Environment {
 			while (initailScore != 0) {
 				let index = initailScore % 10;
 				initailScore = Math.floor(initailScore / 10);
-				this.ctx.drawImage(this.game.canvasSprite, ...(this.numbers[index]), initialX - count * 15, initialY, this.numbers[index][2] * CURRENT_SCORE_SCALE , this.numbers[index][3] * CURRENT_SCORE_SCALE);
+				this.ctx.drawImage(this.game.canvasSprite, ...(this.numbers[index]), initialX - count * 32, initialY, this.numbers[index][2] * CURRENT_SCORE_SCALE , this.numbers[index][3] * CURRENT_SCORE_SCALE);
 				count++;
 			};
 		};
