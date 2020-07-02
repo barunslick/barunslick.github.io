@@ -11,7 +11,7 @@ function init(){
     let game = new Game(ctx, gameWidth, gameHeight);
     function render(timestamp){
         game.update();
-        requestAnimationFrame(render);  
+        requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
 }
