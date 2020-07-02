@@ -23,8 +23,6 @@ export default class Environment {
 
 	update() {
 		this.ctx.drawImage(this.game.canvasSprite, ...this.backgoundSprite);
-		this.ctx.drawImage(this.game.canvasSprite, ...this.backgoundSpriteBottom);
-
 		if (this.game.gameStatus == 0) {
 			this.welcomeScreen.forEach((item) => {
 				this.ctx.drawImage(this.game.canvasSprite, ...item);
@@ -34,9 +32,11 @@ export default class Environment {
 				this.ctx.drawImage(this.game.canvasSprite, ...item);
 			})
 			this.displayFinalScore();
-		} else {
-			this.displayCurrentScore();
 		}
+	}
+
+	updateBottom(){
+		this.ctx.drawImage(this.game.canvasSprite, ...this.backgoundSpriteBottom);
 	}
 
 	displayCurrentScore() {
