@@ -1,0 +1,2 @@
+const SCALE_FACTOR = 3;
+const CURRENT_SCORE_SCALE = 5;

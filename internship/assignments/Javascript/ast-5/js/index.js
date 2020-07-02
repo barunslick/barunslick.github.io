@@ -7,12 +7,15 @@ let gameHeight = canvas.clientHeight;
 let gameWidth = canvas.clientWidth;
 
 
-function init(){
-    let game = new Game(ctx, gameWidth, gameHeight);
-    function render(timestamp){
-        game.update();
-        requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
-}
+function init() {
+	let game = new Game(ctx, gameWidth, gameHeight);
+	render(game);
+};
 init();
+
+function render(game) {
+	game.update();
+	requestAnimationFrame(function () {
+		render(game)
+	});
+};
