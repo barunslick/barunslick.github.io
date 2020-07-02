@@ -3,6 +3,7 @@ import Environment from "../js/environment.js";
 import Bird from "../js/bird.js";
 import InputHandler from "../js/inputHandler.js";
 import Obstacle from "../js/obstacle.js";
+
 import { getRandomIntRange } from "../js/utilities.js";
 
 export default class Game {
