@@ -33,6 +33,7 @@ export default class Game {
 				if(oneObstacle.x < - oneObstacle.obstacleWidth * 3){
 					remove = true;
 				}
+				this.background.displayCurrentScore();
 			});
 			if(remove){
 				this.updateScore();
@@ -45,11 +46,11 @@ export default class Game {
 				this.bestScore = this.score > this.bestScore ? this.score : this.bestScore;
 				this.clearForNew();
 		}
-		
+		this.background.updateBottom();
 	}
 
 	spawnObstable(){
-		let randomTop = getRandomIntRange(-300,-100);
+		let randomTop = getRandomIntRange(-150,-350);
 		let newObstacle = new Obstacle(this, randomTop);
 		this.obstacle.push(newObstacle);
 	}
@@ -61,8 +62,10 @@ export default class Game {
 	clearForNew(){
 		this.bird.x = 70;
 		this.bird.y = 300;
+		this.bird.speed = 0;
 		this.obstacle = [];
 		this.mainFrame = 0;
+		this.bird.frame = 0;
 	}
 
 }
