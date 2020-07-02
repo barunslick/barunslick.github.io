@@ -8,7 +8,7 @@ export default class InputHandler{
 		document.addEventListener( 'click', _ => {
 			this.handler();
         });
-        document.addEventListener('keypress', e =>{
+        document.addEventListener('keyup', e =>{
             if (e.key == ' ') this.handler();  
         });
     };
