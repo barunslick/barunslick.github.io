@@ -23,9 +23,7 @@ export default class Bird {
       let moveBy = (this.game.mainFrame % 10) == 0 ? 1 : 0;
       this.frame += moveBy;
       this.frame = this.frame % this.totalFrames;
-      
     }
-
     if (this.y + this.height * 3 <= this.toStopPosition) {
       if (this.game.gameStatus == 1) {
         this.goDown();
