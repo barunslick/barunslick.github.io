@@ -2,11 +2,17 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: teal;
 }
 
+.heading{
+    text-align: center;
+    margin-top: 100px;
+}
 canvas{
+    margin-top: 100px;
     position: relative;
-    background-color: #043a4a;
     display: block;
     margin: 0 auto;
 }
