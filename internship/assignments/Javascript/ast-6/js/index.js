@@ -1,10 +1,11 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d');
 
-let maxCircleSize = 10;
-let rows = 12, columns = 12;
+const maxCircleSize = 10;
+const rows = 12, columns = 12;
+const repeat = 2;
 let angle = 0, frame = 0 ,speed = 0.04;
-let repeat = 2;
+
 function render(){
     ctx.clearRect(0,0,500,500);
     frame++;
@@ -28,6 +29,6 @@ function render(){
 
 function map (n, start1, stop1, start2, stop2) {
     return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
-  };
+};
 
 requestAnimationFrame(render)
