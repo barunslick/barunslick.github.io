@@ -14,7 +14,7 @@
     margin-top: 60px;
     display: grid;
     min-height: 500px;
-    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-columns: 15% 30% 40% 15%;
 }
 .timeline .timer > div{
     display: inline-block;
@@ -28,4 +28,18 @@
     display: grid;
     grid-row-gap: 10px;
     grid-template-columns: 4% 96%;    
+}
+.video-current .current-video-holder{
+    width:100%;
+    min-height: 300px;
+    background-color: black;   
+}
+.video-all .all-video-holder{
+    width: 100%;
+    height:500px;
+    background-color: black;
+}
+.video-all .all-video-holder canvas{
+    width: 100%;
+    height:500px;
 }

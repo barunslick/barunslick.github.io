@@ -19,10 +19,27 @@ body{
   border-top-right-radius: 10px;
   background-color: #5b606b;
 }
+.main-container .boxes .box-content{
+	padding:5px;
+	font-size: 13px;
+	cursor: pointer;
+}
+.main-container .boxes .box-content:nth-of-type(odd){
+	background-color: #303640;
+}
+.main-container .boxes .box-content:last-child{
+	margin-bottom: 10px;
+}
 .main-container .tools-resources > div:nth-child(1){
   margin-top:0px;
 }
 .main-container .tools-resources > div{
+  margin-top:20px;
+}
+.main-container .effects-filters > div:nth-child(1){
+  margin-top:0px;
+}
+.main-container .effects-filters > div{
   margin-top:20px;
 }
 .main-container  .boxes div{
@@ -34,7 +51,8 @@ body{
   width: 100%;
   box-shadow:  0 -4px 4px #5b606b;
   position: absolute;
-  bottom: 0;
+	bottom: 0;
+	background-color: #252830;
 }
 .timeline .timer .controls{
 	float: left;
@@ -89,4 +107,7 @@ body{
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     height: 50px;
+}
+#video-current{
+	width:100%;
 }
