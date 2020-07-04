@@ -1,0 +1,92 @@
+body{
+	background-color: #252830;   
+	font-family: 'Muli', Arial, Helvetica ,sans-serif;
+}
+.main .main-container > div{
+  padding: 0px 20px 0px 20px;
+}
+.main-container .boxes{
+  width: 100%;
+  border-radius: 10px;
+  background-color: #2d323c;
+  min-height: 100px;
+  min-width: 100%;
+}
+.main-container .boxes .box-heading{
+  display: grid;
+  grid-template-columns: 90% 10%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #5b606b;
+}
+.main-container .tools-resources > div:nth-child(1){
+  margin-top:0px;
+}
+.main-container .tools-resources > div{
+  margin-top:20px;
+}
+.main-container  .boxes div{
+  padding: 5px;
+}
+.timeline{
+  padding: 25px 20px 0px 20px;
+  min-height: 250px;
+  width: 100%;
+  box-shadow:  0 -4px 4px #5b606b;
+  position: absolute;
+  bottom: 0;
+}
+.timeline .timer .controls{
+	float: left;
+	display: flex;
+	width:95%;
+  justify-content:center;
+}
+.timeline .timer .controls img{
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.timeline .controls .playpause{
+	padding: 8px 15px 8px 15px;
+	border: 1px solid #5b606b;
+	border-radius: 5px;
+}
+.timeline .controls .playpause > div{
+	display: inline-block;
+	
+}
+.timeline .controls .playpause .play{
+	margin-right: 10px;
+	
+}
+.timeline .timer .time{
+    float: right;
+    font-size: 20px;
+}
+.timeline .slider input{
+    width: 96%;
+    float:right;
+}
+.timeline .video-audio .video-text{
+		display: flex;
+		align-items:center;
+    justify-content:center;
+		border-right: 1px solid grey;
+}
+.timeline .video-audio .music-text{
+	display: flex;
+	align-items:center;
+	justify-content:center; 
+  border-right: 1px solid grey
+}
+.timeline .video-pane{
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	height: 50px;
+}
+.timeline .music-pane{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    height: 50px;
+}
