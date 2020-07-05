@@ -2,7 +2,7 @@ let videoCurrent = document.getElementById('video-current');
 let videoCanvas = document.getElementById('all-video');
 let playButton = document.querySelector('.controls .playpause .play');
 
-let video_list = ['../assets/videos/Boat_13.mp4', '../assets/videos/hp.mp4']
+let video_list = ['assets/videos/Boat_13.mp4', 'assets/videos/hp.mp4']
 let videoArray = [];
 
 function preloadVideos(srcs) {
