@@ -1,7 +1,3 @@
-let videoCurrent = document.getElementById('video-current');
-let videoCanvas = document.getElementById('all-video');
-let playButton = document.querySelector('.controls .playpause .play');
-
 let video_list = ['assets/videos/Boat_13.mp4', 'assets/videos/hp.mp4']
 let videoArray = [];
 
@@ -28,10 +24,10 @@ function preloadVideos(srcs) {
 preloadVideos(video_list).then(function (videos) {
 	for(var i = 0; i < videos.length; i++){
 			let video = new Video(videos[i].src, videos[i].duration, videos[i], i);
-			videoArray.push(video)
+			videoArray.push(video);
 	}
-	main();
+	main(videoArray, video_list);
 }, function (errImg) {
-	console.log('fail')
+	console.log('failed to load videos.')
 });
 

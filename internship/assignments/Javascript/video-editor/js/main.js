@@ -1,16 +1,26 @@
 let videoLengthRatio;
-function main() {
-	videoLengthRatio = seekRatio(videoArray);
+let total; 
+let rangeDuration;
+
+function main(videoArray ,videoList) {
+	total = getTotal(videoArray);
+	loadVideo(videoArray, video_list);
+	videoLengthRatio = seekRatio(videoArray ,total);
 	setRatio(videoLengthRatio);
 	setDivs(videoArray);
+	rangeDuration = findRanges(videoArray);
 }
 
-function seekRatio(videoArray) {
-	let total = 0;
-	let totalRatio = []
+function getTotal(videoArray){
+	total = 0;
 	for (let index = 0; index < videoArray.length; index++) {
 		total += videoArray[index].length;
 	}
+	return total;
+}
+
+function seekRatio(videoArray, total) {
+	let totalRatio = []
 	for (let index = 0; index < videoArray.length; index++) {
 		let ratio = videoArray[index].length / total * 100;
 		totalRatio.push(ratio);
@@ -38,3 +48,14 @@ function setDivs(videoArray){
 		animationDiv.appendChild(div)
 	}
 }
+
+function findRanges(videoArray){
+	let arr = [];
+	let prev = 0;
+	for (let index = 0; index < videoArray.length; index++) {
+		arr.push([prev, prev + parseFloat(videoArray[index].ratio)]);
+		prev = parseFloat(videoArray[index].ratio);
+	}
+	return arr;
+}
+
