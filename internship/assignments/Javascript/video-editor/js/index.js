@@ -1,4 +1,4 @@
-let video_list = ['assets/videos/Boat_13.mp4', 'assets/videos/hp.mp4']
+let video_list = ['http://www.w3schools.com/html/mov_bbb.mp4', 'assets/videos/hp.mp4']
 let videoArray = [];
 
 function preloadVideos(srcs) {
