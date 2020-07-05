@@ -90,24 +90,25 @@ body{
 		display: flex;
 		align-items:center;
     justify-content:center;
-		border-right: 1px solid grey;
 }
 .timeline .video-audio .music-text{
 	display: flex;
 	align-items:center;
 	justify-content:center; 
-  border-right: 1px solid grey
 }
 .timeline .video-pane{
-	border-top: 1px solid grey;
-	border-bottom: 1px solid grey;
 	height: 50px;
 }
 .timeline .music-pane{
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
     height: 50px;
 }
 #video-current{
 	width:100%;
+}
+.odd-animation-div{
+  background-color: #1c3c77;
+}
+
+.even-animation-div{
+  background-color: #3a69c6;
 }
