@@ -37,15 +37,7 @@ function setRatio(videoLengthRatio) {
 function setDivs(videoArray){
 	let animationDiv = document.querySelector('.timeline .video-pane');
 	for (let index = 0; index < videoArray.length; index++) {
-		let div = document.createElement('div');
-		div.classList.add('animation-div');
-		if(index % 2 == 0){
-			div.classList.add('even-animation-div');
-		}else{
-			div.classList.add('odd-animation-div');
-		}
-		div.style.width = videoArray[index].ratio -0.4 + '%';
-		animationDiv.appendChild(div)
+		videoArray[index].setDiv(animationDiv, index);
 	}
 }
 

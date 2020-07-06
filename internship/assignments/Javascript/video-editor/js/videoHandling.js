@@ -1,5 +1,4 @@
 let videoCurrent = document.getElementById('video-current');
-let videoCanvas = document.getElementById('all-video');
 let playButton = document.querySelector('.controls .playpause .play');
 let pauseButton = document.querySelector('.controls .playpause .pause');
 let currentTimeIndicator = document.querySelector('.timeline .time .current-time');
