@@ -46,7 +46,7 @@ function findRanges(videoArray){
 	let prev = 0;
 	for (let index = 0; index < videoArray.length; index++) {
 		arr.push([prev, prev + parseFloat(videoArray[index].ratio)]);
-		prev = parseFloat(videoArray[index].ratio);
+		prev = prev + parseFloat(videoArray[index].ratio);
 	}
 	return arr;
 }

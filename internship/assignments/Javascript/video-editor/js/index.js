@@ -5,14 +5,14 @@ function preloadVideos(srcs) {
 	function loadVideo(src) {
 		return new Promise(function (resolve, reject) {
 			var video = document.createElement('video');
-			video.setAttribute('preload', 'auto')
-			video.onloadeddata = function () {
+			video.setAttribute('preload', 'auto');
+			video.src = src;
+			video.oncanplaythrough = function () {
 				resolve(video);
 			};
 			video.onerror = video.onabort = function () {
 				reject(src);
 			};
-			video.src = src;
 		});
 	}
 	var promises = [];
