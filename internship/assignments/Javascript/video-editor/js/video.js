@@ -1,9 +1,8 @@
 class Video {
-	constructor(src, length ,ref, pos) {
+	constructor(src, length , pos) {
 		this.urlSource = src;
 		this.length = length;
-		this.ref = ref;
-		this.setPosition(pos);
+		this.position = pos;
 		this.filterArray = [];
 		this.effectArray =[]
 	}
@@ -13,8 +12,7 @@ class Video {
 	}
 
 	setPosition(pos){
-		this.
-		position = pos;
+		this.position = pos;
 	}
 
 	setDiv(containerDiv, index){
