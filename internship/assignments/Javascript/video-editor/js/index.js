@@ -5,6 +5,7 @@ function preloadVideos(srcs) {
 	function loadVideo(src) {
 		return new Promise(function (resolve, reject) {
 			var video = document.createElement('video');
+			video.setAttribute('preload', 'auto')
 			video.onloadeddata = function () {
 				resolve(video);
 			};
