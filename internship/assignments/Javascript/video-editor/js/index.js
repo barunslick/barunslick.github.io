@@ -7,7 +7,7 @@ function preloadVideos(srcs) {
 			var video = document.createElement('video');
 			video.setAttribute('preload', 'auto');
 			video.src = src;
-			video.oncanplaythrough = function () {
+			video.onloadedmetadata = function () {
 				resolve(video);
 			};
 			video.onerror = video.onabort = function () {

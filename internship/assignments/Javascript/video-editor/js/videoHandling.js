@@ -9,8 +9,11 @@ let timer;
 
 function loadVideo(videoArray, videoList) {
 	videoCurrent.src = videoArray[activeVideo].urlSource;
-	videoCurrent.load();
+	videoCurrent.setAttribute('preload', 'auto');
 	changeTotaltimer();
+	videoCurrent.oncanplaythrough= function(){
+		console.log('loaded')
+	};
 }
 
 playButton.addEventListener('click', playVideo);
