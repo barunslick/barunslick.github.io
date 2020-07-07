@@ -1,4 +1,4 @@
-let video_list = ['assets/videos/bunny.mp4','assets/videos/apple.mp4', 'assets/videos/hp.mp4']
+let video_list = ['assets/videos/apple.mp4', 'assets/videos/hp.mp4','assets/videos/bunny.mp4']
 let videoArray = [];
 
 function preloadVideos(srcs) {
@@ -28,6 +28,6 @@ preloadVideos(video_list).then(function (videos) {
 	}
 	main(videoArray, video_list);
 }, function (errImg) {
-	console.log('failed to load videos.')
+	alert('Failed to load videos. Your connection might be slow. Please, try again later.')
 });
 
