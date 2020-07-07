@@ -23,24 +23,68 @@ function computeFrame(videoWidth, videoHeight){
         tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
         let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
         let filtersToApply = videoArray[activeVideo].filterArray;
+        let modifiedFrame = frame;
         if (filtersToApply.length != 0){
-            let modifiedFrame;
-            for (let index = 0; index < filtersToApply.length; index++) {
-                let filterFunction = determineFilter(filtersToApply[index]);
-                modifiedFrame = filterFunction(frame);
-            }
-            finalCanvasCtx.putImageData(modifiedFrame || frame,0,0);
-        }else{
-            finalCanvasCtx.putImageData(frame,0,0);
+            modifiedFrame = getFrameAfterFiler(filtersToApply, modifiedFrame);
         }
+        let effectsToApply = videoArray[activeVideo].effectArray;
+        if (effectsToApply.length != 0){
+            modifiedFrame = getFrameAfterEffects(effectsToApply, modifiedFrame)
+        }
+        finalCanvasCtx.putImageData(modifiedFrame,0,0);
         return;
     }
 }
+
+//getting final frame after all the filters are applied
+function getFrameAfterFiler(filtersToApply , modifiedFrame){
+    for (let index = 0; index < filtersToApply.length; index++) {
+        let filterFunction = determineFilter(filtersToApply[index]);
+        modifiedFrame = filterFunction(modifiedFrame);
+    }
+    return modifiedFrame;
+}
+
+//getting final frame after all the effects are applied
+function getFrameAfterEffects(effectsToApply , modifiedFrame){
+    for (let index = 0; index < effectsToApply.length; index++) {
+        let effectFunction = determineEffect(effectsToApply[index]);
+        if (!effectFunction){
+            continue;
+        }
+        modifiedFrame = effectFunction(modifiedFrame);
+    }
+    return modifiedFrame;
+}
+
+
 
 function determineFilter(filterNumber){
     switch (filterNumber) {
         case 'blackAndWhite':
             return blackAndWhite;
+            break;
+        default:
+            break;
+    }
+}
+
+function determineEffect(effectNumber){
+    switch (effectNumber) {
+        case 'fadeIn':
+            if (videoCurrent.currentTime < (0.07 * videoArray[activeVideo].length)){
+                return fadeIn;
+            }else{
+                return null;
+            }
+            break;
+        case 'fadeOut':
+            if (videoCurrent.currentTime > (0.90 * videoArray[activeVideo].length)){
+                console.log('yas')
+                return fadeOut;
+            }else{
+                return null;
+            }
             break;
         default:
             break;
