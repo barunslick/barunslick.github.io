@@ -18,11 +18,12 @@ playButton.addEventListener('click', playVideo);
 pauseButton.addEventListener('click', pauseVideo);
 videoCurrent.addEventListener('ended', changeVideo);
 
-function changeVideo() {
+function changeVideo() {	
 	clearInterval(timer);
 	if (activeVideo < videoArray.length-1){ 
 		activeVideo++;
 		videoCurrent.src = videoArray[activeVideo].urlSource;
+		
 		playVideo();
 	}else{
 		activeVideo = 0;
@@ -30,6 +31,27 @@ function changeVideo() {
 		videoCurrent.src = videoArray[activeVideo].urlSource;
 		videoCurrent.currentTime = 0;
 	}
+	changeIcons();
+}
+
+
+function changeIcons(){	
+	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
+		BlackAndWhiteCheckImage.src = "assets/images/check.png";
+	} else {
+		BlackAndWhiteCheckImage.src = "assets/images/plus.png";
+	}
+	if (videoArray[activeVideo].effectArray.includes('fadeIn')) {
+		FadeInCheckImage.src = "assets/images/check.png";
+	} else {
+		FadeInCheckImage.src = "assets/images/plus.png";
+	}
+	if (videoArray[activeVideo].effectArray.includes('fadeOut')) {
+		FadeOutCheckImage.src = "assets/images/check.png";
+	} else {
+		FadeOutCheckImage.src = "assets/images/plus.png";
+	}
+
 }
 
 function playVideo() {

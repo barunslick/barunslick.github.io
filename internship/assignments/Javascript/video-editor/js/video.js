@@ -26,6 +26,7 @@ class Video {
 		this.div.id = this.position;
 		this.div.style.width = this.ratio -0.4 + '%';
 		containerDiv.appendChild(this.div);
+		this.div.addEventListener('click', this.handleClick.bind(this));
 	}
 
 	addFilter(filterName){
@@ -42,6 +43,14 @@ class Video {
 
 	removeEffect(effectName){
 		this.effectArray = this.effectArray.filter(effect => effect !== effectName);
+	}
+
+	handleClick(){
+		/* pauseVideo();
+		videoCurrent.src = this.urlSource;
+		activeVideo = this.position;
+		slider.value = rangeDuration[this.position][0] / total * 100;
+		console.log(slider.value) */
 	}
 }
 

@@ -11,7 +11,9 @@ let BlackAndWhiteCheckImage = document.querySelector('.main-container .boxes .bl
     console.log(e.target);
 }); */
 
-blackAndWhitedDiv.addEventListener('click', () => {
+blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
+
+function blackAndWhiteIconChange(){
 	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
 		BlackAndWhiteCheckImage.src = "assets/images/plus.png"
 		videoArray[activeVideo].removeFilter('blackAndWhite');
@@ -19,11 +21,12 @@ blackAndWhitedDiv.addEventListener('click', () => {
 		BlackAndWhiteCheckImage.src = "assets/images/check.png"
 		videoArray[activeVideo].addFilter('blackAndWhite');
 	}
-});
+}
 
 
+fadeInDiv.addEventListener('click', fadeInIconChange);
 
-fadeInDiv.addEventListener('click', () => {
+function fadeInIconChange(){
 	if (videoArray[activeVideo].effectArray.includes('fadeIn')) {
 		FadeInCheckImage.src = "assets/images/plus.png"
 		videoArray[activeVideo].removeEffect('fadeIn');
@@ -31,10 +34,11 @@ fadeInDiv.addEventListener('click', () => {
 		FadeInCheckImage.src = "assets/images/check.png"
 		videoArray[activeVideo].addEffect('fadeIn');
 	}
-});
+}
 
+fadeOutDiv.addEventListener('click', fadeOutIconChange);
 
-fadeOutDiv.addEventListener('click', () => {
+function fadeOutIconChange(){
 	if (videoArray[activeVideo].effectArray.includes('fadeOut')) {
 		FadeOutCheckImage.src = "assets/images/plus.png"
 		videoArray[activeVideo].removeEffect('fadeOut');
@@ -42,4 +46,4 @@ fadeOutDiv.addEventListener('click', () => {
 		FadeOutCheckImage.src = "assets/images/check.png"
 		videoArray[activeVideo].addEffect('fadeOut');
 	}
-});
+}

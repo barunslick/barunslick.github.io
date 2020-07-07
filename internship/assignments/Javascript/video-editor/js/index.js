@@ -24,7 +24,7 @@ function preloadVideos(srcs) {
 
 preloadVideos(video_list).then(function (videos) {
 	for(var i = 0; i < videos.length; i++){
-			let video = new Video(videos[i].src, videos[i].duration, videos[i], i);
+			let video = new Video(videos[i].src, videos[i].duration, i);
 			videoArray.push(video);
 	}
 	main(videoArray, video_list);

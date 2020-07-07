@@ -8,12 +8,13 @@ slider.oninput = function () {
 		activeVideo = 0;
 		videoCurrent.src = videoArray[activeVideo].urlSource;
 		videoCurrent.currentTime = 0;
-		
+		changeIcons();
 	}else{
 		let [newVideoIndex, relativeSliderValue] = determineIndex(slider.value);
 		if (newVideoIndex != activeVideo) {
 			activeVideo = newVideoIndex;
 			videoCurrent.src = videoArray[activeVideo].urlSource;
+			changeIcons();
 		}
 		videoCurrent.currentTime = relativeSliderValue * videoArray[activeVideo].length / 100;
 	}
