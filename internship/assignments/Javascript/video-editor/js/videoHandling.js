@@ -9,7 +9,7 @@ let timer;
 
 function loadVideo(videoArray, videoList) {
 	videoCurrent.src = videoArray[activeVideo].urlSource;
-	videoCurrent.load();
+	/* videoCurrent.load(); */
 	changeTotaltimer();
 }
 
