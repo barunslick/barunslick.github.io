@@ -12,9 +12,6 @@ function loadVideo(videoArray, videoList) {
 	videoCurrent.setAttribute('preload', 'auto');
 	videoCurrent.load();
 	changeTotaltimer();
-	videoCurrent.oncanplaythrough= function(){
-		console.log('loaded')
-	};
 }
 
 playButton.addEventListener('click', playVideo);
