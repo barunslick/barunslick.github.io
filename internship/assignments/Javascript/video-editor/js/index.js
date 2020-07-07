@@ -1,4 +1,4 @@
-let video_list = ['assets/videos/apple.mp4', 'assets/videos/hp.mp4','assets/videos/bunny.mp4']
+let video_list = ['assets/videos/bunny.mp4','assets/videos/apple.mp4', 'assets/videos/hp.mp4']
 let videoArray = [];
 
 function preloadVideos(srcs) {
