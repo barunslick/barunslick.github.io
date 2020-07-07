@@ -10,6 +10,7 @@ let timer;
 function loadVideo(videoArray, videoList) {
 	videoCurrent.src = videoArray[activeVideo].urlSource;
 	videoCurrent.setAttribute('preload', 'auto');
+	videoCurrent.load();
 	changeTotaltimer();
 	videoCurrent.oncanplaythrough= function(){
 		console.log('loaded')
