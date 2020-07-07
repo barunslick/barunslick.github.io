@@ -24,6 +24,12 @@ body{
 	font-size: 13px;
 	cursor: pointer;
 }
+.main-container .boxes .box-content .check-image img{
+  width:20px;
+  height: 20px;
+}
+
+
 .main-container .boxes .box-content:nth-of-type(odd){
 	background-color: #303640;
 }
