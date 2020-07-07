@@ -6,6 +6,7 @@ function blackAndWhite(frame) {
 		returnFrame.data[i * 4 + 0] = grey;
 		returnFrame.data[i * 4 + 1] = grey;
 		returnFrame.data[i * 4 + 2] = grey;
+		returnFrame.data[i * 4 + 3] = 255;
 	}
 	return returnFrame;
 }

@@ -37,5 +37,13 @@ class Video {
 	removeFilter(filterName){
 		this.filterArray = this.filterArray.filter(filter => filter !== filterName);
 	}
+
+	addEffect(effectName){
+		this.effectArray.push(effectName);
+	}
+
+	removeEffect(effectName){
+		this.effectArray = this.effectArray.filter(effect => effect !== effectName);
+	}
 }
 
