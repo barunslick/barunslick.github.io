@@ -4,12 +4,16 @@ let trimDivEndDiv = document.querySelector('.main-container .box-content-dropdow
 let trimDivStartDiv = document.querySelector('.main-container .box-content-dropdown .start');
 let trimDivHeading = document.querySelector('.main-container .tools-resources .trim .trim-heading');
 
+let endTrimwarningDiv = trimDivEndDiv.children[4];
+let startTrimWarningDiv = trimDivStartDiv.children[4];
 
 trimDivHeading.addEventListener('click', function () {
 	if (!trimDivUl.style.display || trimDivUl.style.display == 'none') {
 		trimDivUl.style.display = 'block';
 	} else {
 		trimDivUl.style.display = 'none';
+		endTrimwarningDiv.innerHTML = '';
+		startTrimWarningDiv.innerHTML = '';
 		trimDivEndDiv.style.display = 'none';
 		trimDivStartDiv.style.display= 'none';
 	}
@@ -29,7 +33,6 @@ fromStartDivContainer.addEventListener('click', function () {
 });
 
 function startTrimButtonHandler() {
-	let warningDiv = trimDivStartDiv.children[4];
 	let trimHour = trimDivStartDiv.children[0].value;
 	let trimMinutes = trimDivStartDiv.children[1].value;
 	let trimSeconds = trimDivStartDiv.children[2].value;
@@ -38,7 +41,7 @@ function startTrimButtonHandler() {
 		let time = Number(trimHour * 60 * 60) + Number(trimMinutes * 60) + Number(trimSeconds);
 		trimFromStart(time);
 	}
-	warningDiv.innerHTML = output;
+	startTrimWarningDiv.innerHTML = output;
 }
 
 let fromEndDivContainer = trimDivUl.children[1].children[0];
@@ -54,7 +57,6 @@ fromEndDivContainer.addEventListener('click', function () {
 });
 
 function endTrimButtonHandler() {
-	let warningDiv = trimDivEndDiv.children[4];
 	let trimHour = trimDivEndDiv.children[0].value;
 	let trimMinutes = trimDivEndDiv.children[1].value;
 	let trimSeconds = trimDivEndDiv.children[2].value;
@@ -63,7 +65,7 @@ function endTrimButtonHandler() {
 		let time = Number(trimHour * 60 * 60) + Number(trimMinutes * 60) + Number(trimSeconds);
 		trimFromEnd(time);
 	}
-	warningDiv.innerHTML = output;
+	endTrimwarningDiv .innerHTML = output;
 }
 
 function validateTrimTime(hour, minute, seconds) {

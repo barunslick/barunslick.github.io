@@ -88,11 +88,11 @@ function changeTimer() {
 			return acc += value.length;
 		}, 0);
 		sliderChange = videoCurrent.currentTime + time - videoArray[activeVideo].startPosition;
-		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time);
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time - videoArray[activeVideo].startPosition);
 		changeSlider(sliderChange / total * 100)
 	} else {
 		sliderChange = videoCurrent.currentTime - videoArray[activeVideo].startPosition;
-		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime);
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime - videoArray[activeVideo].startPosition);
 		changeSlider(sliderChange / total * 100)
 	}
 }

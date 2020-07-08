@@ -78,7 +78,7 @@ function determineFilter(filterNumber) {
 function determineEffect(effectNumber) {
 	switch (effectNumber) {
 		case 'fadeIn':
-			if (videoCurrent.currentTime < (FADEINRANGE * videoArray[activeVideo].length)) {
+			if (videoCurrent.currentTime < ((FADEINRANGE * videoArray[activeVideo].length)+ videoArray[activeVideo].startPosition)) {
 				return fadeIn;
 			} else {
 				return null;
@@ -86,7 +86,6 @@ function determineEffect(effectNumber) {
 			break;
 		case 'fadeOut':
 			if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].length)) {
-				console.log('yas')
 				return fadeOut;
 			} else {
 				return null;
