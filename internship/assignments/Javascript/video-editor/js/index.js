@@ -1,5 +1,5 @@
-let video_list = ['assets/videos/apple_low.mp4', 'assets/videos/hp_low.mp4'];
 let videoArray = [];
+let video_list = ['assets/videos/apple_low.mp4', 'assets/videos/hp_low.mp4'];
 
 function preloadVideos(srcs) {
 	function loadVideo(src) {
@@ -23,9 +23,9 @@ function preloadVideos(srcs) {
 }
 
 preloadVideos(video_list).then(function (videos) {
-	for(var i = 0; i < videos.length; i++){
-			let video = new Video(videos[i].src, videos[i].duration, i);
-			videoArray.push(video);
+	for (var i = 0; i < videos.length; i++) {
+		let video = new Video(videos[i].src, videos[i].duration, i);
+		videoArray.push(video);
 	}
 	main(videoArray, video_list);
 }, function (errImg) {

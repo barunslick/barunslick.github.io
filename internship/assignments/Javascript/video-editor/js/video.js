@@ -1,56 +1,74 @@
 class Video {
-	constructor(src, length , pos) {
+	constructor(src, length, pos) {
 		this.urlSource = src;
 		this.length = length;
 		this.position = pos;
 		this.filterArray = [];
-		this.effectArray =[]
+		this.effectArray = [];
+		this.trimmed = false;
+		this.startPosition = 0;
+		this.endPosition = this.length;
 	}
 
-	setRatioLength(ratio){
+	setRatioLength(ratio) {
 		this.ratio = ratio.toFixed(2);
 	}
 
-	setPosition(pos){
+	setPosition(pos) {
 		this.position = pos;
 	}
 
-	setDiv(containerDiv, index){
+	setDiv(containerDiv, index) {
 		this.div = document.createElement('div');
 		this.div.classList.add('animation-div');
-		if(index % 2 == 0){
+		if (index % 2 == 0) {
 			this.div.classList.add('even-animation-div');
-		}else{
+		} else {
 			this.div.classList.add('odd-animation-div');
 		}
 		this.div.id = this.position;
-		this.div.style.width = this.ratio -0.4 + '%';
+		this.div.style.width = this.ratio - 0.3 + '%';
 		containerDiv.appendChild(this.div);
 		this.div.addEventListener('click', this.handleClick.bind(this));
 	}
 
-	addFilter(filterName){
+	addFilter(filterName) {
 		this.filterArray.push(filterName);
 	}
 
-	removeFilter(filterName){
+	removeFilter(filterName) {
 		this.filterArray = this.filterArray.filter(filter => filter !== filterName);
 	}
 
-	addEffect(effectName){
+	addEffect(effectName) {
 		this.effectArray.push(effectName);
 	}
 
-	removeEffect(effectName){
+	removeEffect(effectName) {
 		this.effectArray = this.effectArray.filter(effect => effect !== effectName);
 	}
 
-	handleClick(){
+	handleClick() {
 		/* pauseVideo();
 		videoCurrent.src = this.urlSource;
 		activeVideo = this.position;
 		slider.value = rangeDuration[this.position][0] / total * 100;
 		console.log(slider.value) */
 	}
+
+	setStartPosition(position) {
+		this.startPosition = this.startPosition + position;
+		this.trimmed = true;
+	}
+
+	setEndPosition(position) {
+		this.endPosition = this.endPosition - position;
+		this.trimmed = true;
+	}
+
+	changeLengthBy(trimedLength) {
+		this.length = this.length - trimedLength;
+	}
+
 }
 

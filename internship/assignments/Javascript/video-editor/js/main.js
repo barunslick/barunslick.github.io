@@ -1,17 +1,17 @@
-let videoLengthRatio;
-let total; 
+let total;
 let rangeDuration;
+let videoLengthRatio;
 
-function main(videoArray ,videoList) {
+function main(videoArray) {
 	total = getTotal(videoArray);
 	loadVideo(videoArray, video_list);
-	videoLengthRatio = seekRatio(videoArray ,total);
+	videoLengthRatio = seekRatio(videoArray, total);
 	setRatio(videoLengthRatio);
 	setDivs(videoArray);
 	rangeDuration = findRanges(videoArray);
 }
 
-function getTotal(videoArray){
+function getTotal(videoArray) {
 	total = 0;
 	for (let index = 0; index < videoArray.length; index++) {
 		total += videoArray[index].length;
@@ -34,14 +34,14 @@ function setRatio(videoLengthRatio) {
 	}
 }
 
-function setDivs(videoArray){
+function setDivs(videoArray) {
 	let animationDiv = document.querySelector('.timeline .video-pane');
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].setDiv(animationDiv, index);
 	}
 }
 
-function findRanges(videoArray){
+function findRanges(videoArray) {
 	let arr = [];
 	let prev = 0;
 	for (let index = 0; index < videoArray.length; index++) {

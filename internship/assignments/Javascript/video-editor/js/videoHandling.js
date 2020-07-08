@@ -1,11 +1,17 @@
 let videoCurrent = document.getElementById('video-current');
 let playButton = document.querySelector('.controls .playpause .play');
 let pauseButton = document.querySelector('.controls .playpause .pause');
-let currentTimeIndicator = document.querySelector('.timeline .time .current-time');
 let totalTimeIndicator = document.querySelector('.timeline .time .total-time');
+let currentTimeIndicator = document.querySelector('.timeline .time .current-time');
 
-let activeVideo = 0;
+playButton.addEventListener('click', playVideo);
+pauseButton.addEventListener('click', pauseVideo);
+videoCurrent.addEventListener('ended', changeVideo);
+videoCurrent.addEventListener('timeupdate', checkStartPosition)
+
 let timer;
+let activeVideo = 0;
+
 
 function loadVideo(videoArray, videoList) {
 	videoCurrent.src = videoArray[activeVideo].urlSource;
@@ -14,18 +20,25 @@ function loadVideo(videoArray, videoList) {
 	changeTotaltimer();
 }
 
-playButton.addEventListener('click', playVideo);
-pauseButton.addEventListener('click', pauseVideo);
-videoCurrent.addEventListener('ended', changeVideo);
+function checkStartPosition() {
+	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime < videoArray[activeVideo].startPosition) {
+		videoCurrent.currentTime = videoArray[activeVideo].startPosition;
+	}
+	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime > (videoArray[activeVideo].endPosition)) {
+		changeVideo();
+	}
+}
 
-function changeVideo() {	
+
+function changeVideo() {
 	clearInterval(timer);
-	if (activeVideo < videoArray.length-1){ 
+	if (activeVideo < videoArray.length - 1) {
 		activeVideo++;
 		videoCurrent.src = videoArray[activeVideo].urlSource;
-		
+		videoCurrent.load();
+		checkStartPosition();
 		playVideo();
-	}else{
+	} else {
 		activeVideo = 0;
 		pauseVideo();
 		videoCurrent.src = videoArray[activeVideo].urlSource;
@@ -35,7 +48,7 @@ function changeVideo() {
 }
 
 
-function changeIcons(){	
+function changeIcons() {
 	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
 		BlackAndWhiteCheckImage.src = "assets/images/check.png";
 	} else {
@@ -56,7 +69,7 @@ function changeIcons(){
 
 function playVideo() {
 	videoCurrent.play();
-	timer = setInterval(changeTimer,100);
+	timer = setInterval(changeTimer, 100);
 }
 
 function pauseVideo() {
@@ -64,32 +77,32 @@ function pauseVideo() {
 	clearInterval(timer);
 }
 
-function changeTotaltimer(){
+function changeTotaltimer() {
 	totalTimeIndicator.innerHTML = secondsToHms(total);
 }
 
 
 function changeTimer() {
-	if (activeVideo != 0){
-		let time = videoArray.slice(0, activeVideo).reduce(function(acc, value){
+	if (activeVideo != 0) {
+		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
 			return acc += value.length;
 		}, 0);
-		sliderChange = videoCurrent.currentTime + time;
+		sliderChange = videoCurrent.currentTime + time - videoArray[activeVideo].startPosition;
 		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time);
-		changeSlider(sliderChange/total * 100)
-	}else{
-		sliderChange = videoCurrent.currentTime;
+		changeSlider(sliderChange / total * 100)
+	} else {
+		sliderChange = videoCurrent.currentTime - videoArray[activeVideo].startPosition;
 		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime);
-		changeSlider(sliderChange/total * 100)
+		changeSlider(sliderChange / total * 100)
 	}
 }
 
 function secondsToHms(d) {
 	d = Number(d);
-	var h = Math.floor(d / 3600);
-	var m = Math.floor(d % 3600 / 60);
-	var s = Math.floor(d % 3600 % 60);
+	let h = Math.floor(d / 3600);
+	let m = Math.floor(d % 3600 / 60);
+	let s = Math.floor(d % 3600 % 60);
+	let final = h + ':' + m + ':' + s;
 
-	let final =  h + ':' + m + ':' + s;
-	return final; 
+	return final;
 }

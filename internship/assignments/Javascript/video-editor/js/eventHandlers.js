@@ -1,49 +1,43 @@
 let animationDiv = document.querySelector('.timeline .video-pane');
-let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
 let fadeInDiv = document.querySelector('.effects-filters .fade-in');
 let fadeOutDiv = document.querySelector('.effects-filters .fade-out');
+let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
 
 let FadeInCheckImage = document.querySelector('.main-container .boxes .fade-in img');
 let FadeOutCheckImage = document.querySelector('.main-container .boxes .fade-out img');
 let BlackAndWhiteCheckImage = document.querySelector('.main-container .boxes .black-and-white img');
 
-/* animationDiv.addEventListener('click',(e) =>{
-    console.log(e.target);
-}); */
-
+fadeInDiv.addEventListener('click', fadeInIconChange);
+fadeOutDiv.addEventListener('click', fadeOutIconChange);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
 
-function blackAndWhiteIconChange(){
+
+function blackAndWhiteIconChange() {
 	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
-		BlackAndWhiteCheckImage.src = "assets/images/plus.png"
+		BlackAndWhiteCheckImage.src = PLUSIMAGEPATH;
 		videoArray[activeVideo].removeFilter('blackAndWhite');
 	} else {
-		BlackAndWhiteCheckImage.src = "assets/images/check.png"
+		BlackAndWhiteCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addFilter('blackAndWhite');
 	}
 }
 
-
-fadeInDiv.addEventListener('click', fadeInIconChange);
-
-function fadeInIconChange(){
+function fadeInIconChange() {
 	if (videoArray[activeVideo].effectArray.includes('fadeIn')) {
-		FadeInCheckImage.src = "assets/images/plus.png"
+		FadeInCheckImage.src = PLUSIMAGEPATH;
 		videoArray[activeVideo].removeEffect('fadeIn');
 	} else {
-		FadeInCheckImage.src = "assets/images/check.png"
+		FadeInCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addEffect('fadeIn');
 	}
 }
 
-fadeOutDiv.addEventListener('click', fadeOutIconChange);
-
-function fadeOutIconChange(){
+function fadeOutIconChange() {
 	if (videoArray[activeVideo].effectArray.includes('fadeOut')) {
-		FadeOutCheckImage.src = "assets/images/plus.png"
+		FadeOutCheckImage.src = PLUSIMAGEPATH;
 		videoArray[activeVideo].removeEffect('fadeOut');
 	} else {
-		FadeOutCheckImage.src = "assets/images/check.png"
+		FadeOutCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addEffect('fadeOut');
 	}
 }
