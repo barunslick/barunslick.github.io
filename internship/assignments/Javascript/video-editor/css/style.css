@@ -81,9 +81,12 @@ body{
   border-radius: 5px;
   background-color: #c1c7d4;
   width: 50%;
-  color:grey;
+  color:black;
 }
+.main-container .box-content-dropdown .drop-down-menu .trim-button:hover{
+  background-color: white;
 
+}
 .main-container .box-content .drop-down-menu input:focus{
   outline: none;
 }
