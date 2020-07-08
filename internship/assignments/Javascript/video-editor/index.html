@@ -30,6 +30,31 @@
 								-
 							</div>
 						</div>
+						<div class="box-content trim">
+							<div class="trim-heading">Trim</div>
+							<div class="box-content-dropdown trim-down">
+								<ul>
+									<li>
+										<p class="heading-dropdown">From Start</p>
+										<div class="drop-down-menu start">
+											<input type="number" placeholder="hour" id="s-hour">:<input type="number" placeholder="min"
+												id="s-min">:<input type="number" placeholder="sec" id="s-sec">
+											<div class="trim-button s-btn">Trim</div>
+											<div class="warning"></div>
+										</div>
+									</li>
+									<li>
+										<p class="heading-dropdown">From End</p>
+										<div class="drop-down-menu end">
+											<input type="number" placeholder="hour" id="e-hour">:<input type="number" placeholder="min"
+												id="e-min">:<input type="number" placeholder="sec" id="e-sec">
+											<div class="trim-button s-end">Trim</div>
+											<div class="warning"></div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 					<div class="boxes">
 						<div class="box-heading">
@@ -43,15 +68,15 @@
 					</div>
 				</div>
 				<div class="video-current">
-					<div class= "video-heading">Original Sequence</div>
-					<div class= "current-video-holder">
-						<video id="video-current"  height="auto"></video>
+					<div class="video-heading">Original Sequence</div>
+					<div class="current-video-holder">
+						<video id="video-current" height="auto"></video>
 					</div>
 				</div>
 				<div class="video-all">
-					<div class= "video-heading">Edited Sequence</div>
-					<div class= "all-video-holder">
-						<canvas id = "all-video"></canvas>
+					<div class="video-heading">Edited Sequence</div>
+					<div class="all-video-holder">
+						<canvas id="all-video"></canvas>
 					</div>
 				</div>
 				<div class="effects-filters">
@@ -65,10 +90,12 @@
 							</div>
 						</div>
 						<div class="box-content fade-in">
-							<div>Fade In</div><div class ="check-image"><img src="assets/images/plus.png"></div>
+							<div>Fade In</div>
+							<div class="check-image"><img src="assets/images/plus.png"></div>
 						</div>
-						<div class ="box-content fade-out">
-							<div>Fade Out</div><div class ="check-image"><img src="assets/images/plus.png"></div>
+						<div class="box-content fade-out">
+							<div>Fade Out</div>
+							<div class="check-image"><img src="assets/images/plus.png"></div>
 						</div>
 					</div>
 					<div class="boxes">
@@ -81,58 +108,63 @@
 							</div>
 						</div>
 						<div class="box-content black-and-white">
-							<div>Black and White</div><div class ="check-image"><img src="assets/images/plus.png"></div>
+							<div>Black and White</div>
+							<div class="check-image"><img src="assets/images/plus.png"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class = "timeline">
-			<div class ="timer clearfix">
-				<div class= "controls">
-					<div class= "playpause">
-						<div class= "play">
-							<img src= "assets/images/icons8-play-24.png">
+		<div class="timeline">
+			<div class="timer clearfix">
+				<div class="controls">
+					<div class="playpause">
+						<div class="play">
+							<img src="assets/images/icons8-play-24.png">
 						</div>
-						<div class= "pause">
-							<img src= "assets/images/icons8-pause-24.png">
+						<div class="pause">
+							<img src="assets/images/icons8-pause-24.png">
 						</div>
 					</div>
 				</div>
-				<div class = "time">
-					<span class= "current-time">0:0:0</span> / <span class= "total-time">0:0:0</span>
+				<div class="time">
+					<span class="current-time">0:0:0</span> / <span class="total-time">0:0:0</span>
 				</div>
 			</div>
-			<div class ="slider clearfix">
-					<input type= "range"  min ="0" max ="100.0" step="0.1">
+			<div class="slider clearfix">
+				<input type="range" min="0" max="100.0" step="0.1">
 			</div>
-			<div class= "video-audio">
-				<div class= "video-text">
+			<div class="video-audio">
+				<div class="video-text">
 					Video
 				</div>
-				<div class= "video-pane">
-					
+				<div class="video-pane">
+
 				</div>
-				<div class= "music-text">
+				<div class="music-text">
 					Music
 				</div>
-				<div class= "music-pane">
-					
+				<div class="music-pane">
+
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
+
+	<script src="js/constants.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/video.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/trimmer.js"></script>
 	<script src="js/videoHandling.js"></script>
 	<script src="js/sequnceGeneration.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/filters.js"></script>
 	<script src="js/effects.js"></script>
 	<script src="js/eventHandlers.js"></script>
-	
+
+
 </body>
 
 </html>
