@@ -4,35 +4,61 @@ let trimDivEndDiv = document.querySelector('.main-container .box-content-dropdow
 let trimDivStartDiv = document.querySelector('.main-container .box-content-dropdown .start');
 let trimDivHeading = document.querySelector('.main-container .tools-resources .trim .trim-heading');
 
-let endTrimwarningDiv = trimDivEndDiv.children[4];
-let startTrimWarningDiv = trimDivStartDiv.children[4];
+let endTrimwarningDiv = trimDivEndDiv.children[2];
+let startTrimWarningDiv = trimDivStartDiv.children[2];
 
 trimDivHeading.addEventListener('click', function () {
 	if (!trimDivUl.style.display || trimDivUl.style.display == 'none') {
 		trimDivUl.style.display = 'block';
 	} else {
+		let color = activeVideo % 2 == 0 ? '#3a69c6' : '#1c3c77';
 		trimDivUl.style.display = 'none';
 		endTrimwarningDiv.innerHTML = '';
 		startTrimWarningDiv.innerHTML = '';
 		trimDivEndDiv.style.display = 'none';
-		trimDivStartDiv.style.display= 'none';
+		trimDivStartDiv.style.display = 'none';
+		videoArray[activeVideo].div.style.background = color;
 	}
 })
 
 let fromStartDivContainer = trimDivUl.children[0].children[0];
 
 fromStartDivContainer.addEventListener('click', function () {
+	let color = activeVideo % 2 == 0 ? '#3a69c6' : '#1c3c77';
 	if (trimDivStartDiv.style.display == 'block') {
 		trimDivStartDiv.style.display = 'none';
+		startTrimWarningDiv.innerHTML = '';
+		videoArray[activeVideo].div.style.background = color;
 	} else {
 		trimDivStartDiv.style.display = 'block';
 	}
-	let startTrimBtn = trimDivStartDiv.children[3];
-	startTrimBtn.addEventListener('click', startTrimButtonHandler);
+	let startTrimBtn = trimDivStartDiv.children[1];
+	let inputSlider = trimDivStartDiv.children[0];
+	inputSlider.oninput = function () {
+		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, white ' + inputSlider.value + '%,' + color + ' 0%)';
+	}
+	startTrimBtn.addEventListener('click', () => { 
+		if(startTrimButtonHandler(parseInt(inputSlider.value))){
+			inputSlider.value = 0;
+			videoArray[activeVideo].div.style.background = color;
+		} 
+	});
 
 });
 
-function startTrimButtonHandler() {
+
+function startTrimButtonHandler(inputSliderValue) {
+	if (inputSliderValue > 2 && inputSliderValue < 98) {
+		let time = inputSliderValue / 100 * videoArray[activeVideo].length;
+		trimFromStart(time);
+		return true;
+	}else{
+		startTrimWarningDiv.innerHTML = 'Result video too short';
+		return false;
+	}
+}
+
+/* function startTrimButtonHandler() {
 	let trimHour = trimDivStartDiv.children[0].value;
 	let trimMinutes = trimDivStartDiv.children[1].value;
 	let trimSeconds = trimDivStartDiv.children[2].value;
@@ -43,20 +69,44 @@ function startTrimButtonHandler() {
 	}
 	startTrimWarningDiv.innerHTML = output;
 }
-
+ */
 let fromEndDivContainer = trimDivUl.children[1].children[0];
 
 fromEndDivContainer.addEventListener('click', function () {
+	let color = activeVideo % 2 == 0 ? '#3a69c6' : '#1c3c77';
 	if (trimDivEndDiv.style.display == 'block') {
 		trimDivEndDiv.style.display = 'none';
 	} else {
 		trimDivEndDiv.style.display = 'block';
+		endTrimWarningDiv.innerHTML = '';
+		videoArray[activeVideo].div.style.background = color ;
 	}
-	let endTrimBtn = trimDivEndDiv.children[3];
-	endTrimBtn.addEventListener('click', endTrimButtonHandler)
+	let endTrimBtn = trimDivEndDiv.children[1];
+	let inputSlider = trimDivEndDiv.children[0];
+	
+	inputSlider.oninput = function () {
+		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg,' + color + ' '+(inputSlider.value) + '%' + ', white 0%)' ;
+	}
+	endTrimBtn.addEventListener('click', () => { 
+		if(endTrimButtonHandler(parseInt(inputSlider.value))){
+			inputSlider.value = 100;
+			videoArray[activeVideo].div.style.background = color;
+		} 
+	});
 });
 
-function endTrimButtonHandler() {
+function endTrimButtonHandler(inputSliderValue) {
+	if (inputSliderValue > 2 && inputSliderValue < 98) {
+		let time = ( 100 - inputSliderValue)/ 100 * videoArray[activeVideo].length;
+		trimFromEnd(time);
+		return true;
+	}else{
+		endTrimWarningDiv.innerHTML = 'Result video too short';
+		return false;
+	}
+}
+
+/* function endTrimButtonHandler() {
 	let trimHour = trimDivEndDiv.children[0].value;
 	let trimMinutes = trimDivEndDiv.children[1].value;
 	let trimSeconds = trimDivEndDiv.children[2].value;
@@ -67,8 +117,8 @@ function endTrimButtonHandler() {
 	}
 	endTrimwarningDiv .innerHTML = output;
 }
-
-function validateTrimTime(hour, minute, seconds) {
+ */
+/* function validateTrimTime(hour, minute, seconds) {
 	if (hour === "" && minute === "" && seconds === "") {
 		return 'All fields Empty';
 	}
@@ -84,7 +134,7 @@ function validateTrimTime(hour, minute, seconds) {
 	}
 
 	return 'Done';
-}
+} */
 
 function trimFromStart(changeTime) {
 	videoArray[activeVideo].setStartPosition(changeTime);
