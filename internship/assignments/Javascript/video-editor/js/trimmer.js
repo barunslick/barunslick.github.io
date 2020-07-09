@@ -84,7 +84,6 @@ fromEndDivContainer.addEventListener('click', function () {
 	}
 	let endTrimBtn = trimDivEndDiv.children[1];
 	let inputSlider = trimDivEndDiv.children[0];
-	
 	inputSlider.oninput = function () {
 		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg,' + color + ' '+(inputSlider.value) + '%' + ', white 0%)' ;
 	}
