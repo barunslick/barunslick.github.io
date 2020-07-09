@@ -4,7 +4,7 @@ let trimDivEndDiv = document.querySelector('.main-container .box-content-dropdow
 let trimDivStartDiv = document.querySelector('.main-container .box-content-dropdown .start');
 let trimDivHeading = document.querySelector('.main-container .tools-resources .trim .trim-heading');
 
-let endTrimwarningDiv = trimDivEndDiv.children[2];
+let endTrimWarningDiv = trimDivEndDiv.children[2];
 let startTrimWarningDiv = trimDivStartDiv.children[2];
 
 trimDivHeading.addEventListener('click', function () {
@@ -13,7 +13,7 @@ trimDivHeading.addEventListener('click', function () {
 	} else {
 		let color = activeVideo % 2 == 0 ? '#3a69c6' : '#1c3c77';
 		trimDivUl.style.display = 'none';
-		endTrimwarningDiv.innerHTML = '';
+		endTrimWarningDiv.innerHTML = '';
 		startTrimWarningDiv.innerHTML = '';
 		trimDivEndDiv.style.display = 'none';
 		trimDivStartDiv.style.display = 'none';
@@ -41,6 +41,7 @@ fromStartDivContainer.addEventListener('click', function () {
 		if(startTrimButtonHandler(parseInt(inputSlider.value))){
 			inputSlider.value = 0;
 			videoArray[activeVideo].div.style.background = color;
+			startTrimWarningDiv.innerHTML = '';
 		} 
 	});
 
@@ -91,6 +92,7 @@ fromEndDivContainer.addEventListener('click', function () {
 		if(endTrimButtonHandler(parseInt(inputSlider.value))){
 			inputSlider.value = 100;
 			videoArray[activeVideo].div.style.background = color;
+			endTrimWarningDiv.innerHTML = '';
 		} 
 	});
 });
