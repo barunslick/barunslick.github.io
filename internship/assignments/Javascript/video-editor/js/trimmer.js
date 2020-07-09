@@ -84,7 +84,6 @@ fromEndDivContainer.addEventListener('click', function () {
 	}
 	let endTrimBtn = trimDivEndDiv.children[1];
 	let inputSlider = trimDivEndDiv.children[0];
-	
 	inputSlider.oninput = function () {
 		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg,' + color + ' '+(inputSlider.value) + '%' + ', white 0%)' ;
 	}
@@ -161,6 +160,8 @@ function trimFromEnd(changeTime) {
 	videoLengthRatio = seekRatio(videoArray, total);
 	setRatio(videoLengthRatio);
 	rangeDuration = findRanges(videoArray);
+	videoCurrent.currentTime = videoArray[activeVideo].startPosition;
+	changeTimer();
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].div.style.width = videoArray[index].ratio - 0.3 + '%';
 	}
