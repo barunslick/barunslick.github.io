@@ -141,6 +141,8 @@ function endTrimButtonHandler(inputSliderValue) {
 function trimFromStart(changeTime) {
 	videoArray[activeVideo].setStartPosition(changeTime);
 	videoArray[activeVideo].changeLengthBy(changeTime);
+	/* videoCurrent.currentTime = videoArray[activeVideo].startPosition + 0.01; */
+	/* changeTimer(); */
 	total = getTotal(videoArray);
 	changeTotaltimer();
 	videoLengthRatio = seekRatio(videoArray, total);

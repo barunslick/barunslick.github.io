@@ -21,8 +21,8 @@ function loadVideo(videoArray, videoList) {
 }
 
 function checkStartPosition() {
-	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime < videoArray[activeVideo].startPosition) {
-		videoCurrent.currentTime = videoArray[activeVideo].startPosition;
+	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime <= videoArray[activeVideo].startPosition) {
+		videoCurrent.currentTime = videoArray[activeVideo].startPosition + 0.01; // start from 0.01 more of start position so that it doesnt get stuck
 	}
 	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime > (videoArray[activeVideo].endPosition)) {
 		changeVideo();
