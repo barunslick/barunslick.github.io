@@ -67,13 +67,16 @@ body{
   display: none;
   margin-top:10px;   
 }
-.main-container .box-content .drop-down-menu input{
+/* .main-container .box-content .drop-down-menu input{
   width:30%;
   height: 25px !important;
   font-size: 12px;
   border-radius: 5px;
   padding:4px;
   border: 1px solid grey;
+} */
+.main-container .box-content .drop-down-menu input{
+  width:100%; 
 }
 .main-container .box-content-dropdown .drop-down-menu .trim-button{
   margin-top: 10px;
