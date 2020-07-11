@@ -24,43 +24,6 @@
 					<div class="boxes">
 						<div class="box-heading">
 							<div class="heading-text">
-								Tools
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
-						<div class="box-content trim">
-							<div class="trim-heading">Trim</div>
-							<div class="box-content-dropdown trim-down">
-								<ul>
-									<li>
-										<p class="heading-dropdown">From Start</p>
-										<div class="drop-down-menu start">
-											<!-- <input type="number" placeholder="hour" id="s-hour">:<input type="number" placeholder="min"
-												id="s-min">:<input type="number" placeholder="sec" id="s-sec"> -->
-												<input type= "range" class="startTrimRange">
-											<div class="trim-button s-btn">Trim</div>
-											<div class="warning"></div>
-										</div>
-									</li>
-									<li>
-										<p class="heading-dropdown">From End</p>
-										<div class="drop-down-menu end">
-											<!-- <input type="number" placeholder="hour" id="e-hour">:<input type="number" placeholder="min"
-												id="e-min">:<input type="number" placeholder="sec" id="e-sec"> -->
-												<input type= "range" class="endTrimRange" value ="100">
-											<div class="trim-button s-end">Trim</div>
-											<div class="warning"></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
 								Resources
 							</div>
 							<div class="icon">
@@ -114,6 +77,45 @@
 							<div class="check-image"><img src="assets/images/plus.png"></div>
 						</div>
 					</div>
+					<div class="boxes">
+						<div class="box-heading">
+							<div class="heading-text">
+								Tools
+							</div>
+							<div class="icon">
+								-
+							</div>
+						</div>
+						<div class="box-content trim">
+							<div class="trim-heading">Trim</div>
+							<div class="box-content-dropdown trim-down">
+								<ul>
+									<li>
+										<p class="heading-dropdown">From Start</p>
+										<div class="drop-down-menu start">
+											<!-- <input type="number" placeholder="hour" id="s-hour">:<input type="number" placeholder="min"
+												id="s-min">:<input type="number" placeholder="sec" id="s-sec"> -->
+												<!-- <input type= "range" class="startTrimRange"> -->
+											Select portion to trim from slider.
+											<div class ="trim-cancel">Cancel</div><div class="trim-button s-btn">Trim</div>
+											<div class="warning"></div>
+										</div>
+									</li>
+									<li>
+										<p class="heading-dropdown">From End</p>
+										<div class="drop-down-menu end">
+											<!-- <input type="number" placeholder="hour" id="e-hour">:<input type="number" placeholder="min"
+												id="e-min">:<input type="number" placeholder="sec" id="e-sec"> -->
+												<!-- <input type= "range" class="endTrimRange" value ="100"> -->
+											Select portion to trim from slider.
+											<div class ="trim-cancel">Cancel</div><div class="trim-button s-end">Trim</div>
+											<div class="warning"></div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -161,6 +163,7 @@
 	<script src="js/trimmer.js"></script>
 	<script src="js/videoHandling.js"></script>
 	<script src="js/sequnceGeneration.js"></script>
+	<script src="js/text.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/filters.js"></script>
 	<script src="js/effects.js"></script>

@@ -9,6 +9,7 @@ function main(videoArray) {
 	setRatio(videoLengthRatio);
 	setDivs(videoArray);
 	rangeDuration = findRanges(videoArray);
+	//testText = new Text();
 }
 
 function getTotal(videoArray) {
