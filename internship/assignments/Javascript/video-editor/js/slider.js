@@ -16,7 +16,7 @@ slider.oninput = function () {
 			videoCurrent.src = videoArray[activeVideo].urlSource;
 			changeIcons();
 		}
-		videoCurrent.currentTime = relativeSliderValue * videoArray[activeVideo].length / 100 + videoArray[activeVideo].startPosition;
+		videoCurrent.currentTime = relativeSliderValue * videoArray[activeVideo].length / 100;
 	}
 }
 

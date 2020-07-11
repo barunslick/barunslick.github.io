@@ -22,21 +22,22 @@ function computeFrame(videoWidth, videoHeight) {
 	if (videoCurrent.videoWidth != 0 && videoCurrent.videoHeight != 0) {
 		tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
 		let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
-		let filtersToApply = videoArray[activeVideo].filterArray;
-		let modifiedFrame = frame;
+		if (videoCurrent.currentTime > videoArray[activeVideo].startPosition && videoCurrent.currentTime < videoArray[activeVideo].endPosition){
+			let filtersToApply = videoArray[activeVideo].filterArray;
+			let modifiedFrame = frame;
+			if (filtersToApply.length != 0) {
+				modifiedFrame = getFrameAfterFiler(filtersToApply, modifiedFrame);
+			}
 
-		if (filtersToApply.length != 0) {
-			modifiedFrame = getFrameAfterFiler(filtersToApply, modifiedFrame);
+			let effectsToApply = videoArray[activeVideo].effectArray;
+
+			if (effectsToApply.length != 0) {
+				modifiedFrame = getFrameAfterEffects(effectsToApply, modifiedFrame)
+			}
+			finalCanvasCtx.putImageData(modifiedFrame, 0, 0);
+
+			return;
 		}
-
-		let effectsToApply = videoArray[activeVideo].effectArray;
-
-		if (effectsToApply.length != 0) {
-			modifiedFrame = getFrameAfterEffects(effectsToApply, modifiedFrame)
-		}
-		finalCanvasCtx.putImageData(modifiedFrame, 0, 0);
-
-		return;
 	}
 }
 
@@ -85,7 +86,8 @@ function determineEffect(effectNumber) {
 			}
 			break;
 		case 'fadeOut':
-			if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].length)) {
+			if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].endPosition) && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
+				console.log('here')
 				return fadeOut;
 			} else {
 				return null;

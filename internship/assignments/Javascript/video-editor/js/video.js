@@ -5,7 +5,8 @@ class Video {
 		this.position = pos;
 		this.filterArray = [];
 		this.effectArray = [];
-		this.trimmed = false;
+		this.startTrimmed = false;
+		this.endTrimmed = false;
 		this.startPosition = 0;
 		this.endPosition = this.length;
 	}
@@ -56,10 +57,20 @@ class Video {
 	}
 
 	startSliderChange(){
-		this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6' + ' 0%)';
+		if (this.endTrimmed){
+			let endPosPercentage = this.endPosition / this.length * 100;
+			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6 '  + this.startSlider.value + '% ' + endPosPercentage + '%,'+'#434655 '+ endPosPercentage + '%)';
+		}else{
+			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6' + ' 0%)';
+		}
 	}
 	endSliderChange(){
-		this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' '+(this.endSlider.value) + '%' + ', white 0%)' ;
+		if (this.startTrimmed){
+			let startPosPercentage = this.startPosition / this.length * 100;
+			this.div.style.background = 'linear-gradient(90deg,'+ '#434655 '+ startPosPercentage + '%, '+ '#3a69c6 '+ startPosPercentage +'% '+(this.endSlider.value) + '%' + ', white '+ this.endSlider.value + '%)' ;
+		}else{
+			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' '+(this.endSlider.value) + '%' + ', white 0%)' ;
+		}
 	}
 
 	showStartSlider(){
@@ -77,9 +88,6 @@ class Video {
 	hideEndSlider(){
 		this.endSlider.style.display = 'none';
 	}
-
-
-
 
 	addFilter(filterName) {
 		this.filterArray.push(filterName);
@@ -106,17 +114,18 @@ class Video {
 	}
 
 	setStartPosition(position) {
-		this.startPosition = this.startPosition + position;
-		this.trimmed = true;
+		this.startPosition =  position;
+		this.startTrimmed = true;
 	}
 
 	setEndPosition(position) {
-		this.endPosition = this.endPosition - position;
-		this.trimmed = true;
+		this.endPosition = position;
+		console.log(this.endPosition)
+		this.endTrimmed = true;
 	}
 
 	changeLengthBy(trimedLength) {
-		this.length = this.length - trimedLength;
+		/* this.length = this.length - trimedLength; */
 	}
 
 }

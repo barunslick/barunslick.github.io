@@ -36,7 +36,7 @@ function changeVideo() {
 		activeVideo++;
 		videoCurrent.src = videoArray[activeVideo].urlSource;
 		videoCurrent.load();
-		checkStartPosition();
+		/* checkStartPosition(); */
 		playVideo();
 	} else {
 		activeVideo = 0;
@@ -87,12 +87,12 @@ function changeTimer() {
 		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
 			return acc += value.length;
 		}, 0);
-		sliderChange = videoCurrent.currentTime + time - videoArray[activeVideo].startPosition;
-		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time - videoArray[activeVideo].startPosition);
+		sliderChange = videoCurrent.currentTime + time
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time);
 		changeSlider(sliderChange / total * 100)
 	} else {
-		sliderChange = videoCurrent.currentTime - videoArray[activeVideo].startPosition;
-		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime - videoArray[activeVideo].startPosition);
+		sliderChange = videoCurrent.currentTime;
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime);
 		changeSlider(sliderChange / total * 100)
 	}
 }
