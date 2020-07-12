@@ -45,6 +45,7 @@
 					</div>
 				</div>
 				<div class="effects-filters">
+					<div class = "current-file">Active Video: <span class= "current-filename"></span></div>
 					<div class="boxes">
 						<div class="box-heading">
 							<div class="heading-text">
@@ -87,15 +88,15 @@
 							</div>
 						</div>
 						<div class="box-content trim">
-							<div class="trim-heading">Trim</div>
+							<div class="trim-heading"> 
+								<div class ="heading-text">Trim</div>
+							 	<div class= "check-image"> <img src="assets/images/down.png"></div>
+							</div>
 							<div class="box-content-dropdown trim-down">
 								<ul>
 									<li>
 										<p class="heading-dropdown">From Start</p>
 										<div class="drop-down-menu start">
-											<!-- <input type="number" placeholder="hour" id="s-hour">:<input type="number" placeholder="min"
-												id="s-min">:<input type="number" placeholder="sec" id="s-sec"> -->
-												<!-- <input type= "range" class="startTrimRange"> -->
 											Select portion to trim from slider.
 											<div class ="trim-cancel">Cancel</div><div class="trim-button s-btn">Trim</div>
 											<div class="warning"></div>
@@ -104,9 +105,6 @@
 									<li>
 										<p class="heading-dropdown">From End</p>
 										<div class="drop-down-menu end">
-											<!-- <input type="number" placeholder="hour" id="e-hour">:<input type="number" placeholder="min"
-												id="e-min">:<input type="number" placeholder="sec" id="e-sec"> -->
-												<!-- <input type= "range" class="endTrimRange" value ="100"> -->
 											Select portion to trim from slider.
 											<div class ="trim-cancel">Cancel</div><div class="trim-button s-end">Trim</div>
 											<div class="warning"></div>
