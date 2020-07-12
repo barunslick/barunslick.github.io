@@ -9,6 +9,33 @@ class Video {
 		this.endTrimmed = false;
 		this.startPosition = 0;
 		this.endPosition = this.length;
+		this.fileName = this.urlSource.replace(/^.*(\\|\/|\:)/, '');
+		this.color = '#1c3c77';
+	}
+
+	changeColor(){
+		this.color = '#3a69c6';
+		this.resetBackground();
+	}
+
+	resetColor(){
+		this.color = '#1c3c77';
+		this.resetBackground();
+	}
+
+	resetBackground() {
+		let startPosPercentage = this.startPosition / this.length * 100;
+		let endPosPercentage = this.endPosition / this.length * 100;
+		if (this.startTrimmed && this.endTrimmed) {
+			this.div.style.background = this.div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' +  this.color + ' ' + startPosPercentage + '% ' + endPosPercentage + '%,' + '#434655 ' + + endPosPercentage + '%)';
+		} else if (videoArray[activeVideo].startTrimmed) {
+			this.div.style.background = videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' +  this.color + ' ' + ' 0%)';
+		} else if (videoArray[activeVideo].endTrimmed) {
+			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' ' + endPosPercentage + '%' + ', #434655 0%)';
+		} else {
+			this.div.style.background = this.color;
+		}
+	
 	}
 
 	setRatioLength(ratio) {
@@ -22,17 +49,27 @@ class Video {
 	setDiv(containerDiv, index) {
 		this.div = document.createElement('div');
 		this.div.classList.add('animation-div');
-		if (index == 0) {
-			this.div.classList.add('even-animation-div');
-		} else {
-			this.div.classList.add('odd-animation-div');
-		}
+		this.div.style.background  = this.color;
 		this.div.id = this.position;
-		this.div.style.width = this.ratio - 0.3 + '%';
+		this.div.style.width = this.ratio - 0.5 + '%';
 		this.div.style.position = 'relative';
 		containerDiv.appendChild(this.div);
 		this.addTrimSliders(containerDiv);
-		this.div.addEventListener('click', this.handleClick.bind(this));
+		/* this.div.addEventListener('click', this.handleClick.bind(this)); */
+		this.addName();
+	}
+
+	addName(){
+		this.nameDiv = document.createElement('div');
+		this.nameSpan = document.createElement('span');
+		this.nameSpan.style.color = 'white';
+		this.nameSpan.style.fontSize = '14px';
+		this.nameSpan.innerText = this.fileName;
+		this.nameDiv.style.marginLeft = '10px';
+		this.nameDiv.style.marginTop = '5px';
+
+		this.nameDiv.appendChild(this.nameSpan);
+		this.div.appendChild(this.nameDiv);
 	}
 
 	addTrimSliders(containerDiv){
@@ -57,20 +94,30 @@ class Video {
 	}
 
 	startSliderChange(){
+		let endPosPercentage = this.endPosition / this.length * 100;
 		if (this.endTrimmed){
-			let endPosPercentage = this.endPosition / this.length * 100;
+			if(this.endTrimmed && this.startSlider.value > endPosPercentage){
+				this.startSlider.value = endPosPercentage;
+			}else{
 			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6 '  + this.startSlider.value + '% ' + endPosPercentage + '%,'+'#434655 '+ endPosPercentage + '%)';
+			}
 		}else{
 			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6' + ' 0%)';
 		}
+		
 	}
 	endSliderChange(){
+		let startPosPercentage = this.startPosition / this.length * 100;
 		if (this.startTrimmed){
-			let startPosPercentage = this.startPosition / this.length * 100;
-			this.div.style.background = 'linear-gradient(90deg,'+ '#434655 '+ startPosPercentage + '%, '+ '#3a69c6 '+ startPosPercentage +'% '+(this.endSlider.value) + '%' + ', white '+ this.endSlider.value + '%)' ;
+			if(this.endSlider.value < (startPosPercentage)){
+				this.endSlider.value = startPosPercentage;
+			}else{
+				this.div.style.background = 'linear-gradient(90deg,'+ '#434655 '+ startPosPercentage + '%, '+ '#3a69c6 '+ startPosPercentage +'% '+(this.endSlider.value) + '%' + ', white '+ this.endSlider.value + '%)' ;
+			}
 		}else{
 			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' '+(this.endSlider.value) + '%' + ', white 0%)' ;
 		}
+		
 	}
 
 	showStartSlider(){
@@ -120,7 +167,6 @@ class Video {
 
 	setEndPosition(position) {
 		this.endPosition = position;
-		console.log(this.endPosition)
 		this.endTrimmed = true;
 	}
 

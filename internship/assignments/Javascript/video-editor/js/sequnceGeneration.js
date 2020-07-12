@@ -18,7 +18,7 @@ function timerCallback() {
 	}, 0);
 }
 
-function computeFrame(videoWidth, videoHeight) {
+function computeFrame() {
 	if (videoCurrent.videoWidth != 0 && videoCurrent.videoHeight != 0) {
 		tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
 		let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);

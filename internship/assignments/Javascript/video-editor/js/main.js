@@ -2,6 +2,8 @@ let total;
 let rangeDuration;
 let videoLengthRatio;
 
+let fileNameDiv = document.querySelector('.main-container .effects-filters .current-filename');
+
 function main(videoArray) {
 	total = getTotal(videoArray);
 	loadVideo(videoArray, video_list);
@@ -9,6 +11,8 @@ function main(videoArray) {
 	setRatio(videoLengthRatio);
 	setDivs(videoArray);
 	rangeDuration = findRanges(videoArray);
+	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
+	videoArray[activeVideo].changeColor();
 	//testText = new Text();
 }
 

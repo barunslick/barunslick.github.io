@@ -7,7 +7,6 @@ let currentTimeIndicator = document.querySelector('.timeline .time .current-time
 playButton.addEventListener('click', playVideo);
 pauseButton.addEventListener('click', pauseVideo);
 videoCurrent.addEventListener('ended', changeVideo);
-videoCurrent.addEventListener('timeupdate', checkStartPosition)
 
 let timer;
 let activeVideo = 0;
@@ -20,51 +19,44 @@ function loadVideo(videoArray, videoList) {
 	changeTotaltimer();
 }
 
-function checkStartPosition() {
-	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime <= videoArray[activeVideo].startPosition) {
-		videoCurrent.currentTime = videoArray[activeVideo].startPosition + 0.01; // start from 0.01 more of start position so that it doesnt get stuck
-	}
-	if (videoArray[activeVideo].trimmed && videoCurrent.currentTime > (videoArray[activeVideo].endPosition)) {
-		changeVideo();
-	}
-}
-
-
 function changeVideo() {
 	clearInterval(timer);
 	if (activeVideo < videoArray.length - 1) {
+		videoArray[activeVideo].resetColor();
 		activeVideo++;
+		videoArray[activeVideo].changeColor();
 		videoCurrent.src = videoArray[activeVideo].urlSource;
 		videoCurrent.load();
-		/* checkStartPosition(); */
 		playVideo();
 	} else {
+		videoArray[activeVideo].resetColor();
 		activeVideo = 0;
+		videoArray[activeVideo].changeColor();
 		pauseVideo();
 		videoCurrent.src = videoArray[activeVideo].urlSource;
 		videoCurrent.currentTime = 0;
 	}
+	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
 	changeIcons();
 }
 
 
 function changeIcons() {
 	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
-		BlackAndWhiteCheckImage.src = "assets/images/check.png";
+		BlackAndWhiteCheckImage.src = CHECKIMAGEPATH;
 	} else {
-		BlackAndWhiteCheckImage.src = "assets/images/plus.png";
+		BlackAndWhiteCheckImage.src = PLUSIMAGEPATH;
 	}
 	if (videoArray[activeVideo].effectArray.includes('fadeIn')) {
-		FadeInCheckImage.src = "assets/images/check.png";
+		FadeInCheckImage.src = CHECKIMAGEPATH;
 	} else {
-		FadeInCheckImage.src = "assets/images/plus.png";
+		FadeInCheckImage.src = PLUSIMAGEPATH;
 	}
 	if (videoArray[activeVideo].effectArray.includes('fadeOut')) {
-		FadeOutCheckImage.src = "assets/images/check.png";
+		FadeOutCheckImage.src = CHECKIMAGEPATH;
 	} else {
-		FadeOutCheckImage.src = "assets/images/plus.png";
+		FadeOutCheckImage.src = PLUSIMAGEPATH;
 	}
-
 }
 
 function playVideo() {

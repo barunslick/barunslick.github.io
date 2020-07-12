@@ -12,7 +12,11 @@ slider.oninput = function () {
 	} else {
 		let [newVideoIndex, relativeSliderValue] = determineIndex(slider.value);
 		if (newVideoIndex != activeVideo) {
+			fileNameDiv.innerHTML = videoArray[newVideoIndex].fileName;
+			videoArray[activeVideo].resetColor();
+			resetDivShowing();
 			activeVideo = newVideoIndex;
+			videoArray[activeVideo].changeColor();
 			videoCurrent.src = videoArray[activeVideo].urlSource;
 			changeIcons();
 		}
