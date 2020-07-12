@@ -24,6 +24,9 @@ body{
 	font-size: 13px;
 	cursor: pointer;
 }
+.main-container .boxes .box-content:hover{
+ color: #a3abbd; 
+}
 .main-container .boxes .box-content .check-image img{
   width:20px;
   height: 20px;
@@ -31,11 +34,11 @@ body{
 
 .main-container .effects-filters .current-file{
   font-size: 14px;
-  
+  color: #a8aabc;
 }
 
 .main-container .effects-filters .current-file .current-filename{
-  color: #a8aabc;
+  color: white;
 }
 
 .main-container .effects-filters .trim .trim-heading{
@@ -72,6 +75,9 @@ body{
   background-color: #5b606b;   
   color: white;
   border-radius: 6px;
+}
+.main-container .box-content-dropdown ul li:hover{
+ background-color: #676878;
 }
 .main-container .box-content-dropdown ul li:nth-child(odd){
  border-bottom: 2px solid #2d323c;
