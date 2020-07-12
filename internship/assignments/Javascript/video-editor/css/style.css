@@ -29,6 +29,19 @@ body{
   height: 20px;
 }
 
+.main-container .effects-filters .current-file{
+  font-size: 14px;
+  
+}
+
+.main-container .effects-filters .current-file .current-filename{
+  color: #a8aabc;
+}
+
+.main-container .effects-filters .trim .trim-heading{
+  display: grid;
+  grid-template-columns: 85% 15%;
+}
 
 .main-container .boxes .box-content:nth-of-type(odd){
 	background-color: #303640;
