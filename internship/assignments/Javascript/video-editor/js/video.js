@@ -31,7 +31,7 @@ class Video {
 		} else if (videoArray[activeVideo].startTrimmed) {
 			this.div.style.background = videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' +  this.color + ' ' + ' 0%)';
 		} else if (videoArray[activeVideo].endTrimmed) {
-			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' ' + endPosPercentage + '%' + ', #434655 0%)';
+			this.div.style.background = 'linear-gradient(90deg,' + this.color + ' ' + endPosPercentage + '%' + ', #434655 0%)';
 		} else {
 			this.div.style.background = this.color;
 		}

@@ -8,21 +8,26 @@ videoCurrent.addEventListener('play', timerCallback);
 
 function timerCallback() {
 	if (videoCurrent.paused || videoCurrent.ended) return;
-	tmpCanvas.setAttribute('width', videoCurrent.videoWidth);
-	tmpCanvas.setAttribute('height', videoCurrent.videoHeight);
-	finalCanvas.setAttribute('width', videoCurrent.videoWidth);
-	finalCanvas.setAttribute('height', videoCurrent.videoHeight);
+	setCanvasDimension();
 	computeFrame();
 	setTimeout(function () {
 		timerCallback();
 	}, 0);
 }
 
+function setCanvasDimension() {
+	tmpCanvas.setAttribute('width', videoCurrent.videoWidth);
+	tmpCanvas.setAttribute('height', videoCurrent.videoHeight);
+	finalCanvas.setAttribute('width', videoCurrent.videoWidth);
+	finalCanvas.setAttribute('height', videoCurrent.videoHeight);
+}
+
+
 function computeFrame() {
 	if (videoCurrent.videoWidth != 0 && videoCurrent.videoHeight != 0) {
 		tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
 		let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
-		if (videoCurrent.currentTime > videoArray[activeVideo].startPosition && videoCurrent.currentTime < videoArray[activeVideo].endPosition){
+		if (videoCurrent.currentTime > videoArray[activeVideo].startPosition && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
 			let filtersToApply = videoArray[activeVideo].filterArray;
 			let modifiedFrame = frame;
 			if (filtersToApply.length != 0) {
@@ -79,7 +84,7 @@ function determineFilter(filterNumber) {
 function determineEffect(effectNumber) {
 	switch (effectNumber) {
 		case 'fadeIn':
-			if (videoCurrent.currentTime < ((FADEINRANGE * videoArray[activeVideo].length)+ videoArray[activeVideo].startPosition)) {
+			if (videoCurrent.currentTime < ((FADEINRANGE * videoArray[activeVideo].length) + videoArray[activeVideo].startPosition)) {
 				return fadeIn;
 			} else {
 				return null;

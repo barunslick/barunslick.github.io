@@ -73,19 +73,18 @@ function changeTotaltimer() {
 	totalTimeIndicator.innerHTML = secondsToHms(total);
 }
 
-
 function changeTimer() {
 	if (activeVideo != 0) {
 		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
 			return acc += value.length;
 		}, 0);
-		sliderChange = videoCurrent.currentTime + time
+		sliderChange = videoCurrent.currentTime + time;
 		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time);
-		changeSlider(sliderChange / total * 100)
+		changeSlider(sliderChange / total * 100);
 	} else {
 		sliderChange = videoCurrent.currentTime;
 		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime);
-		changeSlider(sliderChange / total * 100)
+		changeSlider(sliderChange / total * 100);
 	}
 }
 

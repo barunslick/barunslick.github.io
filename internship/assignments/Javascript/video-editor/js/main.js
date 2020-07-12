@@ -4,19 +4,28 @@ let videoLengthRatio;
 
 let fileNameDiv = document.querySelector('.main-container .effects-filters .current-filename');
 
-function main(videoArray) {
-	total = getTotal(videoArray);
-	loadVideo(videoArray, video_list);
+/**
+ * Responsible for setting up the necessary divs in animation pane
+ * @returns {undefinded}
+ */
+function main() {
+	total = getTotal();
+	loadVideo(videoArray, videoList);
 	videoLengthRatio = seekRatio(videoArray, total);
-	setRatio(videoLengthRatio);
-	setDivs(videoArray);
-	rangeDuration = findRanges(videoArray);
+	setRatio();
+	setDivs();
+	rangeDuration = findRanges();
 	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
 	videoArray[activeVideo].changeColor();
 	//testText = new Text();
+	return;
 }
 
-function getTotal(videoArray) {
+/**
+ * Calculates the total time of videos
+ * @returns {Number} Total duration of videos in seconds 
+ */
+function getTotal() {
 	total = 0;
 	for (let index = 0; index < videoArray.length; index++) {
 		total += videoArray[index].length;
@@ -24,7 +33,11 @@ function getTotal(videoArray) {
 	return total;
 }
 
-function seekRatio(videoArray, total) {
+/**
+ * Calculates the ratio of video lengths
+ * @returns {Array} Array of ratios of videos to the total length
+ */
+function seekRatio() {
 	let totalRatio = []
 	for (let index = 0; index < videoArray.length; index++) {
 		let ratio = videoArray[index].length / total * 100;
@@ -33,20 +46,34 @@ function seekRatio(videoArray, total) {
 	return totalRatio;
 }
 
-function setRatio(videoLengthRatio) {
+/**
+ * adds ratio to Video Objects
+ *@returns {undefined}
+ */
+function setRatio() {
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].setRatioLength(videoLengthRatio[index]);
 	}
+	return;
 }
 
-function setDivs(videoArray) {
+/**
+ * Adds the Div in video section of animation pane
+ * @returns {undefined}
+ */
+function setDivs() {
 	let animationDiv = document.querySelector('.timeline .video-pane');
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].setDiv(animationDiv, index);
 	}
+	return;
 }
 
-function findRanges(videoArray) {
+/**
+ * Calculates the ranges of video lengths like [[0,4], [4,8]]
+ * @returns {Array} Array of array of ranges of video lengths
+ */
+function findRanges() {
 	let arr = [];
 	let prev = 0;
 	for (let index = 0; index < videoArray.length; index++) {

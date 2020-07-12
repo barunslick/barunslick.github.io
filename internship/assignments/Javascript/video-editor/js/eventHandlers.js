@@ -11,7 +11,10 @@ fadeInDiv.addEventListener('click', fadeInIconChange);
 fadeOutDiv.addEventListener('click', fadeOutIconChange);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
 
-
+/**
+ * Checks if black and white filter is applied and changes icon accordingly
+ * @returns {undefined}
+ */
 function blackAndWhiteIconChange() {
 	if (videoArray[activeVideo].filterArray.includes('blackAndWhite')) {
 		BlackAndWhiteCheckImage.src = PLUSIMAGEPATH;
@@ -20,8 +23,13 @@ function blackAndWhiteIconChange() {
 		BlackAndWhiteCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addFilter('blackAndWhite');
 	}
+	return;
 }
 
+/**
+ * Checks if fade out effect is applied and changes icon accordingly
+ * @returns {undefined}
+ */
 function fadeInIconChange() {
 	if (videoArray[activeVideo].effectArray.includes('fadeIn')) {
 		FadeInCheckImage.src = PLUSIMAGEPATH;
@@ -30,8 +38,13 @@ function fadeInIconChange() {
 		FadeInCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addEffect('fadeIn');
 	}
+	return;
 }
 
+/**
+ * Checks if fade in effect is applied and changes icon accordingly
+ * @returns {undefined}
+ */
 function fadeOutIconChange() {
 	if (videoArray[activeVideo].effectArray.includes('fadeOut')) {
 		FadeOutCheckImage.src = PLUSIMAGEPATH;
