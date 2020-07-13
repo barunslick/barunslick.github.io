@@ -1,7 +1,7 @@
 let videoArray = [];
 let musicArray = []
 let musicList = ['assets/music/music.mp3'];
-let videoList = ['assets/videos/bunny.mp4'];
+let videoList = ['assets/videos/nature.mp4','assets/videos/sunset1.mp4'];
 
 
 function preloadVideos(srcs) {
