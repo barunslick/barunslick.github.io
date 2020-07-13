@@ -20,7 +20,7 @@ function loadVideos(src) {
 		video.oncanplaythrough = function () {
 			resolve(video);
 		};
-		video.onerror = function () {
+		video.onerror = video.onabort = function () {
 			reject(src);
 		};
 	});
