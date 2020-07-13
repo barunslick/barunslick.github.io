@@ -64,7 +64,7 @@ function loadVideos(src) {
 		var video = document.createElement('video');
 		video.setAttribute('preload', 'auto');
 		video.src = src;
-		video.oncanplaythrough = function () {
+		video.onload = function () {
 			resolve(video);
 		};
 		video.onerror = function () {
