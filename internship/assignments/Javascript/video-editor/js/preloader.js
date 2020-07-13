@@ -4,7 +4,7 @@ let musicList = ['assets/music/music.mp3'];
 let videoList = ['assets/videos/nature.mp4', 'assets/videos/sunset1.mp4'];
 
 
-function loadVideos(src, type) {
+/* function loadVideos(src, type) {
 	return new Promise(function (resolve, reject) {
 		let obj;
 		if (type == 'audio'){
@@ -48,16 +48,16 @@ preloadVideos([videoList, musicList]).then(function (objects) {
 	main();
 }, function (errssss) {
 	alert('Failed to load assets. Your connection might be slow. Please, try again later.')
-});
+}); */
 
-/* function preloadVideos(srcs) {
+function preloadVideos(srcs) {
 	let promises = [];
 	for (let i = 0; i < srcs.length; i++) {
 		promises.push(loadVideos(srcs[i]));
 	}
 	return Promise.all(promises);
 }
-/
+
 
 function loadVideos(src) {
 	return new Promise(function (resolve, reject) {
@@ -72,9 +72,19 @@ function loadVideos(src) {
 		};
 	});
 }
-
-
-
+function preloader(){
+	preloadVideos(videoList).then(function (videos) {
+		for (var i = 0; i < videos.length; i++) {
+			let video = new Video(videos[i].src, videos[i].duration, i);
+			videoArray.push(video);
+		}
+		main();
+	}, function (errVideo) {
+		alert('Failed to load videos. Your connection might be slow. Please, try again later.')
+	});
+}
+preloader();
+/* 
 function preloadMusic(srcs) {
 	let promises = [];
 	for (let i = 0; i < srcs.length; i++) {
