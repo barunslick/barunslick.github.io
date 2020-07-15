@@ -1,10 +1,54 @@
 let videoArray = [];
 let musicArray = []
-let musicList = ['assets/music/music.mp3'];
+let musicList = ['assets/music/music1.mp3'];
 let videoList = ['assets/videos/nature.mp4','assets/videos/sunset1.mp4'];
 
+function loadAssets(src, type) {
+	return new Promise(function (resolve, reject) {
+		let obj;
+		if (type == 'audio'){
+			obj = document.createElement('audio');
+		}else{
+			obj = document.createElement('video');
+		}
+		obj.setAttribute('preload', 'auto');
+		obj.src = src;
+		obj.oncanplaythrough = function () {
+			resolve(obj);
+		};
+		obj.onerror = function () {
+			reject(src);
+		};
+	});
+}
 
-function preloadVideos(srcs) {
+function preloadAssets(srcs) {
+	let promises = [];
+	for (let i = 0; i < srcs.length; i++) {
+		let type = i == 0 ? 'video' : 'audio';
+		for (let j = 0; j < srcs[i].length; j++) {
+			promises.push(loadAssets(srcs[i][j],type));	
+		}
+	}
+	return Promise.all(promises);
+}
+
+preloadAssets([videoList, musicList]).then(function (objects) {
+	let videoObjects = objects.slice(0,videoList.length);
+	let audioObjects = objects.slice(videoList.length, objects.length);
+	for (var i = 0; i < videoObjects.length; i++) {
+		let video = new Video(videoObjects[i].src, videoObjects[i].duration, i);
+		videoArray.push(video);
+	}
+	for (let i = 0; i < audioObjects.length; i++) {
+		let audio = new Audio(audioObjects[i].src, audioObjects[i].duration, i);
+		musicArray.push(audio);
+	}
+	main();
+}, function (errssss) {
+	alert('Failed to load assets. Your connection might be slow. Please, try again later.')
+});
+/* function preloadVideos(srcs) {
 	let promises = [];
 	for (let i = 0; i < srcs.length; i++) {
 		promises.push(loadVideos(srcs[i]));
@@ -35,6 +79,7 @@ preloadVideos(videoList).then(function (videos) {
 	alert('Failed to load videos. Your connection might be slow. Please, try again later.')
 });
 
+ */
 /* function loadVideos(src, type) {
 	return new Promise(function (resolve, reject) {
 		let obj;

@@ -1,15 +1,92 @@
 let animationDiv = document.querySelector('.timeline .video-pane');
 let fadeInDiv = document.querySelector('.effects-filters .fade-in');
 let fadeOutDiv = document.querySelector('.effects-filters .fade-out');
-let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
+
+let playButton = document.querySelector('.controls .playpause .play');
+let pauseButton = document.querySelector('.controls .playpause .pause');
+
+let totalTimeIndicator = document.querySelector('.timeline .time .total-time');
+let currentTimeIndicator = document.querySelector('.timeline .time .current-time');
 
 let FadeInCheckImage = document.querySelector('.main-container .boxes .fade-in img');
 let FadeOutCheckImage = document.querySelector('.main-container .boxes .fade-out img');
+let muteVideoAudioCheckImage = document.querySelector('.effects-filters .mute-video-audio img');
 let BlackAndWhiteCheckImage = document.querySelector('.main-container .boxes .black-and-white img');
 
+let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
+let muteVideoAudioDiv = document.querySelector('.main-container .effects-filters .mute-video-audio');
+
+let audioMuteDiv = document.querySelector('.main-container .mute-audio');
+let audioMuteCheckImage = document.querySelector('.main-container .mute-audio img');
+
+playButton.addEventListener('click', playVideo);
+pauseButton.addEventListener('click', pauseVideo);
+muteVideoAudioDiv.addEventListener('click', muteVideoAudio);
 fadeInDiv.addEventListener('click', fadeInIconChange);
 fadeOutDiv.addEventListener('click', fadeOutIconChange);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
+audioMuteDiv.addEventListener('click', muteMusicAudio)
+
+
+let timer;
+let currentGlobalTime  = 0;
+
+function playVideo() {
+	videoCurrent.play();
+	timer = setInterval(changeTimer, 100);
+}
+
+function pauseVideo() {
+	audioCurrent.pause();
+	videoCurrent.pause();
+	clearInterval(timer);
+}
+function muteMusicAudio(){
+	
+}
+
+
+function muteVideoAudio(){
+	videoArray[activeVideo].mute();
+	console.log(videoArray[activeVideo].muteAudio)
+	if (videoArray[activeVideo].muteAudio == true){
+		muteVideoAudioCheckImage.src = CHECKIMAGEPATH;
+	}else{
+		muteVideoAudioCheckImage.src = PLUSIMAGEPATH;
+	}
+}
+
+function changeTotaltimer() {
+	totalTimeIndicator.innerHTML = secondsToHms(total);
+}
+
+function changeTimer() {
+	checkAudioMute();
+	if (activeVideo != 0) {
+		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
+			return acc += value.length;
+		}, 0);
+		sliderChange = videoCurrent.currentTime + time;
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime + time);
+		changeSlider(sliderChange / total * 100);
+	} else {
+		sliderChange = videoCurrent.currentTime;
+		currentTimeIndicator.innerHTML = secondsToHms(videoCurrent.currentTime);
+		changeSlider(sliderChange / total * 100);
+	}
+	currentGlobalTime = sliderChange;
+	checkAudioPlayBack();
+}
+
+function checkAudioMute(){
+	if (videoArray[activeVideo].muteAudio == true){
+		videoCurrent.muted = true;
+	}else{
+		videoCurrent.muted = false;
+	}
+}
+
+
 
 /**
  * Checks if black and white filter is applied and changes icon accordingly

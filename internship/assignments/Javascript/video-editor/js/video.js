@@ -11,14 +11,15 @@ class Video {
 		this.endPosition = this.length;
 		this.fileName = this.urlSource.replace(/^.*(\\|\/|\:)/, '');
 		this.color = '#1c3c77';
+		this.muteAudio = false;
 	}
 
-	changeColor(){
+	changeColor() {
 		this.color = '#3a69c6';
 		this.resetBackground();
 	}
 
-	resetColor(){
+	resetColor() {
 		this.color = '#1c3c77';
 		this.resetBackground();
 	}
@@ -27,15 +28,16 @@ class Video {
 		let startPosPercentage = this.startPosition / this.length * 100;
 		let endPosPercentage = this.endPosition / this.length * 100;
 		if (this.startTrimmed && this.endTrimmed) {
-			this.div.style.background = this.div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' +  this.color + ' ' + startPosPercentage + '% ' + endPosPercentage + '%,' + '#434655 ' + + endPosPercentage + '%)';
+			this.div.style.background = this.div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' + this.color + ' ' + startPosPercentage + '% ' + endPosPercentage + '%,' + '#434655 ' + + endPosPercentage + '%)';
 		} else if (videoArray[activeVideo].startTrimmed) {
-			this.div.style.background = videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' +  this.color + ' ' + ' 0%)';
+			console.log('linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' + this.color + ' ' + ' 0%)')
+			this.div.style.background = videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + startPosPercentage + '%,' + this.color + ' ' + ' 0%)';
 		} else if (videoArray[activeVideo].endTrimmed) {
 			this.div.style.background = 'linear-gradient(90deg,' + this.color + ' ' + endPosPercentage + '%' + ', #434655 0%)';
 		} else {
 			this.div.style.background = this.color;
 		}
-	
+
 	}
 
 	setRatioLength(ratio) {
@@ -49,7 +51,7 @@ class Video {
 	setDiv(containerDiv, index) {
 		this.div = document.createElement('div');
 		this.div.classList.add('animation-div');
-		this.div.style.background  = this.color;
+		this.div.style.background = this.color;
 		this.div.id = this.position;
 		this.div.style.width = this.ratio - 0.5 + '%';
 		this.div.style.position = 'relative';
@@ -59,7 +61,7 @@ class Video {
 		this.addName();
 	}
 
-	addName(){
+	addName() {
 		this.nameDiv = document.createElement('div');
 		this.nameSpan = document.createElement('span');
 		this.nameSpan.style.color = 'white';
@@ -72,67 +74,92 @@ class Video {
 		this.div.appendChild(this.nameDiv);
 	}
 
-	addTrimSliders(containerDiv){
+	addTrimSliders(containerDiv) {
 		this.startSlider = document.createElement('input');
-		this.startSlider.setAttribute('type','range');
+		this.startSlider.setAttribute('type', 'range');
 		this.startSlider.style.position = 'absolute';
 		this.startSlider.style.top = '50%';
 		this.startSlider.style.width = '100%';
 		this.startSlider.value = 0;
 		this.startSlider.style.display = 'none';
-		this.div.appendChild(this.startSlider); 
-		this.startSlider.oninput = this.startSliderChange.bind(this)
+		this.div.appendChild(this.startSlider);
+		this.startSlider.oninput = this.startSliderChange.bind(this);
+		this.startSlider.onmouseup = this.setStartFinal.bind(this);
 		this.endSlider = document.createElement('input');
-		this.endSlider.setAttribute('type','range');
+		this.endSlider.setAttribute('type', 'range');
 		this.endSlider.style.position = 'absolute';
 		this.endSlider.style.top = '50%';
 		this.endSlider.style.width = '100%';
 		this.endSlider.value = 100;
 		this.endSlider.style.display = 'none';
-		this.endSlider.oninput = this.endSliderChange.bind(this)
-		this.div.appendChild(this.endSlider); 
+		this.endSlider.oninput = this.endSliderChange.bind(this);
+		this.endSlider.onmouseup = this.setEndFinal.bind(this);
+		this.div.appendChild(this.endSlider);
 	}
 
-	startSliderChange(){
+	setStartFinal() {
+		let time = this.startSlider.value / 100 * videoArray[activeVideo].length;
+		if(this.startSlider.value <= 100 -2 ) this.setStartPosition(time);
+		this.resetBackground();
+		this.hideStartSlider();
+	}
+
+	setEndFinal() {
+		let time = this.endSlider.value / 100 * videoArray[activeVideo].length;
+		if(this.endSlider.value >= 2 ) this.setEndPosition(time);
+		this.resetBackground();
+		this.hideEndSlider();
+	}
+
+	startSliderChange() {
 		let endPosPercentage = this.endPosition / this.length * 100;
-		if (this.endTrimmed){
-			if(this.endTrimmed && this.startSlider.value > endPosPercentage){
-				this.startSlider.value = endPosPercentage;
-			}else{
-			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6 '  + this.startSlider.value + '% ' + endPosPercentage + '%,'+'#434655 '+ endPosPercentage + '%)';
+		if (this.endTrimmed) {
+			if (this.startTrimmed && this.startSlider.value == 0) return;
+			if (this.startSlider.value > endPosPercentage - 2) {
+				this.startSlider.value = endPosPercentage - 2;
+			} else {
+				this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6 ' + this.startSlider.value + '% ' + endPosPercentage + '%,' + '#434655 ' + endPosPercentage + '%)';
 			}
-		}else{
+		}
+		else if (this.startTrimmed && this.startSlider.value == 0) {
+			return;
+		}
+		else {
 			this.div.style.background = 'linear-gradient(90deg, white ' + this.startSlider.value + '%,' + '#3a69c6' + ' 0%)';
 		}
-		
-	}
-	endSliderChange(){
-		let startPosPercentage = this.startPosition / this.length * 100;
-		if (this.startTrimmed){
-			if(this.endSlider.value < (startPosPercentage)){
-				this.endSlider.value = startPosPercentage;
-			}else{
-				this.div.style.background = 'linear-gradient(90deg,'+ '#434655 '+ startPosPercentage + '%, '+ '#3a69c6 '+ startPosPercentage +'% '+(this.endSlider.value) + '%' + ', white '+ this.endSlider.value + '%)' ;
-			}
-		}else{
-			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' '+(this.endSlider.value) + '%' + ', white 0%)' ;
-		}
-		
 	}
 
-	showStartSlider(){
+	endSliderChange() {
+		let startPosPercentage = this.startPosition / this.length * 100;
+		if (this.startTrimmed) {
+			if (this.endTrimmed && this.endSlider.value == 100) return;
+			if (this.endSlider.value < (startPosPercentage + 2)) {
+				this.endSlider.value = startPosPercentage + 2;
+			} else {
+				this.div.style.background = 'linear-gradient(90deg,' + '#434655 ' + startPosPercentage + '%, ' + '#3a69c6 ' + startPosPercentage + '% ' + (this.endSlider.value) + '%' + ', white ' + this.endSlider.value + '%)';
+			}
+		}
+		else if (this.endTrimmed && this.endSlider.value == 100) {
+			return;
+		}
+		else {
+			this.div.style.background = 'linear-gradient(90deg,' + '#3a69c6' + ' ' + (this.endSlider.value) + '%' + ', white 0%)';
+		}
+	}
+
+	showStartSlider() {
 		this.startSlider.style.display = 'block';
 	}
 
-	showEndSlider(){
+	showEndSlider() {
 		this.endSlider.style.display = 'block';
 	}
 
-	hideStartSlider(){
+	hideStartSlider() {
 		this.startSlider.style.display = 'none';
 	}
 
-	hideEndSlider(){
+	hideEndSlider() {
 		this.endSlider.style.display = 'none';
 	}
 
@@ -161,7 +188,7 @@ class Video {
 	}
 
 	setStartPosition(position) {
-		this.startPosition =  position;
+		this.startPosition = position;
 		this.startTrimmed = true;
 	}
 
@@ -173,6 +200,15 @@ class Video {
 	changeLengthBy(trimedLength) {
 		/* this.length = this.length - trimedLength; */
 	}
+
+	mute(){
+		if (this.muteAudio == false){
+			this.muteAudio = true;	
+		}else{
+			this.muteAudio = false;
+		}
+	}
+
 
 }
 

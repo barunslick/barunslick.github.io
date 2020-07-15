@@ -31,11 +31,29 @@
 							</div>
 						</div>
 					</div>
+					<div class = "current-file">Active Audio: <span class= "current-filename audio-current-file"></span></div>
+					<div class="boxes">
+						<div class="box-heading">
+							<div class="heading-text">
+								Audio Tools
+							</div>
+							<div class="icon">
+								-
+							</div>
+						</div>
+						<div class="box-content mute-audio">
+							<div>Mute Audio</div>
+							<div class="check-image"><img src="assets/images/plus.png"></div>
+						</div>
+					</div>
 				</div>
 				<div class="video-current">
 					<div class="video-heading">Original Sequence</div>
 					<div class="current-video-holder">
 						<video id="video-current" height="auto"></video>
+					</div>
+					<div class ="current-audio-holder">
+						<audio id = "audio-currnent"></audio>
 					</div>
 				</div>
 				<div class="video-all">
@@ -81,7 +99,7 @@
 					<div class="boxes">
 						<div class="box-heading">
 							<div class="heading-text">
-								Tools
+								Video Tools
 							</div>
 							<div class="icon">
 								-
@@ -89,7 +107,7 @@
 						</div>
 						<div class="box-content trim">
 							<div class="trim-heading"> 
-								<div class ="heading-text">Trim</div>
+								<div class ="heading-text">Trim Video</div>
 							 	<div class= "check-image"> <img src="assets/images/down.png"></div>
 							</div>
 							<div class="box-content-dropdown trim-down">
@@ -98,20 +116,20 @@
 										<p class="heading-dropdown">From Start</p>
 										<div class="drop-down-menu start">
 											Select portion to trim from slider.
-											<div class ="trim-cancel">Cancel</div><div class="trim-button s-btn">Trim</div>
-											<div class="warning"></div>
 										</div>
 									</li>
 									<li>
 										<p class="heading-dropdown">From End</p>
 										<div class="drop-down-menu end">
 											Select portion to trim from slider.
-											<div class ="trim-cancel">Cancel</div><div class="trim-button s-end">Trim</div>
-											<div class="warning"></div>
 										</div>
 									</li>
 								</ul>
 							</div>
+						</div>
+						<div class="box-content mute-video-audio">
+							<div>Mute</div>
+							<div class="check-image"><img src="assets/images/plus.png"></div>
 						</div>
 					</div>
 				</div>
@@ -161,6 +179,7 @@
 	<script src="js/main.js"></script>
 	<script src="js/trimmer.js"></script>
 	<script src="js/videoHandling.js"></script>
+	<script src="js/audioHandling.js"></script>
 	<script src="js/sequnceGeneration.js"></script>
 	<script src="js/text.js"></script>
 	<script src="js/preloader.js"></script>

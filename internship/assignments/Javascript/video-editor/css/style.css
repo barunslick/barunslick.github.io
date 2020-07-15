@@ -32,17 +32,17 @@ body{
   height: 20px;
 }
 
-.main-container .effects-filters .current-file{
+.main-container .current-file{
   font-size: 14px;
   color: #a8aabc;
 }
-
-.main-container .effects-filters .current-file .current-filename{
+.main-container .current-file .current-filename{
   color: white;
 }
 
 .main-container .effects-filters .trim .trim-heading{
   display: grid;
+  padding: 0px;
   grid-template-columns: 85% 15%;
 }
 
@@ -175,21 +175,18 @@ body{
 }
 .timeline .music-pane{
   height: 50px;
+  position: relative;
 }
 #video-current{
 	width:100%;
-}
-.odd-animation-div{
-  background-color: #1c3c77;
-}
-
-.even-animation-div{
-  background-color: #3a69c6;
 }
 
 .main-container .video-heading{
   font-size: 18px;
   margin-bottom: 15px; 
+}
+.main-container .current-audio-holder{
+  display: none;
 }
 
 .text-div{
