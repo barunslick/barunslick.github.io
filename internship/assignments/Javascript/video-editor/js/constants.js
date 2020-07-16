@@ -6,4 +6,4 @@ const PLUSIMAGEPATH = 'assets/images/plus.png';
 const CROSSIMAGEPATH = 'assets/images/cross.png';
 const CHECKIMAGEPATH = 'assets/images/check.png';
 
-
+const MINIMUMTEXTTIME = 1;

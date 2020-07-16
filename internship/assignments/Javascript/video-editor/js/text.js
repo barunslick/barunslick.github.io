@@ -1,17 +1,245 @@
-class Text{
-    
-    constructor(){
-        this.topPosition = 0;
-        this.leftPosition = 0;
+class Text {
+
+    constructor(position) {
         this.addDiv();
-        this.mousePos1 = 0;
-        this.mousePos2 = 0;
-        this.mousePos3 = 0;
-        this.mousePos4 = 0;
+        this.active = false;
+        this.resizing = false;
+        this.paneDivResizingRight = false;
+        this.paneDivResizingleft = false;
+        this.range;
+        this.color = '#1c3c77';
+        this.addPaneDiv();
+        this.addEventListenerSliding();
+        this.addSideButttons();
+        this.showStrechEvent();
+        this.position = position;
+        this.oldMousePos = 0;
     }
 
-    addDiv(){
-        let containerDiv = document.querySelector('.video-all .all-video-holder');
+    addPaneDiv() {
+        let containerDiv = document.querySelector('.timeline .video-audio .text-pane');
+        this.div = document.createElement('div');
+        this.div.classList.add('text-pane-div');
+        this.div.style.backgroundColor = this.color;
+        this.width = MINIMUMTEXTTIME / total * 100;
+        this.minimumWidth = (this.width - 0.5) * containerDiv.clientWidth/100;
+        this.div.style.width = this.width - 0.5 + '%';
+        this.div.style.position = 'absolute';
+        let currentPosPercentage = currentGlobalTime / total * 100;
+        this.div.style.left = currentPosPercentage / 100 * containerDiv.clientWidth + 'px';
+        containerDiv.appendChild(this.div);
+        this.range = [currentPosPercentage, currentPosPercentage + this.width]
+        textRangeDuration.push(this.range);
+        console.log(textRangeDuration)
+    }
+
+    addSideButttons() {
+        this.leftStrech = document.createElement('div');
+        this.leftStrech.classList.add('text-left-strech');
+        this.leftStrech.style.display = 'none';
+        this.div.appendChild(this.leftStrech);
+        this.rightStrech = document.createElement('div');
+        this.rightStrech.classList.add('text-right-strech');
+        this.rightStrech.style.display = 'none';
+        this.div.appendChild(this.rightStrech);
+    }
+
+    showStrechEvent() {
+        let containerDiv = document.querySelector('.timeline .video-audio .text-pane');
+        let direction;
+        this.div.addEventListener('mouseenter', (e) => {
+            this.leftStrech.style.display = 'block';
+            this.rightStrech.style.display = 'block';
+        });
+        this.div.addEventListener('mouseleave', (e) => {
+            if (!this.paneDivResizingRight || !this.paneDivResizingRight){
+                this.leftStrech.style.display = 'none';
+                this.rightStrech.style.display = 'none';
+            }
+        });
+
+        this.leftStrech.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            this.oldMousePos = e.pageX;
+            this.originalPaneDivWidth = parseFloat(getComputedStyle(this.div, null).getPropertyValue('width').replace('px', ''));
+            this.originalPaneDivX = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));
+            this.originalPaneDivMouseX = e.pageX;
+            this.paneDivResizingLeft = true;
+            window.addEventListener('mouseup', (e)=>{
+                this.paneDivResizingLeft = false;
+            });
+            window.addEventListener('mousemove', (e)=>{
+                if (this.paneDivResizingLeft) {
+                    let tempLeft = this.originalPaneDivX + (e.pageX - this.originalPaneDivMouseX);
+                    let tempWidth = this.originalPaneDivWidth - (e.pageX - this.originalPaneDivMouseX);
+                    if (e.pageX < this.oldMousePos) {
+                        direction = 'left'
+                    } else if (e.pageX > this.oldMousePos) {
+                        direction = 'right';
+                    }else{
+                        direction = null;
+                    }
+                    this.oldMousePos = e.pageX;
+                    if (this.checkOverlapWhileStreching(tempWidth , tempLeft) == 'leftTouch' && direction == 'left'){
+                        this.paneDivResizingLeft = false;
+                    }
+                    if (tempLeft > 0 && tempWidth >=  this.minimumWidth){
+                        this.div.style.width = tempWidth  + 'px';
+                        this.div.style.left = tempLeft + 'px';
+                        this.changeRange();
+                    }
+                   
+                }
+                
+            })
+        })
+
+
+        this.rightStrech.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            this.oldMousePos = e.pageX;
+            this.originalPaneDivWidth = parseFloat(getComputedStyle(this.div, null).getPropertyValue('width').replace('px', ''));
+            this.originalPaneDivX = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));
+            this.originalPaneDivMouseX = e.pageX;
+            this.paneDivResizingRight = true;
+            window.addEventListener('mouseup', (e)=>{
+                this.paneDivResizingRight = false;
+            });
+            window.addEventListener('mousemove', (e)=>{
+                if (this.paneDivResizingRight) {
+                    let width = this.originalPaneDivWidth + (e.clientX - this.originalPaneDivMouseX);
+                    if (e.pageX < this.oldMousePos) {
+                        direction = 'left'
+                    } else if (e.pageX > this.oldMousePos) {
+                        direction = 'right';
+                    }else{
+                        direction = null;
+                    }
+                    this.oldMousePos = e.pageX;
+                    if (this.checkOverlapWhileStreching(width) == 'rightTouch' && direction == 'right'){
+                        this.paneDivResizingRight = false;
+                    }
+                    if (this.originalPaneDivX + width < containerDiv.offsetWidth && width >= this.minimumWidth) {
+                        this.div.style.width = width + 'px';
+                        this.changeRange();
+                    }
+                }
+                
+            })
+            
+        })
+    }
+
+    checkOverlapWhileStreching(width , tempLeft){
+        let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
+        let left = (tempLeft || this.originalPaneDivX)/ containerDivPane.clientWidth * 100;
+        let right = left + (width)/ containerDivPane.clientWidth * 100;
+        console.log(left,right)
+        for (let index = 0; index < textRangeDuration.length; index++) {
+            if (index == this.position) continue;
+            console.log(left,right , textRangeDuration[index][0],textRangeDuration[index][1])
+            if (left <= textRangeDuration[index][1]-0.5 && right >= textRangeDuration[index][0]-0.5){
+                console.log('right')
+                return 'rightTouch';
+            }
+            if (left >= textRangeDuration[index][1] && (left - textRangeDuration[index][1]) <= 0.5){
+                console.log('left')
+                return 'leftTouch';
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+    addEventListenerSliding() {
+        this.currentXDiv = 0;
+        this.initialXDiv;
+        this.xOffsetDiv = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));;
+        let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
+        let checker = true;
+        let direction;
+        this.div.addEventListener('mousedown', (e) => {
+            pauseVideo();
+            e.preventDefault();
+            this.oldMousePos = e.pageX;
+            this.initialXDiv = e.clientX - this.xOffsetDiv;
+            if (e.target == this.div) {
+                this.activeDiv = true;
+            }
+            window.addEventListener('mouseup', (e) => {
+                this.initialXDiv = this.currentXDiv;
+                this.activeDiv = false;
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (this.activeDiv) {
+                    if (e.pageX < this.oldMousePos) {
+                        direction = 'left'
+                    } else if (e.pageX > this.oldMousePos) {
+                        direction = 'right';
+                    }else{
+                        direction = null;
+                    }
+                    this.oldMousePos = e.pageX;
+                    if ((checker == 'rightTouch' && direction == 'right') || (checker == 'leftTouch' && direction == 'left')){
+                        console.log('false')
+                        this.activeDiv = false;
+                        /* this.currentX =  parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));  */
+                    }else{
+                        this.currentXDiv = e.clientX - this.initialXDiv;
+                    }
+                    checker = this.checkOverlap();
+                    if (!checker){
+                        if (this.currentXDiv > 0 && this.currentXDiv + this.div.clientWidth <= containerDivPane.clientWidth) {
+                            this.xOffsetDiv = this.currentXDiv;
+                            this.div.style.left = this.currentXDiv + 'px';
+
+                        } else if (this.currentXDiv + this.div.clientWidth >= containerDivPane.clientWidth) {
+                            this.currentXDiv = containerDivPane.clientWidth - this.div.clientWidth;
+                        } else {
+                            this.currentXDiv = 0;
+                            this.xOffsetDiv = this.currentXDiv;
+                            this.div.style.left = this.currentXDiv + 'px';
+                        }
+                        this.changeRange();
+                    }
+                    
+                }
+            });
+        });
+    }
+
+    changeRange(){
+        let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
+        let rangeDurationText = textRangeDuration[this.position];
+		rangeDurationText[0] = this.xOffsetDiv/ containerDivPane.clientWidth * 100;
+		rangeDurationText[1] = (this.xOffsetDiv+ this.div.clientWidth)/ containerDivPane.clientWidth * 100;
+        textRangeDuration[this.position] = rangeDurationText;
+    }
+
+    checkOverlap(){
+        let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
+        let left = this.currentXDiv/ containerDivPane.clientWidth * 100;
+        let right = (this.currentXDiv + this.div.clientWidth)/ containerDivPane.clientWidth * 100;
+        for (let index = 0; index < textRangeDuration.length; index++) {
+            if (index == this.position) continue;
+            if (left <= textRangeDuration[index][1]-0.5 && right >= textRangeDuration[index][0]-0.5){
+                return 'rightTouch';
+            }
+            if (left >= textRangeDuration[index][1] && (left - textRangeDuration[index][1]) <= 0.5){
+                return 'leftTouch';
+            }
+        }
+        return false;
+    }
+
+
+
+
+    addDiv() {
+        this.containerDiv = document.querySelector('.video-all .all-video-holder');
         this.textDiv = document.createElement('div');
         this.textDiv.classList.add('text-div');
         this.textDiv.style.top = '0px';
@@ -19,46 +247,95 @@ class Text{
         this.textArea.classList.add('inside-text-area');
         this.textArea.innerText = 'Hello this is text'
         this.textDiv.appendChild(this.textArea);
-        containerDiv.appendChild(this.textDiv);
-        this.makeDraggable(this.textDiv)
+        this.containerDiv.appendChild(this.textDiv);
+        this.addControlButtons();
+        this.addEventListeners();
     }
-}
+    addControlButtons() {
+        this.removeDiv = document.createElement('div');
+        this.removeDiv.classList.add('remove-text-btn');
+        this.xText = document.createElement('p');
+        this.xText.innerText = '-';
+        this.removeDiv.appendChild(this.xText);
+        this.textDiv.appendChild(this.removeDiv);
 
-Text.prototype.makeDraggable = function(toMoveDiv){
-    toMoveDiv.onmousedown = function(e){
-        e = e || window.event;
-        console.log(this)
-        this.mousePos3 = e.clientX;
-        this.mousePos4 = e.clientY;
-        document.onmouseup = this.closeDragElement;
-        document.onmousemove = this.elementDrag;
-    };
-}
+        this.resizeDiv = document.createElement('div');
+        this.resizeDiv.classList.add('resize-text-btn');
+        this.rText = document.createElement('p');
+        this.rText.innerText = '+';
+        this.resizeDiv.appendChild(this.rText);
+        this.textDiv.appendChild(this.resizeDiv);
+    }
 
-Text.prototype.dragMouseDown = function(e){
-    e = e || window.event;
-    console.log(this)
-    this.mousePos3 = e.clientX;
-    this.mousePos4 = e.clientY;
-    document.onmouseup = this.closeDragElement;
-    document.onmousemove = this.elementDrag;
-    
-}
+    addEventListeners() {
+        this.xOffset = 0;
+        this.yOffset = 0;
+        this.textDiv.addEventListener('mousedown', (e) => {
+            this.initialX = e.clientX - this.xOffset;
+            this.initialY = e.clientY - this.yOffset;
+            if (e.target == this.textDiv || e.target == this.textArea) {
+                this.active = true;
+                window.addEventListener('mouseup', (e) => {
+                    this.initialX = this.currentX;
+                    this.initialY = this.currentY;
+                    this.active = false;
+                });
+                window.addEventListener('mousemove', (e) => {
+                    if (this.active) {
+                        this.currentX = e.clientX - this.initialX;
+                        this.currentY = e.clientY - this.initialY;
 
-Text.prototype.elementDrag = function(){
-    console.log(this)
-    console.log('yeet')
-    e = e || window.event;
-    this.mousePos1 = this.mousePos3 - e.clientX;
-    this.mousePos2 = this.mousePos4 - e.clientY;
-    this.mousePos3 = e.clientX;
-    this.mousePos4 = e.clientY;
-    this.textDiv.style.top = (this.textDiv.offsetTop - pos2) + "px";
-    this.textDiv.style.left = (this.textDiv.offsetLeft - pos1) + "px";
-}
+                        if (this.currentX <= 0) {
+                            this.currentX = 0;
+                        } else if (this.currentX + this.textDiv.offsetWidth >= this.containerDiv.offsetWidth) {
+                            this.currentX = this.containerDiv.offsetWidth - this.textDiv.offsetWidth;
+                        }
 
-Text.prototype.closeDragElement = function(){
-    console.log('cjheck')
-    document.onmouseup = null;
-    document.onmousemove = null;
+                        if (this.currentY <= 0) {
+                            this.currentY = 0;
+                        } else if (this.currentY + this.textDiv.offsetHeight >= this.containerDiv.offsetHeight) {
+                            this.currentY = this.containerDiv.offsetHeight - this.textDiv.offsetHeight;
+                        }
+
+                        this.xOffset = this.currentX;
+                        this.yOffset = this.currentY;
+                        this.textDiv.style.top = this.currentY + 'px';
+                        this.textDiv.style.left = this.currentX + 'px';
+                    }
+                });
+            }
+        });
+
+        this.removeDiv.addEventListener('click', () => {
+            //do other removing operations
+            this.textDiv.style.display = 'none';
+        });
+
+        this.resizeDiv.addEventListener('mousedown', (e) => {
+            if (e.target == this.resizeDiv || e.target == this.rText) {
+                this.originalWidth = parseFloat(getComputedStyle(this.textDiv, null).getPropertyValue('width').replace('px', ''));
+                this.originalHeight = parseFloat(getComputedStyle(this.textDiv, null).getPropertyValue('height').replace('px', ''));
+                this.originalX = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));
+                this.originalY = parseFloat(getComputedStyle(this.div, null).getPropertyValue('top').replace('px', ''));
+                this.originalMouseX = e.pageX;
+                this.originalMouseY = e.pageY;
+                this.resizing = true;
+                window.addEventListener('mouseup', (e) => {
+                    this.resizing = false;
+                });
+                window.addEventListener('mousemove', (e) => {
+                    if (this.resizing) {
+                        let width = this.originalWidth + (e.clientX - this.originalMouseX);
+                        let height = this.originalHeight + (e.clientY - this.originalMouseY);
+                        if (this.xOffset + width < this.containerDiv.offsetWidth && this.yOffset + height < this.containerDiv.offsetHeight) {
+                            this.textDiv.style.height = height + 'px';
+                            this.textDiv.style.width = width + 'px';
+                        }
+                    }
+                });
+            }
+        });
+
+
+    }
 }

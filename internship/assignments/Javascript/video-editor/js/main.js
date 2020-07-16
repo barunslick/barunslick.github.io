@@ -1,7 +1,10 @@
 let total;
+let textArray= [];
 let rangeDuration;
 let videoLengthRatio;
+let textRangeDuration = [];
 let audioRangeDuration;
+
 
 let fileNameDiv = document.querySelector('.main-container .effects-filters .current-filename');
 
@@ -22,7 +25,7 @@ function main() {
 	audioRangeDuration = findAudioRanges();
 	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
 	videoArray[activeVideo].changeColor();
-	//testText = new Text();
+	console.log(textRangeDuration)
 	return;
 }
 

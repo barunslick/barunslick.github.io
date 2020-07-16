@@ -16,8 +16,10 @@ let BlackAndWhiteCheckImage = document.querySelector('.main-container .boxes .bl
 let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
 let muteVideoAudioDiv = document.querySelector('.main-container .effects-filters .mute-video-audio');
 
-let audioMuteDiv = document.querySelector('.main-container .mute-audio');
-let audioMuteCheckImage = document.querySelector('.main-container .mute-audio img');
+let textBtn = document.getElementById('add-text-btn');
+
+/* let audioMuteDiv = document.querySelector('.main-container .mute-audio');
+let audioMuteCheckImage = document.querySelector('.main-container .mute-audio img'); */
 
 playButton.addEventListener('click', playVideo);
 pauseButton.addEventListener('click', pauseVideo);
@@ -25,7 +27,7 @@ muteVideoAudioDiv.addEventListener('click', muteVideoAudio);
 fadeInDiv.addEventListener('click', fadeInIconChange);
 fadeOutDiv.addEventListener('click', fadeOutIconChange);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
-audioMuteDiv.addEventListener('click', muteMusicAudio)
+/* audioMuteDiv.addEventListener('click', muteMusicAudio) */
 
 
 let timer;
@@ -130,4 +132,41 @@ function fadeOutIconChange() {
 		FadeOutCheckImage.src = CHECKIMAGEPATH;
 		videoArray[activeVideo].addEffect('fadeOut');
 	}
+}
+/* 
+document.addEventListener('click', (e)=>{
+	console.log(e)
+	if (e.target == 'inside-text-area'){
+		console.log(e, 'here')
+	}
+
+
+}) */
+
+
+textBtn.addEventListener('click', (e) => {
+	if (checkIfSpaceAvailable()){
+		let length = textArray.length;
+		let newText = new Text(length);
+		textArray.push(newText);
+	}
+});
+
+function checkIfSpaceAvailable(){
+	let newRangeLeft = currentGlobalTime/total * 100;
+	let newRangeRight = newRangeLeft + MINIMUMTEXTTIME/total * 100;
+	for (let index = 0; index < textRangeDuration.length; index++) {
+		if (inBetween (newRangeLeft,textRangeDuration[index][0] ,textRangeDuration[index][1]) || inBetween (newRangeRight,textRangeDuration[index][0] ,textRangeDuration[index][1])){
+			return false;
+		}
+	}
+	if (newRangeLeft > 100 - MINIMUMTEXTTIME/total * 100 && newRangeRight > 100) return false;
+	return true;
+}
+
+function inBetween(num, min, max){
+	if (num >= min && num <= max){
+		return true;
+	}
+	return false;
 }
