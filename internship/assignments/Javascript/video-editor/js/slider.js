@@ -13,33 +13,65 @@ slider.oninput = function () {
 		currentGlobalTime = 0;
 		changeIcons();
 	} else {
-		let [newVideoIndex, relativeSliderValue] = determineVideoIndex(slider.value);
-		let [newAudioIndex, relativeSliderValueAudio] = determineAudioIndex(slider.value);
-		if (newVideoIndex != activeVideo) {
-			fileNameDiv.innerHTML = videoArray[newVideoIndex].fileName;
-			videoArray[activeVideo].resetColor();
-			resetDivShowing();
-			activeVideo = newVideoIndex;
-			videoArray[activeVideo].changeColor();
-			videoCurrent.src = videoArray[activeVideo].urlSource;
-			changeIcons();
-		}
-		videoCurrent.currentTime = relativeSliderValue * videoArray[activeVideo].length / 100;
-		currentGlobalTime = slider.value / 100 * total;
-		if(newAudioIndex !== null && newAudioIndex != activeAudio){
-			if (activeAudio !== null){musicArray[activeAudio].resetColor();}
-			activeAudio = newAudioIndex;
-			musicArray[activeAudio].changeColor();
-			audioCurrent.src = musicArray[activeAudio].urlSource;
-		}else if (newAudioIndex == null){
-			if (activeAudio!== null) {musicArray[activeAudio].resetColor()}
-			activeAudio = null;
-		}
-		if (newAudioIndex !== null){
-			audioCurrent.currentTime = relativeSliderValueAudio * musicArray[activeAudio].length /100;
-		}
+		changeVideoTimeBySlider();
+		changeAudioTimeBySlider()
+		changeTextBySlider();
 	}
 }
+
+function changeVideoTimeBySlider() {
+	let [newVideoIndex, relativeSliderValue] = determineVideoIndex(slider.value);
+	if (newVideoIndex != activeVideo) {
+		fileNameDiv.innerHTML = videoArray[newVideoIndex].fileName;
+		videoArray[activeVideo].resetColor();
+		resetDivShowing();
+		activeVideo = newVideoIndex;
+		videoArray[activeVideo].changeColor();
+		videoCurrent.src = videoArray[activeVideo].urlSource;
+		changeIcons();
+	}
+	videoCurrent.currentTime = relativeSliderValue * videoArray[activeVideo].length / 100;
+}
+
+
+function changeAudioTimeBySlider() {
+	let [newAudioIndex, relativeSliderValueAudio] = determineAudioIndex(slider.value);
+	currentGlobalTime = slider.value / 100 * total;
+	if (newAudioIndex !== null && newAudioIndex != activeAudio) {
+		if (activeAudio !== null) { musicArray[activeAudio].resetColor(); }
+		activeAudio = newAudioIndex;
+		musicArray[activeAudio].changeColor();
+		audioCurrent.src = musicArray[activeAudio].urlSource;
+	} else if (newAudioIndex == null) {
+		if (activeAudio !== null) { musicArray[activeAudio].resetColor() }
+		activeAudio = null;
+	}
+	if (newAudioIndex !== null) {
+		audioCurrent.currentTime = relativeSliderValueAudio * musicArray[activeAudio].length / 100;
+	}
+}
+
+function changeTextBySlider() {
+	let newTextIndex = determineTextIndex(slider.value);
+	if (newTextIndex !== null && newTextIndex != activeText) {
+		if (activeText !== null) {
+			textArray[activeText].hideTextArea();
+			textArray[activeText].resetColor();
+		}
+		activeText = newTextIndex;
+		textArray[activeText].changeColor();
+		textArray[activeText].showTextArea();
+	} else if (newTextIndex == null) {
+		if (activeText !== null) {
+			textArray[activeText].hideTextArea();
+			textArray[activeText].resetColor();
+		}
+		activeText = null;
+	}
+}
+
+
+
 
 /**
  * Changes the value of slider based on given value
@@ -58,24 +90,37 @@ function changeSlider(change) {
 function determineVideoIndex(sliderValue) {
 	for (let index = 0; index < rangeDuration.length; index++) {
 		if (sliderValue >= rangeDuration[index][0] && sliderValue < rangeDuration[index][1]) {
-			
+
 			//p5map maps value of slider to from 0 to 100% to video's length
 			return [index, p5map(sliderValue, rangeDuration[index][0], rangeDuration[index][1], 0, 100)];
 		}
 	}
-	
+
 }
 
 function determineAudioIndex(sliderValue) {
 	for (let index = 0; index < audioRangeDuration.length; index++) {
-		if (sliderValue >= audioRangeDuration[index][0] && sliderValue < audioRangeDuration[index][1]) {
-			
+		if (sliderValue >= audioRangeDuration[index][0] && sliderValue <= audioRangeDuration[index][1]) {
+
 			//p5map maps value of slider to from 0 to 100% to video's length
 			return [index, p5map(sliderValue, audioRangeDuration[index][0], audioRangeDuration[index][1], 0, 100)];
 		}
 	}
-	return [ null, null ] ;
+	return [null, null];
 }
+
+function determineTextIndex(sliderValue) {
+	for (let index = 0; index < textRangeDuration.length; index++) {
+		if (sliderValue >= textRangeDuration[index][0] && sliderValue <= textRangeDuration[index][1]) {
+			//p5map maps value of slider to from 0 to 100% to video's length
+			return index;
+		}
+	}
+	return null;
+}
+
+
+
 
 /**
  * Converts the slider value based on length of video its currently on.
@@ -94,7 +139,7 @@ function p5map(sliderValue, start1, stop1, start2, stop2) {
  * Changes the current time value when slider moves
  * @returns {undefined}
  */
-function changeTimerOnSlide(){
+function changeTimerOnSlide() {
 	if (activeVideo != 0) {
 		// Get the length of videos before it, if its not the first video.
 		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {

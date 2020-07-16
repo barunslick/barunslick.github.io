@@ -7,13 +7,17 @@ class Text {
         this.paneDivResizingRight = false;
         this.paneDivResizingleft = false;
         this.range;
-        this.color = '#1c3c77';
+        this.color = '#3a69c6';
         this.addPaneDiv();
         this.addEventListenerSliding();
         this.addSideButttons();
         this.showStrechEvent();
         this.position = position;
         this.oldMousePos = 0;
+        this.bold = false;
+        this.italics = false;
+        this.underline = false;
+        this.textFontSize = 12;
     }
 
     addPaneDiv() {
@@ -204,6 +208,7 @@ class Text {
                             this.div.style.left = this.currentXDiv + 'px';
                         }
                         this.changeRange();
+                        changeTextBySlider();
                     }
                     
                 }
@@ -214,6 +219,7 @@ class Text {
     changeRange(){
         let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
         let rangeDurationText = textRangeDuration[this.position];
+        console.log(this.position)
 		rangeDurationText[0] = this.xOffsetDiv/ containerDivPane.clientWidth * 100;
 		rangeDurationText[1] = (this.xOffsetDiv+ this.div.clientWidth)/ containerDivPane.clientWidth * 100;
         textRangeDuration[this.position] = rangeDurationText;
@@ -245,6 +251,7 @@ class Text {
         this.textDiv.style.top = '0px';
         this.textArea = document.createElement('textarea');
         this.textArea.classList.add('inside-text-area');
+        this.textArea.style.fontSize = this.textFontSize + 'px';
         this.textArea.innerText = 'Hello this is text'
         this.textDiv.appendChild(this.textArea);
         this.containerDiv.appendChild(this.textDiv);
@@ -271,8 +278,10 @@ class Text {
         this.xOffset = 0;
         this.yOffset = 0;
         this.textDiv.addEventListener('mousedown', (e) => {
+            activeText = this.position;
             this.initialX = e.clientX - this.xOffset;
             this.initialY = e.clientY - this.yOffset;
+            fontSizeInputField.value = this.textFontSize;
             if (e.target == this.textDiv || e.target == this.textArea) {
                 this.active = true;
                 window.addEventListener('mouseup', (e) => {
@@ -309,9 +318,16 @@ class Text {
         this.removeDiv.addEventListener('click', () => {
             //do other removing operations
             this.textDiv.style.display = 'none';
+            this.div.style.display = 'none';
+            textArray.splice(this.position,1);
+            console.log(textArray, 'here')
+            textRangeDuration.splice(this.position,1);
+            console.log(textRangeDuration, ' check herer')
+            updateIndex();
         });
 
         this.resizeDiv.addEventListener('mousedown', (e) => {
+            activeText = this.position;
             if (e.target == this.resizeDiv || e.target == this.rText) {
                 this.originalWidth = parseFloat(getComputedStyle(this.textDiv, null).getPropertyValue('width').replace('px', ''));
                 this.originalHeight = parseFloat(getComputedStyle(this.textDiv, null).getPropertyValue('height').replace('px', ''));
@@ -335,7 +351,77 @@ class Text {
                 });
             }
         });
+    }
 
+    makeBold(){
+        if (!this.bold){
+            this.textArea.style.fontWeight = '800';
+            this.bold = true;
+        }else{
+            this.textArea.style.fontWeight = '300';
+            this.bold = false;
+        }
+    }
+    makeItalics(){
+        if (!this.italics){
+            this.textArea.style.fontStyle = 'italic';
+            this.italics = true;
+        }else{
+            this.textArea.style.fontStyle = 'normal';
+            this.italics = false;
+        }
+    }
+    makeUnderline(){
+        if (!this.underline){
+            this.textArea.style.textDecoration = 'underline';
+            this.underline = true;
+        }else{
+            this.textArea.style.textDecoration = 'none';
+            this.underline = false;
+        }
+    }
 
+    colorText(color){
+        this.textArea.style.color = color;
+    }
+    colorBackground(color){
+        this.textArea.style.backgroundColor = color;
+    }
+    changeFontSize(fontSize){
+        this.textFontSize = fontSize;
+        this.textArea.style.fontSize = fontSize + 'px';
+    }
+    changeColor() {
+		if (this.color !== '#3a69c6'){
+			this.color = '#3a69c6';
+			this.div.style.background = this.color;
+		}
+	}
+	resetColor() {
+        if (this.color != '#1c3c77'){
+            this.color = '#1c3c77';
+            this.div.style.background = this.color;
+        }
+    }
+    
+    hideTextArea(){
+        this.textDiv.style.display = 'none';
+    }
+
+    showTextArea(){
+        this.textDiv.style.display = 'block';
+        this.textDiv.style.border = ' 2px dotted white';
+        this.resizeDiv.style.display = 'block';
+        this.removeDiv.style.display = 'block';
+    }
+    showWhilePlaying(){
+        this.textDiv.style.display = 'block';
+        this.textDiv.style.border = 'none';
+        this.resizeDiv.style.display = 'none';
+        this.removeDiv.style.display = 'none';
+    }
+
+    setPosition(index){
+        this.position = index;
     }
 }

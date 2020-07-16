@@ -25,7 +25,6 @@ function main() {
 	audioRangeDuration = findAudioRanges();
 	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
 	videoArray[activeVideo].changeColor();
-	console.log(textRangeDuration)
 	return;
 }
 

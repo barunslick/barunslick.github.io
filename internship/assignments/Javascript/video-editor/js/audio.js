@@ -92,10 +92,8 @@ class Audio{
 			if (activeAudio !== this.position){
 				activeAudio = this.position;
 			}
-			
 			let relativePositionAudio = p5map(currentPlayPercentage, audioRangeDuration[this.position][0], audioRangeDuration[this.position][1], 0, 100);
 			audioCurrent.currentTime = (relativePositionAudio * this.length/100).toFixed(2); 
-			console.log(audioCurrent.currentTime)
 			this.changeColor();
 		}else{
 			activeAudio = null;
