@@ -89,10 +89,11 @@ class Text {
                     }
                     if (tempLeft > 0 && tempWidth >=  this.minimumWidth){
                         this.div.style.width = tempWidth  + 'px';
+                        this.xOffsetDiv = tempLeft;
                         this.div.style.left = tempLeft + 'px';
                         this.changeRange();
+                        moveCurrentTimeToTextLocation(this.position);
                     }
-                   
                 }
                 
             })
@@ -126,6 +127,7 @@ class Text {
                     if (this.originalPaneDivX + width < containerDiv.offsetWidth && width >= this.minimumWidth) {
                         this.div.style.width = width + 'px';
                         this.changeRange();
+                        moveCurrentTimeToTextLocation(this.position, true);
                     }
                 }
                 
@@ -138,7 +140,6 @@ class Text {
         let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
         let left = (tempLeft || this.originalPaneDivX)/ containerDivPane.clientWidth * 100;
         let right = left + (width)/ containerDivPane.clientWidth * 100;
-        console.log(left,right)
         for (let index = 0; index < textRangeDuration.length; index++) {
             if (index == this.position) continue;
             console.log(left,right , textRangeDuration[index][0],textRangeDuration[index][1])
@@ -161,13 +162,15 @@ class Text {
     addEventListenerSliding() {
         this.currentXDiv = 0;
         this.initialXDiv;
-        this.xOffsetDiv = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));;
+        this.xOffsetDiv = parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));
         let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
         let checker = true;
         let direction;
         this.div.addEventListener('mousedown', (e) => {
             pauseVideo();
             e.preventDefault();
+            moveCurrentTimeToTextLocation(this.position);
+            textCustomizationDiv.style.display = 'block';
             this.oldMousePos = e.pageX;
             this.initialXDiv = e.clientX - this.xOffsetDiv;
             if (e.target == this.div) {
@@ -176,6 +179,7 @@ class Text {
             window.addEventListener('mouseup', (e) => {
                 this.initialXDiv = this.currentXDiv;
                 this.activeDiv = false;
+                textCustomizationDiv.style.display = 'block';
             });
             window.addEventListener('mousemove', (e) => {
                 if (this.activeDiv) {
@@ -187,15 +191,15 @@ class Text {
                         direction = null;
                     }
                     this.oldMousePos = e.pageX;
-                    if ((checker == 'rightTouch' && direction == 'right') || (checker == 'leftTouch' && direction == 'left')){
-                        console.log('false')
+                    checker = this.checkOverlap();
+                    if ((checker[0] == 'rightTouch' && direction == 'right')){
                         this.activeDiv = false;
-                        /* this.currentX =  parseFloat(getComputedStyle(this.div, null).getPropertyValue('left').replace('px', ''));  */
+                    }else if ((checker[0] == 'leftTouch' && direction == 'left')){ 
+                        this.activeDiv = false;
                     }else{
                         this.currentXDiv = e.clientX - this.initialXDiv;
                     }
-                    checker = this.checkOverlap();
-                    if (!checker){
+                    if (!checker && this.activeDiv){
                         if (this.currentXDiv > 0 && this.currentXDiv + this.div.clientWidth <= containerDivPane.clientWidth) {
                             this.xOffsetDiv = this.currentXDiv;
                             this.div.style.left = this.currentXDiv + 'px';
@@ -209,8 +213,8 @@ class Text {
                         }
                         this.changeRange();
                         changeTextBySlider();
+                        moveCurrentTimeToTextLocation(this.position);
                     }
-                    
                 }
             });
         });
@@ -219,7 +223,6 @@ class Text {
     changeRange(){
         let containerDivPane = document.querySelector('.timeline .video-audio .text-pane');
         let rangeDurationText = textRangeDuration[this.position];
-        console.log(this.position)
 		rangeDurationText[0] = this.xOffsetDiv/ containerDivPane.clientWidth * 100;
 		rangeDurationText[1] = (this.xOffsetDiv+ this.div.clientWidth)/ containerDivPane.clientWidth * 100;
         textRangeDuration[this.position] = rangeDurationText;
@@ -232,17 +235,16 @@ class Text {
         for (let index = 0; index < textRangeDuration.length; index++) {
             if (index == this.position) continue;
             if (left <= textRangeDuration[index][1]-0.5 && right >= textRangeDuration[index][0]-0.5){
-                return 'rightTouch';
+                console.log('righTouch')
+                return ['rightTouch', index];
             }
             if (left >= textRangeDuration[index][1] && (left - textRangeDuration[index][1]) <= 0.5){
-                return 'leftTouch';
+                console.log('leftTouch')
+                return ['leftTouch', index];
             }
         }
         return false;
     }
-
-
-
 
     addDiv() {
         this.containerDiv = document.querySelector('.video-all .all-video-holder');
@@ -251,8 +253,9 @@ class Text {
         this.textDiv.style.top = '0px';
         this.textArea = document.createElement('textarea');
         this.textArea.classList.add('inside-text-area');
+        this.textArea.placeholder = 'Text';
+        this.textArea.spellcheck = false;
         this.textArea.style.fontSize = this.textFontSize + 'px';
-        this.textArea.innerText = 'Hello this is text'
         this.textDiv.appendChild(this.textArea);
         this.containerDiv.appendChild(this.textDiv);
         this.addControlButtons();
@@ -315,8 +318,7 @@ class Text {
             }
         });
 
-        this.removeDiv.addEventListener('click', () => {
-            //do other removing operations
+        this.removeDiv.addEventListener('click', _ => {
             this.textDiv.style.display = 'none';
             this.div.style.display = 'none';
             textArray.splice(this.position,1);

@@ -9,3 +9,11 @@ function updateIndex(){
         textArray[index].setPosition(index);
     }
 }
+
+function  moveCurrentTimeToTextLocation(position, right){
+    slider.value = right ? textRangeDuration[position][1] - 0.1 : textRangeDuration[position][0] + 0.1;
+    changeTimerOnSlide();
+    changeVideoTimeBySlider();
+	changeAudioTimeBySlider()
+	changeTextBySlider();
+}

@@ -18,6 +18,14 @@ function checkAudioPlayBack() {
 		if (audioCurrent.paused) {
 			audioCurrent.play();
 		}
+		if (audioCurrent.currentTime < musicArray[activeAudio].startPosition || audioCurrent.currentTime > musicArray[activeAudio].endPosition){
+			audioCurrent.muted = true;
+		}else if (!musicArray[activeAudio].muteAudio){
+			audioCurrent.muted = false;
+		}
+		if(musicArray[activeAudio].muteAudio){
+			audioCurrent.muted = true;
+		}
 	}
 }
 

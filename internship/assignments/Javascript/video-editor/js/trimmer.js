@@ -1,12 +1,9 @@
 let trimDiv = document.querySelector('.main-container .trim');
 let trimImage = document.querySelector('.main-container .trim .trim-heading img');
-let trimDivUl = document.querySelector('.main-container .box-content-dropdown ul');
-let trimDivHeading = document.querySelector('.main-container .trim .trim-heading');
-let trimDivEndDiv = document.querySelector('.main-container .box-content-dropdown .end');
-let trimDivStartDiv = document.querySelector('.main-container .box-content-dropdown .start');
-
-/* let endTrimWarningDiv = trimDivEndDiv.children[1];
-let startTrimWarningDiv = trimDivStartDiv.children[1]; */
+let trimDivUl = document.querySelector('.main-container .effects-filters .box-content-dropdown ul');
+let trimDivHeading = document.querySelector('.main-container .effects-filters .trim .trim-heading');
+let trimDivEndDiv = document.querySelector('.main-container .effects-filters .box-content-dropdown .end');
+let trimDivStartDiv = document.querySelector('.main-container .effects-filters .box-content-dropdown .start');
 
 trimDivHeading.addEventListener('click', function () {
 	if (!trimDivUl.style.display || trimDivUl.style.display == 'none') {
@@ -69,87 +66,3 @@ fromEndDivContainer.addEventListener('click', function () {
 	videoArray[activeVideo].resetBackground();
 });
 
-
-/* let cancelStartTrimBtn = trimDivStartDiv.children[0];
-	cancelStartTrimBtn.addEventListener('click', () => {
-		trimDivStartDiv.style.display = 'none';
-		startTrimWarningDiv.innerHTML = '';
-		videoArray[activeVideo].startSlider.value = 0;
-		videoArray[activeVideo].hideStartSlider();
-		videoArray[activeVideo].resetBackground();
-});
-
-let startTrimBtn = trimDivStartDiv.children[1];
-startTrimBtn.addEventListener('click', () => {
-	if (startTrimButtonHandler(parseInt(videoArray[activeVideo].startSlider.value))) {
-		videoArray[activeVideo].startSlider.value = 0;
-		startTrimWarningDiv.innerHTML = '';
-	}
-});
-
-function startTrimButtonHandler(inputSliderValue, color) {
-	if (inputSliderValue <= (videoArray[activeVideo].endPosition / videoArray[activeVideo].length * 100 - 2)) {
-		let time = inputSliderValue / 100 * videoArray[activeVideo].length;
-		trimFromStart(time, inputSliderValue);
-		trimDivStartDiv.style.display = 'none';
-		startTrimWarningDiv.innerHTML = '';
-		videoArray[activeVideo].startSlider.value = 0;
-		videoArray[activeVideo].hideStartSlider();
-
-		return true;
-	} else {
-		startTrimWarningDiv.innerHTML = 'Result video too short';
-		return false;
-	}
-} */
-
-/* let cancelEndTrimBtn = trimDivEndDiv.children[0];
-	cancelEndTrimBtn.addEventListener('click', () => {
-		trimDivEndDiv.style.display = 'none';
-		videoArray[activeVideo].endSlider.value = 100;
-		videoArray[activeVideo].hideEndSlider();
-		videoArray[activeVideo].resetBackground();
-});
-
-let endTrimBtn = trimDivEndDiv.children[1];
-endTrimBtn.addEventListener('click', () => {
-	if (endTrimButtonHandler(parseInt(videoArray[activeVideo].endSlider.value))) {
-		videoArray[activeVideo].endSlider.value = 100;
-		endTrimWarningDiv.innerHTML = '';
-	}
-});
-
-function endTrimButtonHandler(inputSliderValue, color) {
-	if (inputSliderValue >= (videoArray[activeVideo].startPosition / videoArray[activeVideo].length * 100 + 2)) {
-		let time = inputSliderValue / 100 * videoArray[activeVideo].length;
-		trimFromEnd(time, inputSliderValue);
-		trimDivEndDiv.style.display = 'none';
-		videoArray[activeVideo].endSlider.value = 100;
-		videoArray[activeVideo].hideEndSlider();
-
-		return true;
-	} else {
-		endTrimWarningDiv.innerHTML = 'Result video too short';
-		return false;
-	}
-}
-
-/function trimFromStart(changeTime, sliderValue) {
-	videoArray[activeVideo].setStartPosition(changeTime);
-	if (videoArray[activeVideo].endTrimmed) {
-		let endPosPercentage = videoArray[activeVideo].endPosition / videoArray[activeVideo].length * 100;
-		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + sliderValue + '%,' +  videoArray[activeVideo].color + ' ' + sliderValue + '% ' + endPosPercentage + '%,' + '#434655 ' + + endPosPercentage + '%)';
-	} else {
-		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg, #434655 ' + sliderValue + '%,' + '#3a69c6' + ' 0%)';
-	}
-}
-
-function trimFromEnd(changeTime, sliderValue) {
-	videoArray[activeVideo].setEndPosition(changeTime);
-	if (videoArray[activeVideo].endTrimmed) {
-		let startPosPercentage = videoArray[activeVideo].startPosition / videoArray[activeVideo].length * 100;
-		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg,' + '#434655 ' + startPosPercentage + '%, ' +  videoArray[activeVideo].color + ' ' + startPosPercentage + '% ' + (sliderValue) + '%' + ', #434655 ' + sliderValue + '%)';
-	} else {
-		videoArray[activeVideo].div.style.background = 'linear-gradient(90deg,' +  videoArray[activeVideo].color + ' ' + ' ' + sliderValue + '%' + ', #434655 0%)';
-	}
-}  */

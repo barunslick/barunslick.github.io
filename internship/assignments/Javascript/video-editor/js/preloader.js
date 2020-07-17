@@ -3,6 +3,9 @@ let musicArray = []
 let musicList = ['assets/music/music1.mp3'];
 let videoList = ['assets/videos/nature.mp4','assets/videos/sunset1.mp4'];
 
+let loaderDiv = document.querySelector('.loader');
+let mainDiv = document.querySelector('.wrapper');
+
 function loadAssets(src, type) {
 	return new Promise(function (resolve, reject) {
 		let obj;
@@ -45,6 +48,9 @@ preloadAssets([videoList, musicList]).then(function (objects) {
 		musicArray.push(audio);
 	}
 	main();
+	loaderDiv.style.display = 'none';
+	mainDiv.style.display = 'block';
+
 }, function (errssss) {
 	alert('Failed to load assets. Your connection might be slow. Please, try again later.')
 });

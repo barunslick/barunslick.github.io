@@ -1,4 +1,4 @@
-const FADEINRANGE = 0.10;
+const FADEINRANGE = 0.15;
 const FADEOUTRANGE = 0.90;
 
 const DOWNIMAGEPATH = 'assets/images/down.png';

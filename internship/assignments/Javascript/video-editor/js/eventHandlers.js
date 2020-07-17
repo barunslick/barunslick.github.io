@@ -8,11 +8,10 @@ let pauseButton = document.querySelector('.controls .playpause .pause');
 
 let textBtn = document.getElementById('add-text-btn');
 let fontSizeInputField = document.getElementById('font-size-input');
-let textCustomizationDiv = document.querySelector('.header .text-controls')
+let textCustomizationDiv = document.querySelector('.header .text-controls');
 
 let totalTimeIndicator = document.querySelector('.timeline .time .total-time');
 let currentTimeIndicator = document.querySelector('.timeline .time .current-time');
-
 
 let FadeInCheckImage = document.querySelector('.main-container .boxes .fade-in img');
 let FadeOutCheckImage = document.querySelector('.main-container .boxes .fade-out img');
@@ -22,11 +21,8 @@ let BlackAndWhiteCheckImage = document.querySelector('.main-container .boxes .bl
 let blackAndWhitedDiv = document.querySelector('.main-container .black-and-white');
 let muteVideoAudioDiv = document.querySelector('.main-container .effects-filters .mute-video-audio');
 
-
-
-
-/* let audioMuteDiv = document.querySelector('.main-container .mute-audio');
-let audioMuteCheckImage = document.querySelector('.main-container .mute-audio img'); */
+let audioMuteDiv = document.querySelector('.main-container .tools-resources .mute-audio');
+let audioMuteCheckImage = document.querySelector('.main-container .tools-resources .check-image-audio img');
 
 playButton.addEventListener('click', playVideo);
 pauseButton.addEventListener('click', pauseVideo);
@@ -34,37 +30,46 @@ fadeInDiv.addEventListener('click', fadeInIconChange);
 fadeOutDiv.addEventListener('click', fadeOutIconChange);
 muteVideoAudioDiv.addEventListener('click', muteVideoAudio);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
-/* audioMuteDiv.addEventListener('click', muteMusicAudio) */
+audioMuteDiv.addEventListener('click', muteMusicAudio);
 
 
 let timer;
-let currentGlobalTime  = 0;
+let currentGlobalTime = 0;
 
 function playVideo() {
 	videoCurrent.play();
+	textCustomizationDiv.style.display = 'none';
 	timer = setInterval(changeTimer, 100);
 }
 
 function pauseVideo() {
-	if (!audioCurrent.paused && activeAudio!== null){
+	if (!audioCurrent.paused && activeAudio !== null) {
 		audioCurrent.pause();
 	}
-	
 	videoCurrent.pause();
 	clearInterval(timer);
 	showTextOutlines();
+	toggleTextTool();
 }
-/* function muteMusicAudio(){
-	
-} */
+
+function muteMusicAudio() {
+	let currentAudioIndex = determineAudioToBePlayed();
+	if (currentAudioIndex !== null) {
+		musicArray[activeAudio].mute();
+		if (musicArray[activeAudio].muteAudio == true) {
+			audioMuteCheckImage.src = CHECKIMAGEPATH;
+		} else {
+			audioMuteCheckImage.src = PLUSIMAGEPATH;
+		}
+	}
+}
 
 
-function muteVideoAudio(){
+function muteVideoAudio() {
 	videoArray[activeVideo].mute();
-	console.log(videoArray[activeVideo].muteAudio)
-	if (videoArray[activeVideo].muteAudio == true){
+	if (videoArray[activeVideo].muteAudio == true) {
 		muteVideoAudioCheckImage.src = CHECKIMAGEPATH;
-	}else{
+	} else {
 		muteVideoAudioCheckImage.src = PLUSIMAGEPATH;
 	}
 }
@@ -74,7 +79,14 @@ function changeTotaltimer() {
 }
 
 function changeTimer() {
+	//check if video is muted or not
 	checkAudioMute();
+	checkVideoPlayBack();
+	checkAudioPlayBack();
+	checkTextToShow();
+}
+
+function checkVideoPlayBack() {
 	if (activeVideo != 0) {
 		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
 			return acc += value.length;
@@ -88,22 +100,32 @@ function changeTimer() {
 		changeSlider(sliderChange / total * 100);
 	}
 	currentGlobalTime = sliderChange;
-	checkAudioPlayBack();
-	checkTextToShow();
 }
 
-function checkAudioMute(){
-	if (videoArray[activeVideo].muteAudio == true){
+function toggleTextTool() {
+	let currentTime = currentGlobalTime / total * 100;
+	let index = determineTextIndex(currentTime);
+	if (index == null) {
+		textCustomizationDiv.style.display = 'none';
+		return;
+	};
+	textCustomizationDiv.style.display = 'block';
+}
+
+
+
+function checkAudioMute() {
+	if (videoArray[activeVideo].muteAudio == true) {
 		videoCurrent.muted = true;
-	}else{
+	} else {
 		videoCurrent.muted = false;
 	}
 }
 
-function checkTextToShow(){
-	let currentTime = currentGlobalTime/total * 100;
+function checkTextToShow() {
+	let currentTime = currentGlobalTime / total * 100;
 	let currentTextToShow = determineTextIndex(currentTime);
-	if (currentTextToShow != null){
+	if (currentTextToShow != null) {
 		for (let index = 0; index < textArray.length; index++) {
 			if (index == currentTextToShow) continue;
 			textArray[currentTextToShow].resetColor();
@@ -112,7 +134,7 @@ function checkTextToShow(){
 		activeText = currentTextToShow;
 		textArray[currentTextToShow].showWhilePlaying();
 		textArray[currentTextToShow].changeColor();
-	}else{
+	} else {
 		activeText = null;
 		textArray.forEach(element => {
 			element.hideTextArea();
@@ -122,8 +144,8 @@ function checkTextToShow(){
 }
 
 
-function showTextOutlines(){
-	if (activeText!== null){
+function showTextOutlines() {
+	if (activeText !== null) {
 		textArray[activeText].showTextArea();
 	}
 }
@@ -183,36 +205,45 @@ document.addEventListener('click', (e)=>{
 
 
 textBtn.addEventListener('click', (e) => {
-	if (checkIfSpaceAvailable()){
+	if (checkIfSpaceAvailable()) {
 		let length = textArray.length;
 		let newText = new Text(length);
 		textArray.push(newText);
 		activeText = length;
+	} else {
+		showPopUp();
 	}
 });
 
-function checkIfSpaceAvailable(){
-	let newRangeLeft = currentGlobalTime/total * 100;
-	let newRangeRight = newRangeLeft + MINIMUMTEXTTIME/total * 100;
+function showPopUp() {
+	let div = document.querySelector('.warning-popup');
+	div.style.bottom = div.clientHeight + 'px';
+	setTimeout(function () {
+		div.style.bottom = -div.clientHeight + 'px';
+	}, 2000)
+}
+
+function checkIfSpaceAvailable() {
+	let newRangeLeft = currentGlobalTime / total * 100;
+	let newRangeRight = newRangeLeft + MINIMUMTEXTTIME / total * 100;
 	for (let index = 0; index < textRangeDuration.length; index++) {
-		if (inBetween (newRangeLeft,textRangeDuration[index][0] ,textRangeDuration[index][1]) || inBetween (newRangeRight,textRangeDuration[index][0] ,textRangeDuration[index][1])){
+		if (inBetween(newRangeLeft, textRangeDuration[index][0], textRangeDuration[index][1]) || inBetween(newRangeRight, textRangeDuration[index][0], textRangeDuration[index][1])) {
 			return false;
 		}
 	}
-	if (newRangeLeft > 100 - MINIMUMTEXTTIME/total * 100 && newRangeRight > 100) return false;
+	if (newRangeLeft > 100 - MINIMUMTEXTTIME / total * 100 && newRangeRight > 100) return false;
 	return true;
 }
 
-function inBetween(num, min, max){
-	if (num >= min && num <= max){
+function inBetween(num, min, max) {
+	if (num >= min && num <= max) {
 		return true;
 	}
 	return false;
 }
 
-textCustomizationDiv.addEventListener('click', (e)=>{
+textCustomizationDiv.addEventListener('click', (e) => {
 	let className = e.target.className;
-	console.log(className)
 	if (activeText == null) return;
 	switch (className) {
 		case 'bold-btn':
@@ -234,24 +265,24 @@ textCustomizationDiv.addEventListener('click', (e)=>{
 	if (className.includes('bcolor')) {
 		let color = (className.split(" "))[1];
 		textArray[activeText].colorBackground(color);
-	}		
+	}
 })
 
 
-fontSizeInputField.oninput = function(){
-	if (activeText == null){
+fontSizeInputField.oninput = function () {
+	if (activeText == null) {
 		fontSizeInputField.value = '-';
-	}else{
+	} else {
 		let number = parseInt(fontSizeInputField.value);
-		if (number < 0 || number > 100){
+		if (number < 0 || number > 100) {
 			number = 14;
 			fontSizeInputField.value = 14;
 		}
-		if (Number.isNaN(number)){
+		if (Number.isNaN(number)) {
 			number = 0;
 			fontSizeInputField.value = 0;
 		}
-		fontSizeInputField.value = parseInt(number , 10)
-		textArray[activeText].changeFontSize(parseInt(number,10));
+		fontSizeInputField.value = parseInt(number, 10)
+		textArray[activeText].changeFontSize(parseInt(number, 10));
 	}
 }

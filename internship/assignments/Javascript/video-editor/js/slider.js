@@ -57,6 +57,7 @@ function changeTextBySlider() {
 		if (activeText !== null) {
 			textArray[activeText].hideTextArea();
 			textArray[activeText].resetColor();
+			textCustomizationDiv.style.display = 'block';
 		}
 		activeText = newTextIndex;
 		textArray[activeText].changeColor();
@@ -65,8 +66,10 @@ function changeTextBySlider() {
 		if (activeText !== null) {
 			textArray[activeText].hideTextArea();
 			textArray[activeText].resetColor();
+			textCustomizationDiv.style.display = 'none';
 		}
 		activeText = null;
+		textCustomizationDiv.style.display = 'none';
 	}
 }
 
