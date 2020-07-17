@@ -178,7 +178,11 @@ body{
   padding: 0px;
   grid-template-columns: 85% 15%;
 }
-
+.main-container .tools-resources .trim-audio .trim-audio-heading{
+  display: grid;
+  padding: 0px;
+  grid-template-columns: 85% 15%;
+}
 .main-container .boxes .box-content:nth-of-type(odd){
 	background-color: #303640;
 }
@@ -227,9 +231,6 @@ body{
   padding:4px;
   border: 1px solid grey;
 } */
-.main-container .box-content .drop-down-menu input{
-  width:100%; 
-}
 .main-container .box-content-dropdown .drop-down-menu .trim-button{
   margin-top: 10px;
   padding:8px;
@@ -241,16 +242,6 @@ body{
 }
 .main-container .box-content-dropdown .drop-down-menu .trim-button:hover{
   background-color: white;
-}
-.main-container .box-content-dropdown .drop-down-menu .trim-cancel{
-  margin-top: 10px;
-  padding:8px;
-  border-radius: 5px;
-  background-color: crimson;
-  width: 45%;
-  color:white;
-  display: inline-block;
-  margin-right:4px;
 }
 .timeline{
   margin-top: 40px;
@@ -348,13 +339,13 @@ body{
 
 .remove-text-btn{
   position: absolute;
-  top:-5px;
-  left:-5px;
+  top:-10px;
+  left:-10px;
   background-color: crimson;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  font-size: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  font-size: 10px;
   line-height: 1.1;
   font-weight: bold;
   text-align: center;
@@ -362,12 +353,12 @@ body{
 .resize-text-btn{
   cursor: se-resize;
   position: absolute;
-  bottom:-5px;
-  right:-5px;
+  bottom:-7px;
+  right:-7px;
   background-color: skyblue;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
   font-size: 10px;
   color:black;
   line-height: 1.1;

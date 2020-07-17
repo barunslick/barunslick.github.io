@@ -23,7 +23,9 @@
 .main-container .effects-filters .trim{
     display: block !important;    
 }
-
+.main-container .tools-resources .trim-audio{
+    display: block !important;    
+}
 .main-container .box-content{
     display: grid;
     grid-template-columns: 85% 15%;    
@@ -85,3 +87,23 @@
     cursor: pointer;
 }
 
+.warning-popup{
+    position:fixed;
+    z-index: 200;
+    bottom: -60px;
+    right:3%;
+    width:250px;
+    min-height: 40px;
+    background-color: #b81818;
+    color:white;
+    border-radius: 20px;
+    padding: 0 10px; 
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    vertical-align: center;
+    transition: bottom 0.4s ease-in-out;
+    overflow-y: hidden;
+    text-align: center;
+}
