@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Video Editor</title>
 	<!-- <link href='http://fonts.googleapis.com/css?family=Muli:200,400,700' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet" href="css/preloader.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/layout.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+	<div class = "loader-wrapper">
+		<div class="loader">Loading...</div>
+	</div>
 	<div class="wrapper">
 		<div class="header">
 			<div class="heading">
@@ -89,8 +93,8 @@
 							<div id ="add-text-btn">Add Text</div>
 						</div>
 					</div>
-					<!-- <div class = "current-file">Active Audio: <span class= "current-filename audio-current-file"></span></div> -->
-					<!-- <div class="boxes">
+					<div class = "current-file">Active Audio: <span class= "current-filename audio-current-file"></span></div>
+					<div class="boxes">
 						<div class="box-heading">
 							<div class="heading-text">
 								Audio Tools
@@ -99,11 +103,33 @@
 								-
 							</div>
 						</div>
+						<div class="box-content trim-audio">
+							<div class="trim-audio-heading"> 
+								<div class ="heading-text">Trim Audio</div>
+							 	<div class= "check-image"> <img src="assets/images/down.png"></div>
+							</div>
+							<div class="box-content-dropdown trim-down-audio">
+								<ul>
+									<li>
+										<p class="heading-dropdown">From Start</p>
+										<div class="drop-down-menu start">
+											Select portion to trim from slider.
+										</div>
+									</li>
+									<li>
+										<p class="heading-dropdown">From End</p>
+										<div class="drop-down-menu end">
+											Select portion to trim from slider.
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
 						<div class="box-content mute-audio">
 							<div>Mute Audio</div>
-							<div class="check-image"><img src="assets/images/plus.png"></div>
+							<div class="check-image-audio"><img src="assets/images/plus.png"></div>
 						</div>
-					</div> -->
+					</div> 
 				</div>
 				<div class="video-current">
 					<div class="video-heading">Original Sequence</div>
@@ -233,7 +259,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="warning-popup">
+			Text can't be added here
+		</div>
 	</div>
 
 	<script src="js/constants.js"></script>
@@ -242,6 +270,7 @@
 	<script src="js/audio.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/trimmer.js"></script>
+	<script src="js/audioTrimmer.js"></script>
 	<script src="js/videoHandling.js"></script>
 	<script src="js/audioHandling.js"></script>
 	<script src="js/textHandling.js"></script>
