@@ -17,12 +17,12 @@ class Audio {
 
   }
 
-	/**
-	 * Creates div element for animation pane and adds it.
-	 * @param {HTMLDivElement} containerDiv Parent div  for new div to be appended
-	 * @param {Number} total Total length of videos in seconds
-	 * @memberof Audio
-	 */
+  /**
+   * Creates div element for animation pane and adds it.
+   * @param {HTMLDivElement} containerDiv Parent div  for new div to be appended
+   * @param {Number} total Total length of videos in seconds
+   * @memberof Audio
+   */
   setDiv(containerDiv, total) {
     this.div = document.createElement('div');
     this.div.classList.add('music-div');
@@ -38,10 +38,10 @@ class Audio {
     this.addTrimSliders();
   }
 
-	/**
-	 * Adds name of audio file to div in animation pane.
-	 * @memberof Audio
-	 */
+  /**
+   * Adds name of audio file to div in animation pane.
+   * @memberof Audio
+   */
   addName() {
     this.nameDiv = document.createElement('div');
     this.nameSpan = document.createElement('span');
@@ -55,10 +55,10 @@ class Audio {
     this.div.appendChild(this.nameDiv);
   }
 
-	/**
-	 * Add sliders which allow trimming of audio.
-	 * @memberof Audio
-	 */
+  /**
+   * Add sliders which allow trimming of audio.
+   * @memberof Audio
+   */
   addTrimSliders() {
     // Add sliders to trim from start
     this.startSlider = document.createElement('input');
@@ -85,10 +85,10 @@ class Audio {
     this.div.appendChild(this.endSlider);
   }
 
-	/**
-	 * Changes the start time when trim sliders are used to trim audios.
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the start time when trim sliders are used to trim audios.
+   * @memberof Audio
+   */
   setStartFinal() {
     let time = this.startSlider.value / 100 * musicArray[activeAudio].length;
     if (this.startSlider.value <= 100 - 2) this.setStartPosition(time);
@@ -98,10 +98,10 @@ class Audio {
 
   }
 
-	/**
-	 * Changes the end time when trim sliders are used to trim audios.
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the end time when trim sliders are used to trim audios.
+   * @memberof Audio
+   */
   setEndFinal() {
     let time = this.endSlider.value / 100 * musicArray[activeAudio].length;
     if (this.endSlider.value >= 2) this.setEndPosition(time);
@@ -110,11 +110,11 @@ class Audio {
     trimDivEndDivAudio.style.display = 'none';
   }
 
-	/**
-	 * Changes the portion under the slider to white/dark color when input to start sliders are changed.
-	 * @returns {undefined}
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the portion under the slider to white/dark color when input to start sliders are changed.
+   * @returns {undefined}
+   * @memberof Audio
+   */
   startSliderChange() {
     let endPosPercentage = this.endPosition / this.length * 100;
     if (this.endTrimmed) {
@@ -133,11 +133,11 @@ class Audio {
     }
   }
 
-	/**
-	 * Changes the portion under the slider to white when input to end sliders are changed.
-	 * @returns {undefined}
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the portion under the slider to white when input to end sliders are changed.
+   * @returns {undefined}
+   * @memberof Audio
+   */
   endSliderChange() {
     let startPosPercentage = this.startPosition / this.length * 100;
     if (this.startTrimmed) {
@@ -156,10 +156,10 @@ class Audio {
     }
   }
 
-	/**
-	 * Resets the background of main div according to start value and end value position.
-	 * @memberof Audio
-	 */
+  /**
+   * Resets the background of main div according to start value and end value position.
+   * @memberof Audio
+   */
   resetBackground() {
     let startPosPercentage = this.startPosition / this.length * 100;
     let endPosPercentage = this.endPosition / this.length * 100;
@@ -175,71 +175,71 @@ class Audio {
 
   }
 
-	/**
-	 * Displays start slider for trimming.
-	 * @memberof Audio
-	 */
+  /**
+   * Displays start slider for trimming.
+   * @memberof Audio
+   */
   showStartSlider() {
     this.startSlider.style.display = 'block';
   }
 
-	/**
-	 * Displays end slider for trimming.
-	 * @memberof Audio
-	 */
+  /**
+   * Displays end slider for trimming.
+   * @memberof Audio
+   */
   showEndSlider() {
     this.endSlider.style.display = 'block';
   }
 
-	/**
-	 * Hides start slider for trimming.
-	 * @memberof Audio
-	 */
+  /**
+   * Hides start slider for trimming.
+   * @memberof Audio
+   */
   hideStartSlider() {
     this.startSlider.style.display = 'none';
   }
 
-	/**
-	 * Hides end slider for trimming.
-	 * @memberof Audio
-	 */
+  /**
+   * Hides end slider for trimming.
+   * @memberof Audio
+   */
   hideEndSlider() {
     this.endSlider.style.display = 'none';
   }
 
-	/**
-	 * Changes the starting position of audio based on trimming
-	 * @param {Number} position  Indicator of where the audio should start after trimming
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the starting position of audio based on trimming
+   * @param {Number} position  Indicator of where the audio should start after trimming
+   * @memberof Audio
+   */
   setStartPosition(position) {
     this.startPosition = position;
     this.startTrimmed = true;
   }
 
-	/**
-	 * Changes the end position of audio based on trimming
-	 * @param {Number} position  Indicator of where the audio should end after trimming
-	 * @memberof Audio
-	 */
+  /**
+   * Changes the end position of audio based on trimming
+   * @param {Number} position  Indicator of where the audio should end after trimming
+   * @memberof Audio
+   */
   setEndPosition(position) {
     this.endPosition = position;
     this.endTrimmed = true;
   }
 
-	/**
-	 * Sets its ratio based on its lendth and total length
-	 * @param {Number} ratio Its length by total length of all the audio
-	 * @memberof Audio
-	 */
+  /**
+   * Sets its ratio based on its lendth and total length
+   * @param {Number} ratio Its length by total length of all the audio
+   * @memberof Audio
+   */
   setRatio(ratio) {
     this.ratio = ratio.toFixed(2);
   }
 
-	/**
-	 * Add the required event listeners when the div is slid.
-	 * @memberof Audio
-	 */
+  /**
+   * Add the required event listeners when the div is slid.
+   * @memberof Audio
+   */
   addEventListeners() {
     this.musicText = document.querySelector('.timeline .music-pane');
 
@@ -260,11 +260,11 @@ class Audio {
     this.div.addEventListener('mousemove', (e) => this.slidDiv(e));
   }
 
-	/** 
-	 * Handles sliding of div
-	 * @param {Event} e Click event
-	 * @memberof Audio
-	 */
+  /** 
+   * Handles sliding of div
+   * @param {Event} e Click event
+   * @memberof Audio
+   */
   slidDiv(e) {
     if (this.active) {
       moveCurrentTimeToAudioLocation(this.position);
@@ -285,10 +285,10 @@ class Audio {
     }
   }
 
-	/**
-	 * Change the range duration global value whenever the div is slid and positioned in new position
-	 * @memberof Audio
-	 */
+  /**
+   * Change the range duration global value whenever the div is slid and positioned in new position
+   * @memberof Audio
+   */
   changeRangeDuration() {
     let musicText = document.querySelector('.timeline .music-pane');
     let rangeDurationAudio = audioRangeDuration[this.position];
@@ -297,10 +297,10 @@ class Audio {
     audioRangeDuration[this.position] = rangeDurationAudio;
   }
 
-	/**
-	 * Check if new audio is active whenever it is slid to new position
-	 * @memberof Audio
-	 */
+  /**
+   * Check if new audio is active whenever it is slid to new position
+   * @memberof Audio
+   */
   checkIfNewactive() {
     let currentPlayPercentage = currentGlobalTime / total * 100;
     if (currentPlayPercentage >= audioRangeDuration[this.position][0] && currentPlayPercentage <= audioRangeDuration[this.position][1]) {
@@ -318,10 +318,10 @@ class Audio {
     }
   }
 
-	/**
-	 * Change the color of div to active div color.
-	 * @memberof Audio
-	 */
+  /**
+   * Change the color of div to active div color.
+   * @memberof Audio
+   */
   changeColor() {
     if (this.color !== ACTIVECOLOR) {
       this.color = ACTIVECOLOR;
@@ -329,19 +329,19 @@ class Audio {
     this.resetBackground();
   }
 
-	/**
-	 * Change the color of div to inactive div color.
-	 * @memberof Audio
-	 */
+  /**
+   * Change the color of div to inactive div color.
+   * @memberof Audio
+   */
   resetColor() {
     this.color = INACTIVECOLOR;
     this.resetBackground();
   }
 
-	/**
-	 * Toggle the mute flag.
-	 * @memberof Audio
-	 */
+  /**
+   * Toggle the mute flag.
+   * @memberof Audio
+   */
   mute() {
     if (this.muteAudio === false) {
       this.muteAudio = true;

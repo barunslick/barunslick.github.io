@@ -15,27 +15,27 @@ class Video {
   }
 
   /**
-	 * Change the color of div to active div color.
-	 * @memberof Video
-	 */
+   * Change the color of div to active div color.
+   * @memberof Video
+   */
   changeColor() {
     this.color = ACTIVECOLOR;
     this.resetBackground();
   }
 
   /**
-	 * Change the color of div to inactive div color.
-	 * @memberof Video
-	 */
+   * Change the color of div to inactive div color.
+   * @memberof Video
+   */
   resetColor() {
     this.color = INACTIVECOLOR;
     this.resetBackground();
   }
 
   /**
-	 * Resets the background of main div according to start value and end value position.
-	 * @memberof Video
-	 */
+   * Resets the background of main div according to start value and end value position.
+   * @memberof Video
+   */
   resetBackground() {
     let startPosPercentage = this.startPosition / this.length * 100;
     let endPosPercentage = this.endPosition / this.length * 100;
@@ -52,28 +52,28 @@ class Video {
   }
 
   /**
-	 * Sets its ratio based on its lendth and total length.
-	 * @param {Number} ratio Its length by total length of all the video
-	 * @memberof Video
-	 */
+   * Sets its ratio based on its lendth and total length.
+   * @param {Number} ratio Its length by total length of all the video
+   * @memberof Video
+   */
   setRatioLength(ratio) {
     this.ratio = ratio.toFixed(2);
   }
 
-	/**
-	 * Sets the objects value position based on poisiton in video array.
-	 * @param {Number} pos Index of video in video array
-	 * @memberof Video
-	 */
+  /**
+   * Sets the objects value position based on poisiton in video array.
+   * @param {Number} pos Index of video in video array
+   * @memberof Video
+   */
   setPosition(pos) {
     this.position = pos;
   }
 
-	/**
-	 * Creates div element for animation pane and adds it.
-	 * @param {HTMLDivElement} containerDiv Parent div  for new div to be appended
-	 * @memberof Video
-	 */
+  /**
+   * Creates div element for animation pane and adds it.
+   * @param {HTMLDivElement} containerDiv Parent div  for new div to be appended
+   * @memberof Video
+   */
   setDiv(containerDiv) {
     this.div = document.createElement('div');
     this.div.classList.add('animation-div');
@@ -88,10 +88,10 @@ class Video {
     this.addTrimSliders();
   }
 
-	/**
-	 * Adds name of video file to div in animation pane.
-	 * @memberof Video
-	 */
+  /**
+   * Adds name of video file to div in animation pane.
+   * @memberof Video
+   */
   addName() {
     this.nameDiv = document.createElement('div');
     this.nameSpan = document.createElement('span');
@@ -104,10 +104,10 @@ class Video {
     this.div.appendChild(this.nameDiv);
   }
 
-	/**
-	 * Add sliders which allow trimming of video.
-	 * @memberof Video
-	 */
+  /**
+   * Add sliders which allow trimming of video.
+   * @memberof Video
+   */
   addTrimSliders() {
     this.startSlider = document.createElement('input');
     this.startSlider.setAttribute('type', 'range');
@@ -134,10 +134,10 @@ class Video {
     this.div.appendChild(this.endSlider);
   }
 
-	/**
-	 * Changes the start time when trim sliders are used to trim videos.
-	 * @memberof Video
-	 */
+  /**
+   * Changes the start time when trim sliders are used to trim videos.
+   * @memberof Video
+   */
   setStartFinal() {
     let time = this.startSlider.value / 100 * videoArray[activeVideo].length;
     if (this.startSlider.value <= 100 - 2) this.setStartPosition(time);
@@ -146,10 +146,10 @@ class Video {
     trimDivStartDiv.style.display = 'none';
   }
 
-	/**
-	 * Changes the end time when trim sliders are used to trim videos.
-	 * @memberof Video
-	 */
+  /**
+   * Changes the end time when trim sliders are used to trim videos.
+   * @memberof Video
+   */
   setEndFinal() {
     let time = this.endSlider.value / 100 * videoArray[activeVideo].length;
     if (this.endSlider.value >= 2) this.setEndPosition(time);
@@ -158,11 +158,11 @@ class Video {
     trimDivEndDiv.style.display = 'none';
   }
 
-	/**
-	 * Changes the portion under the slider to white/dark color when input to start sliders are changed.
-	 * @returns {undefined}
-	 * @memberof Video
-	 */
+  /**
+   * Changes the portion under the slider to white/dark color when input to start sliders are changed.
+   * @returns {undefined}
+   * @memberof Video
+   */
   startSliderChange() {
     let endPosPercentage = this.endPosition / this.length * 100;
     if (this.endTrimmed) {
@@ -181,11 +181,11 @@ class Video {
     }
   }
 
-	/**
-	 * Changes the portion under the slider to white/black when input to end sliders are changed.
-	 * @returns {undefined}
-	 * @memberof Video
-	 */
+  /**
+   * Changes the portion under the slider to white/black when input to end sliders are changed.
+   * @returns {undefined}
+   * @memberof Video
+   */
   endSliderChange() {
     let startPosPercentage = this.startPosition / this.length * 100;
     if (this.startTrimmed) {
@@ -204,107 +204,107 @@ class Video {
     }
   }
 
-	/**
-	 * Displays start slider for trimming.
-	 * @memberof Video
-	 */
+  /**
+   * Displays start slider for trimming.
+   * @memberof Video
+   */
   showStartSlider() {
     this.startSlider.style.display = 'block';
   }
 
-	/**
-	 * Displays end slider for trimming.
-	 * @memberof Video
-	 */
+  /**
+   * Displays end slider for trimming.
+   * @memberof Video
+   */
   showEndSlider() {
     this.endSlider.style.display = 'block';
   }
 
-	/**
-	 * Hides start slider for trimming.
-	 * @memberof Video
-	 */
+  /**
+   * Hides start slider for trimming.
+   * @memberof Video
+   */
   hideStartSlider() {
     this.startSlider.style.display = 'none';
   }
 
-	/**
-	 * Hides end slider for trimming.
-	 * @memberof Video
-	 */
+  /**
+   * Hides end slider for trimming.
+   * @memberof Video
+   */
   hideEndSlider() {
     this.endSlider.style.display = 'none';
   }
 
-	/**
-	 * Adds filter name to its filter array.
-	 * @param {String} filterName Name of filter to add
-	 * @memberof Video
-	 */
+  /**
+   * Adds filter name to its filter array.
+   * @param {String} filterName Name of filter to add
+   * @memberof Video
+   */
   addFilter(filterName) {
     this.filterArray.push(filterName);
   }
 
-	/**
-	 * Remove filter name to its filter array.
-	 * @param {String} filterName Name of filter to remove
-	 * @memberof Video
-	 */
+  /**
+   * Remove filter name to its filter array.
+   * @param {String} filterName Name of filter to remove
+   * @memberof Video
+   */
   removeFilter(filterName) {
     this.filterArray = this.filterArray.filter(filter => filter !== filterName);
   }
 
-	/**
-	 * Adds effect name to its effect array.
-	 * @param {String} effectName Name of effect to add
-	 * @memberof Video
-	 */
+  /**
+   * Adds effect name to its effect array.
+   * @param {String} effectName Name of effect to add
+   * @memberof Video
+   */
   addEffect(effectName) {
     this.effectArray.push(effectName);
   }
 
-	/**
-	 * Remove effect name to its effect array.
-	 * @param {String} effectName Name of effect to remove
-	 * @memberof Video
-	 */
+  /**
+   * Remove effect name to its effect array.
+   * @param {String} effectName Name of effect to remove
+   * @memberof Video
+   */
   removeEffect(effectName) {
     this.effectArray = this.effectArray.filter(effect => effect !== effectName);
   }
 
-	/**
-	 * Pause the video, and change time to its starting time when div is clicked.
-	 * @memberof Video
-	 */
+  /**
+   * Pause the video, and change time to its starting time when div is clicked.
+   * @memberof Video
+   */
   handleClick() {
     pauseVideo();
     moveCurrentTimeToVideoLocation(this.position);
   }
 
   /**
- * Changes the starting position of video based on trimming
- * @param {Number} position  Indicator of where the video should start after trimming
- * @memberof Video
- */
+   * Changes the starting position of video based on trimming
+   * @param {Number} position  Indicator of where the video should start after trimming
+   * @memberof Video
+   */
   setStartPosition(position) {
     this.startPosition = position;
     this.startTrimmed = true;
   }
 
-	/**
-	 * Changes the end position of video based on trimming
-	 * @param {Number} position  Indicator of where the video should end after trimming
-	 * @memberof Video
-	 */
+  /**
+   * Changes the end position of video based on trimming
+   * @param {Number} position  Indicator of where the video should end after trimming
+   * @memberof Video
+   */
   setEndPosition(position) {
     this.endPosition = position;
     this.endTrimmed = true;
   }
 
-	/**
-	 * Toggle the mute flag
-	 * @memberof Video
-	 */
+  /**
+   * Toggle the mute flag
+   * @memberof Video
+   */
   mute() {
     if (this.muteAudio === false) {
       this.muteAudio = true;
