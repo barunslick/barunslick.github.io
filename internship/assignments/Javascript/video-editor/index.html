@@ -2,328 +2,310 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Video Editor</title>
-	<link rel="stylesheet" href="css/preloader.css">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/layout.css">
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Editor</title>
+  <link rel="stylesheet" href="css/preloader.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<div class="loader-wrapper">
-		<div class="loader">Loading...</div>
-	</div>
-	<div class="wrapper">
+  <div class="loader-wrapper">
+    <div class="loader">Loading...</div>
+  </div>
+  <div class="wrapper">
 
-		<!--Header  -->
-		<div class="header">
+    <!--Header  -->
+    <div class="header">
 
-			<div class="heading">
-				<h2>Video Editor</h2>
-			</div>
+      <div class="heading">
+        <h2>Video Editor</h2>
+      </div>
 
-			<div class="text-controls">
-				<ul>
-					<li class="bold-btn">B</li>
-					<li class="italics-btn">I</li>
-					<li class="underline-btn">U</li>
-					<li class="text-color"><img src="assets/images/text-color.png" alt="Text-color">
-						<div class="dropdown-content text-color-tool">
-							<ul class="text-color-row">
-								<li class="tcolor white"></li>
-								<li class="tcolor black"></li>
-								<li class="tcolor red"></li>
-								<li class="tcolor teal"></li>
-							</ul>
-							<ul class="text-color-row">
-								<li class="tcolor skyblue"></li>
-								<li class="tcolor green"></li>
-								<li class="tcolor yellow"></li>
-								<li class="tcolor orange"></li>
-							</ul>
-						</div>
-					</li>
-					<li class="bg-color"><img src="assets/images/fill-bg.png" alt="Fill-bg">
-						<div class="dropdown-content bg-color-tool">
-							<ul class="bg-color-row">
-								<li class="bcolor white"></li>
-								<li class="bcolor black"></li>
-								<li class="bcolor red"></li>
-								<li class="bcolor teal"></li>
-							</ul>
-							<ul class="bg-color-row">
-								<li class="bcolor skyblue"></li>
-								<li class="bcolor green"></li>
-								<li class="bcolor yellow"></li>
-								<li class="bcolor orange"></li>
-							</ul>
-							<div class="bcolor transparent">
-								None
-							</div>
-						</div>
-					</li>
-					<li class="font-size">
-						<input type="text" id="font-size-input">
-					</li>
-				</ul>
-			</div>
+      <div class="text-controls">
+        <ul>
+          <li class="bold-btn">B</li>
+          <li class="italics-btn">I</li>
+          <li class="underline-btn">U</li>
+          <li class="text-color"><img src="assets/images/text-color.png" alt="Text-color">
+            <div class="dropdown-content text-color-tool">
+              <ul class="text-color-row">
+                <li class="tcolor white"></li>
+                <li class="tcolor black"></li>
+                <li class="tcolor red"></li>
+                <li class="tcolor teal"></li>
+              </ul>
+              <ul class="text-color-row">
+                <li class="tcolor skyblue"></li>
+                <li class="tcolor green"></li>
+                <li class="tcolor yellow"></li>
+                <li class="tcolor orange"></li>
+              </ul>
+            </div>
+          </li>
+          <li class="bg-color"><img src="assets/images/fill-bg.png" alt="Fill-bg">
+            <div class="dropdown-content bg-color-tool">
+              <ul class="bg-color-row">
+                <li class="bcolor white"></li>
+                <li class="bcolor black"></li>
+                <li class="bcolor red"></li>
+                <li class="bcolor teal"></li>
+              </ul>
+              <ul class="bg-color-row">
+                <li class="bcolor skyblue"></li>
+                <li class="bcolor green"></li>
+                <li class="bcolor yellow"></li>
+                <li class="bcolor orange"></li>
+              </ul>
+              <div class="bcolor transparent">
+                None
+              </div>
+            </div>
+          </li>
+          <li class="font-size">
+            <input type="text" id="font-size-input">
+          </li>
+        </ul>
+      </div>
 
-		</div>
+    </div>
 
-		<!-- Main Section -->
-		<div class="main">
-			<div class="main-container">
+    <!-- Main Section -->
+    <div class="main">
+      <div class="main-container">
 
-				<!-- Tools and Resouces -->
-				<div class="tools-resources">
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
-								Resources
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
-						<div class="resources-list">
-							<ul class="list">
+        <!-- Tools and Resouces -->
+        <div class="tools-resources">
+          <div class="boxes">
+            <div class="box-heading">
+              <div class="heading-text">
+                Resources
+              </div>
+            </div>
+            <div class="resources-list">
+              <ul class="list">
 
-							</ul>
-						</div>
-					</div>
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
-								Text
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
-						<div class="box-content">
-							<div id="add-text-btn">Add Text</div>
-						</div>
-					</div>
-					<div class="current-file">Active Audio: <span class="current-filename audio-current-file"></span></div>
-					<div class="boxes">
+              </ul>
+            </div>
+          </div>
+          <div class="boxes">
+            <div class="box-heading">
+              <div class="heading-text">
+                Text
+              </div>
+            </div>
+            <div class="box-content">
+              <div id="add-text-btn">Add Text</div>
+            </div>
+          </div>
+          <div class="current-file">Active Audio: <span class="current-filename audio-current-file"></span></div>
+          <div class="boxes">
 
-						<!-- Audio Tools -->
-						<div class="box-heading">
-							<div class="heading-text">
-								Audio Tools
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
+            <!-- Audio Tools -->
+            <div class="box-heading">
+              <div class="heading-text">
+                Audio Tools
+              </div>
+            </div>
 
-						<!-- Trim Audio -->
-						<div class="box-content trim-audio">
-							<div class="trim-audio-heading">
-								<div class="heading-text">Trim Audio</div>
-								<div class="check-image"> <img src="assets/images/down.png"></div>
-							</div>
-							<div class="box-content-dropdown trim-down-audio">
-								<ul>
-									<li>
-										<p class="heading-dropdown">From Start</p>
-										<div class="drop-down-menu start">
-											Select portion to trim from slider.
-										</div>
-									</li>
-									<li>
-										<p class="heading-dropdown">From End</p>
-										<div class="drop-down-menu end">
-											Select portion to trim from slider.
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="box-content mute-audio">
-							<div>Mute Audio</div>
-							<div class="check-image-audio"><img src="assets/images/plus.png"></div>
-						</div>
-					</div>
-				</div>
+            <!-- Trim Audio -->
+            <div class="box-content trim-audio">
+              <div class="trim-audio-heading">
+                <div class="heading-text">Trim Audio</div>
+                <div class="check-image"> <img src="assets/images/down.png"></div>
+              </div>
+              <div class="box-content-dropdown trim-down-audio">
+                <ul>
+                  <li>
+                    <p class="heading-dropdown">From Start</p>
+                    <div class="drop-down-menu start">
+                      Select portion to trim from slider.
+                    </div>
+                  </li>
+                  <li>
+                    <p class="heading-dropdown">From End</p>
+                    <div class="drop-down-menu end">
+                      Select portion to trim from slider.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="box-content mute-audio">
+              <div>Mute Audio</div>
+              <div class="check-image-audio"><img src="assets/images/plus.png"></div>
+            </div>
+          </div>
+        </div>
 
-				<!-- Video Element -->
-				<div class="video-current">
+        <!-- Video Element -->
+        <div class="video-current">
 
-					<div class="video-heading">Original Sequence</div>
-					<div class="current-video-holder">
-						<video id="video-current" height="auto"></video>
-					</div>
-					<div class="current-audio-holder">
-						<audio id="audio-currnent"></audio>
-					</div>
+          <div class="video-heading">Original Sequence</div>
+          <div class="current-video-holder">
+            <video id="video-current" height="auto"></video>
+          </div>
+          <div class="current-audio-holder">
+            <audio id="audio-currnent"></audio>
+          </div>
 
-				</div>
+        </div>
 
-				<!-- Edited Sequence -->
-				<div class="video-all">
-					<div class="video-heading">Edited Sequence</div>
-					<div class="all-video-holder">
-						<canvas id="all-video"></canvas>
-					</div>
-				</div>
+        <!-- Edited Sequence -->
+        <div class="video-all">
+          <div class="video-heading">Edited Sequence</div>
+          <div class="all-video-holder">
+            <canvas id="all-video"></canvas>
+          </div>
+        </div>
 
-				<!-- Effects And Filters -->
-				<div class="effects-filters">
+        <!-- Effects And Filters -->
+        <div class="effects-filters">
 
-					<div class="current-file">Active Video: <span class="current-filename"></span></div>
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
-								Effects
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
+          <div class="current-file">Active Video: <span class="current-filename"></span></div>
+          <div class="boxes">
+            <div class="box-heading">
+              <div class="heading-text">
+                Effects
+              </div>
+            </div>
 
-						<!-- Fade In -->
-						<div class="box-content fade-in">
-							<div>Fade In</div>
-							<div class="check-image"><img src="assets/images/plus.png"></div>
-						</div>
+            <!-- Fade In -->
+            <div class="box-content fade-in">
+              <div>Fade In</div>
+              <div class="check-image"><img src="assets/images/plus.png"></div>
+            </div>
 
-						<!-- fade Out -->
-						<div class="box-content fade-out">
-							<div>Fade Out</div>
-							<div class="check-image"><img src="assets/images/plus.png"></div>
-						</div>
-					</div>
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
-								Filters
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
+            <!-- fade Out -->
+            <div class="box-content fade-out">
+              <div>Fade Out</div>
+              <div class="check-image"><img src="assets/images/plus.png"></div>
+            </div>
+          </div>
+          <div class="boxes">
+            <div class="box-heading">
+              <div class="heading-text">
+                Filters
+              </div>
+            </div>
 
-						<!-- Black and White -->
-						<div class="box-content black-and-white">
-							<div>Black and White</div>
-							<div class="check-image"><img src="assets/images/plus.png"></div>
-						</div>
-					</div>
+            <!-- Black and White -->
+            <div class="box-content black-and-white">
+              <div>Black and White</div>
+              <div class="check-image"><img src="assets/images/plus.png"></div>
+            </div>
+          </div>
 
-					<!-- Video tools -->
-					<div class="boxes">
-						<div class="box-heading">
-							<div class="heading-text">
-								Video Tools
-							</div>
-							<div class="icon">
-								-
-							</div>
-						</div>
+          <!-- Video tools -->
+          <div class="boxes">
+            <div class="box-heading">
+              <div class="heading-text">
+                Video Tools
+              </div>
+            </div>
 
-						<!-- Trim Video -->
-						<div class="box-content trim">
-							<div class="trim-heading">
-								<div class="heading-text">Trim Video</div>
-								<div class="check-image"> <img src="assets/images/down.png"></div>
-							</div>
-							<div class="box-content-dropdown trim-down">
-								<ul>
-									<li>
-										<p class="heading-dropdown">From Start</p>
-										<div class="drop-down-menu start">
-											Select portion to trim from slider.
-										</div>
-									</li>
-									<li>
-										<p class="heading-dropdown">From End</p>
-										<div class="drop-down-menu end">
-											Select portion to trim from slider.
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
+            <!-- Trim Video -->
+            <div class="box-content trim">
+              <div class="trim-heading">
+                <div class="heading-text">Trim Video</div>
+                <div class="check-image"> <img src="assets/images/down.png"></div>
+              </div>
+              <div class="box-content-dropdown trim-down">
+                <ul>
+                  <li>
+                    <p class="heading-dropdown">From Start</p>
+                    <div class="drop-down-menu start">
+                      Select portion to trim from slider.
+                    </div>
+                  </li>
+                  <li>
+                    <p class="heading-dropdown">From End</p>
+                    <div class="drop-down-menu end">
+                      Select portion to trim from slider.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-						<!-- Mute Video -->
-						<div class="box-content mute-video-audio">
-							<div>Mute</div>
-							<div class="check-image"><img src="assets/images/plus.png"></div>
-						</div>
-					</div>
+            <!-- Mute Video -->
+            <div class="box-content mute-video-audio">
+              <div>Mute</div>
+              <div class="check-image"><img src="assets/images/plus.png"></div>
+            </div>
+          </div>
 
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
 
-		<!-- Timeline -->
-		<div class="timeline">
-			<div class="timer clearfix">
-				<div class="controls">
-					<div class="playpause">
-						<div class="play">
-							<img src="assets/images/icons8-play-24.png">
-						</div>
-						<div class="pause">
-							<img src="assets/images/icons8-pause-24.png">
-						</div>
-					</div>
-				</div>
-				<div class="time">
-					<span class="current-time">0:0:0</span> / <span class="total-time">0:0:0</span>
-				</div>
-			</div>
-			<div class="slider clearfix">
-				<input type="range" min="0" max="100.0" step="0.1">
-			</div>
-			<div class="video-audio">
-				<div class="video-text">
-					Video
-				</div>
-				<div class="video-pane">
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="timer clearfix">
+        <div class="controls">
+          <div class="playpause">
+            <div class="play">
+              <img src="assets/images/icons8-play-24.png">
+            </div>
+            <div class="pause">
+              <img src="assets/images/icons8-pause-24.png">
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <span class="current-time">0:0:0</span> / <span class="total-time">0:0:0</span>
+        </div>
+      </div>
+      <div class="slider clearfix">
+        <input type="range" min="0" max="100.0" step="0.1">
+      </div>
+      <div class="video-audio">
+        <div class="video-text">
+          Video
+        </div>
+        <div class="video-pane">
 
-				</div>
-				<div class="music-text">
-					Music
-				</div>
-				<div class="music-pane">
+        </div>
+        <div class="music-text">
+          Music
+        </div>
+        <div class="music-pane">
 
-				</div>
-				<div class="text">
-					Text
-				</div>
-				<div class="text-pane">
+        </div>
+        <div class="text">
+          Text
+        </div>
+        <div class="text-pane">
 
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
 
-		<!-- Warning  -->
-		<div class="warning-popup">
+    <!-- Warning  -->
+    <div class="warning-popup">
 
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<script src="js/utils/util.js"></script>
-	<script src="js/constants.js"></script>
-	<script src="js/slider.js"></script>
-	<script src="js/Video/video.js"></script>
-	<script src="js/Audio/audio.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/Trimmer/trimmer.js"></script>
-	<script src="js/Trimmer/audioTrimmer.js"></script>
-	<script src="js/Video/videoHandling.js"></script>
-	<script src="js/Audio/audioHandling.js"></script>
-	<script src="js/Text/textHandling.js"></script>
-	<script src="js/sequnceGeneration.js"></script>
-	<script src="js/Text/text.js"></script>
-	<script src="js/preloader.js"></script>
-	<script src="js/Filter/filters.js"></script>
-	<script src="js/Effect/effects.js"></script>
-	<script src="js/eventHandlers.js"></script>
+  <script src="js/Utils/util.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/Video/video.js"></script>
+  <script src="js/Audio/audio.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/Trimmer/trimmer.js"></script>
+  <script src="js/Trimmer/audioTrimmer.js"></script>
+  <script src="js/Video/videoHandling.js"></script>
+  <script src="js/Audio/audioHandling.js"></script>
+  <script src="js/Text/textHandling.js"></script>
+  <script src="js/sequnceGeneration.js"></script>
+  <script src="js/Text/text.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/Filter/filters.js"></script>
+  <script src="js/Effect/effects.js"></script>
+  <script src="js/eventHandlers.js"></script>
 
 
 </body>
