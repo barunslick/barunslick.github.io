@@ -12,12 +12,12 @@ videoCurrent.addEventListener('play', timerCallback);
  * @returns {undefined}
  */
 function timerCallback() {
-	if (videoCurrent.paused || videoCurrent.ended) return;
-	setCanvasDimension();
-	computeFrame();
-	setTimeout(function () {
-		timerCallback();
-	}, 0);
+  if (videoCurrent.paused || videoCurrent.ended) return;
+  setCanvasDimension();
+  computeFrame();
+  setTimeout(function () {
+    timerCallback();
+  }, 0);
 }
 
 /**
@@ -25,12 +25,12 @@ function timerCallback() {
  * @returns {undefined}
  */
 function setCanvasDimension() {
-	tmpCanvas.setAttribute('width', videoCurrent.videoWidth);
-	tmpCanvas.setAttribute('height', videoCurrent.videoHeight);
-	finalCanvas.setAttribute('width', videoCurrent.videoWidth);
-	finalCanvas.setAttribute('height', videoCurrent.videoHeight);
+  tmpCanvas.setAttribute('width', videoCurrent.videoWidth);
+  tmpCanvas.setAttribute('height', videoCurrent.videoHeight);
+  finalCanvas.setAttribute('width', videoCurrent.videoWidth);
+  finalCanvas.setAttribute('height', videoCurrent.videoHeight);
 
-	return;
+  return;
 }
 
 /**
@@ -38,33 +38,33 @@ function setCanvasDimension() {
  * @returns {undefined}
  */
 function computeFrame() {
-	if (videoCurrent.videoWidth !== 0 && videoCurrent.videoHeight !== 0) {
-		
-		// Draws the current video frame in temporary canvas that is hidden
-		tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
-		// Gets current frame
-		let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
+  if (videoCurrent.videoWidth !== 0 && videoCurrent.videoHeight !== 0) {
 
-		if (videoCurrent.currentTime > videoArray[activeVideo].startPosition && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
-			let filtersToApply = videoArray[activeVideo].filterArray;
-			let modifiedFrame = frame;
-			if (filtersToApply.length !== 0) {
-				// Performs all the required filters and get the final frame
-				modifiedFrame = getFrameAfterFiler(filtersToApply, modifiedFrame);
-			}
+    // Draws the current video frame in temporary canvas that is hidden
+    tmpCanvasCtx.drawImage(videoCurrent, 0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
+    // Gets current frame
+    let frame = tmpCanvasCtx.getImageData(0, 0, videoCurrent.videoWidth, videoCurrent.videoHeight);
 
-			let effectsToApply = videoArray[activeVideo].effectArray;
+    if (videoCurrent.currentTime > videoArray[activeVideo].startPosition && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
+      let filtersToApply = videoArray[activeVideo].filterArray;
+      let modifiedFrame = frame;
+      if (filtersToApply.length !== 0) {
+        // Performs all the required filters and get the final frame
+        modifiedFrame = getFrameAfterFiler(filtersToApply, modifiedFrame);
+      }
 
-			if (effectsToApply.length !== 0) {
-				// Perform all the required effects and get the final frame
-				modifiedFrame = getFrameAfterEffects(effectsToApply, modifiedFrame)
-			}
-			// Put the final frame in the final canvas i.e display canvas
-			finalCanvasCtx.putImageData(modifiedFrame, 0, 0);
+      let effectsToApply = videoArray[activeVideo].effectArray;
 
-			return;
-		}
-	}
+      if (effectsToApply.length !== 0) {
+        // Perform all the required effects and get the final frame
+        modifiedFrame = getFrameAfterEffects(effectsToApply, modifiedFrame)
+      }
+      // Put the final frame in the final canvas i.e display canvas
+      finalCanvasCtx.putImageData(modifiedFrame, 0, 0);
+
+      return;
+    }
+  }
 }
 
 /**
@@ -74,12 +74,12 @@ function computeFrame() {
  * @returns {Array} Final frame after all the filters are applied
  */
 function getFrameAfterFiler(filtersToApply, modifiedFrame) {
-	for (let index = 0; index < filtersToApply.length; index++) {
-		let filterFunction = determineFilter(filtersToApply[index]);
-		modifiedFrame = filterFunction(modifiedFrame);
-	}
+  for (let index = 0; index < filtersToApply.length; index++) {
+    let filterFunction = determineFilter(filtersToApply[index]);
+    modifiedFrame = filterFunction(modifiedFrame);
+  }
 
-	return modifiedFrame;
+  return modifiedFrame;
 }
 
 /**
@@ -89,15 +89,15 @@ function getFrameAfterFiler(filtersToApply, modifiedFrame) {
  * @returns {Array} Final frame after effects are aplied
  */
 function getFrameAfterEffects(effectsToApply, modifiedFrame) {
-	for (let index = 0; index < effectsToApply.length; index++) {
-		let effectFunction = determineEffect(effectsToApply[index]);
-		if (!effectFunction) {
-			continue;
-		}
-		modifiedFrame = effectFunction(modifiedFrame);
-	}
+  for (let index = 0; index < effectsToApply.length; index++) {
+    let effectFunction = determineEffect(effectsToApply[index]);
+    if (!effectFunction) {
+      continue;
+    }
+    modifiedFrame = effectFunction(modifiedFrame);
+  }
 
-	return modifiedFrame;
+  return modifiedFrame;
 }
 
 /**
@@ -106,14 +106,14 @@ function getFrameAfterEffects(effectsToApply, modifiedFrame) {
  * @returns {Function} The filter function based on given name
  */
 function determineFilter(filterName) {
-	switch (filterName) {
-		case 'blackAndWhite':
-			return blackAndWhite;
-			break;
+  switch (filterName) {
+    case 'blackAndWhite':
+      return blackAndWhite;
+      break;
 
-		default:
-			break;
-	}
+    default:
+      break;
+  }
 }
 
 /**
@@ -122,29 +122,29 @@ function determineFilter(filterName) {
  * @returns {Function} The effect applying function based on given name
  */
 function determineEffect(effectName) {
-	switch (effectName) {
-		case 'fadeIn':
-			// Fade is only performed at early stages of video duration
-			if (videoCurrent.currentTime < ((FADEINRANGE * videoArray[activeVideo].length) + videoArray[activeVideo].startPosition)) {
-				return fadeIn;
-			} else {
-				return null;
-			}
+  switch (effectName) {
+    case 'fadeIn':
+      // Fade is only performed at early stages of video duration
+      if (videoCurrent.currentTime < ((FADEINRANGE * videoArray[activeVideo].length) + videoArray[activeVideo].startPosition)) {
+        return fadeIn;
+      } else {
+        return null;
+      }
 
-			break;
+      break;
 
-		case 'fadeOut':
-			// Fade out is performed only at later stages of videos duration
-			if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].endPosition) && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
-				console.log('here')
-				return fadeOut;
-			} else {
-				return null;
-			}
+    case 'fadeOut':
+      // Fade out is performed only at later stages of videos duration
+      if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].endPosition) && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
+        console.log('here')
+        return fadeOut;
+      } else {
+        return null;
+      }
 
-			break;
+      break;
 
-		default:
-			break;
-	}
+    default:
+      break;
+  }
 }

@@ -5,13 +5,13 @@ let activeText = null;
  * @returns {undefined}
  */
 function updateIndex() {
-    activeText = null;
-    if (textArray.length === 0) return;
-    for (let index = 0; index < textArray.length; index++) {
-        textArray[index].setPosition(index);
-    }
+  activeText = null;
+  if (textArray.length === 0) return;
+  for (let index = 0; index < textArray.length; index++) {
+    textArray[index].setPosition(index);
+  }
 
-    return;
+  return;
 }
 
 /**
@@ -21,11 +21,11 @@ function updateIndex() {
  * @returns {undefined}
  */
 function moveCurrentTimeToTextLocation(position, right) {
-    slider.value = right ? textRangeDuration[position][1] - 0.1 : textRangeDuration[position][0] + 0.1;
-    changeTimerOnSlide();
-    changeVideoTimeBySlider();
-    changeAudioTimeBySlider()
-    changeTextBySlider();
+  slider.value = right ? textRangeDuration[position][1] - 0.1 : textRangeDuration[position][0] + 0.1;
+  changeTimerOnSlide();
+  changeVideoTimeBySlider();
+  changeAudioTimeBySlider()
+  changeTextBySlider();
 
-    return;
+  return;
 }

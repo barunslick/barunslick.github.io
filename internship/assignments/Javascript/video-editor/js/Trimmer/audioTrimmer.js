@@ -7,16 +7,16 @@ let trimDivStartDivAudio = document.querySelector('.main-container .tools-resour
 
 // Show trim options when trim heading is clicked for audio
 trimDivHeadingAudio.addEventListener('click', function () {
-	if (!trimDivUlAudio.style.display || trimDivUlAudio.style.display === 'none') {
-		if (activeAudio === null) {
-			showPopUp('audio');
-			return;
-		}
-		trimDivUlAudio.style.display = 'block';
-		trimImageAudio.src = CROSSIMAGEPATH;
-	} else {
-		resetDivShowingAudio();
-	}
+  if (!trimDivUlAudio.style.display || trimDivUlAudio.style.display === 'none') {
+    if (activeAudio === null) {
+      showPopUp('audio');
+      return;
+    }
+    trimDivUlAudio.style.display = 'block';
+    trimImageAudio.src = CROSSIMAGEPATH;
+  } else {
+    resetDivShowingAudio();
+  }
 })
 
 /**
@@ -24,54 +24,54 @@ trimDivHeadingAudio.addEventListener('click', function () {
  * @returns {undefined}
  */
 function resetDivShowingAudio() {
-	trimImageAudio.src = DOWNIMAGEPATH;
-	trimDivUlAudio.style.display = 'none';
-	trimDivEndDivAudio.style.display = 'none';
-	trimDivStartDivAudio.style.display = 'none';
-	musicArray[activeAudio].hideStartSlider();
-	musicArray[activeAudio].hideEndSlider();
-	musicArray[activeAudio].endSlider.value = 100;
+  trimImageAudio.src = DOWNIMAGEPATH;
+  trimDivUlAudio.style.display = 'none';
+  trimDivEndDivAudio.style.display = 'none';
+  trimDivStartDivAudio.style.display = 'none';
+  musicArray[activeAudio].hideStartSlider();
+  musicArray[activeAudio].hideEndSlider();
+  musicArray[activeAudio].endSlider.value = 100;
 
-	return;
+  return;
 }
 
 let fromStartDivContainerAudio = trimDivUlAudio.children[0].children[0];
 
 // Show/Hide start trim slider when start trim div is clicked for audio
 fromStartDivContainerAudio.addEventListener('click', function () {
-	if (trimDivStartDivAudio.style.display === 'block') {
-		trimDivStartDivAudio.style.display = 'none';
-		musicArray[activeAudio].hideStartSlider();
+  if (trimDivStartDivAudio.style.display === 'block') {
+    trimDivStartDivAudio.style.display = 'none';
+    musicArray[activeAudio].hideStartSlider();
 
-	} else {
-		if (activeAudio === null) {
-			showPopUp('audio');
-			return;
-		}
-		trimDivEndDivAudio.style.display = 'none';
-		trimDivStartDivAudio.style.display = 'block';
-		musicArray[activeAudio].hideEndSlider();
-		musicArray[activeAudio].showStartSlider();
-	}
+  } else {
+    if (activeAudio === null) {
+      showPopUp('audio');
+      return;
+    }
+    trimDivEndDivAudio.style.display = 'none';
+    trimDivStartDivAudio.style.display = 'block';
+    musicArray[activeAudio].hideEndSlider();
+    musicArray[activeAudio].showStartSlider();
+  }
 });
 
 let fromEndDivContainerAudio = trimDivUlAudio.children[1].children[0];
 
 // Show/Hide end trim slider when end trim div is clicked for audio
 fromEndDivContainerAudio.addEventListener('click', function () {
-	if (trimDivEndDivAudio.style.display === 'block') {
-		trimDivEndDivAudio.style.display = 'none';
-		musicArray[activeAudio].hideEndSlider();
+  if (trimDivEndDivAudio.style.display === 'block') {
+    trimDivEndDivAudio.style.display = 'none';
+    musicArray[activeAudio].hideEndSlider();
 
-	} else {
-		if (activeAudio === null) {
-			showPopUp('audio');
-			return;
-		}
-		trimDivStartDivAudio.style.display = 'none';
-		trimDivEndDivAudio.style.display = 'block';
-		musicArray[activeAudio].hideStartSlider();
-		musicArray[activeAudio].showEndSlider();
-	}
+  } else {
+    if (activeAudio === null) {
+      showPopUp('audio');
+      return;
+    }
+    trimDivStartDivAudio.style.display = 'none';
+    trimDivEndDivAudio.style.display = 'block';
+    musicArray[activeAudio].hideStartSlider();
+    musicArray[activeAudio].showEndSlider();
+  }
 });
 

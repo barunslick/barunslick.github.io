@@ -10,12 +10,12 @@ activeAudio = 0;
  * @returns {undefined}
  */
 function loadAudio(musicArray) {
-	audioCurrent.src = musicArray[activeAudio].urlSource;
-	audioCurrent.setAttribute('preload', 'auto');
-	audioCurrent.load();
-	audioFileNameDiv.innerHTML = musicArray[activeAudio].fileName;
+  audioCurrent.src = musicArray[activeAudio].urlSource;
+  audioCurrent.setAttribute('preload', 'auto');
+  audioCurrent.load();
+  audioFileNameDiv.innerHTML = musicArray[activeAudio].fileName;
 
-	return;
+  return;
 }
 
 /**
@@ -23,34 +23,34 @@ function loadAudio(musicArray) {
  * @returns {undefined}
  */
 function checkAudioPlayBack() {
-	//determine the current audio to be played based
-	let currentAudioIndex = determineAudioToBePlayed();
+  //determine the current audio to be played based
+  let currentAudioIndex = determineAudioToBePlayed();
 
-	if (currentAudioIndex !== null && currentAudioIndex === activeAudio) {
-		if (audioCurrent.paused) {
-			audioCurrent.play();
-		}
-		if (audioCurrent.currentTime < musicArray[activeAudio].startPosition || audioCurrent.currentTime > musicArray[activeAudio].endPosition) {
-			audioCurrent.muted = true;
-		} else if (!musicArray[activeAudio].muteAudio) {
-			audioCurrent.muted = false;
-		}
-		if (musicArray[activeAudio].muteAudio) {
-			audioCurrent.muted = true;
-		}
-	} else if (currentAudioIndex !== null && currentAudioIndex !== activeAudio) {
-		if (activeAudio !== null) musicArray[activeAudio].resetColor();
-		activeAudio = currentAudioIndex;
-		musicArray[activeAudio].changeColor();
-		audioFileNameDiv.innerHTML = musicArray[activeAudio].fileName;
-		if (audioCurrent.paused) {
-			audioCurrent.play();
-		}
-	} else {
-		audioFileNameDiv.innerHTML = 'None';
-	}
+  if (currentAudioIndex !== null && currentAudioIndex === activeAudio) {
+    if (audioCurrent.paused) {
+      audioCurrent.play();
+    }
+    if (audioCurrent.currentTime < musicArray[activeAudio].startPosition || audioCurrent.currentTime > musicArray[activeAudio].endPosition) {
+      audioCurrent.muted = true;
+    } else if (!musicArray[activeAudio].muteAudio) {
+      audioCurrent.muted = false;
+    }
+    if (musicArray[activeAudio].muteAudio) {
+      audioCurrent.muted = true;
+    }
+  } else if (currentAudioIndex !== null && currentAudioIndex !== activeAudio) {
+    if (activeAudio !== null) musicArray[activeAudio].resetColor();
+    activeAudio = currentAudioIndex;
+    musicArray[activeAudio].changeColor();
+    audioFileNameDiv.innerHTML = musicArray[activeAudio].fileName;
+    if (audioCurrent.paused) {
+      audioCurrent.play();
+    }
+  } else {
+    audioFileNameDiv.innerHTML = 'None';
+  }
 
-	return;
+  return;
 }
 
 /**
@@ -58,13 +58,13 @@ function checkAudioPlayBack() {
  * @returns {Number} Index of current audio that needs to be played or null.
  */
 function determineAudioToBePlayed() {
-	let currentPercentPlayed = currentGlobalTime / total * 100;
-	for (let index = 0; index < audioRangeDuration.length; index++) {
-		if (currentPercentPlayed >= audioRangeDuration[index][0] && currentPercentPlayed <= audioRangeDuration[index][1]) {
-			return index;
-		}
-	}
-	return null;
+  let currentPercentPlayed = currentGlobalTime / total * 100;
+  for (let index = 0; index < audioRangeDuration.length; index++) {
+    if (currentPercentPlayed >= audioRangeDuration[index][0] && currentPercentPlayed <= audioRangeDuration[index][1]) {
+      return index;
+    }
+  }
+  return null;
 }
 
 /**
@@ -72,9 +72,9 @@ function determineAudioToBePlayed() {
  * @returns {undefined}
  */
 function changeAudio() {
-	musicArray[activeAudio].resetColor();
-	
-	return;
+  musicArray[activeAudio].resetColor();
+
+  return;
 }
 
 /**
@@ -83,11 +83,11 @@ function changeAudio() {
  * @returns {undefined}
  */
 function moveCurrentTimeToAudioLocation(position) {
-	slider.value = audioRangeDuration[position][0] + 0.05;
-	changeTimerOnSlide();
-	changeVideoTimeBySlider();
-	changeAudioTimeBySlider()
-	changeTextBySlider();
+  slider.value = audioRangeDuration[position][0] + 0.05;
+  changeTimerOnSlide();
+  changeVideoTimeBySlider();
+  changeAudioTimeBySlider()
+  changeTextBySlider();
 
-	return;
+  return;
 }

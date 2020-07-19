@@ -14,26 +14,26 @@ let audioFileNameDiv = document.querySelector('.main-container .tools-resources 
  * @returns {undefinded}
  */
 function main() {
-	total = getTotal();
+  total = getTotal();
 
-	loadVideo(videoArray, videoList);
-	loadAudio(musicArray, musicList);
+  loadVideo(videoArray, videoList);
+  loadAudio(musicArray, musicList);
 
-	videoLengthRatio = seekVideoRatio(videoArray, total);
+  videoLengthRatio = seekVideoRatio(videoArray, total);
 
-	setVideoRatio();
-	setAudioRatio();
-	setVideoDivs();
-	setAudioDivs();
+  setVideoRatio();
+  setAudioRatio();
+  setVideoDivs();
+  setAudioDivs();
 
-	rangeDuration = findVideoRanges();
-	audioRangeDuration = findAudioRanges();
-	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
+  rangeDuration = findVideoRanges();
+  audioRangeDuration = findAudioRanges();
+  fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
 
-	videoArray[activeVideo].changeColor();
-	musicArray[activeVideo].changeColor();
+  videoArray[activeVideo].changeColor();
+  musicArray[activeVideo].changeColor();
 
-	return;
+  return;
 }
 
 /**
@@ -41,13 +41,13 @@ function main() {
  * @returns {Number} Total duration of videos in seconds 
  */
 function getTotal() {
-	total = 0;
+  total = 0;
 
-	for (let index = 0; index < videoArray.length; index++) {
-		total += videoArray[index].length;
-	}
+  for (let index = 0; index < videoArray.length; index++) {
+    total += videoArray[index].length;
+  }
 
-	return total;
+  return total;
 }
 
 /**
@@ -55,14 +55,14 @@ function getTotal() {
  * @returns {Array} Array of ratios of videos to the total length
  */
 function seekVideoRatio() {
-	let totalRatio = [];
+  let totalRatio = [];
 
-	for (let index = 0; index < videoArray.length; index++) {
-		let ratio = videoArray[index].length / total * 100;
-		totalRatio.push(ratio);
-	}
+  for (let index = 0; index < videoArray.length; index++) {
+    let ratio = videoArray[index].length / total * 100;
+    totalRatio.push(ratio);
+  }
 
-	return totalRatio;
+  return totalRatio;
 }
 
 /**
@@ -70,18 +70,18 @@ function seekVideoRatio() {
  *@returns {undefined}
  */
 function setVideoRatio() {
-	for (let index = 0; index < videoArray.length; index++) {
-		videoArray[index].setRatioLength(videoLengthRatio[index]);
-	}
+  for (let index = 0; index < videoArray.length; index++) {
+    videoArray[index].setRatioLength(videoLengthRatio[index]);
+  }
 
-	return;
+  return;
 }
 function setAudioRatio() {
-	for (let index = 0; index < musicArray.length; index++) {
-		musicArray[index].setRatio(musicArray[index].length / total * 100);
-	}
+  for (let index = 0; index < musicArray.length; index++) {
+    musicArray[index].setRatio(musicArray[index].length / total * 100);
+  }
 
-	return;
+  return;
 }
 
 
@@ -90,24 +90,24 @@ function setAudioRatio() {
  * @returns {undefined}
  */
 function setVideoDivs() {
-	let animationDiv = document.querySelector('.timeline .video-pane');
+  let animationDiv = document.querySelector('.timeline .video-pane');
 
-	for (let index = 0; index < videoArray.length; index++) {
-		videoArray[index].setDiv(animationDiv, index);
-		addToRosourceList(index, videoArray[index].fileName, 'video');
-	}
+  for (let index = 0; index < videoArray.length; index++) {
+    videoArray[index].setDiv(animationDiv, index);
+    addToRosourceList(index, videoArray[index].fileName, 'video');
+  }
 
-	return;
+  return;
 }
 function setAudioDivs() {
-	let animationDiv = document.querySelector('.timeline .music-pane');
+  let animationDiv = document.querySelector('.timeline .music-pane');
 
-	for (let index = 0; index < musicArray.length; index++) {
-		musicArray[index].setDiv(animationDiv, total);
-		addToRosourceList(index, musicArray[index].fileName, 'music');
-	}
+  for (let index = 0; index < musicArray.length; index++) {
+    musicArray[index].setDiv(animationDiv, total);
+    addToRosourceList(index, musicArray[index].fileName, 'music');
+  }
 
-	return;
+  return;
 }
 
 /**
@@ -115,15 +115,15 @@ function setAudioDivs() {
  * @returns {Array} Array of array of ranges of video lengths
  */
 function findVideoRanges() {
-	let arr = [];
-	let prev = 0;
+  let arr = [];
+  let prev = 0;
 
-	for (let index = 0; index < videoArray.length; index++) {
-		arr.push([prev, prev + parseFloat(videoArray[index].ratio)]);
-		prev = prev + parseFloat(videoArray[index].ratio);
-	}
+  for (let index = 0; index < videoArray.length; index++) {
+    arr.push([prev, prev + parseFloat(videoArray[index].ratio)]);
+    prev = prev + parseFloat(videoArray[index].ratio);
+  }
 
-	return arr;
+  return arr;
 }
 
 /**
@@ -131,15 +131,15 @@ function findVideoRanges() {
  * @returns {Array} Array of audio ranges length in percentages
  */
 function findAudioRanges() {
-	let arr = [];
-	let prev = 0;
+  let arr = [];
+  let prev = 0;
 
-	for (let index = 0; index < musicArray.length; index++) {
-		arr.push([prev, prev + parseFloat(musicArray[index].ratio)]);
-		prev = prev + parseFloat(musicArray[index].ratio);
-	}
-	
-	return arr;
+  for (let index = 0; index < musicArray.length; index++) {
+    arr.push([prev, prev + parseFloat(musicArray[index].ratio)]);
+    prev = prev + parseFloat(musicArray[index].ratio);
+  }
+
+  return arr;
 }
 
 /**
@@ -150,9 +150,9 @@ function findAudioRanges() {
  * @param {String} type Whether it is a music or a video
  */
 function addToRosourceList(index, filename, type) {
-	let list = document.createElement('li');
-	let newClassName = filename + type + index;
-	list.innerText = filename;
-	list.classList.add(newClassName);
-	resourceListDiv.appendChild(list);
+  let list = document.createElement('li');
+  let newClassName = filename + type + index;
+  list.innerText = filename;
+  list.classList.add(newClassName);
+  resourceListDiv.appendChild(list);
 }
