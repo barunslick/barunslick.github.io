@@ -5,8 +5,13 @@ let trimDivHeadingAudio = document.querySelector('.main-container .tools-resourc
 let trimDivEndDivAudio = document.querySelector('.main-container .tools-resources .box-content-dropdown .end');
 let trimDivStartDivAudio = document.querySelector('.main-container .tools-resources .box-content-dropdown .start');
 
+// Show trim options when trim heading is clicked for audio
 trimDivHeadingAudio.addEventListener('click', function () {
-	if (!trimDivUlAudio.style.display || trimDivUlAudio.style.display == 'none') {
+	if (!trimDivUlAudio.style.display || trimDivUlAudio.style.display === 'none') {
+		if (activeAudio === null) {
+			showPopUp('audio');
+			return;
+		}
 		trimDivUlAudio.style.display = 'block';
 		trimImageAudio.src = CROSSIMAGEPATH;
 	} else {
@@ -14,33 +19,37 @@ trimDivHeadingAudio.addEventListener('click', function () {
 	}
 })
 
-function resetDivShowingAudio(){
+/**
+ * Reset the background the audio div in animation pane when trim div is closed.
+ * @returns {undefined}
+ */
+function resetDivShowingAudio() {
 	trimImageAudio.src = DOWNIMAGEPATH;
 	trimDivUlAudio.style.display = 'none';
-/* 	endTrimWarningDiv.innerHTML = '';
-	startTrimWarningDiv.innerHTML = ''; */
 	trimDivEndDivAudio.style.display = 'none';
 	trimDivStartDivAudio.style.display = 'none';
 	musicArray[activeAudio].hideStartSlider();
 	musicArray[activeAudio].hideEndSlider();
-	/* videoArray[activeVideo].startSlider.value = videoArray[activeVideo].startPosition / videoArray[activeVideo].length * 100; */
 	musicArray[activeAudio].endSlider.value = 100;
-	/* videoArray[activeVideo].resetBackground(); */
+
+	return;
 }
 
 let fromStartDivContainerAudio = trimDivUlAudio.children[0].children[0];
 
+// Show/Hide start trim slider when start trim div is clicked for audio
 fromStartDivContainerAudio.addEventListener('click', function () {
-    if (trimDivStartDivAudio.style.display == 'block') {
+	if (trimDivStartDivAudio.style.display === 'block') {
 		trimDivStartDivAudio.style.display = 'none';
-		/* startTrimWarningDiv.innerHTML = ''; */
-		/* videoArray[activeVideo].startSlider.value = videoArray[activeVideo].startPosition / videoArray[activeVideo].length * 100; */
-        musicArray[activeAudio].hideStartSlider();
+		musicArray[activeAudio].hideStartSlider();
 
 	} else {
+		if (activeAudio === null) {
+			showPopUp('audio');
+			return;
+		}
 		trimDivEndDivAudio.style.display = 'none';
 		trimDivStartDivAudio.style.display = 'block';
-		/* videoArray[activeVideo].startSlider.value =  videoArray[activeVideo].startPosition / videoArray[activeVideo].length * 100; */
 		musicArray[activeAudio].hideEndSlider();
 		musicArray[activeAudio].showStartSlider();
 	}
@@ -48,19 +57,21 @@ fromStartDivContainerAudio.addEventListener('click', function () {
 
 let fromEndDivContainerAudio = trimDivUlAudio.children[1].children[0];
 
+// Show/Hide end trim slider when end trim div is clicked for audio
 fromEndDivContainerAudio.addEventListener('click', function () {
-	if (trimDivEndDivAudio.style.display == 'block') {
+	if (trimDivEndDivAudio.style.display === 'block') {
 		trimDivEndDivAudio.style.display = 'none';
-		/* videoArray[activeVideo].endSlider.value = 100; */
 		musicArray[activeAudio].hideEndSlider();
 
 	} else {
+		if (activeAudio === null) {
+			showPopUp('audio');
+			return;
+		}
 		trimDivStartDivAudio.style.display = 'none';
 		trimDivEndDivAudio.style.display = 'block';
-		/* endTrimWarningDiv.innerHTML = ''; */
-		/* videoArray[activeVideo].endSlider.value = 100 */;
 		musicArray[activeAudio].hideStartSlider();
 		musicArray[activeAudio].showEndSlider();
 	}
-}); 
+});
 

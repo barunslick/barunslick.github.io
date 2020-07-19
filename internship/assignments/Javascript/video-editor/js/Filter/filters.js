@@ -1,3 +1,8 @@
+/**
+ * Change the color of current frame pixels to grey
+ * @param {Array} frame Current frame array from video element
+ * @returns {Array} Frame after changing the color to grey
+ */
 function blackAndWhite(frame) {
 	let returnFrame = frame
 	let l = frame.data.length / 4;
@@ -8,5 +13,6 @@ function blackAndWhite(frame) {
 		returnFrame.data[i * 4 + 2] = grey;
 		returnFrame.data[i * 4 + 3] = 255;
 	}
+
 	return returnFrame;
 }

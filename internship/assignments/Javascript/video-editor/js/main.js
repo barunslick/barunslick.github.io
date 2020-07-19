@@ -1,12 +1,13 @@
 let total;
-let textArray= [];
 let rangeDuration;
+let textArray = [];
 let videoLengthRatio;
-let textRangeDuration = [];
 let audioRangeDuration;
+let textRangeDuration = [];
 
-
+let resourceListDiv = document.querySelector('.tools-resources .resources-list .list');
 let fileNameDiv = document.querySelector('.main-container .effects-filters .current-filename');
+let audioFileNameDiv = document.querySelector('.main-container .tools-resources .audio-current-file')
 
 /**
  * Responsible for setting up the necessary divs in animation pane
@@ -14,17 +15,24 @@ let fileNameDiv = document.querySelector('.main-container .effects-filters .curr
  */
 function main() {
 	total = getTotal();
+
 	loadVideo(videoArray, videoList);
 	loadAudio(musicArray, musicList);
+
 	videoLengthRatio = seekVideoRatio(videoArray, total);
+
 	setVideoRatio();
 	setAudioRatio();
 	setVideoDivs();
 	setAudioDivs();
+
 	rangeDuration = findVideoRanges();
 	audioRangeDuration = findAudioRanges();
 	fileNameDiv.innerHTML = videoArray[activeVideo].fileName;
+
 	videoArray[activeVideo].changeColor();
+	musicArray[activeVideo].changeColor();
+
 	return;
 }
 
@@ -34,9 +42,11 @@ function main() {
  */
 function getTotal() {
 	total = 0;
+
 	for (let index = 0; index < videoArray.length; index++) {
 		total += videoArray[index].length;
 	}
+
 	return total;
 }
 
@@ -45,11 +55,13 @@ function getTotal() {
  * @returns {Array} Array of ratios of videos to the total length
  */
 function seekVideoRatio() {
-	let totalRatio = []
+	let totalRatio = [];
+
 	for (let index = 0; index < videoArray.length; index++) {
 		let ratio = videoArray[index].length / total * 100;
 		totalRatio.push(ratio);
 	}
+
 	return totalRatio;
 }
 
@@ -61,12 +73,14 @@ function setVideoRatio() {
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].setRatioLength(videoLengthRatio[index]);
 	}
+
 	return;
 }
 function setAudioRatio() {
 	for (let index = 0; index < musicArray.length; index++) {
-		musicArray[index].setRatio(musicArray[index].length/total*100);
+		musicArray[index].setRatio(musicArray[index].length / total * 100);
 	}
+
 	return;
 }
 
@@ -77,16 +91,22 @@ function setAudioRatio() {
  */
 function setVideoDivs() {
 	let animationDiv = document.querySelector('.timeline .video-pane');
+
 	for (let index = 0; index < videoArray.length; index++) {
 		videoArray[index].setDiv(animationDiv, index);
+		addToRosourceList(index, videoArray[index].fileName, 'video');
 	}
+
 	return;
 }
 function setAudioDivs() {
 	let animationDiv = document.querySelector('.timeline .music-pane');
+
 	for (let index = 0; index < musicArray.length; index++) {
 		musicArray[index].setDiv(animationDiv, total);
+		addToRosourceList(index, musicArray[index].fileName, 'music');
 	}
+
 	return;
 }
 
@@ -97,19 +117,42 @@ function setAudioDivs() {
 function findVideoRanges() {
 	let arr = [];
 	let prev = 0;
+
 	for (let index = 0; index < videoArray.length; index++) {
 		arr.push([prev, prev + parseFloat(videoArray[index].ratio)]);
 		prev = prev + parseFloat(videoArray[index].ratio);
 	}
+
 	return arr;
 }
 
+/**
+ * Determines on which part of total swquence does the music exits in percetage
+ * @returns {Array} Array of audio ranges length in percentages
+ */
 function findAudioRanges() {
 	let arr = [];
 	let prev = 0;
+
 	for (let index = 0; index < musicArray.length; index++) {
 		arr.push([prev, prev + parseFloat(musicArray[index].ratio)]);
 		prev = prev + parseFloat(musicArray[index].ratio);
 	}
+	
 	return arr;
+}
+
+/**
+ *Add File to the resouce list
+ *
+ * @param {Number} index Its index in its reosectice array. i.e video array or music array
+ * @param {String} filename Its filename
+ * @param {String} type Whether it is a music or a video
+ */
+function addToRosourceList(index, filename, type) {
+	let list = document.createElement('li');
+	let newClassName = filename + type + index;
+	list.innerText = filename;
+	list.classList.add(newClassName);
+	resourceListDiv.appendChild(list);
 }

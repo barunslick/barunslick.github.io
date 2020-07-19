@@ -1,4 +1,3 @@
-
 let animationDiv = document.querySelector('.timeline .video-pane');
 let fadeInDiv = document.querySelector('.effects-filters .fade-in');
 let fadeOutDiv = document.querySelector('.effects-filters .fade-out');
@@ -24,70 +23,114 @@ let muteVideoAudioDiv = document.querySelector('.main-container .effects-filters
 let audioMuteDiv = document.querySelector('.main-container .tools-resources .mute-audio');
 let audioMuteCheckImage = document.querySelector('.main-container .tools-resources .check-image-audio img');
 
+
 playButton.addEventListener('click', playVideo);
 pauseButton.addEventListener('click', pauseVideo);
 fadeInDiv.addEventListener('click', fadeInIconChange);
+audioMuteDiv.addEventListener('click', muteMusicAudio);
 fadeOutDiv.addEventListener('click', fadeOutIconChange);
 muteVideoAudioDiv.addEventListener('click', muteVideoAudio);
 blackAndWhitedDiv.addEventListener('click', blackAndWhiteIconChange);
-audioMuteDiv.addEventListener('click', muteMusicAudio);
 
-
+// Timer containes the reference to that setInterval function that is responsible for callling changeTimer functtion
+// which performs all the operations that is required at that instant when video is palying
 let timer;
 let currentGlobalTime = 0;
 
+/**
+ * Plays a video if it is paused
+ * @returns {undefined}
+ */
 function playVideo() {
-	videoCurrent.play();
-	textCustomizationDiv.style.display = 'none';
-	timer = setInterval(changeTimer, 100);
+	if (videoCurrent.paused) {
+		videoCurrent.play();
+		textCustomizationDiv.style.display = 'none';
+		timer = setInterval(changeTimer, 100);
+	}
+	
+	return;
 }
 
+/**
+ * Pauses the video if it is played and also the audio
+ * @returns {undefined
+ */
 function pauseVideo() {
 	if (!audioCurrent.paused && activeAudio !== null) {
 		audioCurrent.pause();
 	}
-	videoCurrent.pause();
+	if (!videoCurrent.paused) videoCurrent.pause();
 	clearInterval(timer);
 	showTextOutlines();
 	toggleTextTool();
+
+	return;
 }
 
+/**
+ * Toggles the mute flag in the audio object or show error if no audio is selected
+ * @returns {undefined}
+ */
 function muteMusicAudio() {
 	let currentAudioIndex = determineAudioToBePlayed();
 	if (currentAudioIndex !== null) {
 		musicArray[activeAudio].mute();
-		if (musicArray[activeAudio].muteAudio == true) {
+		if (musicArray[activeAudio].muteAudio === true) {
 			audioMuteCheckImage.src = CHECKIMAGEPATH;
 		} else {
 			audioMuteCheckImage.src = PLUSIMAGEPATH;
 		}
+	} else {
+		showPopUp('audio');
 	}
+
+	return;
 }
 
-
+/**
+ * Toggles the mute flag in the video object
+ * @returns {undefined}
+ */
 function muteVideoAudio() {
 	videoArray[activeVideo].mute();
-	if (videoArray[activeVideo].muteAudio == true) {
+	if (videoArray[activeVideo].muteAudio === true) {
 		muteVideoAudioCheckImage.src = CHECKIMAGEPATH;
 	} else {
 		muteVideoAudioCheckImage.src = PLUSIMAGEPATH;
 	}
+
+	return;
 }
 
+/**
+ * Change the total timer indicator
+ * @returns {undefined}
+ */
 function changeTotaltimer() {
 	totalTimeIndicator.innerHTML = secondsToHms(total);
+
+	return;
 }
 
+/**
+ * Basically performs checks on all entities (video, audio and text) and determines which to show.
+ * @returns {undefined}
+ */
 function changeTimer() {
-	//check if video is muted or not
 	checkAudioMute();
 	checkVideoPlayBack();
 	checkAudioPlayBack();
 	checkTextToShow();
+	
+	return;
 }
 
+/**
+ * Check which video is to be played at current time and update the current time indicator
+ * @returns {undefined}
+ */
 function checkVideoPlayBack() {
-	if (activeVideo != 0) {
+	if (activeVideo !== 0) {
 		let time = videoArray.slice(0, activeVideo).reduce(function (acc, value) {
 			return acc += value.length;
 		}, 0);
@@ -100,54 +143,81 @@ function checkVideoPlayBack() {
 		changeSlider(sliderChange / total * 100);
 	}
 	currentGlobalTime = sliderChange;
+
+	return;
 }
 
+/**
+ * Show text customization tool only when text is acutally selected
+ * @returns {undefined}
+ */
 function toggleTextTool() {
 	let currentTime = currentGlobalTime / total * 100;
 	let index = determineTextIndex(currentTime);
-	if (index == null) {
+	if (index === null) {
 		textCustomizationDiv.style.display = 'none';
 		return;
 	};
 	textCustomizationDiv.style.display = 'block';
+
+	return;
 }
 
-
-
+/**
+ * Check the status of mute flag of current audio
+ * @returns {undefined}
+ */
 function checkAudioMute() {
-	if (videoArray[activeVideo].muteAudio == true) {
+	if (videoArray[activeVideo].muteAudio === true) {
 		videoCurrent.muted = true;
 	} else {
 		videoCurrent.muted = false;
 	}
+
+	return;
 }
 
+/**
+ * Shows the correct text based on the current time
+ * @returns {undefined}
+ */
 function checkTextToShow() {
 	let currentTime = currentGlobalTime / total * 100;
 	let currentTextToShow = determineTextIndex(currentTime);
-	if (currentTextToShow != null) {
+
+	if (currentTextToShow !== null) {
 		for (let index = 0; index < textArray.length; index++) {
-			if (index == currentTextToShow) continue;
+			if (index === currentTextToShow) continue;
 			textArray[currentTextToShow].resetColor();
 			textArray[currentTextToShow].hideTextArea();
 		}
+
 		activeText = currentTextToShow;
+		// hides the border and resize area when the video is playing
 		textArray[currentTextToShow].showWhilePlaying();
 		textArray[currentTextToShow].changeColor();
 	} else {
 		activeText = null;
+		//hide every other text other than current one
 		textArray.forEach(element => {
 			element.hideTextArea();
 			element.resetColor();
 		});
 	}
+
+	return;
 }
 
-
+/**
+ * Shows the border and resize button when the video is paused.
+ * @returns {undefined}
+ */
 function showTextOutlines() {
 	if (activeText !== null) {
 		textArray[activeText].showTextArea();
 	}
+
+	return;
 }
 
 /**
@@ -193,36 +263,46 @@ function fadeOutIconChange() {
 		videoArray[activeVideo].addEffect('fadeOut');
 	}
 }
-/* 
-document.addEventListener('click', (e)=>{
-	console.log(e)
-	if (e.target == 'inside-text-area'){
-		console.log(e, 'here')
-	}
 
-
-}) */
-
-
+// Add text if no text is present in current position
 textBtn.addEventListener('click', (e) => {
 	if (checkIfSpaceAvailable()) {
 		let length = textArray.length;
 		let newText = new Text(length);
 		textArray.push(newText);
 		activeText = length;
+		textCustomizationDiv.style.display = 'block';
 	} else {
-		showPopUp();
+		showPopUp('text');
 	}
 });
 
-function showPopUp() {
+/**
+ * Shows pop up warning when text, or music aciton is performed when none is selected
+ * @param {String} context Context of warning, whether it is text related or music
+ * @returns {undefined}
+ */
+function showPopUp(context) {
+	let message = 'Error';
 	let div = document.querySelector('.warning-popup');
+	if (context === 'audio') {
+		message = 'No Audio Source Selected.';
+	} else if (context === 'text') {
+		message = 'Cannot Add Text Here.';
+	}
+	div.innerText = message;
 	div.style.bottom = div.clientHeight + 'px';
 	setTimeout(function () {
 		div.style.bottom = -div.clientHeight + 'px';
-	}, 2000)
+	}, 2000);
+
+	return;
 }
 
+/**
+ * Checks if space is available for new text to be placed
+ * @returns {Boolean} True if space is available for text, otherwise False.
+ */
 function checkIfSpaceAvailable() {
 	let newRangeLeft = currentGlobalTime / total * 100;
 	let newRangeRight = newRangeLeft + MINIMUMTEXTTIME / total * 100;
@@ -235,16 +315,10 @@ function checkIfSpaceAvailable() {
 	return true;
 }
 
-function inBetween(num, min, max) {
-	if (num >= min && num <= max) {
-		return true;
-	}
-	return false;
-}
-
+// Apply desired operation on text
 textCustomizationDiv.addEventListener('click', (e) => {
 	let className = e.target.className;
-	if (activeText == null) return;
+	if (activeText === null) return;
 	switch (className) {
 		case 'bold-btn':
 			textArray[activeText].makeBold();
@@ -268,9 +342,9 @@ textCustomizationDiv.addEventListener('click', (e) => {
 	}
 })
 
-
+// Validate given value of font size
 fontSizeInputField.oninput = function () {
-	if (activeText == null) {
+	if (activeText === null) {
 		fontSizeInputField.value = '-';
 	} else {
 		let number = parseInt(fontSizeInputField.value);
