@@ -342,6 +342,7 @@ class Text {
     this.textArea.placeholder = 'Text';
     this.textArea.spellcheck = false;
     this.textArea.style.fontSize = this.textFontSize + 'px';
+    this.textArea.style.overflow = 'hidden';
 
     this.textDiv.appendChild(this.textArea);
     this.containerDiv.appendChild(this.textDiv);
@@ -587,6 +588,7 @@ class Text {
     this.textDiv.style.border = ' 2px dotted white';
     this.resizeDiv.style.display = 'block';
     this.removeDiv.style.display = 'block';
+    this.textArea.placeholder = 'Text';
   }
 
   /**
@@ -598,6 +600,7 @@ class Text {
     this.textDiv.style.border = 'none';
     this.resizeDiv.style.display = 'none';
     this.removeDiv.style.display = 'none';
+    this.textArea.placeholder = '';
   }
 
   /**
