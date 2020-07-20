@@ -251,7 +251,6 @@ class Text {
       }
       this.oldMousePos = e.pageX;
       this.checker = this.checkOverlap();
-      console.log(this.checker)
       if ((this.checker[0] === 'rightTouch' && this.direction === 'right')) {
         this.activeDiv = false;
       } else if ((this.checker[0] === 'leftTouch' && this.direction === 'left')) {
@@ -263,7 +262,6 @@ class Text {
           this.div.style.left = this.initialXDiv;
           this.activeDiv = false;
         }
-        console.log(Math.abs(this.currentXDiv - Math.abs(this.prevCurrentXDiv)))
         this.prevCurrentXDiv = this.currentXDiv;
       }
       if (!this.checker && this.activeDiv) {
@@ -317,7 +315,6 @@ class Text {
     for (let index = 0; index < textRangeDuration.length; index++) {
       if (index === this.position) continue;
       if (left <= textRangeDuration[index][1] - 0.5 && right >= textRangeDuration[index][0] - 0.5) {
-        console.log(left, right, textRangeDuration[index][1] - 0.5, textRangeDuration[index][0] - 0.5)
         return ['rightTouch', index];
       }
       if (left >= textRangeDuration[index][1] && (left - textRangeDuration[index][1]) <= 0.5) {
