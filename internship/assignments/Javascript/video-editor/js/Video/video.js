@@ -313,6 +313,5 @@ class Video {
     }
   }
 
-
 }
 

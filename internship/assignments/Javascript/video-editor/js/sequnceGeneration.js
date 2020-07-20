@@ -136,7 +136,6 @@ function determineEffect(effectName) {
     case 'fadeOut':
       // Fade out is performed only at later stages of videos duration
       if (videoCurrent.currentTime > (FADEOUTRANGE * videoArray[activeVideo].endPosition) && videoCurrent.currentTime < videoArray[activeVideo].endPosition) {
-        console.log('here')
         return fadeOut;
       } else {
         return null;

@@ -125,6 +125,7 @@ body{
   background-color: #2d323c;
   min-height: 100px;
   min-width: 100%;
+  padding-bottom: 5px;
 }
 .main-container .boxes .box-heading{
   display: grid;
@@ -164,11 +165,8 @@ body{
   padding: 0px;
   grid-template-columns: 85% 15%;
 }
-.main-container .boxes .box-content:nth-of-type(odd){
+.main-container .boxes .box-content:nth-of-type(even){
 	background-color: #303640;
-}
-.main-container .boxes .box-content:last-child{
-	margin-bottom: 10px;
 }
 .main-container .tools-resources > div:nth-child(1){
   margin-top:0px;
@@ -352,4 +350,24 @@ body{
 .resources-list ul li{
   padding:4px;
   font-size: 14px;
+}
+
+.warning-popup{
+  background-color: #b81818;
+  color:white;
+}
+
+@media (max-width: 1024px) {
+
+ .wrapper{
+   display: none !important;
+ }
+
+ .load-wrapper{
+   display: none;
+ }
+
+ .mobile-popup{
+   display: flex;
+ }
 }
