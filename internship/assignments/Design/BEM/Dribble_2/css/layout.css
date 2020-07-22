@@ -1,0 +1,17 @@
+.wrapper{
+  margin:100px 15px;
+}
+.heading{
+  margin:15px;
+}
+.post-holder{
+  width:414px;
+}
+
+.wrapper ul{
+  text-align: center;
+}
+.popular-posts li{
+  display: inline-block;
+  margin:15px;
+}

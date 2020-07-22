@@ -1,3 +1,7 @@
+.original-link a{
+  color: grey;
+}
+
 .feed-post__header{
   display: grid;
   grid-template-columns: 10% 80% 10%;
@@ -52,6 +56,7 @@
   line-height: 18px;
   font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
 }
 .feed-post__comment-section{
   padding:8px;
@@ -85,4 +90,23 @@
   font-weight: lighter;
   font-size: 12px;
   margin-top: 4px;
+}
+
+.feed-post__input-comment{
+  height: 56px;
+  padding: 16px;
+  border-top: 1px solid rgba(239,239,239,1);
+  font-size: 14px;
+}
+
+.enter-comment{
+  border:none;
+  font-size: 14px;
+  width:92%;
+}
+.post-button{
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgba(0,149,246,1);
 }
