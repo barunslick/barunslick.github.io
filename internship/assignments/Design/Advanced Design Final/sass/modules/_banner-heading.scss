@@ -1,0 +1,24 @@
+.banner-heading{
+  line-height: 1.2;
+  text-align: center;
+  @include e(heading-text){
+    font-size: 18px;
+    font-weight: 600;
+
+    @include mq(md){
+      font-size: 26px;
+    }
+
+  }
+
+  @include e(sub-text){
+    font-size: 12px;
+    margin: 10px auto 0px auto;
+    width: 90%;
+    max-width: 500px;
+    line-height: 1.4;
+    @include mq(md){
+      font-size: 14px;
+    }
+  }
+}

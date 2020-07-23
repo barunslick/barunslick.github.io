@@ -14,9 +14,32 @@
   @include e(icon-holder){
     width:20%;
     text-align: center;
+    font-size: 28px;
+
+    @include mq(md){
+      font-size: 32px;
+    }
   }
+
+  @include e(description-heading){
+    font-weight: 600;
+    font-size: 16px;
+
+    @include mq(md){
+      font-size: 18px;
+    }
+  }
+
   @include e(description-holder){
     width:78%;
     /* text-align: justify; */
+    font-size: 10px;
+    @include mq(md){
+      font-size: 12px;
+    }
+  }
+
+  @include e(description-details){
+    margin-top:10px;
   }
 }

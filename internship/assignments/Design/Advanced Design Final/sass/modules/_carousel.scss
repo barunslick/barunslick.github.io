@@ -1,0 +1,59 @@
+.carousel{
+  
+  @include e(content){
+    & ul > li{
+      display: inline-block;
+      width:40%;
+      max-width: 270px;
+      max-height: 183px;
+
+      @include mq(md){
+        margin-left: 10px;
+      }
+    }
+
+    & ul > li:nth-child(1){
+      margin-left: 0px;
+    }
+
+    & ul > li:nth-child(3), & ul > li:nth-child(4){
+      display: none;
+    }
+  }
+
+  @include e(indicator){
+    margin-top: 20px;
+
+    & ul li:first-child(){
+      background-color: $green;
+    }
+
+    & ul li{
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color:$lynch;
+      display: inline-block;
+      margin: 5px;
+    }
+  }
+
+
+
+  @include mq(lg){
+    & ul > li:nth-child(3){
+      display: inline-block;
+    }
+  }
+
+  @include mq(xl){
+
+    & ul > li{
+      margin-left: 15px;
+    }
+
+    & ul > li:nth-child(4){
+      display: inline-block;
+    }
+  }
+}

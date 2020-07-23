@@ -1,0 +1,22 @@
+.contact-banner{
+  text-align: center;
+  color: $accent-blue;
+  padding: 20px 0px;
+
+  @include e(go-btn){
+    background-color: $green;
+    color: $white;
+    font-size: 12px;
+    width: 120px;
+    border: none;
+    margin-top:25px;
+    padding:10px 0px;
+    border-radius: 4px;
+
+    @include mq('md'){
+      padding:15px 0px;
+      width: 150px;
+      margin-top:40px;
+    }
+  }
+}

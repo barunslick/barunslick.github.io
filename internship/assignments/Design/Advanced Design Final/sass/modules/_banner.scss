@@ -1,4 +1,4 @@
-.get-started{
+.banner{
   background-color: $accent-blue;
   color: $white;
   text-align: center;
@@ -23,7 +23,7 @@
   @include e(sub-text){
     font-size: 12px;
     margin-top:10px;
-    color: $cornflower-blue;
+    color: $cadet-blue;
 
     @include mq('md'){
       font-size: 16px;

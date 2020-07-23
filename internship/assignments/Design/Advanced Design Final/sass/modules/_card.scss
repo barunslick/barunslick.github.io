@@ -1,0 +1,37 @@
+.card{
+  width:80%;
+  max-width: 350px;
+  margin: 20px auto 0px auto;
+  background-color: white;
+  border: $almost-white;
+
+  @include e(card-details){
+    padding: 20px 0px;
+  }
+
+  @include e(details-header){
+    font-size: 16px;
+
+    @include mq(md){
+      font-size: 18px;
+    }
+  }
+
+  @include e(details-sub-content){
+    margin-top: 5px;
+    color: $lynch;
+    font-size: 10px;
+
+    @include mq(md){
+      font-size: 12px;
+    }
+  }
+
+  @include mq(lg){
+    max-width: 450px;
+  }
+  
+  @include mq(xl){
+    max-width: 570px;
+  }
+}

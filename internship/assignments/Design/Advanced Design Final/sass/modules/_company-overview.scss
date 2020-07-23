@@ -1,0 +1,80 @@
+.company-overview{
+  background-color: $pickled-bluewood-light;
+  padding: 20px 0px;
+  color: $cadet-blue;
+  font-size: 12px;
+
+  @include e(get-in-touch){
+    max-width: 270px;
+    margin : 0 auto;
+  }
+
+  @include e(div-heading){
+    text-transform: capitalize;
+    font-size: 14px;
+    color: $white;
+  }
+
+  @include e(sub-text){
+    margin-top: 16px;
+  }
+
+  @include e(contact-details){
+    margin-top: 10px;
+    line-height: 1.6;
+    
+
+    & i{
+      width: 15px;  
+    }
+    & span{
+      display:inline-block;
+      margin-left: 6px;
+    }
+  }
+
+  @include e(subscribe){
+    margin : 30px auto 0px auto ;
+    max-width: 270px;
+    width:100%;
+    position: relative;
+
+    & >div{
+      margin-top: 20px;
+    }
+  }
+
+  @include e(email-input){
+    background: none;
+    border: none;
+    color: $white;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+
+    &::placeholder{
+      color: $white;
+    }
+  }
+
+  @include e(input-holder){
+    background-color: $river-bed;
+    border-radius: 4px;
+    padding: 5px;
+    @extend %clearfix;
+    position: relative;
+
+    & button{
+      float: right;
+      background-color: $green;
+      color: $white;
+      font-size: 10px;
+      width: 80px;
+      border: none;
+      padding:10px 0px;
+      border-radius: 4px;
+
+    }
+  }
+
+}
