@@ -39,6 +39,7 @@ $font-family--secondary : $font-family-sans;
 
 //Colors
 $white: #fff;
+$almost-white: #f1f5f7;
 $black: #000;
 $gray: #c7c7c7;
 $red: #D24D57;
@@ -48,7 +49,13 @@ $accent-blue: #506a85;
 $yellow: #F7CA18;
 $green: #00bc9c;
 $blue-bayox: #506A85;
-$cornflower-blue: #a3b1bf;
+$cadet-blue: #a3b1bf;
+$lynch: #73879c;
+$pickled-bluewood-light: #2f3f51;
+$pickled-bluewood: #273545;
+$cornflower-blue: #2f4052;
+$river-bed : #4e5c6c;
+$slate-grey: #707e8c;
 
 //Message Colors
 $error: lighten($red,5%) !default;
