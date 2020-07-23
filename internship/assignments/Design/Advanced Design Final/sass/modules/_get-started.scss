@@ -1,0 +1,50 @@
+.get-started{
+  background-color: $accent-blue;
+  color: $white;
+  text-align: center;
+  padding: 40px 0px;
+  background-image: url('../images/image.png');
+  background-size: cover;
+
+  @include mq('md'){
+    padding: 80px 0px;
+  }
+
+  @include e(main-text){
+    font-weight: 500;
+    font-size: 22px;
+
+    @include mq('md'){
+      font-size: 40px;
+    }
+
+  }
+
+  @include e(sub-text){
+    font-size: 12px;
+    margin-top:10px;
+    color: $cornflower-blue;
+
+    @include mq('md'){
+      font-size: 16px;
+    }
+  }
+
+  @include e(go-btn){
+    background-color: $green;
+    color: $white;
+    font-size: 12px;
+    width: 150px;
+    border: none;
+    margin-top:25px;
+    padding:10px 0px;
+    border-radius: 4px;
+
+    @include mq('md'){
+      padding:20px 0px;
+      width: 200px;
+      margin-top:40px;
+    }
+  }
+
+}

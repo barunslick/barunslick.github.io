@@ -1,0 +1,22 @@
+.showcase{
+  color: inherit;
+  align-items: center;
+  & > li > div{
+    display: inline-block;  
+    vertical-align: top;
+  }
+  & >li{
+    text-align: start;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  @include e(icon-holder){
+    width:20%;
+    text-align: center;
+  }
+  @include e(description-holder){
+    width:78%;
+    /* text-align: justify; */
+  }
+}

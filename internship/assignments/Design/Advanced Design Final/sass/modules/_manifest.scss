@@ -5,8 +5,15 @@
 // style.scss file.
 // ==========================================================================
 
-@import 'extends';
+/* @import 'extends';
 @import 'module';
 @import 'buttons';
 // @import 'theme';
-@import 'example';
+@import 'example'; */
+
+@import 'wrapper';
+@import 'container';
+@import 'header';
+@import 'get-started';
+@import 'why-rean';
+@import 'showcase';

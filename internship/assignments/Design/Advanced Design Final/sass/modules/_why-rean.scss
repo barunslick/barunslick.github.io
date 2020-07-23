@@ -1,0 +1,62 @@
+.why-rean{
+  text-align: center;
+  padding: 20px 0px;
+  color: $accent-blue;
+
+  @include e(heading-text){
+    font-size: 18px;
+    font-weight: 600;
+
+    @include mq('md'){
+      font-size: 26px;
+    }
+
+  }
+
+  @include e(sub-text){
+    font-size: 12px;
+    margin: 10px auto 0px auto;
+    width: 90%;
+    max-width: 500px;
+
+    @include mq('md'){
+      font-size: 14px;
+    }
+  }
+  @include e(showcase){
+    margin-top: 26px;
+    & > li{
+      max-width: 384px;
+      margin-top: 20px !important;
+    }
+
+    & >li:first-child{
+      margin-top: 0px !important;
+    }
+  }
+
+  @include e(icon-holder){
+    font-size: 28px;
+
+    @include mq('md'){
+      font-size: 32px;
+    }
+  }
+
+  @include e(description-heading){
+    font-weight: 600;
+    font-size: 16px;
+
+    @include mq('md'){
+      font-size: 18px;
+    }
+  }
+  @include e(description-details){
+    font-size: 10px;
+    margin-top: 10px;
+
+    @include mq('md'){
+      font-size: 12px;
+    }
+  }
+}

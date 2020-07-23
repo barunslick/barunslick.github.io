@@ -13,13 +13,13 @@
   padding: 0;
   box-sizing: border-box;
   // Global Clearfixing
-  @if $grid-type == 'float'{
+  /* @if $grid-type == 'float'{
     &:after{
       clear: both;
       content: "";
       display: block;
     }
-  }
+  } */
 }
 
 // Base Code
@@ -29,7 +29,7 @@ html, body{
 body{
   -webkit-font-smoothing: antialiased;
   color: $color-text;
-  font-family: $font-family--primary;
+  font-family: $font-family-lato;
   text-rendering: optimizeLegibility;
 }
 a{
@@ -47,7 +47,7 @@ ul,ol{
   list-style: none;
 }
 h1,h2,h3,h4,h5,h6{
-  font-family: $font-family--primary;
+  font-family: $font-family-lato;
   margin: 0;
 }
 h1{
