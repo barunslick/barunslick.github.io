@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sass Starter</title>
+  <title>Reen</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <!--build:css css/style.css-->
@@ -16,11 +16,48 @@
 
 <body class="theme-default theme-comfortable">
   <div class="wrapper">
+    <div class="socials">
+      <div class="container">
+        <div class="socials__number-email-holder">
+          <span class="socials__email">
+            <a href="mailto:info@reen.com"><i class="far fa-envelope"></i> info@reen.com</a>
+          </span>
+          <span class="socials__phone-number">
+            <a href="tel:+00 (123) 456 78 90"><i class="fas fa-mobile-alt"></i> +00 (123) 456 78 90</a>
+          </span>
+        </div>
+        <div class="socials__social-icons">
+          <span> <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="#" title="Google"><i class="fab fa-google-plus-g"></i></a></span>
+          <span><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="#" title="Pinterest"><i class="fab fa-pinterest-p"></i></a></span>
+          <span><a href="#" title="Behance"><i class="fab fa-behance"></i></a></span>
+          <span><a href="#" title="Dribble"><i class="fab fa-dribbble"></i></a></span>
+        </div>
+      </div>
+      
+    </div>
     <!-- Header -->
     <div class="header">
       <div class="container">
-        <div class="logo header__logo">
-          <img src="images/logo.png" alt="Logo">
+       
+        <div class="header__logo-nav-holder">
+          <div class="header__clearfix-div">
+            <div class="logo header__logo">
+              <a href="#" title="Reen"><img src="images/logo.png" alt="Logo"></a>
+            </div>
+            <div class="navbar header__navbar">
+              <ul>
+                <li><a href="#" title="HOME">HOME</a></li>
+                <li><a href="#" title="PORTFOLIO">PORTFOLIO</a></li>
+                <li><a href="#" title="BLOG">BLOG</a></li>
+                <li><a href="#" title="PAGE">PAGES</a></li>
+                <li><a href="#" title="FEATURES">FEATURES</a></li>
+                <li><a href="#" title="MEGA MENU">MEGA MENU</a></li>
+                <li><a href="#" title="CONTACT">CONTACT</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="header__search-menu-holder">
           <div class="search header__search">
@@ -52,8 +89,9 @@
           <p class="banner-heading__heading-text">Beautiful. Clean. Responsive.</p>
           <p class="banner-heading__sub-text" t>REEN is a high-quality solution for those who want a beautiful website
             in no
-            time.
-            It's fully responsive and will adapt itself to any mobile device. iPad, iPhone, Android</p>
+            time.<br>
+            It's fully responsive and will adapt itself to any mobile device. iPad, iPhone, Android, it doesn't matter.
+            Your content will always looks its absolute best.</p>
         </div>
         <ul class="showcase about__showcase">
           <li>
@@ -161,8 +199,27 @@
 
     <div class="company-overview">
       <div class="container">
-        <div class="who-are-we"></div>
-        <div class="company-overview__latest-works"></div>
+        <div class="company-overview__who-are-we">
+          <p class="company-overview__div-heading">WHO ARE WE</p>
+          <div class="logo company-overview__logo">
+            <a href="#"><img src="images/logo1.png" alt="Logo"></a>
+          </div>
+          <p class="company-overview__sub-text">Magnis modipsae voloratati andigen daepeditem quiate re porem que aut
+            labor. Laceaque eictemperum quiae sitiorem rest non restibusaes maio es dem tumquam.</p>
+          <p class="company-overview__about-us-link"><a href="#">More about us  <i class="fas fa-arrow-right"></i></a></p>
+        </div>
+       
+        <div class="company-overview__latest-works">
+          <p class="company-overview__div-heading">LATEST WORKS</p>
+          <div class="company-overview__latest-work-showcase">
+            <ul>
+              <li><img src="images/img1.png" alt="Image1"></li>
+              <li><img src="images/img2.png" alt="Image2"></li>
+              <li><img src="images/img3.png" alt="Image3"></li>
+              <li><img src="images/img4.png" alt="Image4"></li>
+            </ul>
+          </div>
+        </div>
         <div class="company-overview__get-in-touch">
           <p class="company-overview__div-heading">GET IN TOUCH</p>
           <p class="company-overview__sub-text">Doloreiur quia commolu ptatemp dolupta oreprerum tibusam eumenis et
@@ -175,9 +232,9 @@
         </div>
         <div class="company-overview__subscribe">
           <p class="company-overview__div-heading">FREE UPDATES</p>
-          <p class="company-overview__sub-text">Conecus iure posae volor remped modis 
+          <p class="company-overview__sub-text">Conecus iure posae volor remped modis
             aut lor volor accabora incim resto explabo.</p>
-          
+
           <div class="company-overview__input-holder">
             <input type="text" class="company-overview__email-input" placeholder="Enter your email address">
             <button>SUBSCRIBE</button>
@@ -187,7 +244,7 @@
     </div>
     <div class="footer">
       <div class="container">
-        <div class="footer__rights-reservec">
+        <div class="footer__rights-reserved">
           © 2014 REEN. All rights reserved.
         </div>
         <div class="footer__nav">
@@ -199,9 +256,9 @@
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
+        </div>
       </div>
     </div>
-  </div>
 
 </body>
 
