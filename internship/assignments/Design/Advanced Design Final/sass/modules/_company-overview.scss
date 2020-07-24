@@ -3,27 +3,54 @@
   padding: 20px 0px;
   color: $cadet-blue;
   font-size: 12px;
+  font-family: $font-family-sans;
 
-  @include e(get-in-touch){
-    max-width: 270px;
-    margin : 0 auto;
+  & .container >div{
+    width: 100%;  
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 5px;
+    margin: 20px 0px;
+
+    @include mq(md){
+      width: 48%; 
+    }
+
+    @include mq(lg){
+      width: 24%; 
+      margin: 0px;
+    }
   }
 
   @include e(div-heading){
     text-transform: capitalize;
+    font-weight: 600;
     font-size: 14px;
     color: $white;
+
+    @include mq(lg){
+      font-size: 16px;
+    }
   }
 
   @include e(sub-text){
-    margin-top: 16px;
+    margin-top: 14px;
+    line-height: 1.4;
+
+
+    @include mq(md){
+      max-width: 270px;
+    }
+    @include mq(lg){
+      margin-top: 24px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
   }
 
   @include e(contact-details){
     margin-top: 10px;
     line-height: 1.6;
-    
-
     & i{
       width: 15px;  
     }
@@ -34,9 +61,6 @@
   }
 
   @include e(subscribe){
-    margin : 30px auto 0px auto ;
-    max-width: 270px;
-    width:100%;
     position: relative;
 
     & >div{
@@ -63,6 +87,7 @@
     padding: 5px;
     @extend %clearfix;
     position: relative;
+    max-width: 270px;
 
     & button{
       float: right;
@@ -73,7 +98,60 @@
       border: none;
       padding:10px 0px;
       border-radius: 4px;
+      &:hover {
+        background-color: darken($color: $green, $amount: 10%);
+      }
 
+    }
+  }
+
+  @include e(logo){
+    margin-top: 16px;
+    width: 80px;
+
+    @include mq(md) {
+      width: 100px;
+    }
+    @include mq(lg){
+      width: 160px;
+    }
+
+  }
+
+  @include mq(lg){
+    padding: 60px 0px;
+  }
+
+  @include e(latest-work-showcase){
+
+    margin-top: 20px;
+  
+    & ul li{
+      width: 48%;
+      padding: 4px;
+      display: inline-block;
+    }
+
+    @include mq(lg){
+      margin-top: 24px;
+    }
+  }
+
+  @include e(about-us-link){
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    & a {
+      color: inherit;
+    }
+
+    @include mq(lg){
+      margin-top: 24px;
+    }
+
+    & i{
+      margin-left: 10px;
+      font-size: 10px;
     }
   }
 

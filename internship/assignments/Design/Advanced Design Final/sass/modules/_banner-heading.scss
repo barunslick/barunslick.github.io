@@ -9,6 +9,10 @@
       font-size: 26px;
     }
 
+    @include mq(lg){
+      font-size: 44px;
+    }
+
   }
 
   @include e(sub-text){
@@ -17,8 +21,15 @@
     width: 90%;
     max-width: 500px;
     line-height: 1.4;
+    font-family: $font-family-sans;
+
     @include mq(md){
       font-size: 14px;
+    }
+
+    @include mq(lg){
+      font-size: 22px;
+      max-width: 800px;
     }
   }
 }

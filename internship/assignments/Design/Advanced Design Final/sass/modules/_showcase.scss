@@ -9,6 +9,7 @@
     text-align: start;
     margin: 0 auto;
     display: inline-block;
+    max-width: 370px;
   }
 
   @include e(icon-holder){
@@ -19,6 +20,10 @@
     @include mq(md){
       font-size: 32px;
     }
+
+    @include mq(lg){
+      font-size: 56px;
+    }
   }
 
   @include e(description-heading){
@@ -28,18 +33,24 @@
     @include mq(md){
       font-size: 18px;
     }
+
+    @include mq(lg){
+      font-size: 22px;
+    }
   }
 
   @include e(description-holder){
     width:78%;
     /* text-align: justify; */
     font-size: 10px;
+    font-style: $font-family-sans;
     @include mq(md){
       font-size: 12px;
+      line-height: 1.6;
     }
   }
 
   @include e(description-details){
-    margin-top:10px;
+    margin-top:16px;
   }
 }

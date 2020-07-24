@@ -2,23 +2,18 @@
   
   @include e(content){
     & ul > li{
+      cursor: pointer;
       display: inline-block;
-      width:40%;
+      width:45%;
       max-width: 270px;
       max-height: 183px;
 
       @include mq(md){
-        margin-left: 10px;
+        width:23%;
+        margin: 0 5px 0 5px;
       }
     }
 
-    & ul > li:nth-child(1){
-      margin-left: 0px;
-    }
-
-    & ul > li:nth-child(3), & ul > li:nth-child(4){
-      display: none;
-    }
   }
 
   @include e(indicator){
@@ -35,6 +30,11 @@
       background-color:$lynch;
       display: inline-block;
       margin: 5px;
+
+      &:hover {
+        background-color: $green;
+        cursor: pointer;
+      }
     }
   }
 
@@ -49,7 +49,7 @@
   @include mq(xl){
 
     & ul > li{
-      margin-left: 15px;
+      margin: 0px 10px;
     }
 
     & ul > li:nth-child(4){

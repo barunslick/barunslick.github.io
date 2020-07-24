@@ -1,24 +1,50 @@
 .header{
-
-  margin-top:8px;
+  padding: 10px 0px;
+  margin-top:10px;
+  @extend %clearfix;
 
   @include e(search){
     display: inline-block;
+    @include mq(lg){
+      padding: 12px 0px;
+      font-size: 16px;
+    }
+
   }
 
   @include e(logo){
     width: 80px;
+    float:left;
     display: inline-block;
 
     @include mq(md) {
       width: 100px;
     }
+    @include mq(lg){
+      width: 160px;
+    }
+  }
+
+  @include e(logo-nav-holder){
+    float:left;
+    width: calc(100% - 60px);
+    display: inline-block;
+
+    @include mq(lg){
+      width: calc(100% - 32px);
+    }
+  }
+
+  @include e(clearfix-div){
+    @extend %clearfix;
+    position: relative;
   }
 
   @include e(search-menu-holder){
     float: right;
     font-size: 18px;
     color: $blue-bayox;
+    display: inline-block;
 
     @include mq(md) {
         font-size: 24px;
@@ -29,6 +55,24 @@
     display: inline-block;
     margin-left: 4px;
     color: $blue-bayox;
+
+    @include mq(lg){
+      display: none;
+    }
   }
+
+  @include e(navbar){
+    float:right;
+    width: calc(100% - 120px);
+    padding: 12px 0px;
+    @include mq(lg){
+      width: calc(100% - 170px);
+      & ul{
+        display: inline-block;
+      }
+    }
+  }
+
+
 
 }

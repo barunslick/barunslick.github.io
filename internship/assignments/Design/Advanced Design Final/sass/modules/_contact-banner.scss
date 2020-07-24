@@ -12,11 +12,26 @@
     margin-top:25px;
     padding:10px 0px;
     border-radius: 4px;
+    font-family: $font-family-sans;
+    &:hover {
+      background-color: darken($color: $green, $amount: 10%);
+    }
 
     @include mq('md'){
       padding:15px 0px;
       width: 150px;
       margin-top:40px;
     }
+
+    @include mq(lg){
+      padding: 16px 0px;
+      width: 150px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  @include mq(lg){
+    padding: 120px;
   }
 }

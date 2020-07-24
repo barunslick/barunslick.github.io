@@ -5,15 +5,30 @@
   background-color: white;
   border: $almost-white;
 
+
+  @include e(image-holder){
+    cursor: pointer;
+  }
+
   @include e(card-details){
     padding: 20px 0px;
+
+    @include mq(lg){
+      padding: 28px 0px;
+    }
+
   }
 
   @include e(details-header){
     font-size: 16px;
+    cursor: pointer;
 
     @include mq(md){
       font-size: 18px;
+    }
+
+    @include mq(lg){
+      font-size: 20px;
     }
   }
 
@@ -21,9 +36,15 @@
     margin-top: 5px;
     color: $lynch;
     font-size: 10px;
+    cursor: pointer;
 
     @include mq(md){
       font-size: 12px;
+    }
+
+    @include mq(lg){
+      margin-top: 8px;
+      font-size: 16px;
     }
   }
 

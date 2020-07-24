@@ -1,0 +1,55 @@
+.socials{
+  color: $accent-blue;
+  padding: 14px 0px;
+  font-size: 12px;
+  font-family: $font-family-sans;
+  border-bottom: 1px solid $athens-grey;
+  text-align: center;
+  background-color: $athens-grey-dark;
+
+  & a{
+    color: $accent-blue;
+  }
+
+  & .container > div{
+    display: inline-block;
+  }
+
+  @include e(number-email-holder){
+
+    & i{
+      margin-right: 6px;
+    }
+    & span{
+      display: inline-block;
+      margin-left : 20px;
+    }
+
+    & span:first-child{
+      margin-left : 0px;
+    }
+  }
+
+
+  @include e(social-icons){
+    float:right;
+    display: none;
+    & span{
+      display: none;
+      margin-left: 26px;
+      @include mq(md){
+        display: inline-block;
+      }
+    }
+
+
+    @include mq(md){
+      display: inline-block;
+    }
+  }
+
+  @include mq(md){
+    text-align: start;
+  }
+
+}
