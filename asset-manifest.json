@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/css/main.65759a6e.chunk.css",
-    "main.js": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/main.89dc61c9.chunk.js",
-    "main.js.map": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/main.89dc61c9.chunk.js.map",
-    "runtime-main.js": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/runtime-main.9b7b5afe.js",
-    "runtime-main.js.map": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/runtime-main.9b7b5afe.js.map",
-    "static/js/2.57cf4e78.chunk.js": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js",
-    "static/js/2.57cf4e78.chunk.js.map": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js.map",
-    "index.html": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/index.html",
-    "precache-manifest.9e0316f45a847ab247a326080e187a7e.js": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/precache-manifest.9e0316f45a847ab247a326080e187a7e.js",
-    "service-worker.js": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/service-worker.js",
-    "static/css/main.65759a6e.chunk.css.map": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/css/main.65759a6e.chunk.css.map",
-    "static/js/2.57cf4e78.chunk.js.LICENSE.txt": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js.LICENSE.txt",
-    "static/media/author.jpg": "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/static/media/author.60dceeba.jpg"
+    "main.css": "/internship/assignments/Design/react-intro/static/css/main.65759a6e.chunk.css",
+    "main.js": "/internship/assignments/Design/react-intro/static/js/main.84811760.chunk.js",
+    "main.js.map": "/internship/assignments/Design/react-intro/static/js/main.84811760.chunk.js.map",
+    "runtime-main.js": "/internship/assignments/Design/react-intro/static/js/runtime-main.6ba3f7dc.js",
+    "runtime-main.js.map": "/internship/assignments/Design/react-intro/static/js/runtime-main.6ba3f7dc.js.map",
+    "static/js/2.57cf4e78.chunk.js": "/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js",
+    "static/js/2.57cf4e78.chunk.js.map": "/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js.map",
+    "index.html": "/internship/assignments/Design/react-intro/index.html",
+    "precache-manifest.515e9412d4a8a890c92239865c7db4f7.js": "/internship/assignments/Design/react-intro/precache-manifest.515e9412d4a8a890c92239865c7db4f7.js",
+    "service-worker.js": "/internship/assignments/Design/react-intro/service-worker.js",
+    "static/css/main.65759a6e.chunk.css.map": "/internship/assignments/Design/react-intro/static/css/main.65759a6e.chunk.css.map",
+    "static/js/2.57cf4e78.chunk.js.LICENSE.txt": "/internship/assignments/Design/react-intro/static/js/2.57cf4e78.chunk.js.LICENSE.txt",
+    "static/media/author.jpg": "/internship/assignments/Design/react-intro/static/media/author.60dceeba.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9b7b5afe.js",
+    "static/js/runtime-main.6ba3f7dc.js",
     "static/js/2.57cf4e78.chunk.js",
     "static/css/main.65759a6e.chunk.css",
-    "static/js/main.89dc61c9.chunk.js"
+    "static/js/main.84811760.chunk.js"
   ]
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/precache-manifest.9e0316f45a847ab247a326080e187a7e.js"
+  "/internship/assignments/Design/react-intro/precache-manifest.515e9412d4a8a890c92239865c7db4f7.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/barunslick/barunslick.github.io/tree/master/internship/assignments/Design/react-intro/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/internship/assignments/Design/react-intro/index.html"), {
   
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });
