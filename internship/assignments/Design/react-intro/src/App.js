@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import UserAvatar from './UserAvatar';
+import UserContacts from './UserContacts';
 import './App.css';
+import './css/reset.css';
+import './css/style.css';
+
+const user = {
+  firstName: 'Barun',
+  lastName: 'Pradhan',
+  email: 'barunpradhan987@gmail.com',
+  phone: '9845397689',
+  userImage: 'author.jpg'
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="UserAvatar">
+        <UserAvatar userImage={user.userImage} />
+      </div>
+      <div className="userDetails">
+        <div className="userNameHolder">
+          <div className="userName">
+            <p>{user.firstName}</p>
+            <p>{user.lastName}</p>
+          </div>
+        </div>
+        <div className="userContactHolder">
+          <UserContacts userDetails={user} />
+        </div>
+      </div>
     </div>
   );
 }
